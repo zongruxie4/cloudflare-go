@@ -14,7 +14,7 @@ import (
 	"github.com/cloudflare/cloudflare-go/v6/option"
 )
 
-func TestTokenNewWithOptionalParams(t *testing.T) {
+func TestTokenNew(t *testing.T) {
 	baseURL := "http://localhost:4010"
 	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
 		baseURL = envURL
@@ -32,7 +32,6 @@ func TestTokenNewWithOptionalParams(t *testing.T) {
 		CfAPIID:   cloudflare.F("cf_api_id"),
 		CfAPIKey:  cloudflare.F("cf_api_key"),
 		Name:      cloudflare.F("name"),
-		Legacy:    cloudflare.F(true),
 	})
 	if err != nil {
 		var apierr *cloudflare.Error
@@ -61,6 +60,9 @@ func TestTokenUpdate(t *testing.T) {
 		"182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",
 		ai_search.TokenUpdateParams{
 			AccountID: cloudflare.F("c3dc5f0b34a14ff8e1b3ec04895e1b22"),
+			CfAPIID:   cloudflare.F("cf_api_id"),
+			CfAPIKey:  cloudflare.F("cf_api_key"),
+			Name:      cloudflare.F("name"),
 		},
 	)
 	if err != nil {

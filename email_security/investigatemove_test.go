@@ -44,7 +44,7 @@ func TestInvestigateMoveNew(t *testing.T) {
 	}
 }
 
-func TestInvestigateMoveBulk(t *testing.T) {
+func TestInvestigateMoveBulkWithOptionalParams(t *testing.T) {
 	baseURL := "http://localhost:4010"
 	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
 		baseURL = envURL
@@ -60,6 +60,7 @@ func TestInvestigateMoveBulk(t *testing.T) {
 	_, err := client.EmailSecurity.Investigate.Move.Bulk(context.TODO(), email_security.InvestigateMoveBulkParams{
 		AccountID:   cloudflare.F("023e105f4ecef8ad9ca31a8372d0c353"),
 		Destination: cloudflare.F(email_security.InvestigateMoveBulkParamsDestinationInbox),
+		IDs:         cloudflare.F([]string{"string"}),
 		PostfixIDs:  cloudflare.F([]string{"4Njp3P0STMz2c02Q"}),
 	})
 	if err != nil {
