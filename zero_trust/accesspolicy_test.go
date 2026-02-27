@@ -46,12 +46,23 @@ func TestAccessPolicyNewWithOptionalParams(t *testing.T) {
 			EmailListUUID:   cloudflare.F("597147a1-976b-4ef2-9af0-81d5d007fc34"),
 		}}),
 		ApprovalRequired: cloudflare.F(true),
+		ConnectionRules: cloudflare.F(zero_trust.AccessPolicyNewParamsConnectionRules{
+			RDP: cloudflare.F(zero_trust.AccessPolicyNewParamsConnectionRulesRDP{
+				AllowedClipboardLocalToRemoteFormats: cloudflare.F([]zero_trust.AccessPolicyNewParamsConnectionRulesRDPAllowedClipboardLocalToRemoteFormat{zero_trust.AccessPolicyNewParamsConnectionRulesRDPAllowedClipboardLocalToRemoteFormatText}),
+				AllowedClipboardRemoteToLocalFormats: cloudflare.F([]zero_trust.AccessPolicyNewParamsConnectionRulesRDPAllowedClipboardRemoteToLocalFormat{zero_trust.AccessPolicyNewParamsConnectionRulesRDPAllowedClipboardRemoteToLocalFormatText}),
+			}),
+		}),
 		Exclude: cloudflare.F([]zero_trust.AccessRuleUnionParam{zero_trust.GroupRuleParam{
 			Group: cloudflare.F(zero_trust.GroupRuleGroupParam{
 				ID: cloudflare.F("aa0a4aab-672b-4bdb-bc33-a59f1130a11f"),
 			}),
 		}}),
-		IsolationRequired:            cloudflare.F(false),
+		IsolationRequired: cloudflare.F(false),
+		MfaConfig: cloudflare.F(zero_trust.AccessPolicyNewParamsMfaConfig{
+			AllowedAuthenticators: cloudflare.F([]zero_trust.AccessPolicyNewParamsMfaConfigAllowedAuthenticator{zero_trust.AccessPolicyNewParamsMfaConfigAllowedAuthenticatorTotp, zero_trust.AccessPolicyNewParamsMfaConfigAllowedAuthenticatorBiometrics, zero_trust.AccessPolicyNewParamsMfaConfigAllowedAuthenticatorSecurityKey}),
+			MfaBypass:             cloudflare.F(false),
+			SessionDuration:       cloudflare.F("24h"),
+		}),
 		PurposeJustificationPrompt:   cloudflare.F("Please enter a justification for entering this protected domain."),
 		PurposeJustificationRequired: cloudflare.F(true),
 		Require: cloudflare.F([]zero_trust.AccessRuleUnionParam{zero_trust.GroupRuleParam{
@@ -105,12 +116,23 @@ func TestAccessPolicyUpdateWithOptionalParams(t *testing.T) {
 				EmailListUUID:   cloudflare.F("597147a1-976b-4ef2-9af0-81d5d007fc34"),
 			}}),
 			ApprovalRequired: cloudflare.F(true),
+			ConnectionRules: cloudflare.F(zero_trust.AccessPolicyUpdateParamsConnectionRules{
+				RDP: cloudflare.F(zero_trust.AccessPolicyUpdateParamsConnectionRulesRDP{
+					AllowedClipboardLocalToRemoteFormats: cloudflare.F([]zero_trust.AccessPolicyUpdateParamsConnectionRulesRDPAllowedClipboardLocalToRemoteFormat{zero_trust.AccessPolicyUpdateParamsConnectionRulesRDPAllowedClipboardLocalToRemoteFormatText}),
+					AllowedClipboardRemoteToLocalFormats: cloudflare.F([]zero_trust.AccessPolicyUpdateParamsConnectionRulesRDPAllowedClipboardRemoteToLocalFormat{zero_trust.AccessPolicyUpdateParamsConnectionRulesRDPAllowedClipboardRemoteToLocalFormatText}),
+				}),
+			}),
 			Exclude: cloudflare.F([]zero_trust.AccessRuleUnionParam{zero_trust.GroupRuleParam{
 				Group: cloudflare.F(zero_trust.GroupRuleGroupParam{
 					ID: cloudflare.F("aa0a4aab-672b-4bdb-bc33-a59f1130a11f"),
 				}),
 			}}),
-			IsolationRequired:            cloudflare.F(false),
+			IsolationRequired: cloudflare.F(false),
+			MfaConfig: cloudflare.F(zero_trust.AccessPolicyUpdateParamsMfaConfig{
+				AllowedAuthenticators: cloudflare.F([]zero_trust.AccessPolicyUpdateParamsMfaConfigAllowedAuthenticator{zero_trust.AccessPolicyUpdateParamsMfaConfigAllowedAuthenticatorTotp, zero_trust.AccessPolicyUpdateParamsMfaConfigAllowedAuthenticatorBiometrics, zero_trust.AccessPolicyUpdateParamsMfaConfigAllowedAuthenticatorSecurityKey}),
+				MfaBypass:             cloudflare.F(false),
+				SessionDuration:       cloudflare.F("24h"),
+			}),
 			PurposeJustificationPrompt:   cloudflare.F("Please enter a justification for entering this protected domain."),
 			PurposeJustificationRequired: cloudflare.F(true),
 			Require: cloudflare.F([]zero_trust.AccessRuleUnionParam{zero_trust.GroupRuleParam{

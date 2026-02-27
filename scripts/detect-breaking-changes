@@ -66,6 +66,7 @@ TEST_PATHS=(
 	ssl/universalsetting_test.go
 	ssl/verification_test.go
 	acm/totaltls_test.go
+	acm/customtruststore_test.go
 	argo/smartrouting_test.go
 	argo/tieredcaching_test.go
 	certificate_authorities/hostnameassociation_test.go
@@ -102,6 +103,7 @@ TEST_PATHS=(
 	email_security/investigatemove_test.go
 	email_security/investigatereclassify_test.go
 	email_security/investigaterelease_test.go
+	email_security/phishguardreport_test.go
 	email_security/settingallowpolicy_test.go
 	email_security/settingblocksender_test.go
 	email_security/settingdomain_test.go
@@ -418,6 +420,7 @@ TEST_PATHS=(
 	zero_trust/dextestuniquedevice_test.go
 	zero_trust/dextraceroutetestresultnetworkpath_test.go
 	zero_trust/dextraceroutetest_test.go
+	zero_trust/dexrule_test.go
 	zero_trust/tunnel_test.go
 	zero_trust/tunnelcloudflared_test.go
 	zero_trust/tunnelcloudflaredconfiguration_test.go
@@ -457,11 +460,13 @@ TEST_PATHS=(
 	zero_trust/gatewayproxyendpoint_test.go
 	zero_trust/gatewayrule_test.go
 	zero_trust/gatewaycertificate_test.go
+	zero_trust/gatewaypacfile_test.go
 	zero_trust/networkroute_test.go
 	zero_trust/networkrouteip_test.go
 	zero_trust/networkroutenetwork_test.go
 	zero_trust/networkvirtualnetwork_test.go
 	zero_trust/networksubnet_test.go
+	zero_trust/networksubnetwarp_test.go
 	zero_trust/networksubnetcloudflaresource_test.go
 	zero_trust/networkhostnameroute_test.go
 	zero_trust/riskscoring_test.go
@@ -507,6 +512,8 @@ TEST_PATHS=(
 	radar/dnstimeseriesgroup_test.go
 	radar/netflows_test.go
 	radar/netflowstop_test.go
+	radar/postquantumorigin_test.go
+	radar/postquantumtls_test.go
 	radar/search_test.go
 	radar/verifiedbottop_test.go
 	radar/as112_test.go

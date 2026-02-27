@@ -36,6 +36,10 @@ func TestScriptUpdateWithOptionalParams(t *testing.T) {
 		workers.ScriptUpdateParams{
 			AccountID: cloudflare.F("023e105f4ecef8ad9ca31a8372d0c353"),
 			Metadata: cloudflare.F(workers.ScriptUpdateParamsMetadata{
+				Annotations: cloudflare.F(workers.ScriptUpdateParamsMetadataAnnotations{
+					WorkersMessage: cloudflare.F("Fixed bug."),
+					WorkersTag:     cloudflare.F("v1.0.1"),
+				}),
 				Assets: cloudflare.F(workers.ScriptUpdateParamsMetadataAssets{
 					Config: cloudflare.F(workers.ScriptUpdateParamsMetadataAssetsConfig{
 						Headers:          cloudflare.F("/dashboard/*\nX-Frame-Options: DENY\n\n/static/*\nAccess-Control-Allow-Origin: *"),
@@ -100,7 +104,8 @@ func TestScriptUpdateWithOptionalParams(t *testing.T) {
 				}}),
 				UsageModel: cloudflare.F(workers.ScriptUpdateParamsMetadataUsageModelStandard),
 			}),
-			Files: cloudflare.F([]io.Reader{io.Reader(bytes.NewBuffer([]byte("some file contents")))}),
+			BindingsInherit: cloudflare.F(workers.ScriptUpdateParamsBindingsInheritStrict),
+			Files:           cloudflare.F([]io.Reader{io.Reader(bytes.NewBuffer([]byte("some file contents")))}),
 		},
 	)
 	if err != nil {

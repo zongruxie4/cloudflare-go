@@ -47,12 +47,23 @@ func TestAccessApplicationPolicyTestNewWithOptionalParams(t *testing.T) {
 				EmailListUUID:   cloudflare.F("597147a1-976b-4ef2-9af0-81d5d007fc34"),
 			}}),
 			ApprovalRequired: cloudflare.F(true),
+			ConnectionRules: cloudflare.F(zero_trust.AccessApplicationPolicyTestNewParamsPoliciesObjectConnectionRules{
+				RDP: cloudflare.F(zero_trust.AccessApplicationPolicyTestNewParamsPoliciesObjectConnectionRulesRDP{
+					AllowedClipboardLocalToRemoteFormats: cloudflare.F([]zero_trust.AccessApplicationPolicyTestNewParamsPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat{zero_trust.AccessApplicationPolicyTestNewParamsPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormatText}),
+					AllowedClipboardRemoteToLocalFormats: cloudflare.F([]zero_trust.AccessApplicationPolicyTestNewParamsPoliciesObjectConnectionRulesRDPAllowedClipboardRemoteToLocalFormat{zero_trust.AccessApplicationPolicyTestNewParamsPoliciesObjectConnectionRulesRDPAllowedClipboardRemoteToLocalFormatText}),
+				}),
+			}),
 			Exclude: cloudflare.F([]zero_trust.AccessRuleUnionParam{zero_trust.GroupRuleParam{
 				Group: cloudflare.F(zero_trust.GroupRuleGroupParam{
 					ID: cloudflare.F("aa0a4aab-672b-4bdb-bc33-a59f1130a11f"),
 				}),
 			}}),
-			IsolationRequired:            cloudflare.F(false),
+			IsolationRequired: cloudflare.F(false),
+			MfaConfig: cloudflare.F(zero_trust.AccessApplicationPolicyTestNewParamsPoliciesObjectMfaConfig{
+				AllowedAuthenticators: cloudflare.F([]zero_trust.AccessApplicationPolicyTestNewParamsPoliciesObjectMfaConfigAllowedAuthenticator{zero_trust.AccessApplicationPolicyTestNewParamsPoliciesObjectMfaConfigAllowedAuthenticatorTotp, zero_trust.AccessApplicationPolicyTestNewParamsPoliciesObjectMfaConfigAllowedAuthenticatorBiometrics, zero_trust.AccessApplicationPolicyTestNewParamsPoliciesObjectMfaConfigAllowedAuthenticatorSecurityKey}),
+				MfaBypass:             cloudflare.F(false),
+				SessionDuration:       cloudflare.F("24h"),
+			}),
 			PurposeJustificationPrompt:   cloudflare.F("Please enter a justification for entering this protected domain."),
 			PurposeJustificationRequired: cloudflare.F(true),
 			Require: cloudflare.F([]zero_trust.AccessRuleUnionParam{zero_trust.GroupRuleParam{

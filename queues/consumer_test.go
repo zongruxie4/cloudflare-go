@@ -15,6 +15,7 @@ import (
 )
 
 func TestConsumerNewWithOptionalParams(t *testing.T) {
+	t.Skip("422 status codes in prism tests")
 	baseURL := "http://localhost:4010"
 	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
 		baseURL = envURL
@@ -32,16 +33,16 @@ func TestConsumerNewWithOptionalParams(t *testing.T) {
 		"023e105f4ecef8ad9ca31a8372d0c353",
 		queues.ConsumerNewParams{
 			AccountID: cloudflare.F("023e105f4ecef8ad9ca31a8372d0c353"),
-			Body: queues.ConsumerNewParamsBodyMqWorkerConsumer{
+			Body: queues.ConsumerNewParamsBodyMqWorkerConsumerRequest{
+				ScriptName:      cloudflare.F("my-consumer-worker"),
 				DeadLetterQueue: cloudflare.F("example-queue"),
-				Settings: cloudflare.F(queues.ConsumerNewParamsBodyMqWorkerConsumerSettings{
+				Settings: cloudflare.F(queues.ConsumerNewParamsBodyMqWorkerConsumerRequestSettings{
 					BatchSize:      cloudflare.F(50.000000),
 					MaxConcurrency: cloudflare.F(10.000000),
 					MaxRetries:     cloudflare.F(3.000000),
 					MaxWaitTimeMs:  cloudflare.F(5000.000000),
 					RetryDelay:     cloudflare.F(10.000000),
 				}),
-				Type: cloudflare.F(queues.ConsumerNewParamsBodyMqWorkerConsumerTypeWorker),
 			},
 		},
 	)
@@ -55,6 +56,7 @@ func TestConsumerNewWithOptionalParams(t *testing.T) {
 }
 
 func TestConsumerUpdateWithOptionalParams(t *testing.T) {
+	t.Skip("422 status codes in prism tests")
 	baseURL := "http://localhost:4010"
 	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
 		baseURL = envURL
@@ -73,16 +75,16 @@ func TestConsumerUpdateWithOptionalParams(t *testing.T) {
 		"023e105f4ecef8ad9ca31a8372d0c353",
 		queues.ConsumerUpdateParams{
 			AccountID: cloudflare.F("023e105f4ecef8ad9ca31a8372d0c353"),
-			Body: queues.ConsumerUpdateParamsBodyMqWorkerConsumer{
+			Body: queues.ConsumerUpdateParamsBodyMqWorkerConsumerRequest{
+				ScriptName:      cloudflare.F("my-consumer-worker"),
 				DeadLetterQueue: cloudflare.F("example-queue"),
-				Settings: cloudflare.F(queues.ConsumerUpdateParamsBodyMqWorkerConsumerSettings{
+				Settings: cloudflare.F(queues.ConsumerUpdateParamsBodyMqWorkerConsumerRequestSettings{
 					BatchSize:      cloudflare.F(50.000000),
 					MaxConcurrency: cloudflare.F(10.000000),
 					MaxRetries:     cloudflare.F(3.000000),
 					MaxWaitTimeMs:  cloudflare.F(5000.000000),
 					RetryDelay:     cloudflare.F(10.000000),
 				}),
-				Type: cloudflare.F(queues.ConsumerUpdateParamsBodyMqWorkerConsumerTypeWorker),
 			},
 		},
 	)
