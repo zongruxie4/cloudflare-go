@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-package cache_test
+package ai_gateway_test
 
 import (
 	"context"
@@ -9,13 +9,13 @@ import (
 	"testing"
 
 	"github.com/cloudflare/cloudflare-go/v6"
-	"github.com/cloudflare/cloudflare-go/v6/cache"
+	"github.com/cloudflare/cloudflare-go/v6/ai_gateway"
 	"github.com/cloudflare/cloudflare-go/v6/internal/testutil"
 	"github.com/cloudflare/cloudflare-go/v6/option"
 )
 
-func TestSmartTieredCacheNew(t *testing.T) {
-	t.Skip("HTTP 405 error from prism -- POST method not in spec")
+func TestBillingCreditBalance(t *testing.T) {
+	t.Skip("HTTP 404 error from prism -- route not in spec")
 	baseURL := "http://localhost:4010"
 	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
 		baseURL = envURL
@@ -29,9 +29,8 @@ func TestSmartTieredCacheNew(t *testing.T) {
 		option.WithAPIKey("144c9defac04969c7bfad8efaa8ea194"),
 		option.WithAPIEmail("user@example.com"),
 	)
-	_, err := client.Cache.SmartTieredCache.New(context.TODO(), cache.SmartTieredCacheNewParams{
-		ZoneID: cloudflare.F("023e105f4ecef8ad9ca31a8372d0c353"),
-		Value:  cloudflare.F(cache.SmartTieredCacheNewParamsValueOn),
+	_, err := client.AIGateway.Billing.CreditBalance(context.TODO(), ai_gateway.BillingCreditBalanceParams{
+		AccountID: cloudflare.F("account_id"),
 	})
 	if err != nil {
 		var apierr *cloudflare.Error
@@ -42,7 +41,8 @@ func TestSmartTieredCacheNew(t *testing.T) {
 	}
 }
 
-func TestSmartTieredCacheDelete(t *testing.T) {
+func TestBillingInvoiceHistoryWithOptionalParams(t *testing.T) {
+	t.Skip("HTTP 404 error from prism -- route not in spec")
 	baseURL := "http://localhost:4010"
 	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
 		baseURL = envURL
@@ -56,8 +56,9 @@ func TestSmartTieredCacheDelete(t *testing.T) {
 		option.WithAPIKey("144c9defac04969c7bfad8efaa8ea194"),
 		option.WithAPIEmail("user@example.com"),
 	)
-	_, err := client.Cache.SmartTieredCache.Delete(context.TODO(), cache.SmartTieredCacheDeleteParams{
-		ZoneID: cloudflare.F("023e105f4ecef8ad9ca31a8372d0c353"),
+	_, err := client.AIGateway.Billing.InvoiceHistory(context.TODO(), ai_gateway.BillingInvoiceHistoryParams{
+		AccountID: cloudflare.F("account_id"),
+		Type:      cloudflare.F(ai_gateway.BillingInvoiceHistoryParamsTypeAll),
 	})
 	if err != nil {
 		var apierr *cloudflare.Error
@@ -68,7 +69,8 @@ func TestSmartTieredCacheDelete(t *testing.T) {
 	}
 }
 
-func TestSmartTieredCacheEdit(t *testing.T) {
+func TestBillingInvoicePreview(t *testing.T) {
+	t.Skip("HTTP 404 error from prism -- route not in spec")
 	baseURL := "http://localhost:4010"
 	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
 		baseURL = envURL
@@ -82,9 +84,8 @@ func TestSmartTieredCacheEdit(t *testing.T) {
 		option.WithAPIKey("144c9defac04969c7bfad8efaa8ea194"),
 		option.WithAPIEmail("user@example.com"),
 	)
-	_, err := client.Cache.SmartTieredCache.Edit(context.TODO(), cache.SmartTieredCacheEditParams{
-		ZoneID: cloudflare.F("023e105f4ecef8ad9ca31a8372d0c353"),
-		Value:  cloudflare.F(cache.SmartTieredCacheEditParamsValueOn),
+	_, err := client.AIGateway.Billing.InvoicePreview(context.TODO(), ai_gateway.BillingInvoicePreviewParams{
+		AccountID: cloudflare.F("account_id"),
 	})
 	if err != nil {
 		var apierr *cloudflare.Error
@@ -95,7 +96,8 @@ func TestSmartTieredCacheEdit(t *testing.T) {
 	}
 }
 
-func TestSmartTieredCacheGet(t *testing.T) {
+func TestBillingUsageHistoryWithOptionalParams(t *testing.T) {
+	t.Skip("HTTP 404 error from prism -- route not in spec")
 	baseURL := "http://localhost:4010"
 	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
 		baseURL = envURL
@@ -109,8 +111,11 @@ func TestSmartTieredCacheGet(t *testing.T) {
 		option.WithAPIKey("144c9defac04969c7bfad8efaa8ea194"),
 		option.WithAPIEmail("user@example.com"),
 	)
-	_, err := client.Cache.SmartTieredCache.Get(context.TODO(), cache.SmartTieredCacheGetParams{
-		ZoneID: cloudflare.F("023e105f4ecef8ad9ca31a8372d0c353"),
+	_, err := client.AIGateway.Billing.UsageHistory(context.TODO(), ai_gateway.BillingUsageHistoryParams{
+		AccountID:           cloudflare.F("account_id"),
+		ValueGroupingWindow: cloudflare.F(ai_gateway.BillingUsageHistoryParamsValueGroupingWindowDay),
+		EndTime:             cloudflare.F(1700086400000.000000),
+		StartTime:           cloudflare.F(1700000000000.000000),
 	})
 	if err != nil {
 		var apierr *cloudflare.Error

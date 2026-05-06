@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-package cache_test
+package ai_gateway_test
 
 import (
 	"context"
@@ -9,13 +9,13 @@ import (
 	"testing"
 
 	"github.com/cloudflare/cloudflare-go/v6"
-	"github.com/cloudflare/cloudflare-go/v6/cache"
+	"github.com/cloudflare/cloudflare-go/v6/ai_gateway"
 	"github.com/cloudflare/cloudflare-go/v6/internal/testutil"
 	"github.com/cloudflare/cloudflare-go/v6/option"
 )
 
-func TestSmartTieredCacheNew(t *testing.T) {
-	t.Skip("HTTP 405 error from prism -- POST method not in spec")
+func TestBillingTopupConfigNew(t *testing.T) {
+	t.Skip("HTTP 404 error from prism -- route not in spec")
 	baseURL := "http://localhost:4010"
 	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
 		baseURL = envURL
@@ -29,9 +29,10 @@ func TestSmartTieredCacheNew(t *testing.T) {
 		option.WithAPIKey("144c9defac04969c7bfad8efaa8ea194"),
 		option.WithAPIEmail("user@example.com"),
 	)
-	_, err := client.Cache.SmartTieredCache.New(context.TODO(), cache.SmartTieredCacheNewParams{
-		ZoneID: cloudflare.F("023e105f4ecef8ad9ca31a8372d0c353"),
-		Value:  cloudflare.F(cache.SmartTieredCacheNewParamsValueOn),
+	_, err := client.AIGateway.Billing.Topup.Config.New(context.TODO(), ai_gateway.BillingTopupConfigNewParams{
+		AccountID: cloudflare.F("account_id"),
+		Amount:    cloudflare.F(int64(5000)),
+		Threshold: cloudflare.F(int64(500)),
 	})
 	if err != nil {
 		var apierr *cloudflare.Error
@@ -42,7 +43,8 @@ func TestSmartTieredCacheNew(t *testing.T) {
 	}
 }
 
-func TestSmartTieredCacheDelete(t *testing.T) {
+func TestBillingTopupConfigDelete(t *testing.T) {
+	t.Skip("HTTP 404 error from prism -- route not in spec")
 	baseURL := "http://localhost:4010"
 	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
 		baseURL = envURL
@@ -56,8 +58,8 @@ func TestSmartTieredCacheDelete(t *testing.T) {
 		option.WithAPIKey("144c9defac04969c7bfad8efaa8ea194"),
 		option.WithAPIEmail("user@example.com"),
 	)
-	_, err := client.Cache.SmartTieredCache.Delete(context.TODO(), cache.SmartTieredCacheDeleteParams{
-		ZoneID: cloudflare.F("023e105f4ecef8ad9ca31a8372d0c353"),
+	_, err := client.AIGateway.Billing.Topup.Config.Delete(context.TODO(), ai_gateway.BillingTopupConfigDeleteParams{
+		AccountID: cloudflare.F("account_id"),
 	})
 	if err != nil {
 		var apierr *cloudflare.Error
@@ -68,7 +70,8 @@ func TestSmartTieredCacheDelete(t *testing.T) {
 	}
 }
 
-func TestSmartTieredCacheEdit(t *testing.T) {
+func TestBillingTopupConfigGet(t *testing.T) {
+	t.Skip("HTTP 404 error from prism -- route not in spec")
 	baseURL := "http://localhost:4010"
 	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
 		baseURL = envURL
@@ -82,35 +85,8 @@ func TestSmartTieredCacheEdit(t *testing.T) {
 		option.WithAPIKey("144c9defac04969c7bfad8efaa8ea194"),
 		option.WithAPIEmail("user@example.com"),
 	)
-	_, err := client.Cache.SmartTieredCache.Edit(context.TODO(), cache.SmartTieredCacheEditParams{
-		ZoneID: cloudflare.F("023e105f4ecef8ad9ca31a8372d0c353"),
-		Value:  cloudflare.F(cache.SmartTieredCacheEditParamsValueOn),
-	})
-	if err != nil {
-		var apierr *cloudflare.Error
-		if errors.As(err, &apierr) {
-			t.Log(string(apierr.DumpRequest(true)))
-		}
-		t.Fatalf("err should be nil: %s", err.Error())
-	}
-}
-
-func TestSmartTieredCacheGet(t *testing.T) {
-	baseURL := "http://localhost:4010"
-	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
-		baseURL = envURL
-	}
-	if !testutil.CheckTestServer(t, baseURL) {
-		return
-	}
-	client := cloudflare.NewClient(
-		option.WithBaseURL(baseURL),
-		option.WithAPIToken("Sn3lZJTBX6kkg7OdcBUAxOO963GEIyGQqnFTOFYY"),
-		option.WithAPIKey("144c9defac04969c7bfad8efaa8ea194"),
-		option.WithAPIEmail("user@example.com"),
-	)
-	_, err := client.Cache.SmartTieredCache.Get(context.TODO(), cache.SmartTieredCacheGetParams{
-		ZoneID: cloudflare.F("023e105f4ecef8ad9ca31a8372d0c353"),
+	_, err := client.AIGateway.Billing.Topup.Config.Get(context.TODO(), ai_gateway.BillingTopupConfigGetParams{
+		AccountID: cloudflare.F("account_id"),
 	})
 	if err != nil {
 		var apierr *cloudflare.Error
