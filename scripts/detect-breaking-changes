@@ -50,6 +50,7 @@ TEST_PATHS=(
 	load_balancers/monitorpreview_test.go
 	load_balancers/monitorreference_test.go
 	load_balancers/monitorgroup_test.go
+	load_balancers/monitorgroupreference_test.go
 	load_balancers/pool_test.go
 	load_balancers/poolhealth_test.go
 	load_balancers/poolreference_test.go
@@ -181,6 +182,7 @@ TEST_PATHS=(
 	workers/subdomain_test.go
 	workers/observabilitytelemetry_test.go
 	workers/observabilitydestination_test.go
+	workers/observabilityquery_test.go
 	kv/namespace_test.go
 	kv/namespacekey_test.go
 	kv/namespacemetadata_test.go
@@ -225,8 +227,6 @@ TEST_PATHS=(
 	spectrum/analyticseventbytime_test.go
 	spectrum/analyticseventsummary_test.go
 	spectrum/app_test.go
-	addressing/regionalhostname_test.go
-	addressing/regionalhostnameregion_test.go
 	addressing/service_test.go
 	addressing/addressmap_test.go
 	addressing/addressmapaccount_test.go
@@ -291,6 +291,19 @@ TEST_PATHS=(
 	magic_transit/pcap_test.go
 	magic_transit/pcapownership_test.go
 	magic_transit/pcapdownload_test.go
+	ddos_protection/advancedtcpprotectionallowlist_test.go
+	ddos_protection/advancedtcpprotectionallowlistitem_test.go
+	ddos_protection/advancedtcpprotectionprefix_test.go
+	ddos_protection/advancedtcpprotectionprefixitem_test.go
+	ddos_protection/advancedtcpprotectionsynprotectionfilter_test.go
+	ddos_protection/advancedtcpprotectionsynprotectionfilteritem_test.go
+	ddos_protection/advancedtcpprotectionsynprotectionrule_test.go
+	ddos_protection/advancedtcpprotectionsynprotectionruleitem_test.go
+	ddos_protection/advancedtcpprotectiontcpflowprotectionfilter_test.go
+	ddos_protection/advancedtcpprotectiontcpflowprotectionfilteritem_test.go
+	ddos_protection/advancedtcpprotectiontcpflowprotectionrule_test.go
+	ddos_protection/advancedtcpprotectiontcpflowprotectionruleitem_test.go
+	ddos_protection/advancedtcpprotectionstatus_test.go
 	magic_network_monitoring/vpcflowtoken_test.go
 	magic_network_monitoring/config_test.go
 	magic_network_monitoring/configfull_test.go
@@ -356,6 +369,7 @@ TEST_PATHS=(
 	r2/bucketlock_test.go
 	r2/bucketmetric_test.go
 	r2/bucketsippy_test.go
+	r2/bucketobject_test.go
 	r2/temporarycredential_test.go
 	r2/superslurperjob_test.go
 	r2/superslurperjoblog_test.go
@@ -401,12 +415,14 @@ TEST_PATHS=(
 	zero_trust/identityprovider_test.go
 	zero_trust/identityproviderscimgroup_test.go
 	zero_trust/identityproviderscimuser_test.go
+	zero_trust/identityprovidersamlcertificate_test.go
 	zero_trust/organization_test.go
 	zero_trust/organizationdoh_test.go
 	zero_trust/seat_test.go
 	zero_trust/accessaicontrolmcpportal_test.go
 	zero_trust/accessaicontrolmcpserver_test.go
 	zero_trust/accessgatewayca_test.go
+	zero_trust/accesssamlcertificate_test.go
 	zero_trust/accessinfrastructuretarget_test.go
 	zero_trust/accessapplication_test.go
 	zero_trust/accessapplicationca_test.go
@@ -502,6 +518,8 @@ TEST_PATHS=(
 	zero_trust/riskscoringsummary_test.go
 	zero_trust/riskscoringintegration_test.go
 	zero_trust/riskscoringintegrationreference_test.go
+	zero_trust/resourcelibraryapplication_test.go
+	zero_trust/resourcelibrarycategory_test.go
 	turnstile/widget_test.go
 	connectivity/directoryservice_test.go
 	hyperdrive/config_test.go
@@ -536,7 +554,9 @@ TEST_PATHS=(
 	radar/bgphijackevent_test.go
 	radar/bgproute_test.go
 	radar/bgpip_test.go
+	radar/bgpiptop_test.go
 	radar/bgprpkiaspa_test.go
+	radar/bgprpkiroa_test.go
 	radar/bot_test.go
 	radar/botwebcrawler_test.go
 	radar/dataset_test.go
@@ -673,6 +693,10 @@ TEST_PATHS=(
 	ai_gateway/dynamicrouting_test.go
 	ai_gateway/providerconfig_test.go
 	ai_gateway/url_test.go
+	ai_gateway/billing_test.go
+	ai_gateway/billingtopup_test.go
+	ai_gateway/billingtopupconfig_test.go
+	ai_gateway/billingspendinglimit_test.go
 	iam/permissiongroup_test.go
 	iam/resourcegroup_test.go
 	iam/usergroup_test.go
@@ -700,6 +724,8 @@ TEST_PATHS=(
 	content_scanning/contentscanning_test.go
 	content_scanning/payload_test.go
 	content_scanning/setting_test.go
+	ai_security/aisecurity_test.go
+	ai_security/customtopic_test.go
 	abuse_reports/abusereport_test.go
 	abuse_reports/mitigation_test.go
 	ai/ai_test.go
@@ -722,6 +748,9 @@ TEST_PATHS=(
 	security_center/insightclass_test.go
 	security_center/insightseverity_test.go
 	security_center/insighttype_test.go
+	security_center/insightauditlog_test.go
+	security_center/insightclassification_test.go
+	security_center/insightcontext_test.go
 	browser_rendering/content_test.go
 	browser_rendering/pdf_test.go
 	browser_rendering/scrape_test.go
