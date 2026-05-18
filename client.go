@@ -38,6 +38,7 @@ import (
 	"github.com/cloudflare/cloudflare-go/v7/custom_pages"
 	"github.com/cloudflare/cloudflare-go/v7/d1"
 	"github.com/cloudflare/cloudflare-go/v7/dcv_delegation"
+	"github.com/cloudflare/cloudflare-go/v7/ddos_protection"
 	"github.com/cloudflare/cloudflare-go/v7/diagnostics"
 	"github.com/cloudflare/cloudflare-go/v7/dns"
 	"github.com/cloudflare/cloudflare-go/v7/dns_firewall"
@@ -116,6 +117,7 @@ import (
 	"github.com/cloudflare/cloudflare-go/v7/zaraz"
 	"github.com/cloudflare/cloudflare-go/v7/zero_trust"
 	"github.com/cloudflare/cloudflare-go/v7/zones"
+	"github.com/cloudflare/cloudflare-go/v7/ai_security"
 )
 
 // Client creates a struct with services and top level methods that help with
@@ -182,6 +184,7 @@ type Client struct {
 	Images                      *images.ImageService
 	Intel                       *intel.IntelService
 	MagicTransit                *magic_transit.MagicTransitService
+	DDoSProtection              *ddos_protection.DDoSProtectionService
 	MagicNetworkMonitoring      *magic_network_monitoring.MagicNetworkMonitoringService
 	MagicCloudNetworking        *magic_cloud_networking.MagicCloudNetworkingService
 	NetworkInterconnects        *network_interconnects.NetworkInterconnectService
@@ -227,6 +230,7 @@ type Client struct {
 	ResourceTagging             *resource_tagging.ResourceTaggingService
 	LeakedCredentialChecks      *leaked_credential_checks.LeakedCredentialCheckService
 	ContentScanning             *content_scanning.ContentScanningService
+	AISecurity                  *ai_security.AISecurityService
 	AbuseReports                *abuse_reports.AbuseReportService
 	AI                          *ai.AIService
 	AISearch                    *ai_search.AISearchService
@@ -323,6 +327,7 @@ func NewClient(opts ...option.RequestOption) (r *Client) {
 	r.Images = images.NewImageService(opts...)
 	r.Intel = intel.NewIntelService(opts...)
 	r.MagicTransit = magic_transit.NewMagicTransitService(opts...)
+	r.DDoSProtection = ddos_protection.NewDDoSProtectionService(opts...)
 	r.MagicNetworkMonitoring = magic_network_monitoring.NewMagicNetworkMonitoringService(opts...)
 	r.MagicCloudNetworking = magic_cloud_networking.NewMagicCloudNetworkingService(opts...)
 	r.NetworkInterconnects = network_interconnects.NewNetworkInterconnectService(opts...)
@@ -368,6 +373,7 @@ func NewClient(opts ...option.RequestOption) (r *Client) {
 	r.ResourceTagging = resource_tagging.NewResourceTaggingService(opts...)
 	r.LeakedCredentialChecks = leaked_credential_checks.NewLeakedCredentialCheckService(opts...)
 	r.ContentScanning = content_scanning.NewContentScanningService(opts...)
+	r.AISecurity = ai_security.NewAISecurityService(opts...)
 	r.AbuseReports = abuse_reports.NewAbuseReportService(opts...)
 	r.AI = ai.NewAIService(opts...)
 	r.AISearch = ai_search.NewAISearchService(opts...)

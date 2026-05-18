@@ -135,6 +135,8 @@
 
 # [MagicTransit](magic_transit/api.md)
 
+# [DDoSProtection](ddos_protection/api.md)
+
 # [MagicNetworkMonitoring](magic_network_monitoring/api.md)
 
 # [MagicCloudNetworking](magic_cloud_networking/api.md)
@@ -224,6 +226,8 @@
 # [LeakedCredentialChecks](leaked_credential_checks/api.md)
 
 # [ContentScanning](content_scanning/api.md)
+
+# [AISecurity](ai_security/api.md)
 
 # [AbuseReports](abuse_reports/api.md)
 
