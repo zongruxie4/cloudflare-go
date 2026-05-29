@@ -23,6 +23,7 @@ TEST_PATHS=(
 	organizations/organizationprofile_test.go
 	organizations/member_test.go
 	organizations/logaudit_test.go
+	organizations/billingusage_test.go
 	origin_ca_certificates/origincacertificate_test.go
 	ips/ip_test.go
 	memberships/membership_test.go
@@ -77,6 +78,7 @@ TEST_PATHS=(
 	client_certificates/clientcertificate_test.go
 	custom_certificates/customcertificate_test.go
 	custom_certificates/prioritize_test.go
+	custom_csrs/customcsr_test.go
 	custom_hostnames/customhostname_test.go
 	custom_hostnames/fallbackorigin_test.go
 	custom_hostnames/certificatepackcertificate_test.go
@@ -112,7 +114,9 @@ TEST_PATHS=(
 	email_security/settingblocksender_test.go
 	email_security/settingdomain_test.go
 	email_security/settingimpersonationregistry_test.go
+	email_security/settingsendingdomainrestriction_test.go
 	email_security/settingtrusteddomain_test.go
+	email_security/settingurlignorepattern_test.go
 	email_security/submission_test.go
 	email_routing/emailrouting_test.go
 	email_routing/dns_test.go
@@ -183,6 +187,7 @@ TEST_PATHS=(
 	workers/observabilitytelemetry_test.go
 	workers/observabilitydestination_test.go
 	workers/observabilityquery_test.go
+	workers/observabilitysharedquery_test.go
 	kv/namespace_test.go
 	kv/namespacekey_test.go
 	kv/namespacemetadata_test.go
@@ -238,6 +243,8 @@ TEST_PATHS=(
 	addressing/prefixbgpprefix_test.go
 	addressing/prefixadvertisementstatus_test.go
 	addressing/prefixdelegation_test.go
+	dls/region_test.go
+	dls/regionalserviceprefixbinding_test.go
 	audit_logs/auditlog_test.go
 	billing/profile_test.go
 	billing/usage_test.go
