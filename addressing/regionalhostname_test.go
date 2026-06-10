@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-package dns_firewall_test
+package addressing_test
 
 import (
 	"context"
@@ -9,13 +9,12 @@ import (
 	"testing"
 
 	"github.com/cloudflare/cloudflare-go/v7"
-	"github.com/cloudflare/cloudflare-go/v7/dns_firewall"
+	"github.com/cloudflare/cloudflare-go/v7/addressing"
 	"github.com/cloudflare/cloudflare-go/v7/internal/testutil"
 	"github.com/cloudflare/cloudflare-go/v7/option"
 )
 
-func TestDNSFirewallNewWithOptionalParams(t *testing.T) {
-	t.Skip("TODO: investigate broken test")
+func TestRegionalHostnameNewWithOptionalParams(t *testing.T) {
 	baseURL := "http://localhost:4010"
 	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
 		baseURL = envURL
@@ -29,22 +28,11 @@ func TestDNSFirewallNewWithOptionalParams(t *testing.T) {
 		option.WithAPIKey("144c9defac04969c7bfad8efaa8ea194"),
 		option.WithAPIEmail("user@example.com"),
 	)
-	_, err := client.DNSFirewall.New(context.TODO(), dns_firewall.DNSFirewallNewParams{
-		AccountID:   cloudflare.F("023e105f4ecef8ad9ca31a8372d0c353"),
-		Name:        cloudflare.F("My Awesome DNS Firewall cluster"),
-		UpstreamIPs: cloudflare.F([]dns_firewall.UpstreamIPsParam{"192.0.2.1", "198.51.100.1", "2001:DB8:100::CF"}),
-		AttackMitigation: cloudflare.F(dns_firewall.AttackMitigationParam{
-			Enabled:                   cloudflare.F(true),
-			OnlyWhenUpstreamUnhealthy: cloudflare.F(false),
-		}),
-		DeprecateAnyRequests: cloudflare.F(true),
-		DNSFirewallIPCount:   cloudflare.F(int64(2)),
-		ECSFallback:          cloudflare.F(false),
-		MaximumCacheTTL:      cloudflare.F(900.000000),
-		MinimumCacheTTL:      cloudflare.F(60.000000),
-		NegativeCacheTTL:     cloudflare.F(900.000000),
-		Ratelimit:            cloudflare.F(600.000000),
-		Retries:              cloudflare.F(2.000000),
+	_, err := client.Addressing.RegionalHostnames.New(context.TODO(), addressing.RegionalHostnameNewParams{
+		ZoneID:    cloudflare.F("023e105f4ecef8ad9ca31a8372d0c353"),
+		Hostname:  cloudflare.F("foo.example.com"),
+		RegionKey: cloudflare.F("ca"),
+		Routing:   cloudflare.F("dns"),
 	})
 	if err != nil {
 		var apierr *cloudflare.Error
@@ -55,7 +43,7 @@ func TestDNSFirewallNewWithOptionalParams(t *testing.T) {
 	}
 }
 
-func TestDNSFirewallListWithOptionalParams(t *testing.T) {
+func TestRegionalHostnameList(t *testing.T) {
 	baseURL := "http://localhost:4010"
 	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
 		baseURL = envURL
@@ -69,10 +57,8 @@ func TestDNSFirewallListWithOptionalParams(t *testing.T) {
 		option.WithAPIKey("144c9defac04969c7bfad8efaa8ea194"),
 		option.WithAPIEmail("user@example.com"),
 	)
-	_, err := client.DNSFirewall.List(context.TODO(), dns_firewall.DNSFirewallListParams{
-		AccountID: cloudflare.F("023e105f4ecef8ad9ca31a8372d0c353"),
-		Page:      cloudflare.F(1.000000),
-		PerPage:   cloudflare.F(1.000000),
+	_, err := client.Addressing.RegionalHostnames.List(context.TODO(), addressing.RegionalHostnameListParams{
+		ZoneID: cloudflare.F("023e105f4ecef8ad9ca31a8372d0c353"),
 	})
 	if err != nil {
 		var apierr *cloudflare.Error
@@ -83,7 +69,7 @@ func TestDNSFirewallListWithOptionalParams(t *testing.T) {
 	}
 }
 
-func TestDNSFirewallDelete(t *testing.T) {
+func TestRegionalHostnameDelete(t *testing.T) {
 	baseURL := "http://localhost:4010"
 	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
 		baseURL = envURL
@@ -97,11 +83,11 @@ func TestDNSFirewallDelete(t *testing.T) {
 		option.WithAPIKey("144c9defac04969c7bfad8efaa8ea194"),
 		option.WithAPIEmail("user@example.com"),
 	)
-	_, err := client.DNSFirewall.Delete(
+	_, err := client.Addressing.RegionalHostnames.Delete(
 		context.TODO(),
-		"023e105f4ecef8ad9ca31a8372d0c353",
-		dns_firewall.DNSFirewallDeleteParams{
-			AccountID: cloudflare.F("023e105f4ecef8ad9ca31a8372d0c353"),
+		"foo.example.com",
+		addressing.RegionalHostnameDeleteParams{
+			ZoneID: cloudflare.F("023e105f4ecef8ad9ca31a8372d0c353"),
 		},
 	)
 	if err != nil {
@@ -113,8 +99,7 @@ func TestDNSFirewallDelete(t *testing.T) {
 	}
 }
 
-func TestDNSFirewallEditWithOptionalParams(t *testing.T) {
-	t.Skip("TODO: investigate broken test")
+func TestRegionalHostnameEdit(t *testing.T) {
 	baseURL := "http://localhost:4010"
 	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
 		baseURL = envURL
@@ -128,24 +113,12 @@ func TestDNSFirewallEditWithOptionalParams(t *testing.T) {
 		option.WithAPIKey("144c9defac04969c7bfad8efaa8ea194"),
 		option.WithAPIEmail("user@example.com"),
 	)
-	_, err := client.DNSFirewall.Edit(
+	_, err := client.Addressing.RegionalHostnames.Edit(
 		context.TODO(),
-		"023e105f4ecef8ad9ca31a8372d0c353",
-		dns_firewall.DNSFirewallEditParams{
-			AccountID: cloudflare.F("023e105f4ecef8ad9ca31a8372d0c353"),
-			AttackMitigation: cloudflare.F(dns_firewall.AttackMitigationParam{
-				Enabled:                   cloudflare.F(true),
-				OnlyWhenUpstreamUnhealthy: cloudflare.F(false),
-			}),
-			DeprecateAnyRequests: cloudflare.F(true),
-			ECSFallback:          cloudflare.F(false),
-			MaximumCacheTTL:      cloudflare.F(900.000000),
-			MinimumCacheTTL:      cloudflare.F(60.000000),
-			Name:                 cloudflare.F("My Awesome DNS Firewall cluster"),
-			NegativeCacheTTL:     cloudflare.F(900.000000),
-			Ratelimit:            cloudflare.F(600.000000),
-			Retries:              cloudflare.F(2.000000),
-			UpstreamIPs:          cloudflare.F([]dns_firewall.UpstreamIPsParam{"192.0.2.1", "198.51.100.1", "2001:DB8:100::CF"}),
+		"foo.example.com",
+		addressing.RegionalHostnameEditParams{
+			ZoneID:    cloudflare.F("023e105f4ecef8ad9ca31a8372d0c353"),
+			RegionKey: cloudflare.F("ca"),
 		},
 	)
 	if err != nil {
@@ -157,7 +130,7 @@ func TestDNSFirewallEditWithOptionalParams(t *testing.T) {
 	}
 }
 
-func TestDNSFirewallGet(t *testing.T) {
+func TestRegionalHostnameGet(t *testing.T) {
 	baseURL := "http://localhost:4010"
 	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
 		baseURL = envURL
@@ -171,11 +144,11 @@ func TestDNSFirewallGet(t *testing.T) {
 		option.WithAPIKey("144c9defac04969c7bfad8efaa8ea194"),
 		option.WithAPIEmail("user@example.com"),
 	)
-	_, err := client.DNSFirewall.Get(
+	_, err := client.Addressing.RegionalHostnames.Get(
 		context.TODO(),
-		"023e105f4ecef8ad9ca31a8372d0c353",
-		dns_firewall.DNSFirewallGetParams{
-			AccountID: cloudflare.F("023e105f4ecef8ad9ca31a8372d0c353"),
+		"foo.example.com",
+		addressing.RegionalHostnameGetParams{
+			ZoneID: cloudflare.F("023e105f4ecef8ad9ca31a8372d0c353"),
 		},
 	)
 	if err != nil {
