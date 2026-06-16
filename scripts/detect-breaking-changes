@@ -24,6 +24,11 @@ TEST_PATHS=(
 	organizations/member_test.go
 	organizations/logaudit_test.go
 	organizations/billingusage_test.go
+	tenants/tenant_test.go
+	tenants/accounttype_test.go
+	tenants/account_test.go
+	tenants/entitlement_test.go
+	tenants/membership_test.go
 	origin_ca_certificates/origincacertificate_test.go
 	ips/ip_test.go
 	memberships/membership_test.go
@@ -34,6 +39,7 @@ TEST_PATHS=(
 	user/invite_test.go
 	user/organization_test.go
 	user/subscription_test.go
+	user/tenant_test.go
 	user/token_test.go
 	user/tokenpermissiongroup_test.go
 	user/tokenvalue_test.go
@@ -46,6 +52,7 @@ TEST_PATHS=(
 	zones/subscription_test.go
 	zones/plan_test.go
 	zones/rateplan_test.go
+	zones/ctalerting_test.go
 	load_balancers/loadbalancer_test.go
 	load_balancers/monitor_test.go
 	load_balancers/monitorpreview_test.go
@@ -68,6 +75,7 @@ TEST_PATHS=(
 	ssl/certificatepack_test.go
 	ssl/certificatepackquota_test.go
 	ssl/recommendation_test.go
+	ssl/autoorigintlskex_test.go
 	ssl/universalsetting_test.go
 	ssl/verification_test.go
 	acm/totaltls_test.go
@@ -300,6 +308,8 @@ TEST_PATHS=(
 	magic_transit/connectoreventlatest_test.go
 	magic_transit/connectorsnapshot_test.go
 	magic_transit/connectorsnapshotlatest_test.go
+	magic_transit/cf1site_test.go
+	magic_transit/cf1siteramp_test.go
 	magic_transit/pcap_test.go
 	magic_transit/pcapownership_test.go
 	magic_transit/pcapdownload_test.go
@@ -660,6 +670,7 @@ TEST_PATHS=(
 	bot_management/botmanagement_test.go
 	fraud/fraud_test.go
 	origin_post_quantum_encryption/originpostquantumencryption_test.go
+	origin_tls_compliance_modes/origintlscompliancemode_test.go
 	google_tag_gateway/config_test.go
 	zaraz/zaraz_test.go
 	zaraz/config_test.go
@@ -709,6 +720,7 @@ TEST_PATHS=(
 	cloudforce_one/threateventtargetindustry_test.go
 	ai_gateway/aigateway_test.go
 	ai_gateway/evaluationtype_test.go
+	ai_gateway/customprovider_test.go
 	ai_gateway/log_test.go
 	ai_gateway/dataset_test.go
 	ai_gateway/evaluation_test.go
