@@ -207,7 +207,7 @@ func (r dexRuleNewResponseTargetedTestJSON) RawJSON() string {
 	return r.raw
 }
 
-// The configuration object which contains the details for the WARP client to
+// DEXRuleNewResponseTargetedTestsData is the configuration object which contains the details for the WARP client to
 // conduct the test.
 type DEXRuleNewResponseTargetedTestsData struct {
 	// The desired endpoint to test.
@@ -237,7 +237,7 @@ func (r dexRuleNewResponseTargetedTestsDataJSON) RawJSON() string {
 	return r.raw
 }
 
-// The type of test.
+// DEXRuleNewResponseTargetedTestsDataKind is the type of test.
 type DEXRuleNewResponseTargetedTestsDataKind string
 
 const (
@@ -253,7 +253,7 @@ func (r DEXRuleNewResponseTargetedTestsDataKind) IsKnown() bool {
 	return false
 }
 
-// The HTTP request method type.
+// DEXRuleNewResponseTargetedTestsDataMethod is the HTTP request method type.
 type DEXRuleNewResponseTargetedTestsDataMethod string
 
 const (
@@ -331,7 +331,7 @@ func (r dexRuleUpdateResponseTargetedTestJSON) RawJSON() string {
 	return r.raw
 }
 
-// The configuration object which contains the details for the WARP client to
+// DEXRuleUpdateResponseTargetedTestsData is the configuration object which contains the details for the WARP client to
 // conduct the test.
 type DEXRuleUpdateResponseTargetedTestsData struct {
 	// The desired endpoint to test.
@@ -361,7 +361,7 @@ func (r dexRuleUpdateResponseTargetedTestsDataJSON) RawJSON() string {
 	return r.raw
 }
 
-// The type of test.
+// DEXRuleUpdateResponseTargetedTestsDataKind is the type of test.
 type DEXRuleUpdateResponseTargetedTestsDataKind string
 
 const (
@@ -377,7 +377,7 @@ func (r DEXRuleUpdateResponseTargetedTestsDataKind) IsKnown() bool {
 	return false
 }
 
-// The HTTP request method type.
+// DEXRuleUpdateResponseTargetedTestsDataMethod is the HTTP request method type.
 type DEXRuleUpdateResponseTargetedTestsDataMethod string
 
 const (
@@ -476,7 +476,7 @@ func (r dexRuleListResponseRulesTargetedTestJSON) RawJSON() string {
 	return r.raw
 }
 
-// The configuration object which contains the details for the WARP client to
+// DEXRuleListResponseRulesTargetedTestsData is the configuration object which contains the details for the WARP client to
 // conduct the test.
 type DEXRuleListResponseRulesTargetedTestsData struct {
 	// The desired endpoint to test.
@@ -506,7 +506,7 @@ func (r dexRuleListResponseRulesTargetedTestsDataJSON) RawJSON() string {
 	return r.raw
 }
 
-// The type of test.
+// DEXRuleListResponseRulesTargetedTestsDataKind is the type of test.
 type DEXRuleListResponseRulesTargetedTestsDataKind string
 
 const (
@@ -522,7 +522,7 @@ func (r DEXRuleListResponseRulesTargetedTestsDataKind) IsKnown() bool {
 	return false
 }
 
-// The HTTP request method type.
+// DEXRuleListResponseRulesTargetedTestsDataMethod is the HTTP request method type.
 type DEXRuleListResponseRulesTargetedTestsDataMethod string
 
 const (
@@ -600,7 +600,7 @@ func (r dexRuleGetResponseTargetedTestJSON) RawJSON() string {
 	return r.raw
 }
 
-// The configuration object which contains the details for the WARP client to
+// DEXRuleGetResponseTargetedTestsData is the configuration object which contains the details for the WARP client to
 // conduct the test.
 type DEXRuleGetResponseTargetedTestsData struct {
 	// The desired endpoint to test.
@@ -630,7 +630,7 @@ func (r dexRuleGetResponseTargetedTestsDataJSON) RawJSON() string {
 	return r.raw
 }
 
-// The type of test.
+// DEXRuleGetResponseTargetedTestsDataKind is the type of test.
 type DEXRuleGetResponseTargetedTestsDataKind string
 
 const (
@@ -646,7 +646,7 @@ func (r DEXRuleGetResponseTargetedTestsDataKind) IsKnown() bool {
 	return false
 }
 
-// The HTTP request method type.
+// DEXRuleGetResponseTargetedTestsDataMethod is the HTTP request method type.
 type DEXRuleGetResponseTargetedTestsDataMethod string
 
 const (
@@ -799,7 +799,7 @@ func (r dexRuleNewResponseEnvelopeMessagesSourceJSON) RawJSON() string {
 	return r.raw
 }
 
-// Whether the API call was successful.
+// DEXRuleNewResponseEnvelopeSuccess indicates whether the API call was successful.
 type DEXRuleNewResponseEnvelopeSuccess bool
 
 const (
@@ -952,7 +952,7 @@ func (r dexRuleUpdateResponseEnvelopeMessagesSourceJSON) RawJSON() string {
 	return r.raw
 }
 
-// Whether the API call was successful.
+// DEXRuleUpdateResponseEnvelopeSuccess indicates whether the API call was successful.
 type DEXRuleUpdateResponseEnvelopeSuccess bool
 
 const (
@@ -990,7 +990,7 @@ func (r DEXRuleListParams) URLQuery() (v url.Values) {
 	})
 }
 
-// Which property to sort results by.
+// DEXRuleListParamsSortBy which property to sort results by.
 type DEXRuleListParamsSortBy string
 
 const (
@@ -1007,7 +1007,7 @@ func (r DEXRuleListParamsSortBy) IsKnown() bool {
 	return false
 }
 
-// Sort direction for sort_by property.
+// DEXRuleListParamsSortOrder sort direction for sort_by property.
 type DEXRuleListParamsSortOrder string
 
 const (
@@ -1152,7 +1152,7 @@ func (r dexRuleDeleteResponseEnvelopeMessagesSourceJSON) RawJSON() string {
 	return r.raw
 }
 
-// Whether the API call was successful.
+// DEXRuleDeleteResponseEnvelopeSuccess indicates whether the API call was successful.
 type DEXRuleDeleteResponseEnvelopeSuccess bool
 
 const (
@@ -1296,7 +1296,7 @@ func (r dexRuleGetResponseEnvelopeMessagesSourceJSON) RawJSON() string {
 	return r.raw
 }
 
-// Whether the API call was successful.
+// DEXRuleGetResponseEnvelopeSuccess indicates whether the API call was successful.
 type DEXRuleGetResponseEnvelopeSuccess bool
 
 const (

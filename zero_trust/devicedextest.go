@@ -188,7 +188,7 @@ func (r deviceDEXTestNewResponseJSON) RawJSON() string {
 	return r.raw
 }
 
-// The configuration object which contains the details for the WARP client to
+// DeviceDEXTestNewResponseData is the configuration object which contains the details for the WARP client to
 // conduct the test.
 type DeviceDEXTestNewResponseData struct {
 	// The desired endpoint to test.
@@ -218,7 +218,7 @@ func (r deviceDEXTestNewResponseDataJSON) RawJSON() string {
 	return r.raw
 }
 
-// The type of test.
+// DeviceDEXTestNewResponseDataKind is the type of test.
 type DeviceDEXTestNewResponseDataKind string
 
 const (
@@ -234,7 +234,7 @@ func (r DeviceDEXTestNewResponseDataKind) IsKnown() bool {
 	return false
 }
 
-// The HTTP request method type.
+// DeviceDEXTestNewResponseDataMethod is the HTTP request method type.
 type DeviceDEXTestNewResponseDataMethod string
 
 const (
@@ -320,7 +320,7 @@ func (r deviceDEXTestUpdateResponseJSON) RawJSON() string {
 	return r.raw
 }
 
-// The configuration object which contains the details for the WARP client to
+// DeviceDEXTestUpdateResponseData is the configuration object which contains the details for the WARP client to
 // conduct the test.
 type DeviceDEXTestUpdateResponseData struct {
 	// The desired endpoint to test.
@@ -350,7 +350,7 @@ func (r deviceDEXTestUpdateResponseDataJSON) RawJSON() string {
 	return r.raw
 }
 
-// The type of test.
+// DeviceDEXTestUpdateResponseDataKind is the type of test.
 type DeviceDEXTestUpdateResponseDataKind string
 
 const (
@@ -366,7 +366,7 @@ func (r DeviceDEXTestUpdateResponseDataKind) IsKnown() bool {
 	return false
 }
 
-// The HTTP request method type.
+// DeviceDEXTestUpdateResponseDataMethod is the HTTP request method type.
 type DeviceDEXTestUpdateResponseDataMethod string
 
 const (
@@ -452,7 +452,7 @@ func (r deviceDEXTestListResponseJSON) RawJSON() string {
 	return r.raw
 }
 
-// The configuration object which contains the details for the WARP client to
+// DeviceDEXTestListResponseData is the configuration object which contains the details for the WARP client to
 // conduct the test.
 type DeviceDEXTestListResponseData struct {
 	// The desired endpoint to test.
@@ -482,7 +482,7 @@ func (r deviceDEXTestListResponseDataJSON) RawJSON() string {
 	return r.raw
 }
 
-// The type of test.
+// DeviceDEXTestListResponseDataKind is the type of test.
 type DeviceDEXTestListResponseDataKind string
 
 const (
@@ -498,7 +498,7 @@ func (r DeviceDEXTestListResponseDataKind) IsKnown() bool {
 	return false
 }
 
-// The HTTP request method type.
+// DeviceDEXTestListResponseDataMethod is the HTTP request method type.
 type DeviceDEXTestListResponseDataMethod string
 
 const (
@@ -605,7 +605,7 @@ func (r deviceDEXTestDeleteResponseDEXTestJSON) RawJSON() string {
 	return r.raw
 }
 
-// The configuration object which contains the details for the WARP client to
+// DeviceDEXTestDeleteResponseDEXTestsData is the configuration object which contains the details for the WARP client to
 // conduct the test.
 type DeviceDEXTestDeleteResponseDEXTestsData struct {
 	// The desired endpoint to test.
@@ -635,7 +635,7 @@ func (r deviceDEXTestDeleteResponseDEXTestsDataJSON) RawJSON() string {
 	return r.raw
 }
 
-// The type of test.
+// DeviceDEXTestDeleteResponseDEXTestsDataKind is the type of test.
 type DeviceDEXTestDeleteResponseDEXTestsDataKind string
 
 const (
@@ -651,7 +651,7 @@ func (r DeviceDEXTestDeleteResponseDEXTestsDataKind) IsKnown() bool {
 	return false
 }
 
-// The HTTP request method type.
+// DeviceDEXTestDeleteResponseDEXTestsDataMethod is the HTTP request method type.
 type DeviceDEXTestDeleteResponseDEXTestsDataMethod string
 
 const (
@@ -737,7 +737,7 @@ func (r deviceDEXTestGetResponseJSON) RawJSON() string {
 	return r.raw
 }
 
-// The configuration object which contains the details for the WARP client to
+// DeviceDEXTestGetResponseData is the configuration object which contains the details for the WARP client to
 // conduct the test.
 type DeviceDEXTestGetResponseData struct {
 	// The desired endpoint to test.
@@ -767,7 +767,7 @@ func (r deviceDEXTestGetResponseDataJSON) RawJSON() string {
 	return r.raw
 }
 
-// The type of test.
+// DeviceDEXTestGetResponseDataKind is the type of test.
 type DeviceDEXTestGetResponseDataKind string
 
 const (
@@ -783,7 +783,7 @@ func (r DeviceDEXTestGetResponseDataKind) IsKnown() bool {
 	return false
 }
 
-// The HTTP request method type.
+// DeviceDEXTestGetResponseDataMethod is the HTTP request method type.
 type DeviceDEXTestGetResponseDataMethod string
 
 const (
@@ -849,7 +849,7 @@ func (r DeviceDEXTestNewParams) MarshalJSON() (data []byte, err error) {
 	return apijson.MarshalRoot(r)
 }
 
-// The configuration object which contains the details for the WARP client to
+// DeviceDEXTestNewParamsData is the configuration object which contains the details for the WARP client to
 // conduct the test.
 type DeviceDEXTestNewParamsData struct {
 	// The desired endpoint to test.
@@ -864,7 +864,7 @@ func (r DeviceDEXTestNewParamsData) MarshalJSON() (data []byte, err error) {
 	return apijson.MarshalRoot(r)
 }
 
-// The type of test.
+// DeviceDEXTestNewParamsDataKind is the type of test.
 type DeviceDEXTestNewParamsDataKind string
 
 const (
@@ -880,7 +880,7 @@ func (r DeviceDEXTestNewParamsDataKind) IsKnown() bool {
 	return false
 }
 
-// The HTTP request method type.
+// DeviceDEXTestNewParamsDataMethod is the HTTP request method type.
 type DeviceDEXTestNewParamsDataMethod string
 
 const (
@@ -1032,7 +1032,7 @@ func (r deviceDEXTestNewResponseEnvelopeMessagesSourceJSON) RawJSON() string {
 	return r.raw
 }
 
-// Whether the API call was successful.
+// DeviceDEXTestNewResponseEnvelopeSuccess indicates whether the API call was successful.
 type DeviceDEXTestNewResponseEnvelopeSuccess bool
 
 const (
@@ -1070,7 +1070,7 @@ func (r DeviceDEXTestUpdateParams) MarshalJSON() (data []byte, err error) {
 	return apijson.MarshalRoot(r)
 }
 
-// The configuration object which contains the details for the WARP client to
+// DeviceDEXTestUpdateParamsData is the configuration object which contains the details for the WARP client to
 // conduct the test.
 type DeviceDEXTestUpdateParamsData struct {
 	// The desired endpoint to test.
@@ -1085,7 +1085,7 @@ func (r DeviceDEXTestUpdateParamsData) MarshalJSON() (data []byte, err error) {
 	return apijson.MarshalRoot(r)
 }
 
-// The type of test.
+// DeviceDEXTestUpdateParamsDataKind is the type of test.
 type DeviceDEXTestUpdateParamsDataKind string
 
 const (
@@ -1101,7 +1101,7 @@ func (r DeviceDEXTestUpdateParamsDataKind) IsKnown() bool {
 	return false
 }
 
-// The HTTP request method type.
+// DeviceDEXTestUpdateParamsDataMethod is the HTTP request method type.
 type DeviceDEXTestUpdateParamsDataMethod string
 
 const (
@@ -1253,7 +1253,7 @@ func (r deviceDEXTestUpdateResponseEnvelopeMessagesSourceJSON) RawJSON() string 
 	return r.raw
 }
 
-// Whether the API call was successful.
+// DeviceDEXTestUpdateResponseEnvelopeSuccess indicates whether the API call was successful.
 type DeviceDEXTestUpdateResponseEnvelopeSuccess bool
 
 const (
@@ -1290,7 +1290,7 @@ func (r DeviceDEXTestListParams) URLQuery() (v url.Values) {
 	})
 }
 
-// Filter by test type.
+// DeviceDEXTestListParamsKind filter by test type.
 type DeviceDEXTestListParamsKind string
 
 const (
@@ -1435,7 +1435,7 @@ func (r deviceDEXTestDeleteResponseEnvelopeMessagesSourceJSON) RawJSON() string 
 	return r.raw
 }
 
-// Whether the API call was successful.
+// DeviceDEXTestDeleteResponseEnvelopeSuccess indicates whether the API call was successful.
 type DeviceDEXTestDeleteResponseEnvelopeSuccess bool
 
 const (
@@ -1579,7 +1579,7 @@ func (r deviceDEXTestGetResponseEnvelopeMessagesSourceJSON) RawJSON() string {
 	return r.raw
 }
 
-// Whether the API call was successful.
+// DeviceDEXTestGetResponseEnvelopeSuccess indicates whether the API call was successful.
 type DeviceDEXTestGetResponseEnvelopeSuccess bool
 
 const (

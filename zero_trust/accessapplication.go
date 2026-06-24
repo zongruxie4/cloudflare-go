@@ -298,7 +298,7 @@ type AllowedOriginsParam = string
 
 type AppIDParam = string
 
-// The application type.
+// ApplicationType is the application type.
 type ApplicationType string
 
 const (
@@ -393,7 +393,7 @@ func (r CORSHeadersParam) MarshalJSON() (data []byte, err error) {
 	return apijson.MarshalRoot(r)
 }
 
-// The action Access will take if a user matches this policy. Infrastructure
+// Decision is the action Access will take if a user matches this policy. Infrastructure
 // application policies can only use the Allow action.
 type Decision string
 
@@ -482,7 +482,7 @@ func (r OIDCSaaSApp) implementsAccessApplicationListResponseSaaSApplicationSaaSA
 
 func (r OIDCSaaSApp) implementsAccessApplicationGetResponseSaaSApplicationSaaSApp() {}
 
-// Identifier of the authentication protocol used for the saas app. Required for
+// OIDCSaaSAppAuthType identifier of the authentication protocol used for the saas app. Required for
 // OIDC.
 type OIDCSaaSAppAuthType string
 
@@ -529,7 +529,7 @@ func (r oidcSaaSAppCustomClaimJSON) RawJSON() string {
 	return r.raw
 }
 
-// The scope of the claim.
+// OIDCSaaSAppCustomClaimsScope is the scope of the claim.
 type OIDCSaaSAppCustomClaimsScope string
 
 const (
@@ -742,7 +742,7 @@ func (r OIDCSaaSAppRefreshTokenOptionsParam) MarshalJSON() (data []byte, err err
 	return apijson.MarshalRoot(r)
 }
 
-// The format of the name identifier sent to the SaaS application.
+// SaaSAppNameIDFormat is the format of the name identifier sent to the SaaS application.
 type SaaSAppNameIDFormat string
 
 const (
@@ -826,7 +826,7 @@ func (r SAMLSaaSApp) implementsAccessApplicationListResponseSaaSApplicationSaaSA
 
 func (r SAMLSaaSApp) implementsAccessApplicationGetResponseSaaSApplicationSaaSApp() {}
 
-// Optional identifier indicating the authentication protocol used for the saas
+// SAMLSaaSAppAuthType optional identifier indicating the authentication protocol used for the saas
 // app. Required for OIDC. Default if unset is "saml"
 type SAMLSaaSAppAuthType string
 
@@ -876,7 +876,7 @@ func (r samlSaaSAppCustomAttributeJSON) RawJSON() string {
 	return r.raw
 }
 
-// A globally unique name for an identity or service provider.
+// SAMLSaaSAppCustomAttributesNameFormat is a globally unique name for an identity or service provider.
 type SAMLSaaSAppCustomAttributesNameFormat string
 
 const (
@@ -1023,7 +1023,7 @@ func (r SAMLSaaSAppCustomAttributesSourceNameByIdPParam) MarshalJSON() (data []b
 	return apijson.MarshalRoot(r)
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// SCIMConfigAuthenticationHTTPBasic attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 type SCIMConfigAuthenticationHTTPBasic struct {
 	// Password used to authenticate with the remote SCIM service.
@@ -1221,7 +1221,7 @@ func (r SCIMConfigAuthenticationHTTPBasic) implementsAccessApplicationGetRespons
 func (r SCIMConfigAuthenticationHTTPBasic) implementsAccessApplicationGetResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// SCIMConfigAuthenticationHTTPBasicScheme is the authentication scheme to use when making SCIM requests to this application.
 type SCIMConfigAuthenticationHTTPBasicScheme string
 
 const (
@@ -1236,7 +1236,7 @@ func (r SCIMConfigAuthenticationHTTPBasicScheme) IsKnown() bool {
 	return false
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// SCIMConfigAuthenticationHTTPBasicParam attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 type SCIMConfigAuthenticationHTTPBasicParam struct {
 	// Password used to authenticate with the remote SCIM service.
@@ -1335,7 +1335,7 @@ func (r SCIMConfigAuthenticationHTTPBasicParam) implementsAccessApplicationUpdat
 func (r SCIMConfigAuthenticationHTTPBasicParam) implementsAccessApplicationUpdateParamsBodyMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItemUnion() {
 }
 
-// Attributes for configuring OAuth Bearer Token authentication scheme for SCIM
+// SCIMConfigAuthenticationOAuthBearerToken attributes for configuring OAuth Bearer Token authentication scheme for SCIM
 // provisioning to an application.
 type SCIMConfigAuthenticationOAuthBearerToken struct {
 	// Token used to authenticate with the remote SCIM service.
@@ -1530,7 +1530,7 @@ func (r SCIMConfigAuthenticationOAuthBearerToken) implementsAccessApplicationGet
 func (r SCIMConfigAuthenticationOAuthBearerToken) implementsAccessApplicationGetResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// SCIMConfigAuthenticationOAuthBearerTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type SCIMConfigAuthenticationOAuthBearerTokenScheme string
 
 const (
@@ -1545,7 +1545,7 @@ func (r SCIMConfigAuthenticationOAuthBearerTokenScheme) IsKnown() bool {
 	return false
 }
 
-// Attributes for configuring OAuth Bearer Token authentication scheme for SCIM
+// SCIMConfigAuthenticationOAuthBearerTokenParam attributes for configuring OAuth Bearer Token authentication scheme for SCIM
 // provisioning to an application.
 type SCIMConfigAuthenticationOAuthBearerTokenParam struct {
 	// Token used to authenticate with the remote SCIM service.
@@ -1642,7 +1642,7 @@ func (r SCIMConfigAuthenticationOAuthBearerTokenParam) implementsAccessApplicati
 func (r SCIMConfigAuthenticationOAuthBearerTokenParam) implementsAccessApplicationUpdateParamsBodyMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItemUnion() {
 }
 
-// Attributes for configuring OAuth 2 authentication scheme for SCIM provisioning
+// SCIMConfigAuthenticationOauth2 attributes for configuring OAuth 2 authentication scheme for SCIM provisioning
 // to an application.
 type SCIMConfigAuthenticationOauth2 struct {
 	// URL used to generate the auth code used during token generation.
@@ -1853,7 +1853,7 @@ func (r SCIMConfigAuthenticationOauth2) implementsAccessApplicationGetResponseMc
 func (r SCIMConfigAuthenticationOauth2) implementsAccessApplicationGetResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// SCIMConfigAuthenticationOauth2Scheme is the authentication scheme to use when making SCIM requests to this application.
 type SCIMConfigAuthenticationOauth2Scheme string
 
 const (
@@ -1868,7 +1868,7 @@ func (r SCIMConfigAuthenticationOauth2Scheme) IsKnown() bool {
 	return false
 }
 
-// Attributes for configuring OAuth 2 authentication scheme for SCIM provisioning
+// SCIMConfigAuthenticationOauth2Param attributes for configuring OAuth 2 authentication scheme for SCIM provisioning
 // to an application.
 type SCIMConfigAuthenticationOauth2Param struct {
 	// URL used to generate the auth code used during token generation.
@@ -1977,7 +1977,7 @@ func (r SCIMConfigAuthenticationOauth2Param) implementsAccessApplicationUpdatePa
 func (r SCIMConfigAuthenticationOauth2Param) implementsAccessApplicationUpdateParamsBodyMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItemUnion() {
 }
 
-// Transformations and filters applied to resources before they are provisioned in
+// SCIMConfigMapping transformations and filters applied to resources before they are provisioned in
 // the remote SCIM service.
 type SCIMConfigMapping struct {
 	// Which SCIM resource type this mapping applies to.
@@ -2021,7 +2021,7 @@ func (r scimConfigMappingJSON) RawJSON() string {
 	return r.raw
 }
 
-// Whether or not this mapping applies to creates, updates, or deletes.
+// SCIMConfigMappingOperations indicates whether or not this mapping applies to creates, updates, or deletes.
 type SCIMConfigMappingOperations struct {
 	// Whether or not this mapping applies to create (POST) operations.
 	Create bool `json:"create"`
@@ -2050,7 +2050,7 @@ func (r scimConfigMappingOperationsJSON) RawJSON() string {
 	return r.raw
 }
 
-// The level of adherence to outbound resource schemas when provisioning to this
+// SCIMConfigMappingStrictness is the level of adherence to outbound resource schemas when provisioning to this
 // mapping. ‘Strict’ removes unknown values, while ‘passthrough’ passes unknown
 // values to the target.
 type SCIMConfigMappingStrictness string
@@ -2068,7 +2068,7 @@ func (r SCIMConfigMappingStrictness) IsKnown() bool {
 	return false
 }
 
-// Transformations and filters applied to resources before they are provisioned in
+// SCIMConfigMappingParam transformations and filters applied to resources before they are provisioned in
 // the remote SCIM service.
 type SCIMConfigMappingParam struct {
 	// Which SCIM resource type this mapping applies to.
@@ -2094,7 +2094,7 @@ func (r SCIMConfigMappingParam) MarshalJSON() (data []byte, err error) {
 	return apijson.MarshalRoot(r)
 }
 
-// Whether or not this mapping applies to creates, updates, or deletes.
+// SCIMConfigMappingOperationsParam indicates whether or not this mapping applies to creates, updates, or deletes.
 type SCIMConfigMappingOperationsParam struct {
 	// Whether or not this mapping applies to create (POST) operations.
 	Create param.Field[bool] `json:"create"`
@@ -2351,7 +2351,7 @@ func (r AccessApplicationNewResponse) AsUnion() AccessApplicationNewResponseUnio
 	return r.union
 }
 
-// Union satisfied by [AccessApplicationNewResponseSelfHostedApplication],
+// AccessApplicationNewResponseUnion is satisfied by [AccessApplicationNewResponseSelfHostedApplication],
 // [AccessApplicationNewResponseSaaSApplication],
 // [AccessApplicationNewResponseBrowserSSHApplication],
 // [AccessApplicationNewResponseBrowserVNCApplication],
@@ -2588,7 +2588,7 @@ func (r accessApplicationNewResponseSelfHostedApplicationJSON) RawJSON() string 
 
 func (r AccessApplicationNewResponseSelfHostedApplication) implementsAccessApplicationNewResponse() {}
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationNewResponseSelfHostedApplicationDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationNewResponseSelfHostedApplicationDestination struct {
 	// The CIDR range of the destination. Single IPs will be computed as /32.
@@ -2662,7 +2662,7 @@ func (r AccessApplicationNewResponseSelfHostedApplicationDestination) AsUnion() 
 	return r.union
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationNewResponseSelfHostedApplicationDestinationsUnion is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 //
 // Union satisfied by
@@ -2713,7 +2713,7 @@ func init() {
 	)
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationNewResponseSelfHostedApplicationDestinationsPublicDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationNewResponseSelfHostedApplicationDestinationsPublicDestination struct {
 	Type AccessApplicationNewResponseSelfHostedApplicationDestinationsPublicDestinationType `json:"type"`
@@ -2801,7 +2801,7 @@ func (r accessApplicationNewResponseSelfHostedApplicationDestinationsPrivateDest
 func (r AccessApplicationNewResponseSelfHostedApplicationDestinationsPrivateDestination) implementsAccessApplicationNewResponseSelfHostedApplicationDestination() {
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationNewResponseSelfHostedApplicationDestinationsPrivateDestinationL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationNewResponseSelfHostedApplicationDestinationsPrivateDestinationL4Protocol string
 
@@ -2832,7 +2832,7 @@ func (r AccessApplicationNewResponseSelfHostedApplicationDestinationsPrivateDest
 	return false
 }
 
-// A MCP server id configured in ai-controls. Access will secure the MCP server if
+// AccessApplicationNewResponseSelfHostedApplicationDestinationsViaMcpServerPortalDestination is a MCP server id configured in ai-controls. Access will secure the MCP server if
 // accessed through a MCP portal.
 type AccessApplicationNewResponseSelfHostedApplicationDestinationsViaMcpServerPortalDestination struct {
 	// The MCP server id configured in ai-controls.
@@ -2876,7 +2876,7 @@ func (r AccessApplicationNewResponseSelfHostedApplicationDestinationsViaMcpServe
 	return false
 }
 
-// A specific Cloudflare Worker that Access will secure. All requests routed to the
+// AccessApplicationNewResponseSelfHostedApplicationDestinationsWorkerDestination is a specific Cloudflare Worker that Access will secure. All requests routed to the
 // specified Worker, including its preview deployments, will be protected. The
 // `preview_worker` and `public` destination types takes precedence, so you can
 // create separate applications to override the policies for the Worker's previews
@@ -2923,7 +2923,7 @@ func (r AccessApplicationNewResponseSelfHostedApplicationDestinationsWorkerDesti
 	return false
 }
 
-// A specific Cloudflare Worker whose preview deployments Access will secure. Only
+// AccessApplicationNewResponseSelfHostedApplicationDestinationsPreviewWorkerDestination is a specific Cloudflare Worker whose preview deployments Access will secure. Only
 // requests routed to the preview deployments of the specified Worker will be
 // protected. The `public` destination type takes precedence, so you can create
 // separate applications to override the policies for specific paths.
@@ -2970,7 +2970,7 @@ func (r AccessApplicationNewResponseSelfHostedApplicationDestinationsPreviewWork
 	return false
 }
 
-// Protects all Cloudflare Workers on the account with Access, including their
+// AccessApplicationNewResponseSelfHostedApplicationDestinationsAllWorkersDestination protects all Cloudflare Workers on the account with Access, including their
 // preview deployments. At most one destination of this type can exist per account.
 // The `worker`, `preview_worker`, `all_preview_workers`, and `public` destination
 // types take precedence, so you can create separate applications to override the
@@ -3014,7 +3014,7 @@ func (r AccessApplicationNewResponseSelfHostedApplicationDestinationsAllWorkersD
 	return false
 }
 
-// Protects the preview deployments of all Cloudflare Workers on the account with
+// AccessApplicationNewResponseSelfHostedApplicationDestinationsAllPreviewWorkersDestination protects the preview deployments of all Cloudflare Workers on the account with
 // Access. At most one destination of this type can exist per account. The
 // `worker`, `preview_worker`, and `public` destination types take precedence, so
 // you can create separate applications to override the policies for specific
@@ -3058,7 +3058,7 @@ func (r AccessApplicationNewResponseSelfHostedApplicationDestinationsAllPreviewW
 	return false
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationNewResponseSelfHostedApplicationDestinationsL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationNewResponseSelfHostedApplicationDestinationsL4Protocol string
 
@@ -3095,7 +3095,7 @@ func (r AccessApplicationNewResponseSelfHostedApplicationDestinationsType) IsKno
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationNewResponseSelfHostedApplicationMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationNewResponseSelfHostedApplicationMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationNewResponseSelfHostedApplicationMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -3143,7 +3143,7 @@ func (r AccessApplicationNewResponseSelfHostedApplicationMfaConfigAllowedAuthent
 	return false
 }
 
-// **Beta:** Optional configuration for managing an OAuth authorization flow
+// AccessApplicationNewResponseSelfHostedApplicationOAuthConfiguration **Beta:** Optional configuration for managing an OAuth authorization flow
 // controlled by Access. When set, Access will act as the OAuth authorization
 // server for this application. Only compatible with OAuth clients that support
 // [RFC 8707](https://datatracker.ietf.org/doc/html/rfc8707) (Resource Indicators
@@ -3179,7 +3179,7 @@ func (r accessApplicationNewResponseSelfHostedApplicationOAuthConfigurationJSON)
 	return r.raw
 }
 
-// Settings for OAuth dynamic client registration.
+// AccessApplicationNewResponseSelfHostedApplicationOAuthConfigurationDynamicClientRegistration settings for OAuth dynamic client registration.
 type AccessApplicationNewResponseSelfHostedApplicationOAuthConfigurationDynamicClientRegistration struct {
 	// Allows any client with redirect URIs on localhost.
 	AllowAnyOnLocalhost bool `json:"allow_any_on_localhost"`
@@ -3213,7 +3213,7 @@ func (r accessApplicationNewResponseSelfHostedApplicationOAuthConfigurationDynam
 	return r.raw
 }
 
-// Settings for OAuth grant behavior.
+// AccessApplicationNewResponseSelfHostedApplicationOAuthConfigurationGrant settings for OAuth grant behavior.
 type AccessApplicationNewResponseSelfHostedApplicationOAuthConfigurationGrant struct {
 	// The lifetime of the access token. Must be in the format `300ms` or `2h45m`.
 	// Valid time units are ns, us (or µs), ms, s, m, h.
@@ -3322,7 +3322,7 @@ func (r accessApplicationNewResponseSelfHostedApplicationPolicyJSON) RawJSON() s
 	return r.raw
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationNewResponseSelfHostedApplicationPoliciesConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationNewResponseSelfHostedApplicationPoliciesConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -3347,7 +3347,7 @@ func (r accessApplicationNewResponseSelfHostedApplicationPoliciesConnectionRules
 	return r.raw
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationNewResponseSelfHostedApplicationPoliciesConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationNewResponseSelfHostedApplicationPoliciesConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats []AccessApplicationNewResponseSelfHostedApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat `json:"allowed_clipboard_local_to_remote_formats"`
@@ -3374,7 +3374,7 @@ func (r accessApplicationNewResponseSelfHostedApplicationPoliciesConnectionRules
 	return r.raw
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationNewResponseSelfHostedApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationNewResponseSelfHostedApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -3389,7 +3389,7 @@ func (r AccessApplicationNewResponseSelfHostedApplicationPoliciesConnectionRules
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationNewResponseSelfHostedApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationNewResponseSelfHostedApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -3404,7 +3404,7 @@ func (r AccessApplicationNewResponseSelfHostedApplicationPoliciesConnectionRules
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationNewResponseSelfHostedApplicationPoliciesMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationNewResponseSelfHostedApplicationPoliciesMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationNewResponseSelfHostedApplicationPoliciesMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -3452,7 +3452,7 @@ func (r AccessApplicationNewResponseSelfHostedApplicationPoliciesMfaConfigAllowe
 	return false
 }
 
-// Configuration for provisioning to this application via SCIM. This is currently
+// AccessApplicationNewResponseSelfHostedApplicationSCIMConfig configuration for provisioning to this application via SCIM. This is currently
 // in closed beta.
 type AccessApplicationNewResponseSelfHostedApplicationSCIMConfig struct {
 	// The UID of the IdP to use as the source for SCIM resources to provision to this
@@ -3497,7 +3497,7 @@ func (r accessApplicationNewResponseSelfHostedApplicationSCIMConfigJSON) RawJSON
 	return r.raw
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationNewResponseSelfHostedApplicationSCIMConfigAuthenticationUnion attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Union satisfied by [SCIMConfigAuthenticationHTTPBasic],
@@ -3536,7 +3536,7 @@ func init() {
 	)
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationNewResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationNewResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -3572,7 +3572,7 @@ func (r accessApplicationNewResponseSelfHostedApplicationSCIMConfigAuthenticatio
 func (r AccessApplicationNewResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationNewResponseSelfHostedApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationNewResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationNewResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -3592,7 +3592,7 @@ type AccessApplicationNewResponseSelfHostedApplicationSCIMConfigAuthenticationAc
 func (r AccessApplicationNewResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthentication) implementsAccessApplicationNewResponseSelfHostedApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationNewResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationNewResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem struct {
 	// The authentication scheme to use when making SCIM requests to this application.
@@ -3661,7 +3661,7 @@ func (r AccessApplicationNewResponseSelfHostedApplicationSCIMConfigAuthenticatio
 	return r.union
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationNewResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationUnionItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Union satisfied by [SCIMConfigAuthenticationHTTPBasic],
@@ -3694,7 +3694,7 @@ func init() {
 	)
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationNewResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationNewResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -3730,7 +3730,7 @@ func (r accessApplicationNewResponseSelfHostedApplicationSCIMConfigAuthenticatio
 func (r AccessApplicationNewResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationNewResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationNewResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationNewResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -3745,7 +3745,7 @@ func (r AccessApplicationNewResponseSelfHostedApplicationSCIMConfigAuthenticatio
 	return false
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationNewResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationNewResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme string
 
 const (
@@ -3904,7 +3904,7 @@ func (r accessApplicationNewResponseSaaSApplicationPolicyJSON) RawJSON() string 
 	return r.raw
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationNewResponseSaaSApplicationPoliciesConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationNewResponseSaaSApplicationPoliciesConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -3929,7 +3929,7 @@ func (r accessApplicationNewResponseSaaSApplicationPoliciesConnectionRulesJSON) 
 	return r.raw
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationNewResponseSaaSApplicationPoliciesConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationNewResponseSaaSApplicationPoliciesConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats []AccessApplicationNewResponseSaaSApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat `json:"allowed_clipboard_local_to_remote_formats"`
@@ -3956,7 +3956,7 @@ func (r accessApplicationNewResponseSaaSApplicationPoliciesConnectionRulesRDPJSO
 	return r.raw
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationNewResponseSaaSApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationNewResponseSaaSApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -3971,7 +3971,7 @@ func (r AccessApplicationNewResponseSaaSApplicationPoliciesConnectionRulesRDPAll
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationNewResponseSaaSApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationNewResponseSaaSApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -3986,7 +3986,7 @@ func (r AccessApplicationNewResponseSaaSApplicationPoliciesConnectionRulesRDPAll
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationNewResponseSaaSApplicationPoliciesMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationNewResponseSaaSApplicationPoliciesMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationNewResponseSaaSApplicationPoliciesMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -4148,7 +4148,7 @@ func (r AccessApplicationNewResponseSaaSApplicationSaaSApp) AsUnion() AccessAppl
 	return r.union
 }
 
-// Union satisfied by [SAMLSaaSApp] or [OIDCSaaSApp].
+// AccessApplicationNewResponseSaaSApplicationSaaSAppUnion is satisfied by [SAMLSaaSApp] or [OIDCSaaSApp].
 type AccessApplicationNewResponseSaaSApplicationSaaSAppUnion interface {
 	implementsAccessApplicationNewResponseSaaSApplicationSaaSApp()
 }
@@ -4168,7 +4168,7 @@ func init() {
 	)
 }
 
-// Optional identifier indicating the authentication protocol used for the saas
+// AccessApplicationNewResponseSaaSApplicationSaaSAppAuthType optional identifier indicating the authentication protocol used for the saas
 // app. Required for OIDC. Default if unset is "saml"
 type AccessApplicationNewResponseSaaSApplicationSaaSAppAuthType string
 
@@ -4185,7 +4185,7 @@ func (r AccessApplicationNewResponseSaaSApplicationSaaSAppAuthType) IsKnown() bo
 	return false
 }
 
-// Configuration for provisioning to this application via SCIM. This is currently
+// AccessApplicationNewResponseSaaSApplicationSCIMConfig configuration for provisioning to this application via SCIM. This is currently
 // in closed beta.
 type AccessApplicationNewResponseSaaSApplicationSCIMConfig struct {
 	// The UID of the IdP to use as the source for SCIM resources to provision to this
@@ -4229,7 +4229,7 @@ func (r accessApplicationNewResponseSaaSApplicationSCIMConfigJSON) RawJSON() str
 	return r.raw
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationNewResponseSaaSApplicationSCIMConfigAuthenticationUnion attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Union satisfied by [SCIMConfigAuthenticationHTTPBasic],
@@ -4268,7 +4268,7 @@ func init() {
 	)
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationNewResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationNewResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -4304,7 +4304,7 @@ func (r accessApplicationNewResponseSaaSApplicationSCIMConfigAuthenticationAcces
 func (r AccessApplicationNewResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationNewResponseSaaSApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationNewResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationNewResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -4324,7 +4324,7 @@ type AccessApplicationNewResponseSaaSApplicationSCIMConfigAuthenticationAccessSC
 func (r AccessApplicationNewResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthentication) implementsAccessApplicationNewResponseSaaSApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationNewResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationNewResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem struct {
 	// The authentication scheme to use when making SCIM requests to this application.
@@ -4393,7 +4393,7 @@ func (r AccessApplicationNewResponseSaaSApplicationSCIMConfigAuthenticationAcces
 	return r.union
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationNewResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationUnionItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Union satisfied by [SCIMConfigAuthenticationHTTPBasic],
@@ -4426,7 +4426,7 @@ func init() {
 	)
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationNewResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationNewResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -4462,7 +4462,7 @@ func (r accessApplicationNewResponseSaaSApplicationSCIMConfigAuthenticationAcces
 func (r AccessApplicationNewResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationNewResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationNewResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationNewResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -4477,7 +4477,7 @@ func (r AccessApplicationNewResponseSaaSApplicationSCIMConfigAuthenticationAcces
 	return false
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationNewResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationNewResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme string
 
 const (
@@ -4656,7 +4656,7 @@ func (r accessApplicationNewResponseBrowserSSHApplicationJSON) RawJSON() string 
 
 func (r AccessApplicationNewResponseBrowserSSHApplication) implementsAccessApplicationNewResponse() {}
 
-// The application type.
+// AccessApplicationNewResponseBrowserSSHApplicationType is the application type.
 type AccessApplicationNewResponseBrowserSSHApplicationType string
 
 const (
@@ -4684,7 +4684,7 @@ func (r AccessApplicationNewResponseBrowserSSHApplicationType) IsKnown() bool {
 	return false
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationNewResponseBrowserSSHApplicationDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationNewResponseBrowserSSHApplicationDestination struct {
 	// The CIDR range of the destination. Single IPs will be computed as /32.
@@ -4758,7 +4758,7 @@ func (r AccessApplicationNewResponseBrowserSSHApplicationDestination) AsUnion() 
 	return r.union
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationNewResponseBrowserSSHApplicationDestinationsUnion is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 //
 // Union satisfied by
@@ -4809,7 +4809,7 @@ func init() {
 	)
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationNewResponseBrowserSSHApplicationDestinationsPublicDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationNewResponseBrowserSSHApplicationDestinationsPublicDestination struct {
 	Type AccessApplicationNewResponseBrowserSSHApplicationDestinationsPublicDestinationType `json:"type"`
@@ -4897,7 +4897,7 @@ func (r accessApplicationNewResponseBrowserSSHApplicationDestinationsPrivateDest
 func (r AccessApplicationNewResponseBrowserSSHApplicationDestinationsPrivateDestination) implementsAccessApplicationNewResponseBrowserSSHApplicationDestination() {
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationNewResponseBrowserSSHApplicationDestinationsPrivateDestinationL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationNewResponseBrowserSSHApplicationDestinationsPrivateDestinationL4Protocol string
 
@@ -4928,7 +4928,7 @@ func (r AccessApplicationNewResponseBrowserSSHApplicationDestinationsPrivateDest
 	return false
 }
 
-// A MCP server id configured in ai-controls. Access will secure the MCP server if
+// AccessApplicationNewResponseBrowserSSHApplicationDestinationsViaMcpServerPortalDestination is a MCP server id configured in ai-controls. Access will secure the MCP server if
 // accessed through a MCP portal.
 type AccessApplicationNewResponseBrowserSSHApplicationDestinationsViaMcpServerPortalDestination struct {
 	// The MCP server id configured in ai-controls.
@@ -4972,7 +4972,7 @@ func (r AccessApplicationNewResponseBrowserSSHApplicationDestinationsViaMcpServe
 	return false
 }
 
-// A specific Cloudflare Worker that Access will secure. All requests routed to the
+// AccessApplicationNewResponseBrowserSSHApplicationDestinationsWorkerDestination is a specific Cloudflare Worker that Access will secure. All requests routed to the
 // specified Worker, including its preview deployments, will be protected. The
 // `preview_worker` and `public` destination types takes precedence, so you can
 // create separate applications to override the policies for the Worker's previews
@@ -5019,7 +5019,7 @@ func (r AccessApplicationNewResponseBrowserSSHApplicationDestinationsWorkerDesti
 	return false
 }
 
-// A specific Cloudflare Worker whose preview deployments Access will secure. Only
+// AccessApplicationNewResponseBrowserSSHApplicationDestinationsPreviewWorkerDestination is a specific Cloudflare Worker whose preview deployments Access will secure. Only
 // requests routed to the preview deployments of the specified Worker will be
 // protected. The `public` destination type takes precedence, so you can create
 // separate applications to override the policies for specific paths.
@@ -5066,7 +5066,7 @@ func (r AccessApplicationNewResponseBrowserSSHApplicationDestinationsPreviewWork
 	return false
 }
 
-// Protects all Cloudflare Workers on the account with Access, including their
+// AccessApplicationNewResponseBrowserSSHApplicationDestinationsAllWorkersDestination protects all Cloudflare Workers on the account with Access, including their
 // preview deployments. At most one destination of this type can exist per account.
 // The `worker`, `preview_worker`, `all_preview_workers`, and `public` destination
 // types take precedence, so you can create separate applications to override the
@@ -5110,7 +5110,7 @@ func (r AccessApplicationNewResponseBrowserSSHApplicationDestinationsAllWorkersD
 	return false
 }
 
-// Protects the preview deployments of all Cloudflare Workers on the account with
+// AccessApplicationNewResponseBrowserSSHApplicationDestinationsAllPreviewWorkersDestination protects the preview deployments of all Cloudflare Workers on the account with
 // Access. At most one destination of this type can exist per account. The
 // `worker`, `preview_worker`, and `public` destination types take precedence, so
 // you can create separate applications to override the policies for specific
@@ -5154,7 +5154,7 @@ func (r AccessApplicationNewResponseBrowserSSHApplicationDestinationsAllPreviewW
 	return false
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationNewResponseBrowserSSHApplicationDestinationsL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationNewResponseBrowserSSHApplicationDestinationsL4Protocol string
 
@@ -5191,7 +5191,7 @@ func (r AccessApplicationNewResponseBrowserSSHApplicationDestinationsType) IsKno
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationNewResponseBrowserSSHApplicationMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationNewResponseBrowserSSHApplicationMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationNewResponseBrowserSSHApplicationMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -5239,7 +5239,7 @@ func (r AccessApplicationNewResponseBrowserSSHApplicationMfaConfigAllowedAuthent
 	return false
 }
 
-// **Beta:** Optional configuration for managing an OAuth authorization flow
+// AccessApplicationNewResponseBrowserSSHApplicationOAuthConfiguration **Beta:** Optional configuration for managing an OAuth authorization flow
 // controlled by Access. When set, Access will act as the OAuth authorization
 // server for this application. Only compatible with OAuth clients that support
 // [RFC 8707](https://datatracker.ietf.org/doc/html/rfc8707) (Resource Indicators
@@ -5275,7 +5275,7 @@ func (r accessApplicationNewResponseBrowserSSHApplicationOAuthConfigurationJSON)
 	return r.raw
 }
 
-// Settings for OAuth dynamic client registration.
+// AccessApplicationNewResponseBrowserSSHApplicationOAuthConfigurationDynamicClientRegistration settings for OAuth dynamic client registration.
 type AccessApplicationNewResponseBrowserSSHApplicationOAuthConfigurationDynamicClientRegistration struct {
 	// Allows any client with redirect URIs on localhost.
 	AllowAnyOnLocalhost bool `json:"allow_any_on_localhost"`
@@ -5309,7 +5309,7 @@ func (r accessApplicationNewResponseBrowserSSHApplicationOAuthConfigurationDynam
 	return r.raw
 }
 
-// Settings for OAuth grant behavior.
+// AccessApplicationNewResponseBrowserSSHApplicationOAuthConfigurationGrant settings for OAuth grant behavior.
 type AccessApplicationNewResponseBrowserSSHApplicationOAuthConfigurationGrant struct {
 	// The lifetime of the access token. Must be in the format `300ms` or `2h45m`.
 	// Valid time units are ns, us (or µs), ms, s, m, h.
@@ -5418,7 +5418,7 @@ func (r accessApplicationNewResponseBrowserSSHApplicationPolicyJSON) RawJSON() s
 	return r.raw
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationNewResponseBrowserSSHApplicationPoliciesConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationNewResponseBrowserSSHApplicationPoliciesConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -5443,7 +5443,7 @@ func (r accessApplicationNewResponseBrowserSSHApplicationPoliciesConnectionRules
 	return r.raw
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationNewResponseBrowserSSHApplicationPoliciesConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationNewResponseBrowserSSHApplicationPoliciesConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats []AccessApplicationNewResponseBrowserSSHApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat `json:"allowed_clipboard_local_to_remote_formats"`
@@ -5470,7 +5470,7 @@ func (r accessApplicationNewResponseBrowserSSHApplicationPoliciesConnectionRules
 	return r.raw
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationNewResponseBrowserSSHApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationNewResponseBrowserSSHApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -5485,7 +5485,7 @@ func (r AccessApplicationNewResponseBrowserSSHApplicationPoliciesConnectionRules
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationNewResponseBrowserSSHApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationNewResponseBrowserSSHApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -5500,7 +5500,7 @@ func (r AccessApplicationNewResponseBrowserSSHApplicationPoliciesConnectionRules
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationNewResponseBrowserSSHApplicationPoliciesMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationNewResponseBrowserSSHApplicationPoliciesMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationNewResponseBrowserSSHApplicationPoliciesMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -5548,7 +5548,7 @@ func (r AccessApplicationNewResponseBrowserSSHApplicationPoliciesMfaConfigAllowe
 	return false
 }
 
-// Configuration for provisioning to this application via SCIM. This is currently
+// AccessApplicationNewResponseBrowserSSHApplicationSCIMConfig configuration for provisioning to this application via SCIM. This is currently
 // in closed beta.
 type AccessApplicationNewResponseBrowserSSHApplicationSCIMConfig struct {
 	// The UID of the IdP to use as the source for SCIM resources to provision to this
@@ -5593,7 +5593,7 @@ func (r accessApplicationNewResponseBrowserSSHApplicationSCIMConfigJSON) RawJSON
 	return r.raw
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationNewResponseBrowserSSHApplicationSCIMConfigAuthenticationUnion attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Union satisfied by [SCIMConfigAuthenticationHTTPBasic],
@@ -5632,7 +5632,7 @@ func init() {
 	)
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationNewResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationNewResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -5668,7 +5668,7 @@ func (r accessApplicationNewResponseBrowserSSHApplicationSCIMConfigAuthenticatio
 func (r AccessApplicationNewResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationNewResponseBrowserSSHApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationNewResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationNewResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -5688,7 +5688,7 @@ type AccessApplicationNewResponseBrowserSSHApplicationSCIMConfigAuthenticationAc
 func (r AccessApplicationNewResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthentication) implementsAccessApplicationNewResponseBrowserSSHApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationNewResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationNewResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem struct {
 	// The authentication scheme to use when making SCIM requests to this application.
@@ -5757,7 +5757,7 @@ func (r AccessApplicationNewResponseBrowserSSHApplicationSCIMConfigAuthenticatio
 	return r.union
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationNewResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationUnionItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Union satisfied by [SCIMConfigAuthenticationHTTPBasic],
@@ -5790,7 +5790,7 @@ func init() {
 	)
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationNewResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationNewResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -5826,7 +5826,7 @@ func (r accessApplicationNewResponseBrowserSSHApplicationSCIMConfigAuthenticatio
 func (r AccessApplicationNewResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationNewResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationNewResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationNewResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -5841,7 +5841,7 @@ func (r AccessApplicationNewResponseBrowserSSHApplicationSCIMConfigAuthenticatio
 	return false
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationNewResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationNewResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme string
 
 const (
@@ -6020,7 +6020,7 @@ func (r accessApplicationNewResponseBrowserVNCApplicationJSON) RawJSON() string 
 
 func (r AccessApplicationNewResponseBrowserVNCApplication) implementsAccessApplicationNewResponse() {}
 
-// The application type.
+// AccessApplicationNewResponseBrowserVNCApplicationType is the application type.
 type AccessApplicationNewResponseBrowserVNCApplicationType string
 
 const (
@@ -6048,7 +6048,7 @@ func (r AccessApplicationNewResponseBrowserVNCApplicationType) IsKnown() bool {
 	return false
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationNewResponseBrowserVNCApplicationDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationNewResponseBrowserVNCApplicationDestination struct {
 	// The CIDR range of the destination. Single IPs will be computed as /32.
@@ -6122,7 +6122,7 @@ func (r AccessApplicationNewResponseBrowserVNCApplicationDestination) AsUnion() 
 	return r.union
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationNewResponseBrowserVNCApplicationDestinationsUnion is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 //
 // Union satisfied by
@@ -6173,7 +6173,7 @@ func init() {
 	)
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationNewResponseBrowserVNCApplicationDestinationsPublicDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationNewResponseBrowserVNCApplicationDestinationsPublicDestination struct {
 	Type AccessApplicationNewResponseBrowserVNCApplicationDestinationsPublicDestinationType `json:"type"`
@@ -6261,7 +6261,7 @@ func (r accessApplicationNewResponseBrowserVNCApplicationDestinationsPrivateDest
 func (r AccessApplicationNewResponseBrowserVNCApplicationDestinationsPrivateDestination) implementsAccessApplicationNewResponseBrowserVNCApplicationDestination() {
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationNewResponseBrowserVNCApplicationDestinationsPrivateDestinationL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationNewResponseBrowserVNCApplicationDestinationsPrivateDestinationL4Protocol string
 
@@ -6292,7 +6292,7 @@ func (r AccessApplicationNewResponseBrowserVNCApplicationDestinationsPrivateDest
 	return false
 }
 
-// A MCP server id configured in ai-controls. Access will secure the MCP server if
+// AccessApplicationNewResponseBrowserVNCApplicationDestinationsViaMcpServerPortalDestination is a MCP server id configured in ai-controls. Access will secure the MCP server if
 // accessed through a MCP portal.
 type AccessApplicationNewResponseBrowserVNCApplicationDestinationsViaMcpServerPortalDestination struct {
 	// The MCP server id configured in ai-controls.
@@ -6336,7 +6336,7 @@ func (r AccessApplicationNewResponseBrowserVNCApplicationDestinationsViaMcpServe
 	return false
 }
 
-// A specific Cloudflare Worker that Access will secure. All requests routed to the
+// AccessApplicationNewResponseBrowserVNCApplicationDestinationsWorkerDestination is a specific Cloudflare Worker that Access will secure. All requests routed to the
 // specified Worker, including its preview deployments, will be protected. The
 // `preview_worker` and `public` destination types takes precedence, so you can
 // create separate applications to override the policies for the Worker's previews
@@ -6383,7 +6383,7 @@ func (r AccessApplicationNewResponseBrowserVNCApplicationDestinationsWorkerDesti
 	return false
 }
 
-// A specific Cloudflare Worker whose preview deployments Access will secure. Only
+// AccessApplicationNewResponseBrowserVNCApplicationDestinationsPreviewWorkerDestination is a specific Cloudflare Worker whose preview deployments Access will secure. Only
 // requests routed to the preview deployments of the specified Worker will be
 // protected. The `public` destination type takes precedence, so you can create
 // separate applications to override the policies for specific paths.
@@ -6430,7 +6430,7 @@ func (r AccessApplicationNewResponseBrowserVNCApplicationDestinationsPreviewWork
 	return false
 }
 
-// Protects all Cloudflare Workers on the account with Access, including their
+// AccessApplicationNewResponseBrowserVNCApplicationDestinationsAllWorkersDestination protects all Cloudflare Workers on the account with Access, including their
 // preview deployments. At most one destination of this type can exist per account.
 // The `worker`, `preview_worker`, `all_preview_workers`, and `public` destination
 // types take precedence, so you can create separate applications to override the
@@ -6474,7 +6474,7 @@ func (r AccessApplicationNewResponseBrowserVNCApplicationDestinationsAllWorkersD
 	return false
 }
 
-// Protects the preview deployments of all Cloudflare Workers on the account with
+// AccessApplicationNewResponseBrowserVNCApplicationDestinationsAllPreviewWorkersDestination protects the preview deployments of all Cloudflare Workers on the account with
 // Access. At most one destination of this type can exist per account. The
 // `worker`, `preview_worker`, and `public` destination types take precedence, so
 // you can create separate applications to override the policies for specific
@@ -6518,7 +6518,7 @@ func (r AccessApplicationNewResponseBrowserVNCApplicationDestinationsAllPreviewW
 	return false
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationNewResponseBrowserVNCApplicationDestinationsL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationNewResponseBrowserVNCApplicationDestinationsL4Protocol string
 
@@ -6555,7 +6555,7 @@ func (r AccessApplicationNewResponseBrowserVNCApplicationDestinationsType) IsKno
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationNewResponseBrowserVNCApplicationMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationNewResponseBrowserVNCApplicationMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationNewResponseBrowserVNCApplicationMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -6603,7 +6603,7 @@ func (r AccessApplicationNewResponseBrowserVNCApplicationMfaConfigAllowedAuthent
 	return false
 }
 
-// **Beta:** Optional configuration for managing an OAuth authorization flow
+// AccessApplicationNewResponseBrowserVNCApplicationOAuthConfiguration **Beta:** Optional configuration for managing an OAuth authorization flow
 // controlled by Access. When set, Access will act as the OAuth authorization
 // server for this application. Only compatible with OAuth clients that support
 // [RFC 8707](https://datatracker.ietf.org/doc/html/rfc8707) (Resource Indicators
@@ -6639,7 +6639,7 @@ func (r accessApplicationNewResponseBrowserVNCApplicationOAuthConfigurationJSON)
 	return r.raw
 }
 
-// Settings for OAuth dynamic client registration.
+// AccessApplicationNewResponseBrowserVNCApplicationOAuthConfigurationDynamicClientRegistration settings for OAuth dynamic client registration.
 type AccessApplicationNewResponseBrowserVNCApplicationOAuthConfigurationDynamicClientRegistration struct {
 	// Allows any client with redirect URIs on localhost.
 	AllowAnyOnLocalhost bool `json:"allow_any_on_localhost"`
@@ -6673,7 +6673,7 @@ func (r accessApplicationNewResponseBrowserVNCApplicationOAuthConfigurationDynam
 	return r.raw
 }
 
-// Settings for OAuth grant behavior.
+// AccessApplicationNewResponseBrowserVNCApplicationOAuthConfigurationGrant settings for OAuth grant behavior.
 type AccessApplicationNewResponseBrowserVNCApplicationOAuthConfigurationGrant struct {
 	// The lifetime of the access token. Must be in the format `300ms` or `2h45m`.
 	// Valid time units are ns, us (or µs), ms, s, m, h.
@@ -6782,7 +6782,7 @@ func (r accessApplicationNewResponseBrowserVNCApplicationPolicyJSON) RawJSON() s
 	return r.raw
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationNewResponseBrowserVNCApplicationPoliciesConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationNewResponseBrowserVNCApplicationPoliciesConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -6807,7 +6807,7 @@ func (r accessApplicationNewResponseBrowserVNCApplicationPoliciesConnectionRules
 	return r.raw
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationNewResponseBrowserVNCApplicationPoliciesConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationNewResponseBrowserVNCApplicationPoliciesConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats []AccessApplicationNewResponseBrowserVNCApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat `json:"allowed_clipboard_local_to_remote_formats"`
@@ -6834,7 +6834,7 @@ func (r accessApplicationNewResponseBrowserVNCApplicationPoliciesConnectionRules
 	return r.raw
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationNewResponseBrowserVNCApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationNewResponseBrowserVNCApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -6849,7 +6849,7 @@ func (r AccessApplicationNewResponseBrowserVNCApplicationPoliciesConnectionRules
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationNewResponseBrowserVNCApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationNewResponseBrowserVNCApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -6864,7 +6864,7 @@ func (r AccessApplicationNewResponseBrowserVNCApplicationPoliciesConnectionRules
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationNewResponseBrowserVNCApplicationPoliciesMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationNewResponseBrowserVNCApplicationPoliciesMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationNewResponseBrowserVNCApplicationPoliciesMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -6912,7 +6912,7 @@ func (r AccessApplicationNewResponseBrowserVNCApplicationPoliciesMfaConfigAllowe
 	return false
 }
 
-// Configuration for provisioning to this application via SCIM. This is currently
+// AccessApplicationNewResponseBrowserVNCApplicationSCIMConfig configuration for provisioning to this application via SCIM. This is currently
 // in closed beta.
 type AccessApplicationNewResponseBrowserVNCApplicationSCIMConfig struct {
 	// The UID of the IdP to use as the source for SCIM resources to provision to this
@@ -6957,7 +6957,7 @@ func (r accessApplicationNewResponseBrowserVNCApplicationSCIMConfigJSON) RawJSON
 	return r.raw
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationNewResponseBrowserVNCApplicationSCIMConfigAuthenticationUnion attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Union satisfied by [SCIMConfigAuthenticationHTTPBasic],
@@ -6996,7 +6996,7 @@ func init() {
 	)
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationNewResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationNewResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -7032,7 +7032,7 @@ func (r accessApplicationNewResponseBrowserVNCApplicationSCIMConfigAuthenticatio
 func (r AccessApplicationNewResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationNewResponseBrowserVNCApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationNewResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationNewResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -7052,7 +7052,7 @@ type AccessApplicationNewResponseBrowserVNCApplicationSCIMConfigAuthenticationAc
 func (r AccessApplicationNewResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthentication) implementsAccessApplicationNewResponseBrowserVNCApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationNewResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationNewResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem struct {
 	// The authentication scheme to use when making SCIM requests to this application.
@@ -7121,7 +7121,7 @@ func (r AccessApplicationNewResponseBrowserVNCApplicationSCIMConfigAuthenticatio
 	return r.union
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationNewResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationUnionItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Union satisfied by [SCIMConfigAuthenticationHTTPBasic],
@@ -7154,7 +7154,7 @@ func init() {
 	)
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationNewResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationNewResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -7190,7 +7190,7 @@ func (r accessApplicationNewResponseBrowserVNCApplicationSCIMConfigAuthenticatio
 func (r AccessApplicationNewResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationNewResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationNewResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationNewResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -7205,7 +7205,7 @@ func (r AccessApplicationNewResponseBrowserVNCApplicationSCIMConfigAuthenticatio
 	return false
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationNewResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationNewResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme string
 
 const (
@@ -7305,7 +7305,7 @@ func (r accessApplicationNewResponseAppLauncherApplicationJSON) RawJSON() string
 func (r AccessApplicationNewResponseAppLauncherApplication) implementsAccessApplicationNewResponse() {
 }
 
-// The application type.
+// AccessApplicationNewResponseAppLauncherApplicationType is the application type.
 type AccessApplicationNewResponseAppLauncherApplicationType string
 
 const (
@@ -7359,7 +7359,7 @@ func (r accessApplicationNewResponseAppLauncherApplicationFooterLinkJSON) RawJSO
 	return r.raw
 }
 
-// The design of the App Launcher landing page shown to users when they log in.
+// AccessApplicationNewResponseAppLauncherApplicationLandingPageDesign is the design of the App Launcher landing page shown to users when they log in.
 type AccessApplicationNewResponseAppLauncherApplicationLandingPageDesign struct {
 	// The background color of the log in button on the landing page.
 	ButtonColor string `json:"button_color"`
@@ -7475,7 +7475,7 @@ func (r accessApplicationNewResponseAppLauncherApplicationPolicyJSON) RawJSON() 
 	return r.raw
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationNewResponseAppLauncherApplicationPoliciesConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationNewResponseAppLauncherApplicationPoliciesConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -7500,7 +7500,7 @@ func (r accessApplicationNewResponseAppLauncherApplicationPoliciesConnectionRule
 	return r.raw
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationNewResponseAppLauncherApplicationPoliciesConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationNewResponseAppLauncherApplicationPoliciesConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats []AccessApplicationNewResponseAppLauncherApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat `json:"allowed_clipboard_local_to_remote_formats"`
@@ -7527,7 +7527,7 @@ func (r accessApplicationNewResponseAppLauncherApplicationPoliciesConnectionRule
 	return r.raw
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationNewResponseAppLauncherApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationNewResponseAppLauncherApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -7542,7 +7542,7 @@ func (r AccessApplicationNewResponseAppLauncherApplicationPoliciesConnectionRule
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationNewResponseAppLauncherApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationNewResponseAppLauncherApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -7557,7 +7557,7 @@ func (r AccessApplicationNewResponseAppLauncherApplicationPoliciesConnectionRule
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationNewResponseAppLauncherApplicationPoliciesMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationNewResponseAppLauncherApplicationPoliciesMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationNewResponseAppLauncherApplicationPoliciesMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -7750,7 +7750,7 @@ func (r accessApplicationNewResponseDeviceEnrollmentPermissionsApplicationPolicy
 	return r.raw
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationNewResponseDeviceEnrollmentPermissionsApplicationPoliciesConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationNewResponseDeviceEnrollmentPermissionsApplicationPoliciesConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -7775,7 +7775,7 @@ func (r accessApplicationNewResponseDeviceEnrollmentPermissionsApplicationPolici
 	return r.raw
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationNewResponseDeviceEnrollmentPermissionsApplicationPoliciesConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationNewResponseDeviceEnrollmentPermissionsApplicationPoliciesConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats []AccessApplicationNewResponseDeviceEnrollmentPermissionsApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat `json:"allowed_clipboard_local_to_remote_formats"`
@@ -7802,7 +7802,7 @@ func (r accessApplicationNewResponseDeviceEnrollmentPermissionsApplicationPolici
 	return r.raw
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationNewResponseDeviceEnrollmentPermissionsApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationNewResponseDeviceEnrollmentPermissionsApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -7817,7 +7817,7 @@ func (r AccessApplicationNewResponseDeviceEnrollmentPermissionsApplicationPolici
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationNewResponseDeviceEnrollmentPermissionsApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationNewResponseDeviceEnrollmentPermissionsApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -7832,7 +7832,7 @@ func (r AccessApplicationNewResponseDeviceEnrollmentPermissionsApplicationPolici
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationNewResponseDeviceEnrollmentPermissionsApplicationPoliciesMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationNewResponseDeviceEnrollmentPermissionsApplicationPoliciesMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationNewResponseDeviceEnrollmentPermissionsApplicationPoliciesMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -8025,7 +8025,7 @@ func (r accessApplicationNewResponseBrowserIsolationPermissionsApplicationPolicy
 	return r.raw
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationNewResponseBrowserIsolationPermissionsApplicationPoliciesConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationNewResponseBrowserIsolationPermissionsApplicationPoliciesConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -8050,7 +8050,7 @@ func (r accessApplicationNewResponseBrowserIsolationPermissionsApplicationPolici
 	return r.raw
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationNewResponseBrowserIsolationPermissionsApplicationPoliciesConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationNewResponseBrowserIsolationPermissionsApplicationPoliciesConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats []AccessApplicationNewResponseBrowserIsolationPermissionsApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat `json:"allowed_clipboard_local_to_remote_formats"`
@@ -8077,7 +8077,7 @@ func (r accessApplicationNewResponseBrowserIsolationPermissionsApplicationPolici
 	return r.raw
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationNewResponseBrowserIsolationPermissionsApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationNewResponseBrowserIsolationPermissionsApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -8092,7 +8092,7 @@ func (r AccessApplicationNewResponseBrowserIsolationPermissionsApplicationPolici
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationNewResponseBrowserIsolationPermissionsApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationNewResponseBrowserIsolationPermissionsApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -8107,7 +8107,7 @@ func (r AccessApplicationNewResponseBrowserIsolationPermissionsApplicationPolici
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationNewResponseBrowserIsolationPermissionsApplicationPoliciesMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationNewResponseBrowserIsolationPermissionsApplicationPoliciesMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationNewResponseBrowserIsolationPermissionsApplicationPoliciesMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -8300,7 +8300,7 @@ func (r accessApplicationNewResponseGatewayIdentityProxyEndpointApplicationPolic
 	return r.raw
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationNewResponseGatewayIdentityProxyEndpointApplicationPoliciesConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationNewResponseGatewayIdentityProxyEndpointApplicationPoliciesConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -8325,7 +8325,7 @@ func (r accessApplicationNewResponseGatewayIdentityProxyEndpointApplicationPolic
 	return r.raw
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationNewResponseGatewayIdentityProxyEndpointApplicationPoliciesConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationNewResponseGatewayIdentityProxyEndpointApplicationPoliciesConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats []AccessApplicationNewResponseGatewayIdentityProxyEndpointApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat `json:"allowed_clipboard_local_to_remote_formats"`
@@ -8352,7 +8352,7 @@ func (r accessApplicationNewResponseGatewayIdentityProxyEndpointApplicationPolic
 	return r.raw
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationNewResponseGatewayIdentityProxyEndpointApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationNewResponseGatewayIdentityProxyEndpointApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -8367,7 +8367,7 @@ func (r AccessApplicationNewResponseGatewayIdentityProxyEndpointApplicationPolic
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationNewResponseGatewayIdentityProxyEndpointApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationNewResponseGatewayIdentityProxyEndpointApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -8382,7 +8382,7 @@ func (r AccessApplicationNewResponseGatewayIdentityProxyEndpointApplicationPolic
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationNewResponseGatewayIdentityProxyEndpointApplicationPoliciesMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationNewResponseGatewayIdentityProxyEndpointApplicationPoliciesMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationNewResponseGatewayIdentityProxyEndpointApplicationPoliciesMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -8557,7 +8557,7 @@ func (r accessApplicationNewResponseBookmarkApplicationPolicyJSON) RawJSON() str
 	return r.raw
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationNewResponseBookmarkApplicationPoliciesConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationNewResponseBookmarkApplicationPoliciesConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -8582,7 +8582,7 @@ func (r accessApplicationNewResponseBookmarkApplicationPoliciesConnectionRulesJS
 	return r.raw
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationNewResponseBookmarkApplicationPoliciesConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationNewResponseBookmarkApplicationPoliciesConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats []AccessApplicationNewResponseBookmarkApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat `json:"allowed_clipboard_local_to_remote_formats"`
@@ -8609,7 +8609,7 @@ func (r accessApplicationNewResponseBookmarkApplicationPoliciesConnectionRulesRD
 	return r.raw
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationNewResponseBookmarkApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationNewResponseBookmarkApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -8624,7 +8624,7 @@ func (r AccessApplicationNewResponseBookmarkApplicationPoliciesConnectionRulesRD
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationNewResponseBookmarkApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationNewResponseBookmarkApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -8639,7 +8639,7 @@ func (r AccessApplicationNewResponseBookmarkApplicationPoliciesConnectionRulesRD
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationNewResponseBookmarkApplicationPoliciesMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationNewResponseBookmarkApplicationPoliciesMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationNewResponseBookmarkApplicationPoliciesMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -8755,7 +8755,7 @@ func (r accessApplicationNewResponseInfrastructureApplicationTargetCriterionJSON
 	return r.raw
 }
 
-// The communication protocol your application secures.
+// AccessApplicationNewResponseInfrastructureApplicationTargetCriteriaProtocol is the communication protocol your application secures.
 type AccessApplicationNewResponseInfrastructureApplicationTargetCriteriaProtocol string
 
 const (
@@ -8824,7 +8824,7 @@ func (r accessApplicationNewResponseInfrastructureApplicationPolicyJSON) RawJSON
 	return r.raw
 }
 
-// The rules that define how users may connect to the targets secured by your
+// AccessApplicationNewResponseInfrastructureApplicationPoliciesConnectionRules is the rules that define how users may connect to the targets secured by your
 // application.
 type AccessApplicationNewResponseInfrastructureApplicationPoliciesConnectionRules struct {
 	// The SSH-specific rules that define how users may connect to the targets secured
@@ -8850,7 +8850,7 @@ func (r accessApplicationNewResponseInfrastructureApplicationPoliciesConnectionR
 	return r.raw
 }
 
-// The SSH-specific rules that define how users may connect to the targets secured
+// AccessApplicationNewResponseInfrastructureApplicationPoliciesConnectionRulesSSH is the SSH-specific rules that define how users may connect to the targets secured
 // by your application.
 type AccessApplicationNewResponseInfrastructureApplicationPoliciesConnectionRulesSSH struct {
 	// Contains the Unix usernames that may be used when connecting over SSH.
@@ -8878,7 +8878,7 @@ func (r accessApplicationNewResponseInfrastructureApplicationPoliciesConnectionR
 	return r.raw
 }
 
-// Configures multi-factor authentication (MFA) settings for infrastructure
+// AccessApplicationNewResponseInfrastructureApplicationPoliciesMfaConfig configures multi-factor authentication (MFA) settings for infrastructure
 // applications.
 type AccessApplicationNewResponseInfrastructureApplicationPoliciesMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with. For infrastructure
@@ -9119,7 +9119,7 @@ func (r accessApplicationNewResponseBrowserRDPApplicationTargetCriterionJSON) Ra
 	return r.raw
 }
 
-// The communication protocol your application secures.
+// AccessApplicationNewResponseBrowserRDPApplicationTargetCriteriaProtocol is the communication protocol your application secures.
 type AccessApplicationNewResponseBrowserRDPApplicationTargetCriteriaProtocol string
 
 const (
@@ -9134,7 +9134,7 @@ func (r AccessApplicationNewResponseBrowserRDPApplicationTargetCriteriaProtocol)
 	return false
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationNewResponseBrowserRDPApplicationDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationNewResponseBrowserRDPApplicationDestination struct {
 	// The CIDR range of the destination. Single IPs will be computed as /32.
@@ -9208,7 +9208,7 @@ func (r AccessApplicationNewResponseBrowserRDPApplicationDestination) AsUnion() 
 	return r.union
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationNewResponseBrowserRDPApplicationDestinationsUnion is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 //
 // Union satisfied by
@@ -9259,7 +9259,7 @@ func init() {
 	)
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationNewResponseBrowserRDPApplicationDestinationsPublicDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationNewResponseBrowserRDPApplicationDestinationsPublicDestination struct {
 	Type AccessApplicationNewResponseBrowserRDPApplicationDestinationsPublicDestinationType `json:"type"`
@@ -9347,7 +9347,7 @@ func (r accessApplicationNewResponseBrowserRDPApplicationDestinationsPrivateDest
 func (r AccessApplicationNewResponseBrowserRDPApplicationDestinationsPrivateDestination) implementsAccessApplicationNewResponseBrowserRDPApplicationDestination() {
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationNewResponseBrowserRDPApplicationDestinationsPrivateDestinationL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationNewResponseBrowserRDPApplicationDestinationsPrivateDestinationL4Protocol string
 
@@ -9378,7 +9378,7 @@ func (r AccessApplicationNewResponseBrowserRDPApplicationDestinationsPrivateDest
 	return false
 }
 
-// A MCP server id configured in ai-controls. Access will secure the MCP server if
+// AccessApplicationNewResponseBrowserRDPApplicationDestinationsViaMcpServerPortalDestination is a MCP server id configured in ai-controls. Access will secure the MCP server if
 // accessed through a MCP portal.
 type AccessApplicationNewResponseBrowserRDPApplicationDestinationsViaMcpServerPortalDestination struct {
 	// The MCP server id configured in ai-controls.
@@ -9422,7 +9422,7 @@ func (r AccessApplicationNewResponseBrowserRDPApplicationDestinationsViaMcpServe
 	return false
 }
 
-// A specific Cloudflare Worker that Access will secure. All requests routed to the
+// AccessApplicationNewResponseBrowserRDPApplicationDestinationsWorkerDestination is a specific Cloudflare Worker that Access will secure. All requests routed to the
 // specified Worker, including its preview deployments, will be protected. The
 // `preview_worker` and `public` destination types takes precedence, so you can
 // create separate applications to override the policies for the Worker's previews
@@ -9469,7 +9469,7 @@ func (r AccessApplicationNewResponseBrowserRDPApplicationDestinationsWorkerDesti
 	return false
 }
 
-// A specific Cloudflare Worker whose preview deployments Access will secure. Only
+// AccessApplicationNewResponseBrowserRDPApplicationDestinationsPreviewWorkerDestination is a specific Cloudflare Worker whose preview deployments Access will secure. Only
 // requests routed to the preview deployments of the specified Worker will be
 // protected. The `public` destination type takes precedence, so you can create
 // separate applications to override the policies for specific paths.
@@ -9516,7 +9516,7 @@ func (r AccessApplicationNewResponseBrowserRDPApplicationDestinationsPreviewWork
 	return false
 }
 
-// Protects all Cloudflare Workers on the account with Access, including their
+// AccessApplicationNewResponseBrowserRDPApplicationDestinationsAllWorkersDestination protects all Cloudflare Workers on the account with Access, including their
 // preview deployments. At most one destination of this type can exist per account.
 // The `worker`, `preview_worker`, `all_preview_workers`, and `public` destination
 // types take precedence, so you can create separate applications to override the
@@ -9560,7 +9560,7 @@ func (r AccessApplicationNewResponseBrowserRDPApplicationDestinationsAllWorkersD
 	return false
 }
 
-// Protects the preview deployments of all Cloudflare Workers on the account with
+// AccessApplicationNewResponseBrowserRDPApplicationDestinationsAllPreviewWorkersDestination protects the preview deployments of all Cloudflare Workers on the account with
 // Access. At most one destination of this type can exist per account. The
 // `worker`, `preview_worker`, and `public` destination types take precedence, so
 // you can create separate applications to override the policies for specific
@@ -9604,7 +9604,7 @@ func (r AccessApplicationNewResponseBrowserRDPApplicationDestinationsAllPreviewW
 	return false
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationNewResponseBrowserRDPApplicationDestinationsL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationNewResponseBrowserRDPApplicationDestinationsL4Protocol string
 
@@ -9641,7 +9641,7 @@ func (r AccessApplicationNewResponseBrowserRDPApplicationDestinationsType) IsKno
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationNewResponseBrowserRDPApplicationMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationNewResponseBrowserRDPApplicationMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationNewResponseBrowserRDPApplicationMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -9689,7 +9689,7 @@ func (r AccessApplicationNewResponseBrowserRDPApplicationMfaConfigAllowedAuthent
 	return false
 }
 
-// **Beta:** Optional configuration for managing an OAuth authorization flow
+// AccessApplicationNewResponseBrowserRDPApplicationOAuthConfiguration **Beta:** Optional configuration for managing an OAuth authorization flow
 // controlled by Access. When set, Access will act as the OAuth authorization
 // server for this application. Only compatible with OAuth clients that support
 // [RFC 8707](https://datatracker.ietf.org/doc/html/rfc8707) (Resource Indicators
@@ -9725,7 +9725,7 @@ func (r accessApplicationNewResponseBrowserRDPApplicationOAuthConfigurationJSON)
 	return r.raw
 }
 
-// Settings for OAuth dynamic client registration.
+// AccessApplicationNewResponseBrowserRDPApplicationOAuthConfigurationDynamicClientRegistration settings for OAuth dynamic client registration.
 type AccessApplicationNewResponseBrowserRDPApplicationOAuthConfigurationDynamicClientRegistration struct {
 	// Allows any client with redirect URIs on localhost.
 	AllowAnyOnLocalhost bool `json:"allow_any_on_localhost"`
@@ -9759,7 +9759,7 @@ func (r accessApplicationNewResponseBrowserRDPApplicationOAuthConfigurationDynam
 	return r.raw
 }
 
-// Settings for OAuth grant behavior.
+// AccessApplicationNewResponseBrowserRDPApplicationOAuthConfigurationGrant settings for OAuth grant behavior.
 type AccessApplicationNewResponseBrowserRDPApplicationOAuthConfigurationGrant struct {
 	// The lifetime of the access token. Must be in the format `300ms` or `2h45m`.
 	// Valid time units are ns, us (or µs), ms, s, m, h.
@@ -9868,7 +9868,7 @@ func (r accessApplicationNewResponseBrowserRDPApplicationPolicyJSON) RawJSON() s
 	return r.raw
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationNewResponseBrowserRDPApplicationPoliciesConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationNewResponseBrowserRDPApplicationPoliciesConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -9893,7 +9893,7 @@ func (r accessApplicationNewResponseBrowserRDPApplicationPoliciesConnectionRules
 	return r.raw
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationNewResponseBrowserRDPApplicationPoliciesConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationNewResponseBrowserRDPApplicationPoliciesConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats []AccessApplicationNewResponseBrowserRDPApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat `json:"allowed_clipboard_local_to_remote_formats"`
@@ -9920,7 +9920,7 @@ func (r accessApplicationNewResponseBrowserRDPApplicationPoliciesConnectionRules
 	return r.raw
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationNewResponseBrowserRDPApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationNewResponseBrowserRDPApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -9935,7 +9935,7 @@ func (r AccessApplicationNewResponseBrowserRDPApplicationPoliciesConnectionRules
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationNewResponseBrowserRDPApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationNewResponseBrowserRDPApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -9950,7 +9950,7 @@ func (r AccessApplicationNewResponseBrowserRDPApplicationPoliciesConnectionRules
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationNewResponseBrowserRDPApplicationPoliciesMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationNewResponseBrowserRDPApplicationPoliciesMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationNewResponseBrowserRDPApplicationPoliciesMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -9998,7 +9998,7 @@ func (r AccessApplicationNewResponseBrowserRDPApplicationPoliciesMfaConfigAllowe
 	return false
 }
 
-// Configuration for provisioning to this application via SCIM. This is currently
+// AccessApplicationNewResponseBrowserRDPApplicationSCIMConfig configuration for provisioning to this application via SCIM. This is currently
 // in closed beta.
 type AccessApplicationNewResponseBrowserRDPApplicationSCIMConfig struct {
 	// The UID of the IdP to use as the source for SCIM resources to provision to this
@@ -10043,7 +10043,7 @@ func (r accessApplicationNewResponseBrowserRDPApplicationSCIMConfigJSON) RawJSON
 	return r.raw
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationNewResponseBrowserRDPApplicationSCIMConfigAuthenticationUnion attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Union satisfied by [SCIMConfigAuthenticationHTTPBasic],
@@ -10082,7 +10082,7 @@ func init() {
 	)
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationNewResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationNewResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -10118,7 +10118,7 @@ func (r accessApplicationNewResponseBrowserRDPApplicationSCIMConfigAuthenticatio
 func (r AccessApplicationNewResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationNewResponseBrowserRDPApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationNewResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationNewResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -10138,7 +10138,7 @@ type AccessApplicationNewResponseBrowserRDPApplicationSCIMConfigAuthenticationAc
 func (r AccessApplicationNewResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthentication) implementsAccessApplicationNewResponseBrowserRDPApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationNewResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationNewResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem struct {
 	// The authentication scheme to use when making SCIM requests to this application.
@@ -10207,7 +10207,7 @@ func (r AccessApplicationNewResponseBrowserRDPApplicationSCIMConfigAuthenticatio
 	return r.union
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationNewResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationUnionItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Union satisfied by [SCIMConfigAuthenticationHTTPBasic],
@@ -10240,7 +10240,7 @@ func init() {
 	)
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationNewResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationNewResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -10276,7 +10276,7 @@ func (r accessApplicationNewResponseBrowserRDPApplicationSCIMConfigAuthenticatio
 func (r AccessApplicationNewResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationNewResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationNewResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationNewResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -10291,7 +10291,7 @@ func (r AccessApplicationNewResponseBrowserRDPApplicationSCIMConfigAuthenticatio
 	return false
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationNewResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationNewResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme string
 
 const (
@@ -10413,7 +10413,7 @@ func (r accessApplicationNewResponseMcpServerApplicationJSON) RawJSON() string {
 
 func (r AccessApplicationNewResponseMcpServerApplication) implementsAccessApplicationNewResponse() {}
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationNewResponseMcpServerApplicationDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationNewResponseMcpServerApplicationDestination struct {
 	// The CIDR range of the destination. Single IPs will be computed as /32.
@@ -10487,7 +10487,7 @@ func (r AccessApplicationNewResponseMcpServerApplicationDestination) AsUnion() A
 	return r.union
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationNewResponseMcpServerApplicationDestinationsUnion is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 //
 // Union satisfied by
@@ -10538,7 +10538,7 @@ func init() {
 	)
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationNewResponseMcpServerApplicationDestinationsPublicDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationNewResponseMcpServerApplicationDestinationsPublicDestination struct {
 	Type AccessApplicationNewResponseMcpServerApplicationDestinationsPublicDestinationType `json:"type"`
@@ -10626,7 +10626,7 @@ func (r accessApplicationNewResponseMcpServerApplicationDestinationsPrivateDesti
 func (r AccessApplicationNewResponseMcpServerApplicationDestinationsPrivateDestination) implementsAccessApplicationNewResponseMcpServerApplicationDestination() {
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationNewResponseMcpServerApplicationDestinationsPrivateDestinationL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationNewResponseMcpServerApplicationDestinationsPrivateDestinationL4Protocol string
 
@@ -10657,7 +10657,7 @@ func (r AccessApplicationNewResponseMcpServerApplicationDestinationsPrivateDesti
 	return false
 }
 
-// A MCP server id configured in ai-controls. Access will secure the MCP server if
+// AccessApplicationNewResponseMcpServerApplicationDestinationsViaMcpServerPortalDestination is a MCP server id configured in ai-controls. Access will secure the MCP server if
 // accessed through a MCP portal.
 type AccessApplicationNewResponseMcpServerApplicationDestinationsViaMcpServerPortalDestination struct {
 	// The MCP server id configured in ai-controls.
@@ -10701,7 +10701,7 @@ func (r AccessApplicationNewResponseMcpServerApplicationDestinationsViaMcpServer
 	return false
 }
 
-// A specific Cloudflare Worker that Access will secure. All requests routed to the
+// AccessApplicationNewResponseMcpServerApplicationDestinationsWorkerDestination is a specific Cloudflare Worker that Access will secure. All requests routed to the
 // specified Worker, including its preview deployments, will be protected. The
 // `preview_worker` and `public` destination types takes precedence, so you can
 // create separate applications to override the policies for the Worker's previews
@@ -10748,7 +10748,7 @@ func (r AccessApplicationNewResponseMcpServerApplicationDestinationsWorkerDestin
 	return false
 }
 
-// A specific Cloudflare Worker whose preview deployments Access will secure. Only
+// AccessApplicationNewResponseMcpServerApplicationDestinationsPreviewWorkerDestination is a specific Cloudflare Worker whose preview deployments Access will secure. Only
 // requests routed to the preview deployments of the specified Worker will be
 // protected. The `public` destination type takes precedence, so you can create
 // separate applications to override the policies for specific paths.
@@ -10795,7 +10795,7 @@ func (r AccessApplicationNewResponseMcpServerApplicationDestinationsPreviewWorke
 	return false
 }
 
-// Protects all Cloudflare Workers on the account with Access, including their
+// AccessApplicationNewResponseMcpServerApplicationDestinationsAllWorkersDestination protects all Cloudflare Workers on the account with Access, including their
 // preview deployments. At most one destination of this type can exist per account.
 // The `worker`, `preview_worker`, `all_preview_workers`, and `public` destination
 // types take precedence, so you can create separate applications to override the
@@ -10839,7 +10839,7 @@ func (r AccessApplicationNewResponseMcpServerApplicationDestinationsAllWorkersDe
 	return false
 }
 
-// Protects the preview deployments of all Cloudflare Workers on the account with
+// AccessApplicationNewResponseMcpServerApplicationDestinationsAllPreviewWorkersDestination protects the preview deployments of all Cloudflare Workers on the account with
 // Access. At most one destination of this type can exist per account. The
 // `worker`, `preview_worker`, and `public` destination types take precedence, so
 // you can create separate applications to override the policies for specific
@@ -10883,7 +10883,7 @@ func (r AccessApplicationNewResponseMcpServerApplicationDestinationsAllPreviewWo
 	return false
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationNewResponseMcpServerApplicationDestinationsL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationNewResponseMcpServerApplicationDestinationsL4Protocol string
 
@@ -10920,7 +10920,7 @@ func (r AccessApplicationNewResponseMcpServerApplicationDestinationsType) IsKnow
 	return false
 }
 
-// **Beta:** Optional configuration for managing an OAuth authorization flow
+// AccessApplicationNewResponseMcpServerApplicationOAuthConfiguration **Beta:** Optional configuration for managing an OAuth authorization flow
 // controlled by Access. When set, Access will act as the OAuth authorization
 // server for this application. Only compatible with OAuth clients that support
 // [RFC 8707](https://datatracker.ietf.org/doc/html/rfc8707) (Resource Indicators
@@ -10956,7 +10956,7 @@ func (r accessApplicationNewResponseMcpServerApplicationOAuthConfigurationJSON) 
 	return r.raw
 }
 
-// Settings for OAuth dynamic client registration.
+// AccessApplicationNewResponseMcpServerApplicationOAuthConfigurationDynamicClientRegistration settings for OAuth dynamic client registration.
 type AccessApplicationNewResponseMcpServerApplicationOAuthConfigurationDynamicClientRegistration struct {
 	// Allows any client with redirect URIs on localhost.
 	AllowAnyOnLocalhost bool `json:"allow_any_on_localhost"`
@@ -10990,7 +10990,7 @@ func (r accessApplicationNewResponseMcpServerApplicationOAuthConfigurationDynami
 	return r.raw
 }
 
-// Settings for OAuth grant behavior.
+// AccessApplicationNewResponseMcpServerApplicationOAuthConfigurationGrant settings for OAuth grant behavior.
 type AccessApplicationNewResponseMcpServerApplicationOAuthConfigurationGrant struct {
 	// The lifetime of the access token. Must be in the format `300ms` or `2h45m`.
 	// Valid time units are ns, us (or µs), ms, s, m, h.
@@ -11098,7 +11098,7 @@ func (r accessApplicationNewResponseMcpServerApplicationPolicyJSON) RawJSON() st
 	return r.raw
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationNewResponseMcpServerApplicationPoliciesConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationNewResponseMcpServerApplicationPoliciesConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -11123,7 +11123,7 @@ func (r accessApplicationNewResponseMcpServerApplicationPoliciesConnectionRulesJ
 	return r.raw
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationNewResponseMcpServerApplicationPoliciesConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationNewResponseMcpServerApplicationPoliciesConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats []AccessApplicationNewResponseMcpServerApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat `json:"allowed_clipboard_local_to_remote_formats"`
@@ -11150,7 +11150,7 @@ func (r accessApplicationNewResponseMcpServerApplicationPoliciesConnectionRulesR
 	return r.raw
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationNewResponseMcpServerApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationNewResponseMcpServerApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -11165,7 +11165,7 @@ func (r AccessApplicationNewResponseMcpServerApplicationPoliciesConnectionRulesR
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationNewResponseMcpServerApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationNewResponseMcpServerApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -11180,7 +11180,7 @@ func (r AccessApplicationNewResponseMcpServerApplicationPoliciesConnectionRulesR
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationNewResponseMcpServerApplicationPoliciesMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationNewResponseMcpServerApplicationPoliciesMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationNewResponseMcpServerApplicationPoliciesMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -11228,7 +11228,7 @@ func (r AccessApplicationNewResponseMcpServerApplicationPoliciesMfaConfigAllowed
 	return false
 }
 
-// Configuration for provisioning to this application via SCIM. This is currently
+// AccessApplicationNewResponseMcpServerApplicationSCIMConfig configuration for provisioning to this application via SCIM. This is currently
 // in closed beta.
 type AccessApplicationNewResponseMcpServerApplicationSCIMConfig struct {
 	// The UID of the IdP to use as the source for SCIM resources to provision to this
@@ -11273,7 +11273,7 @@ func (r accessApplicationNewResponseMcpServerApplicationSCIMConfigJSON) RawJSON(
 	return r.raw
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationNewResponseMcpServerApplicationSCIMConfigAuthenticationUnion attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Union satisfied by [SCIMConfigAuthenticationHTTPBasic],
@@ -11312,7 +11312,7 @@ func init() {
 	)
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationNewResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationNewResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -11348,7 +11348,7 @@ func (r accessApplicationNewResponseMcpServerApplicationSCIMConfigAuthentication
 func (r AccessApplicationNewResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationNewResponseMcpServerApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationNewResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationNewResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -11368,7 +11368,7 @@ type AccessApplicationNewResponseMcpServerApplicationSCIMConfigAuthenticationAcc
 func (r AccessApplicationNewResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthentication) implementsAccessApplicationNewResponseMcpServerApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationNewResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationNewResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem struct {
 	// The authentication scheme to use when making SCIM requests to this application.
@@ -11437,7 +11437,7 @@ func (r AccessApplicationNewResponseMcpServerApplicationSCIMConfigAuthentication
 	return r.union
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationNewResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationUnionItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Union satisfied by [SCIMConfigAuthenticationHTTPBasic],
@@ -11470,7 +11470,7 @@ func init() {
 	)
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationNewResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationNewResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -11506,7 +11506,7 @@ func (r accessApplicationNewResponseMcpServerApplicationSCIMConfigAuthentication
 func (r AccessApplicationNewResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationNewResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationNewResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationNewResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -11521,7 +11521,7 @@ func (r AccessApplicationNewResponseMcpServerApplicationSCIMConfigAuthentication
 	return false
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationNewResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationNewResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme string
 
 const (
@@ -11648,7 +11648,7 @@ func (r accessApplicationNewResponseMcpServerPortalApplicationJSON) RawJSON() st
 func (r AccessApplicationNewResponseMcpServerPortalApplication) implementsAccessApplicationNewResponse() {
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationNewResponseMcpServerPortalApplicationDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationNewResponseMcpServerPortalApplicationDestination struct {
 	// The CIDR range of the destination. Single IPs will be computed as /32.
@@ -11722,7 +11722,7 @@ func (r AccessApplicationNewResponseMcpServerPortalApplicationDestination) AsUni
 	return r.union
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationNewResponseMcpServerPortalApplicationDestinationsUnion is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 //
 // Union satisfied by
@@ -11773,7 +11773,7 @@ func init() {
 	)
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationNewResponseMcpServerPortalApplicationDestinationsPublicDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationNewResponseMcpServerPortalApplicationDestinationsPublicDestination struct {
 	Type AccessApplicationNewResponseMcpServerPortalApplicationDestinationsPublicDestinationType `json:"type"`
@@ -11861,7 +11861,7 @@ func (r accessApplicationNewResponseMcpServerPortalApplicationDestinationsPrivat
 func (r AccessApplicationNewResponseMcpServerPortalApplicationDestinationsPrivateDestination) implementsAccessApplicationNewResponseMcpServerPortalApplicationDestination() {
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationNewResponseMcpServerPortalApplicationDestinationsPrivateDestinationL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationNewResponseMcpServerPortalApplicationDestinationsPrivateDestinationL4Protocol string
 
@@ -11892,7 +11892,7 @@ func (r AccessApplicationNewResponseMcpServerPortalApplicationDestinationsPrivat
 	return false
 }
 
-// A MCP server id configured in ai-controls. Access will secure the MCP server if
+// AccessApplicationNewResponseMcpServerPortalApplicationDestinationsViaMcpServerPortalDestination is a MCP server id configured in ai-controls. Access will secure the MCP server if
 // accessed through a MCP portal.
 type AccessApplicationNewResponseMcpServerPortalApplicationDestinationsViaMcpServerPortalDestination struct {
 	// The MCP server id configured in ai-controls.
@@ -11936,7 +11936,7 @@ func (r AccessApplicationNewResponseMcpServerPortalApplicationDestinationsViaMcp
 	return false
 }
 
-// A specific Cloudflare Worker that Access will secure. All requests routed to the
+// AccessApplicationNewResponseMcpServerPortalApplicationDestinationsWorkerDestination is a specific Cloudflare Worker that Access will secure. All requests routed to the
 // specified Worker, including its preview deployments, will be protected. The
 // `preview_worker` and `public` destination types takes precedence, so you can
 // create separate applications to override the policies for the Worker's previews
@@ -11983,7 +11983,7 @@ func (r AccessApplicationNewResponseMcpServerPortalApplicationDestinationsWorker
 	return false
 }
 
-// A specific Cloudflare Worker whose preview deployments Access will secure. Only
+// AccessApplicationNewResponseMcpServerPortalApplicationDestinationsPreviewWorkerDestination is a specific Cloudflare Worker whose preview deployments Access will secure. Only
 // requests routed to the preview deployments of the specified Worker will be
 // protected. The `public` destination type takes precedence, so you can create
 // separate applications to override the policies for specific paths.
@@ -12030,7 +12030,7 @@ func (r AccessApplicationNewResponseMcpServerPortalApplicationDestinationsPrevie
 	return false
 }
 
-// Protects all Cloudflare Workers on the account with Access, including their
+// AccessApplicationNewResponseMcpServerPortalApplicationDestinationsAllWorkersDestination protects all Cloudflare Workers on the account with Access, including their
 // preview deployments. At most one destination of this type can exist per account.
 // The `worker`, `preview_worker`, `all_preview_workers`, and `public` destination
 // types take precedence, so you can create separate applications to override the
@@ -12074,7 +12074,7 @@ func (r AccessApplicationNewResponseMcpServerPortalApplicationDestinationsAllWor
 	return false
 }
 
-// Protects the preview deployments of all Cloudflare Workers on the account with
+// AccessApplicationNewResponseMcpServerPortalApplicationDestinationsAllPreviewWorkersDestination protects the preview deployments of all Cloudflare Workers on the account with
 // Access. At most one destination of this type can exist per account. The
 // `worker`, `preview_worker`, and `public` destination types take precedence, so
 // you can create separate applications to override the policies for specific
@@ -12118,7 +12118,7 @@ func (r AccessApplicationNewResponseMcpServerPortalApplicationDestinationsAllPre
 	return false
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationNewResponseMcpServerPortalApplicationDestinationsL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationNewResponseMcpServerPortalApplicationDestinationsL4Protocol string
 
@@ -12155,7 +12155,7 @@ func (r AccessApplicationNewResponseMcpServerPortalApplicationDestinationsType) 
 	return false
 }
 
-// **Beta:** Optional configuration for managing an OAuth authorization flow
+// AccessApplicationNewResponseMcpServerPortalApplicationOAuthConfiguration **Beta:** Optional configuration for managing an OAuth authorization flow
 // controlled by Access. When set, Access will act as the OAuth authorization
 // server for this application. Only compatible with OAuth clients that support
 // [RFC 8707](https://datatracker.ietf.org/doc/html/rfc8707) (Resource Indicators
@@ -12191,7 +12191,7 @@ func (r accessApplicationNewResponseMcpServerPortalApplicationOAuthConfiguration
 	return r.raw
 }
 
-// Settings for OAuth dynamic client registration.
+// AccessApplicationNewResponseMcpServerPortalApplicationOAuthConfigurationDynamicClientRegistration settings for OAuth dynamic client registration.
 type AccessApplicationNewResponseMcpServerPortalApplicationOAuthConfigurationDynamicClientRegistration struct {
 	// Allows any client with redirect URIs on localhost.
 	AllowAnyOnLocalhost bool `json:"allow_any_on_localhost"`
@@ -12225,7 +12225,7 @@ func (r accessApplicationNewResponseMcpServerPortalApplicationOAuthConfiguration
 	return r.raw
 }
 
-// Settings for OAuth grant behavior.
+// AccessApplicationNewResponseMcpServerPortalApplicationOAuthConfigurationGrant settings for OAuth grant behavior.
 type AccessApplicationNewResponseMcpServerPortalApplicationOAuthConfigurationGrant struct {
 	// The lifetime of the access token. Must be in the format `300ms` or `2h45m`.
 	// Valid time units are ns, us (or µs), ms, s, m, h.
@@ -12334,7 +12334,7 @@ func (r accessApplicationNewResponseMcpServerPortalApplicationPolicyJSON) RawJSO
 	return r.raw
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationNewResponseMcpServerPortalApplicationPoliciesConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationNewResponseMcpServerPortalApplicationPoliciesConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -12359,7 +12359,7 @@ func (r accessApplicationNewResponseMcpServerPortalApplicationPoliciesConnection
 	return r.raw
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationNewResponseMcpServerPortalApplicationPoliciesConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationNewResponseMcpServerPortalApplicationPoliciesConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats []AccessApplicationNewResponseMcpServerPortalApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat `json:"allowed_clipboard_local_to_remote_formats"`
@@ -12386,7 +12386,7 @@ func (r accessApplicationNewResponseMcpServerPortalApplicationPoliciesConnection
 	return r.raw
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationNewResponseMcpServerPortalApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationNewResponseMcpServerPortalApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -12401,7 +12401,7 @@ func (r AccessApplicationNewResponseMcpServerPortalApplicationPoliciesConnection
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationNewResponseMcpServerPortalApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationNewResponseMcpServerPortalApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -12416,7 +12416,7 @@ func (r AccessApplicationNewResponseMcpServerPortalApplicationPoliciesConnection
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationNewResponseMcpServerPortalApplicationPoliciesMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationNewResponseMcpServerPortalApplicationPoliciesMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationNewResponseMcpServerPortalApplicationPoliciesMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -12464,7 +12464,7 @@ func (r AccessApplicationNewResponseMcpServerPortalApplicationPoliciesMfaConfigA
 	return false
 }
 
-// Configuration for provisioning to this application via SCIM. This is currently
+// AccessApplicationNewResponseMcpServerPortalApplicationSCIMConfig configuration for provisioning to this application via SCIM. This is currently
 // in closed beta.
 type AccessApplicationNewResponseMcpServerPortalApplicationSCIMConfig struct {
 	// The UID of the IdP to use as the source for SCIM resources to provision to this
@@ -12509,7 +12509,7 @@ func (r accessApplicationNewResponseMcpServerPortalApplicationSCIMConfigJSON) Ra
 	return r.raw
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationNewResponseMcpServerPortalApplicationSCIMConfigAuthenticationUnion attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Union satisfied by [SCIMConfigAuthenticationHTTPBasic],
@@ -12548,7 +12548,7 @@ func init() {
 	)
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationNewResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationNewResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -12584,7 +12584,7 @@ func (r accessApplicationNewResponseMcpServerPortalApplicationSCIMConfigAuthenti
 func (r AccessApplicationNewResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationNewResponseMcpServerPortalApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationNewResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationNewResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -12604,7 +12604,7 @@ type AccessApplicationNewResponseMcpServerPortalApplicationSCIMConfigAuthenticat
 func (r AccessApplicationNewResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthentication) implementsAccessApplicationNewResponseMcpServerPortalApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationNewResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationNewResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem struct {
 	// The authentication scheme to use when making SCIM requests to this application.
@@ -12673,7 +12673,7 @@ func (r AccessApplicationNewResponseMcpServerPortalApplicationSCIMConfigAuthenti
 	return r.union
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationNewResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationUnionItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Union satisfied by [SCIMConfigAuthenticationHTTPBasic],
@@ -12706,7 +12706,7 @@ func init() {
 	)
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationNewResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationNewResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -12742,7 +12742,7 @@ func (r accessApplicationNewResponseMcpServerPortalApplicationSCIMConfigAuthenti
 func (r AccessApplicationNewResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationNewResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationNewResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationNewResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -12757,7 +12757,7 @@ func (r AccessApplicationNewResponseMcpServerPortalApplicationSCIMConfigAuthenti
 	return false
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationNewResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationNewResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme string
 
 const (
@@ -13014,7 +13014,7 @@ func (r AccessApplicationUpdateResponse) AsUnion() AccessApplicationUpdateRespon
 	return r.union
 }
 
-// Union satisfied by [AccessApplicationUpdateResponseSelfHostedApplication],
+// AccessApplicationUpdateResponseUnion is satisfied by [AccessApplicationUpdateResponseSelfHostedApplication],
 // [AccessApplicationUpdateResponseSaaSApplication],
 // [AccessApplicationUpdateResponseBrowserSSHApplication],
 // [AccessApplicationUpdateResponseBrowserVNCApplication],
@@ -13252,7 +13252,7 @@ func (r accessApplicationUpdateResponseSelfHostedApplicationJSON) RawJSON() stri
 func (r AccessApplicationUpdateResponseSelfHostedApplication) implementsAccessApplicationUpdateResponse() {
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationUpdateResponseSelfHostedApplicationDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationUpdateResponseSelfHostedApplicationDestination struct {
 	// The CIDR range of the destination. Single IPs will be computed as /32.
@@ -13326,7 +13326,7 @@ func (r AccessApplicationUpdateResponseSelfHostedApplicationDestination) AsUnion
 	return r.union
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationUpdateResponseSelfHostedApplicationDestinationsUnion is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 //
 // Union satisfied by
@@ -13377,7 +13377,7 @@ func init() {
 	)
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationUpdateResponseSelfHostedApplicationDestinationsPublicDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationUpdateResponseSelfHostedApplicationDestinationsPublicDestination struct {
 	Type AccessApplicationUpdateResponseSelfHostedApplicationDestinationsPublicDestinationType `json:"type"`
@@ -13465,7 +13465,7 @@ func (r accessApplicationUpdateResponseSelfHostedApplicationDestinationsPrivateD
 func (r AccessApplicationUpdateResponseSelfHostedApplicationDestinationsPrivateDestination) implementsAccessApplicationUpdateResponseSelfHostedApplicationDestination() {
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationUpdateResponseSelfHostedApplicationDestinationsPrivateDestinationL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationUpdateResponseSelfHostedApplicationDestinationsPrivateDestinationL4Protocol string
 
@@ -13496,7 +13496,7 @@ func (r AccessApplicationUpdateResponseSelfHostedApplicationDestinationsPrivateD
 	return false
 }
 
-// A MCP server id configured in ai-controls. Access will secure the MCP server if
+// AccessApplicationUpdateResponseSelfHostedApplicationDestinationsViaMcpServerPortalDestination is a MCP server id configured in ai-controls. Access will secure the MCP server if
 // accessed through a MCP portal.
 type AccessApplicationUpdateResponseSelfHostedApplicationDestinationsViaMcpServerPortalDestination struct {
 	// The MCP server id configured in ai-controls.
@@ -13540,7 +13540,7 @@ func (r AccessApplicationUpdateResponseSelfHostedApplicationDestinationsViaMcpSe
 	return false
 }
 
-// A specific Cloudflare Worker that Access will secure. All requests routed to the
+// AccessApplicationUpdateResponseSelfHostedApplicationDestinationsWorkerDestination is a specific Cloudflare Worker that Access will secure. All requests routed to the
 // specified Worker, including its preview deployments, will be protected. The
 // `preview_worker` and `public` destination types takes precedence, so you can
 // create separate applications to override the policies for the Worker's previews
@@ -13587,7 +13587,7 @@ func (r AccessApplicationUpdateResponseSelfHostedApplicationDestinationsWorkerDe
 	return false
 }
 
-// A specific Cloudflare Worker whose preview deployments Access will secure. Only
+// AccessApplicationUpdateResponseSelfHostedApplicationDestinationsPreviewWorkerDestination is a specific Cloudflare Worker whose preview deployments Access will secure. Only
 // requests routed to the preview deployments of the specified Worker will be
 // protected. The `public` destination type takes precedence, so you can create
 // separate applications to override the policies for specific paths.
@@ -13634,7 +13634,7 @@ func (r AccessApplicationUpdateResponseSelfHostedApplicationDestinationsPreviewW
 	return false
 }
 
-// Protects all Cloudflare Workers on the account with Access, including their
+// AccessApplicationUpdateResponseSelfHostedApplicationDestinationsAllWorkersDestination protects all Cloudflare Workers on the account with Access, including their
 // preview deployments. At most one destination of this type can exist per account.
 // The `worker`, `preview_worker`, `all_preview_workers`, and `public` destination
 // types take precedence, so you can create separate applications to override the
@@ -13678,7 +13678,7 @@ func (r AccessApplicationUpdateResponseSelfHostedApplicationDestinationsAllWorke
 	return false
 }
 
-// Protects the preview deployments of all Cloudflare Workers on the account with
+// AccessApplicationUpdateResponseSelfHostedApplicationDestinationsAllPreviewWorkersDestination protects the preview deployments of all Cloudflare Workers on the account with
 // Access. At most one destination of this type can exist per account. The
 // `worker`, `preview_worker`, and `public` destination types take precedence, so
 // you can create separate applications to override the policies for specific
@@ -13722,7 +13722,7 @@ func (r AccessApplicationUpdateResponseSelfHostedApplicationDestinationsAllPrevi
 	return false
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationUpdateResponseSelfHostedApplicationDestinationsL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationUpdateResponseSelfHostedApplicationDestinationsL4Protocol string
 
@@ -13759,7 +13759,7 @@ func (r AccessApplicationUpdateResponseSelfHostedApplicationDestinationsType) Is
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationUpdateResponseSelfHostedApplicationMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationUpdateResponseSelfHostedApplicationMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationUpdateResponseSelfHostedApplicationMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -13807,7 +13807,7 @@ func (r AccessApplicationUpdateResponseSelfHostedApplicationMfaConfigAllowedAuth
 	return false
 }
 
-// **Beta:** Optional configuration for managing an OAuth authorization flow
+// AccessApplicationUpdateResponseSelfHostedApplicationOAuthConfiguration **Beta:** Optional configuration for managing an OAuth authorization flow
 // controlled by Access. When set, Access will act as the OAuth authorization
 // server for this application. Only compatible with OAuth clients that support
 // [RFC 8707](https://datatracker.ietf.org/doc/html/rfc8707) (Resource Indicators
@@ -13843,7 +13843,7 @@ func (r accessApplicationUpdateResponseSelfHostedApplicationOAuthConfigurationJS
 	return r.raw
 }
 
-// Settings for OAuth dynamic client registration.
+// AccessApplicationUpdateResponseSelfHostedApplicationOAuthConfigurationDynamicClientRegistration settings for OAuth dynamic client registration.
 type AccessApplicationUpdateResponseSelfHostedApplicationOAuthConfigurationDynamicClientRegistration struct {
 	// Allows any client with redirect URIs on localhost.
 	AllowAnyOnLocalhost bool `json:"allow_any_on_localhost"`
@@ -13877,7 +13877,7 @@ func (r accessApplicationUpdateResponseSelfHostedApplicationOAuthConfigurationDy
 	return r.raw
 }
 
-// Settings for OAuth grant behavior.
+// AccessApplicationUpdateResponseSelfHostedApplicationOAuthConfigurationGrant settings for OAuth grant behavior.
 type AccessApplicationUpdateResponseSelfHostedApplicationOAuthConfigurationGrant struct {
 	// The lifetime of the access token. Must be in the format `300ms` or `2h45m`.
 	// Valid time units are ns, us (or µs), ms, s, m, h.
@@ -13986,7 +13986,7 @@ func (r accessApplicationUpdateResponseSelfHostedApplicationPolicyJSON) RawJSON(
 	return r.raw
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationUpdateResponseSelfHostedApplicationPoliciesConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationUpdateResponseSelfHostedApplicationPoliciesConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -14011,7 +14011,7 @@ func (r accessApplicationUpdateResponseSelfHostedApplicationPoliciesConnectionRu
 	return r.raw
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationUpdateResponseSelfHostedApplicationPoliciesConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationUpdateResponseSelfHostedApplicationPoliciesConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats []AccessApplicationUpdateResponseSelfHostedApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat `json:"allowed_clipboard_local_to_remote_formats"`
@@ -14038,7 +14038,7 @@ func (r accessApplicationUpdateResponseSelfHostedApplicationPoliciesConnectionRu
 	return r.raw
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationUpdateResponseSelfHostedApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationUpdateResponseSelfHostedApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -14053,7 +14053,7 @@ func (r AccessApplicationUpdateResponseSelfHostedApplicationPoliciesConnectionRu
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationUpdateResponseSelfHostedApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationUpdateResponseSelfHostedApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -14068,7 +14068,7 @@ func (r AccessApplicationUpdateResponseSelfHostedApplicationPoliciesConnectionRu
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationUpdateResponseSelfHostedApplicationPoliciesMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationUpdateResponseSelfHostedApplicationPoliciesMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationUpdateResponseSelfHostedApplicationPoliciesMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -14116,7 +14116,7 @@ func (r AccessApplicationUpdateResponseSelfHostedApplicationPoliciesMfaConfigAll
 	return false
 }
 
-// Configuration for provisioning to this application via SCIM. This is currently
+// AccessApplicationUpdateResponseSelfHostedApplicationSCIMConfig configuration for provisioning to this application via SCIM. This is currently
 // in closed beta.
 type AccessApplicationUpdateResponseSelfHostedApplicationSCIMConfig struct {
 	// The UID of the IdP to use as the source for SCIM resources to provision to this
@@ -14161,7 +14161,7 @@ func (r accessApplicationUpdateResponseSelfHostedApplicationSCIMConfigJSON) RawJ
 	return r.raw
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationUpdateResponseSelfHostedApplicationSCIMConfigAuthenticationUnion attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Union satisfied by [SCIMConfigAuthenticationHTTPBasic],
@@ -14200,7 +14200,7 @@ func init() {
 	)
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationUpdateResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationUpdateResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -14236,7 +14236,7 @@ func (r accessApplicationUpdateResponseSelfHostedApplicationSCIMConfigAuthentica
 func (r AccessApplicationUpdateResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationUpdateResponseSelfHostedApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationUpdateResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationUpdateResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -14256,7 +14256,7 @@ type AccessApplicationUpdateResponseSelfHostedApplicationSCIMConfigAuthenticatio
 func (r AccessApplicationUpdateResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthentication) implementsAccessApplicationUpdateResponseSelfHostedApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationUpdateResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationUpdateResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem struct {
 	// The authentication scheme to use when making SCIM requests to this application.
@@ -14325,7 +14325,7 @@ func (r AccessApplicationUpdateResponseSelfHostedApplicationSCIMConfigAuthentica
 	return r.union
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationUpdateResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationUnionItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Union satisfied by [SCIMConfigAuthenticationHTTPBasic],
@@ -14358,7 +14358,7 @@ func init() {
 	)
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationUpdateResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationUpdateResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -14394,7 +14394,7 @@ func (r accessApplicationUpdateResponseSelfHostedApplicationSCIMConfigAuthentica
 func (r AccessApplicationUpdateResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationUpdateResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationUpdateResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationUpdateResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -14409,7 +14409,7 @@ func (r AccessApplicationUpdateResponseSelfHostedApplicationSCIMConfigAuthentica
 	return false
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationUpdateResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationUpdateResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme string
 
 const (
@@ -14568,7 +14568,7 @@ func (r accessApplicationUpdateResponseSaaSApplicationPolicyJSON) RawJSON() stri
 	return r.raw
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationUpdateResponseSaaSApplicationPoliciesConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationUpdateResponseSaaSApplicationPoliciesConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -14593,7 +14593,7 @@ func (r accessApplicationUpdateResponseSaaSApplicationPoliciesConnectionRulesJSO
 	return r.raw
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationUpdateResponseSaaSApplicationPoliciesConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationUpdateResponseSaaSApplicationPoliciesConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats []AccessApplicationUpdateResponseSaaSApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat `json:"allowed_clipboard_local_to_remote_formats"`
@@ -14620,7 +14620,7 @@ func (r accessApplicationUpdateResponseSaaSApplicationPoliciesConnectionRulesRDP
 	return r.raw
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationUpdateResponseSaaSApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationUpdateResponseSaaSApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -14635,7 +14635,7 @@ func (r AccessApplicationUpdateResponseSaaSApplicationPoliciesConnectionRulesRDP
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationUpdateResponseSaaSApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationUpdateResponseSaaSApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -14650,7 +14650,7 @@ func (r AccessApplicationUpdateResponseSaaSApplicationPoliciesConnectionRulesRDP
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationUpdateResponseSaaSApplicationPoliciesMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationUpdateResponseSaaSApplicationPoliciesMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationUpdateResponseSaaSApplicationPoliciesMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -14812,7 +14812,7 @@ func (r AccessApplicationUpdateResponseSaaSApplicationSaaSApp) AsUnion() AccessA
 	return r.union
 }
 
-// Union satisfied by [SAMLSaaSApp] or [OIDCSaaSApp].
+// AccessApplicationUpdateResponseSaaSApplicationSaaSAppUnion is satisfied by [SAMLSaaSApp] or [OIDCSaaSApp].
 type AccessApplicationUpdateResponseSaaSApplicationSaaSAppUnion interface {
 	implementsAccessApplicationUpdateResponseSaaSApplicationSaaSApp()
 }
@@ -14832,7 +14832,7 @@ func init() {
 	)
 }
 
-// Optional identifier indicating the authentication protocol used for the saas
+// AccessApplicationUpdateResponseSaaSApplicationSaaSAppAuthType optional identifier indicating the authentication protocol used for the saas
 // app. Required for OIDC. Default if unset is "saml"
 type AccessApplicationUpdateResponseSaaSApplicationSaaSAppAuthType string
 
@@ -14849,7 +14849,7 @@ func (r AccessApplicationUpdateResponseSaaSApplicationSaaSAppAuthType) IsKnown()
 	return false
 }
 
-// Configuration for provisioning to this application via SCIM. This is currently
+// AccessApplicationUpdateResponseSaaSApplicationSCIMConfig configuration for provisioning to this application via SCIM. This is currently
 // in closed beta.
 type AccessApplicationUpdateResponseSaaSApplicationSCIMConfig struct {
 	// The UID of the IdP to use as the source for SCIM resources to provision to this
@@ -14894,7 +14894,7 @@ func (r accessApplicationUpdateResponseSaaSApplicationSCIMConfigJSON) RawJSON() 
 	return r.raw
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationUpdateResponseSaaSApplicationSCIMConfigAuthenticationUnion attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Union satisfied by [SCIMConfigAuthenticationHTTPBasic],
@@ -14933,7 +14933,7 @@ func init() {
 	)
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationUpdateResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationUpdateResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -14969,7 +14969,7 @@ func (r accessApplicationUpdateResponseSaaSApplicationSCIMConfigAuthenticationAc
 func (r AccessApplicationUpdateResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationUpdateResponseSaaSApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationUpdateResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationUpdateResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -14989,7 +14989,7 @@ type AccessApplicationUpdateResponseSaaSApplicationSCIMConfigAuthenticationAcces
 func (r AccessApplicationUpdateResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthentication) implementsAccessApplicationUpdateResponseSaaSApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationUpdateResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationUpdateResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem struct {
 	// The authentication scheme to use when making SCIM requests to this application.
@@ -15058,7 +15058,7 @@ func (r AccessApplicationUpdateResponseSaaSApplicationSCIMConfigAuthenticationAc
 	return r.union
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationUpdateResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationUnionItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Union satisfied by [SCIMConfigAuthenticationHTTPBasic],
@@ -15091,7 +15091,7 @@ func init() {
 	)
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationUpdateResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationUpdateResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -15127,7 +15127,7 @@ func (r accessApplicationUpdateResponseSaaSApplicationSCIMConfigAuthenticationAc
 func (r AccessApplicationUpdateResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationUpdateResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationUpdateResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationUpdateResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -15142,7 +15142,7 @@ func (r AccessApplicationUpdateResponseSaaSApplicationSCIMConfigAuthenticationAc
 	return false
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationUpdateResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationUpdateResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme string
 
 const (
@@ -15322,7 +15322,7 @@ func (r accessApplicationUpdateResponseBrowserSSHApplicationJSON) RawJSON() stri
 func (r AccessApplicationUpdateResponseBrowserSSHApplication) implementsAccessApplicationUpdateResponse() {
 }
 
-// The application type.
+// AccessApplicationUpdateResponseBrowserSSHApplicationType is the application type.
 type AccessApplicationUpdateResponseBrowserSSHApplicationType string
 
 const (
@@ -15350,7 +15350,7 @@ func (r AccessApplicationUpdateResponseBrowserSSHApplicationType) IsKnown() bool
 	return false
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationUpdateResponseBrowserSSHApplicationDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationUpdateResponseBrowserSSHApplicationDestination struct {
 	// The CIDR range of the destination. Single IPs will be computed as /32.
@@ -15424,7 +15424,7 @@ func (r AccessApplicationUpdateResponseBrowserSSHApplicationDestination) AsUnion
 	return r.union
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationUpdateResponseBrowserSSHApplicationDestinationsUnion is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 //
 // Union satisfied by
@@ -15475,7 +15475,7 @@ func init() {
 	)
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationUpdateResponseBrowserSSHApplicationDestinationsPublicDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationUpdateResponseBrowserSSHApplicationDestinationsPublicDestination struct {
 	Type AccessApplicationUpdateResponseBrowserSSHApplicationDestinationsPublicDestinationType `json:"type"`
@@ -15563,7 +15563,7 @@ func (r accessApplicationUpdateResponseBrowserSSHApplicationDestinationsPrivateD
 func (r AccessApplicationUpdateResponseBrowserSSHApplicationDestinationsPrivateDestination) implementsAccessApplicationUpdateResponseBrowserSSHApplicationDestination() {
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationUpdateResponseBrowserSSHApplicationDestinationsPrivateDestinationL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationUpdateResponseBrowserSSHApplicationDestinationsPrivateDestinationL4Protocol string
 
@@ -15594,7 +15594,7 @@ func (r AccessApplicationUpdateResponseBrowserSSHApplicationDestinationsPrivateD
 	return false
 }
 
-// A MCP server id configured in ai-controls. Access will secure the MCP server if
+// AccessApplicationUpdateResponseBrowserSSHApplicationDestinationsViaMcpServerPortalDestination is a MCP server id configured in ai-controls. Access will secure the MCP server if
 // accessed through a MCP portal.
 type AccessApplicationUpdateResponseBrowserSSHApplicationDestinationsViaMcpServerPortalDestination struct {
 	// The MCP server id configured in ai-controls.
@@ -15638,7 +15638,7 @@ func (r AccessApplicationUpdateResponseBrowserSSHApplicationDestinationsViaMcpSe
 	return false
 }
 
-// A specific Cloudflare Worker that Access will secure. All requests routed to the
+// AccessApplicationUpdateResponseBrowserSSHApplicationDestinationsWorkerDestination is a specific Cloudflare Worker that Access will secure. All requests routed to the
 // specified Worker, including its preview deployments, will be protected. The
 // `preview_worker` and `public` destination types takes precedence, so you can
 // create separate applications to override the policies for the Worker's previews
@@ -15685,7 +15685,7 @@ func (r AccessApplicationUpdateResponseBrowserSSHApplicationDestinationsWorkerDe
 	return false
 }
 
-// A specific Cloudflare Worker whose preview deployments Access will secure. Only
+// AccessApplicationUpdateResponseBrowserSSHApplicationDestinationsPreviewWorkerDestination is a specific Cloudflare Worker whose preview deployments Access will secure. Only
 // requests routed to the preview deployments of the specified Worker will be
 // protected. The `public` destination type takes precedence, so you can create
 // separate applications to override the policies for specific paths.
@@ -15732,7 +15732,7 @@ func (r AccessApplicationUpdateResponseBrowserSSHApplicationDestinationsPreviewW
 	return false
 }
 
-// Protects all Cloudflare Workers on the account with Access, including their
+// AccessApplicationUpdateResponseBrowserSSHApplicationDestinationsAllWorkersDestination protects all Cloudflare Workers on the account with Access, including their
 // preview deployments. At most one destination of this type can exist per account.
 // The `worker`, `preview_worker`, `all_preview_workers`, and `public` destination
 // types take precedence, so you can create separate applications to override the
@@ -15776,7 +15776,7 @@ func (r AccessApplicationUpdateResponseBrowserSSHApplicationDestinationsAllWorke
 	return false
 }
 
-// Protects the preview deployments of all Cloudflare Workers on the account with
+// AccessApplicationUpdateResponseBrowserSSHApplicationDestinationsAllPreviewWorkersDestination protects the preview deployments of all Cloudflare Workers on the account with
 // Access. At most one destination of this type can exist per account. The
 // `worker`, `preview_worker`, and `public` destination types take precedence, so
 // you can create separate applications to override the policies for specific
@@ -15820,7 +15820,7 @@ func (r AccessApplicationUpdateResponseBrowserSSHApplicationDestinationsAllPrevi
 	return false
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationUpdateResponseBrowserSSHApplicationDestinationsL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationUpdateResponseBrowserSSHApplicationDestinationsL4Protocol string
 
@@ -15857,7 +15857,7 @@ func (r AccessApplicationUpdateResponseBrowserSSHApplicationDestinationsType) Is
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationUpdateResponseBrowserSSHApplicationMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationUpdateResponseBrowserSSHApplicationMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationUpdateResponseBrowserSSHApplicationMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -15905,7 +15905,7 @@ func (r AccessApplicationUpdateResponseBrowserSSHApplicationMfaConfigAllowedAuth
 	return false
 }
 
-// **Beta:** Optional configuration for managing an OAuth authorization flow
+// AccessApplicationUpdateResponseBrowserSSHApplicationOAuthConfiguration **Beta:** Optional configuration for managing an OAuth authorization flow
 // controlled by Access. When set, Access will act as the OAuth authorization
 // server for this application. Only compatible with OAuth clients that support
 // [RFC 8707](https://datatracker.ietf.org/doc/html/rfc8707) (Resource Indicators
@@ -15941,7 +15941,7 @@ func (r accessApplicationUpdateResponseBrowserSSHApplicationOAuthConfigurationJS
 	return r.raw
 }
 
-// Settings for OAuth dynamic client registration.
+// AccessApplicationUpdateResponseBrowserSSHApplicationOAuthConfigurationDynamicClientRegistration settings for OAuth dynamic client registration.
 type AccessApplicationUpdateResponseBrowserSSHApplicationOAuthConfigurationDynamicClientRegistration struct {
 	// Allows any client with redirect URIs on localhost.
 	AllowAnyOnLocalhost bool `json:"allow_any_on_localhost"`
@@ -15975,7 +15975,7 @@ func (r accessApplicationUpdateResponseBrowserSSHApplicationOAuthConfigurationDy
 	return r.raw
 }
 
-// Settings for OAuth grant behavior.
+// AccessApplicationUpdateResponseBrowserSSHApplicationOAuthConfigurationGrant settings for OAuth grant behavior.
 type AccessApplicationUpdateResponseBrowserSSHApplicationOAuthConfigurationGrant struct {
 	// The lifetime of the access token. Must be in the format `300ms` or `2h45m`.
 	// Valid time units are ns, us (or µs), ms, s, m, h.
@@ -16084,7 +16084,7 @@ func (r accessApplicationUpdateResponseBrowserSSHApplicationPolicyJSON) RawJSON(
 	return r.raw
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationUpdateResponseBrowserSSHApplicationPoliciesConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationUpdateResponseBrowserSSHApplicationPoliciesConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -16109,7 +16109,7 @@ func (r accessApplicationUpdateResponseBrowserSSHApplicationPoliciesConnectionRu
 	return r.raw
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationUpdateResponseBrowserSSHApplicationPoliciesConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationUpdateResponseBrowserSSHApplicationPoliciesConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats []AccessApplicationUpdateResponseBrowserSSHApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat `json:"allowed_clipboard_local_to_remote_formats"`
@@ -16136,7 +16136,7 @@ func (r accessApplicationUpdateResponseBrowserSSHApplicationPoliciesConnectionRu
 	return r.raw
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationUpdateResponseBrowserSSHApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationUpdateResponseBrowserSSHApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -16151,7 +16151,7 @@ func (r AccessApplicationUpdateResponseBrowserSSHApplicationPoliciesConnectionRu
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationUpdateResponseBrowserSSHApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationUpdateResponseBrowserSSHApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -16166,7 +16166,7 @@ func (r AccessApplicationUpdateResponseBrowserSSHApplicationPoliciesConnectionRu
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationUpdateResponseBrowserSSHApplicationPoliciesMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationUpdateResponseBrowserSSHApplicationPoliciesMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationUpdateResponseBrowserSSHApplicationPoliciesMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -16214,7 +16214,7 @@ func (r AccessApplicationUpdateResponseBrowserSSHApplicationPoliciesMfaConfigAll
 	return false
 }
 
-// Configuration for provisioning to this application via SCIM. This is currently
+// AccessApplicationUpdateResponseBrowserSSHApplicationSCIMConfig configuration for provisioning to this application via SCIM. This is currently
 // in closed beta.
 type AccessApplicationUpdateResponseBrowserSSHApplicationSCIMConfig struct {
 	// The UID of the IdP to use as the source for SCIM resources to provision to this
@@ -16259,7 +16259,7 @@ func (r accessApplicationUpdateResponseBrowserSSHApplicationSCIMConfigJSON) RawJ
 	return r.raw
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationUpdateResponseBrowserSSHApplicationSCIMConfigAuthenticationUnion attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Union satisfied by [SCIMConfigAuthenticationHTTPBasic],
@@ -16298,7 +16298,7 @@ func init() {
 	)
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationUpdateResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationUpdateResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -16334,7 +16334,7 @@ func (r accessApplicationUpdateResponseBrowserSSHApplicationSCIMConfigAuthentica
 func (r AccessApplicationUpdateResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationUpdateResponseBrowserSSHApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationUpdateResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationUpdateResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -16354,7 +16354,7 @@ type AccessApplicationUpdateResponseBrowserSSHApplicationSCIMConfigAuthenticatio
 func (r AccessApplicationUpdateResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthentication) implementsAccessApplicationUpdateResponseBrowserSSHApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationUpdateResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationUpdateResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem struct {
 	// The authentication scheme to use when making SCIM requests to this application.
@@ -16423,7 +16423,7 @@ func (r AccessApplicationUpdateResponseBrowserSSHApplicationSCIMConfigAuthentica
 	return r.union
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationUpdateResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationUnionItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Union satisfied by [SCIMConfigAuthenticationHTTPBasic],
@@ -16456,7 +16456,7 @@ func init() {
 	)
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationUpdateResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationUpdateResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -16492,7 +16492,7 @@ func (r accessApplicationUpdateResponseBrowserSSHApplicationSCIMConfigAuthentica
 func (r AccessApplicationUpdateResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationUpdateResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationUpdateResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationUpdateResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -16507,7 +16507,7 @@ func (r AccessApplicationUpdateResponseBrowserSSHApplicationSCIMConfigAuthentica
 	return false
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationUpdateResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationUpdateResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme string
 
 const (
@@ -16687,7 +16687,7 @@ func (r accessApplicationUpdateResponseBrowserVNCApplicationJSON) RawJSON() stri
 func (r AccessApplicationUpdateResponseBrowserVNCApplication) implementsAccessApplicationUpdateResponse() {
 }
 
-// The application type.
+// AccessApplicationUpdateResponseBrowserVNCApplicationType is the application type.
 type AccessApplicationUpdateResponseBrowserVNCApplicationType string
 
 const (
@@ -16715,7 +16715,7 @@ func (r AccessApplicationUpdateResponseBrowserVNCApplicationType) IsKnown() bool
 	return false
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationUpdateResponseBrowserVNCApplicationDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationUpdateResponseBrowserVNCApplicationDestination struct {
 	// The CIDR range of the destination. Single IPs will be computed as /32.
@@ -16789,7 +16789,7 @@ func (r AccessApplicationUpdateResponseBrowserVNCApplicationDestination) AsUnion
 	return r.union
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationUpdateResponseBrowserVNCApplicationDestinationsUnion is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 //
 // Union satisfied by
@@ -16840,7 +16840,7 @@ func init() {
 	)
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationUpdateResponseBrowserVNCApplicationDestinationsPublicDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationUpdateResponseBrowserVNCApplicationDestinationsPublicDestination struct {
 	Type AccessApplicationUpdateResponseBrowserVNCApplicationDestinationsPublicDestinationType `json:"type"`
@@ -16928,7 +16928,7 @@ func (r accessApplicationUpdateResponseBrowserVNCApplicationDestinationsPrivateD
 func (r AccessApplicationUpdateResponseBrowserVNCApplicationDestinationsPrivateDestination) implementsAccessApplicationUpdateResponseBrowserVNCApplicationDestination() {
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationUpdateResponseBrowserVNCApplicationDestinationsPrivateDestinationL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationUpdateResponseBrowserVNCApplicationDestinationsPrivateDestinationL4Protocol string
 
@@ -16959,7 +16959,7 @@ func (r AccessApplicationUpdateResponseBrowserVNCApplicationDestinationsPrivateD
 	return false
 }
 
-// A MCP server id configured in ai-controls. Access will secure the MCP server if
+// AccessApplicationUpdateResponseBrowserVNCApplicationDestinationsViaMcpServerPortalDestination is a MCP server id configured in ai-controls. Access will secure the MCP server if
 // accessed through a MCP portal.
 type AccessApplicationUpdateResponseBrowserVNCApplicationDestinationsViaMcpServerPortalDestination struct {
 	// The MCP server id configured in ai-controls.
@@ -17003,7 +17003,7 @@ func (r AccessApplicationUpdateResponseBrowserVNCApplicationDestinationsViaMcpSe
 	return false
 }
 
-// A specific Cloudflare Worker that Access will secure. All requests routed to the
+// AccessApplicationUpdateResponseBrowserVNCApplicationDestinationsWorkerDestination is a specific Cloudflare Worker that Access will secure. All requests routed to the
 // specified Worker, including its preview deployments, will be protected. The
 // `preview_worker` and `public` destination types takes precedence, so you can
 // create separate applications to override the policies for the Worker's previews
@@ -17050,7 +17050,7 @@ func (r AccessApplicationUpdateResponseBrowserVNCApplicationDestinationsWorkerDe
 	return false
 }
 
-// A specific Cloudflare Worker whose preview deployments Access will secure. Only
+// AccessApplicationUpdateResponseBrowserVNCApplicationDestinationsPreviewWorkerDestination is a specific Cloudflare Worker whose preview deployments Access will secure. Only
 // requests routed to the preview deployments of the specified Worker will be
 // protected. The `public` destination type takes precedence, so you can create
 // separate applications to override the policies for specific paths.
@@ -17097,7 +17097,7 @@ func (r AccessApplicationUpdateResponseBrowserVNCApplicationDestinationsPreviewW
 	return false
 }
 
-// Protects all Cloudflare Workers on the account with Access, including their
+// AccessApplicationUpdateResponseBrowserVNCApplicationDestinationsAllWorkersDestination protects all Cloudflare Workers on the account with Access, including their
 // preview deployments. At most one destination of this type can exist per account.
 // The `worker`, `preview_worker`, `all_preview_workers`, and `public` destination
 // types take precedence, so you can create separate applications to override the
@@ -17141,7 +17141,7 @@ func (r AccessApplicationUpdateResponseBrowserVNCApplicationDestinationsAllWorke
 	return false
 }
 
-// Protects the preview deployments of all Cloudflare Workers on the account with
+// AccessApplicationUpdateResponseBrowserVNCApplicationDestinationsAllPreviewWorkersDestination protects the preview deployments of all Cloudflare Workers on the account with
 // Access. At most one destination of this type can exist per account. The
 // `worker`, `preview_worker`, and `public` destination types take precedence, so
 // you can create separate applications to override the policies for specific
@@ -17185,7 +17185,7 @@ func (r AccessApplicationUpdateResponseBrowserVNCApplicationDestinationsAllPrevi
 	return false
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationUpdateResponseBrowserVNCApplicationDestinationsL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationUpdateResponseBrowserVNCApplicationDestinationsL4Protocol string
 
@@ -17222,7 +17222,7 @@ func (r AccessApplicationUpdateResponseBrowserVNCApplicationDestinationsType) Is
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationUpdateResponseBrowserVNCApplicationMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationUpdateResponseBrowserVNCApplicationMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationUpdateResponseBrowserVNCApplicationMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -17270,7 +17270,7 @@ func (r AccessApplicationUpdateResponseBrowserVNCApplicationMfaConfigAllowedAuth
 	return false
 }
 
-// **Beta:** Optional configuration for managing an OAuth authorization flow
+// AccessApplicationUpdateResponseBrowserVNCApplicationOAuthConfiguration **Beta:** Optional configuration for managing an OAuth authorization flow
 // controlled by Access. When set, Access will act as the OAuth authorization
 // server for this application. Only compatible with OAuth clients that support
 // [RFC 8707](https://datatracker.ietf.org/doc/html/rfc8707) (Resource Indicators
@@ -17306,7 +17306,7 @@ func (r accessApplicationUpdateResponseBrowserVNCApplicationOAuthConfigurationJS
 	return r.raw
 }
 
-// Settings for OAuth dynamic client registration.
+// AccessApplicationUpdateResponseBrowserVNCApplicationOAuthConfigurationDynamicClientRegistration settings for OAuth dynamic client registration.
 type AccessApplicationUpdateResponseBrowserVNCApplicationOAuthConfigurationDynamicClientRegistration struct {
 	// Allows any client with redirect URIs on localhost.
 	AllowAnyOnLocalhost bool `json:"allow_any_on_localhost"`
@@ -17340,7 +17340,7 @@ func (r accessApplicationUpdateResponseBrowserVNCApplicationOAuthConfigurationDy
 	return r.raw
 }
 
-// Settings for OAuth grant behavior.
+// AccessApplicationUpdateResponseBrowserVNCApplicationOAuthConfigurationGrant settings for OAuth grant behavior.
 type AccessApplicationUpdateResponseBrowserVNCApplicationOAuthConfigurationGrant struct {
 	// The lifetime of the access token. Must be in the format `300ms` or `2h45m`.
 	// Valid time units are ns, us (or µs), ms, s, m, h.
@@ -17449,7 +17449,7 @@ func (r accessApplicationUpdateResponseBrowserVNCApplicationPolicyJSON) RawJSON(
 	return r.raw
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationUpdateResponseBrowserVNCApplicationPoliciesConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationUpdateResponseBrowserVNCApplicationPoliciesConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -17474,7 +17474,7 @@ func (r accessApplicationUpdateResponseBrowserVNCApplicationPoliciesConnectionRu
 	return r.raw
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationUpdateResponseBrowserVNCApplicationPoliciesConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationUpdateResponseBrowserVNCApplicationPoliciesConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats []AccessApplicationUpdateResponseBrowserVNCApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat `json:"allowed_clipboard_local_to_remote_formats"`
@@ -17501,7 +17501,7 @@ func (r accessApplicationUpdateResponseBrowserVNCApplicationPoliciesConnectionRu
 	return r.raw
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationUpdateResponseBrowserVNCApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationUpdateResponseBrowserVNCApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -17516,7 +17516,7 @@ func (r AccessApplicationUpdateResponseBrowserVNCApplicationPoliciesConnectionRu
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationUpdateResponseBrowserVNCApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationUpdateResponseBrowserVNCApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -17531,7 +17531,7 @@ func (r AccessApplicationUpdateResponseBrowserVNCApplicationPoliciesConnectionRu
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationUpdateResponseBrowserVNCApplicationPoliciesMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationUpdateResponseBrowserVNCApplicationPoliciesMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationUpdateResponseBrowserVNCApplicationPoliciesMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -17579,7 +17579,7 @@ func (r AccessApplicationUpdateResponseBrowserVNCApplicationPoliciesMfaConfigAll
 	return false
 }
 
-// Configuration for provisioning to this application via SCIM. This is currently
+// AccessApplicationUpdateResponseBrowserVNCApplicationSCIMConfig configuration for provisioning to this application via SCIM. This is currently
 // in closed beta.
 type AccessApplicationUpdateResponseBrowserVNCApplicationSCIMConfig struct {
 	// The UID of the IdP to use as the source for SCIM resources to provision to this
@@ -17624,7 +17624,7 @@ func (r accessApplicationUpdateResponseBrowserVNCApplicationSCIMConfigJSON) RawJ
 	return r.raw
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationUpdateResponseBrowserVNCApplicationSCIMConfigAuthenticationUnion attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Union satisfied by [SCIMConfigAuthenticationHTTPBasic],
@@ -17663,7 +17663,7 @@ func init() {
 	)
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationUpdateResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationUpdateResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -17699,7 +17699,7 @@ func (r accessApplicationUpdateResponseBrowserVNCApplicationSCIMConfigAuthentica
 func (r AccessApplicationUpdateResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationUpdateResponseBrowserVNCApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationUpdateResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationUpdateResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -17719,7 +17719,7 @@ type AccessApplicationUpdateResponseBrowserVNCApplicationSCIMConfigAuthenticatio
 func (r AccessApplicationUpdateResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthentication) implementsAccessApplicationUpdateResponseBrowserVNCApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationUpdateResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationUpdateResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem struct {
 	// The authentication scheme to use when making SCIM requests to this application.
@@ -17788,7 +17788,7 @@ func (r AccessApplicationUpdateResponseBrowserVNCApplicationSCIMConfigAuthentica
 	return r.union
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationUpdateResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationUnionItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Union satisfied by [SCIMConfigAuthenticationHTTPBasic],
@@ -17821,7 +17821,7 @@ func init() {
 	)
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationUpdateResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationUpdateResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -17857,7 +17857,7 @@ func (r accessApplicationUpdateResponseBrowserVNCApplicationSCIMConfigAuthentica
 func (r AccessApplicationUpdateResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationUpdateResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationUpdateResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationUpdateResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -17872,7 +17872,7 @@ func (r AccessApplicationUpdateResponseBrowserVNCApplicationSCIMConfigAuthentica
 	return false
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationUpdateResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationUpdateResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme string
 
 const (
@@ -17972,7 +17972,7 @@ func (r accessApplicationUpdateResponseAppLauncherApplicationJSON) RawJSON() str
 func (r AccessApplicationUpdateResponseAppLauncherApplication) implementsAccessApplicationUpdateResponse() {
 }
 
-// The application type.
+// AccessApplicationUpdateResponseAppLauncherApplicationType is the application type.
 type AccessApplicationUpdateResponseAppLauncherApplicationType string
 
 const (
@@ -18026,7 +18026,7 @@ func (r accessApplicationUpdateResponseAppLauncherApplicationFooterLinkJSON) Raw
 	return r.raw
 }
 
-// The design of the App Launcher landing page shown to users when they log in.
+// AccessApplicationUpdateResponseAppLauncherApplicationLandingPageDesign is the design of the App Launcher landing page shown to users when they log in.
 type AccessApplicationUpdateResponseAppLauncherApplicationLandingPageDesign struct {
 	// The background color of the log in button on the landing page.
 	ButtonColor string `json:"button_color"`
@@ -18142,7 +18142,7 @@ func (r accessApplicationUpdateResponseAppLauncherApplicationPolicyJSON) RawJSON
 	return r.raw
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationUpdateResponseAppLauncherApplicationPoliciesConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationUpdateResponseAppLauncherApplicationPoliciesConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -18167,7 +18167,7 @@ func (r accessApplicationUpdateResponseAppLauncherApplicationPoliciesConnectionR
 	return r.raw
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationUpdateResponseAppLauncherApplicationPoliciesConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationUpdateResponseAppLauncherApplicationPoliciesConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats []AccessApplicationUpdateResponseAppLauncherApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat `json:"allowed_clipboard_local_to_remote_formats"`
@@ -18194,7 +18194,7 @@ func (r accessApplicationUpdateResponseAppLauncherApplicationPoliciesConnectionR
 	return r.raw
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationUpdateResponseAppLauncherApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationUpdateResponseAppLauncherApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -18209,7 +18209,7 @@ func (r AccessApplicationUpdateResponseAppLauncherApplicationPoliciesConnectionR
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationUpdateResponseAppLauncherApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationUpdateResponseAppLauncherApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -18224,7 +18224,7 @@ func (r AccessApplicationUpdateResponseAppLauncherApplicationPoliciesConnectionR
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationUpdateResponseAppLauncherApplicationPoliciesMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationUpdateResponseAppLauncherApplicationPoliciesMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationUpdateResponseAppLauncherApplicationPoliciesMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -18417,7 +18417,7 @@ func (r accessApplicationUpdateResponseDeviceEnrollmentPermissionsApplicationPol
 	return r.raw
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationUpdateResponseDeviceEnrollmentPermissionsApplicationPoliciesConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationUpdateResponseDeviceEnrollmentPermissionsApplicationPoliciesConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -18442,7 +18442,7 @@ func (r accessApplicationUpdateResponseDeviceEnrollmentPermissionsApplicationPol
 	return r.raw
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationUpdateResponseDeviceEnrollmentPermissionsApplicationPoliciesConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationUpdateResponseDeviceEnrollmentPermissionsApplicationPoliciesConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats []AccessApplicationUpdateResponseDeviceEnrollmentPermissionsApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat `json:"allowed_clipboard_local_to_remote_formats"`
@@ -18469,7 +18469,7 @@ func (r accessApplicationUpdateResponseDeviceEnrollmentPermissionsApplicationPol
 	return r.raw
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationUpdateResponseDeviceEnrollmentPermissionsApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationUpdateResponseDeviceEnrollmentPermissionsApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -18484,7 +18484,7 @@ func (r AccessApplicationUpdateResponseDeviceEnrollmentPermissionsApplicationPol
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationUpdateResponseDeviceEnrollmentPermissionsApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationUpdateResponseDeviceEnrollmentPermissionsApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -18499,7 +18499,7 @@ func (r AccessApplicationUpdateResponseDeviceEnrollmentPermissionsApplicationPol
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationUpdateResponseDeviceEnrollmentPermissionsApplicationPoliciesMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationUpdateResponseDeviceEnrollmentPermissionsApplicationPoliciesMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationUpdateResponseDeviceEnrollmentPermissionsApplicationPoliciesMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -18692,7 +18692,7 @@ func (r accessApplicationUpdateResponseBrowserIsolationPermissionsApplicationPol
 	return r.raw
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationUpdateResponseBrowserIsolationPermissionsApplicationPoliciesConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationUpdateResponseBrowserIsolationPermissionsApplicationPoliciesConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -18717,7 +18717,7 @@ func (r accessApplicationUpdateResponseBrowserIsolationPermissionsApplicationPol
 	return r.raw
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationUpdateResponseBrowserIsolationPermissionsApplicationPoliciesConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationUpdateResponseBrowserIsolationPermissionsApplicationPoliciesConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats []AccessApplicationUpdateResponseBrowserIsolationPermissionsApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat `json:"allowed_clipboard_local_to_remote_formats"`
@@ -18744,7 +18744,7 @@ func (r accessApplicationUpdateResponseBrowserIsolationPermissionsApplicationPol
 	return r.raw
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationUpdateResponseBrowserIsolationPermissionsApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationUpdateResponseBrowserIsolationPermissionsApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -18759,7 +18759,7 @@ func (r AccessApplicationUpdateResponseBrowserIsolationPermissionsApplicationPol
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationUpdateResponseBrowserIsolationPermissionsApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationUpdateResponseBrowserIsolationPermissionsApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -18774,7 +18774,7 @@ func (r AccessApplicationUpdateResponseBrowserIsolationPermissionsApplicationPol
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationUpdateResponseBrowserIsolationPermissionsApplicationPoliciesMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationUpdateResponseBrowserIsolationPermissionsApplicationPoliciesMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationUpdateResponseBrowserIsolationPermissionsApplicationPoliciesMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -18967,7 +18967,7 @@ func (r accessApplicationUpdateResponseGatewayIdentityProxyEndpointApplicationPo
 	return r.raw
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationUpdateResponseGatewayIdentityProxyEndpointApplicationPoliciesConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationUpdateResponseGatewayIdentityProxyEndpointApplicationPoliciesConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -18992,7 +18992,7 @@ func (r accessApplicationUpdateResponseGatewayIdentityProxyEndpointApplicationPo
 	return r.raw
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationUpdateResponseGatewayIdentityProxyEndpointApplicationPoliciesConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationUpdateResponseGatewayIdentityProxyEndpointApplicationPoliciesConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats []AccessApplicationUpdateResponseGatewayIdentityProxyEndpointApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat `json:"allowed_clipboard_local_to_remote_formats"`
@@ -19019,7 +19019,7 @@ func (r accessApplicationUpdateResponseGatewayIdentityProxyEndpointApplicationPo
 	return r.raw
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationUpdateResponseGatewayIdentityProxyEndpointApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationUpdateResponseGatewayIdentityProxyEndpointApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -19034,7 +19034,7 @@ func (r AccessApplicationUpdateResponseGatewayIdentityProxyEndpointApplicationPo
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationUpdateResponseGatewayIdentityProxyEndpointApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationUpdateResponseGatewayIdentityProxyEndpointApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -19049,7 +19049,7 @@ func (r AccessApplicationUpdateResponseGatewayIdentityProxyEndpointApplicationPo
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationUpdateResponseGatewayIdentityProxyEndpointApplicationPoliciesMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationUpdateResponseGatewayIdentityProxyEndpointApplicationPoliciesMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationUpdateResponseGatewayIdentityProxyEndpointApplicationPoliciesMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -19226,7 +19226,7 @@ func (r accessApplicationUpdateResponseBookmarkApplicationPolicyJSON) RawJSON() 
 	return r.raw
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationUpdateResponseBookmarkApplicationPoliciesConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationUpdateResponseBookmarkApplicationPoliciesConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -19251,7 +19251,7 @@ func (r accessApplicationUpdateResponseBookmarkApplicationPoliciesConnectionRule
 	return r.raw
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationUpdateResponseBookmarkApplicationPoliciesConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationUpdateResponseBookmarkApplicationPoliciesConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats []AccessApplicationUpdateResponseBookmarkApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat `json:"allowed_clipboard_local_to_remote_formats"`
@@ -19278,7 +19278,7 @@ func (r accessApplicationUpdateResponseBookmarkApplicationPoliciesConnectionRule
 	return r.raw
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationUpdateResponseBookmarkApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationUpdateResponseBookmarkApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -19293,7 +19293,7 @@ func (r AccessApplicationUpdateResponseBookmarkApplicationPoliciesConnectionRule
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationUpdateResponseBookmarkApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationUpdateResponseBookmarkApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -19308,7 +19308,7 @@ func (r AccessApplicationUpdateResponseBookmarkApplicationPoliciesConnectionRule
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationUpdateResponseBookmarkApplicationPoliciesMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationUpdateResponseBookmarkApplicationPoliciesMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationUpdateResponseBookmarkApplicationPoliciesMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -19425,7 +19425,7 @@ func (r accessApplicationUpdateResponseInfrastructureApplicationTargetCriterionJ
 	return r.raw
 }
 
-// The communication protocol your application secures.
+// AccessApplicationUpdateResponseInfrastructureApplicationTargetCriteriaProtocol is the communication protocol your application secures.
 type AccessApplicationUpdateResponseInfrastructureApplicationTargetCriteriaProtocol string
 
 const (
@@ -19494,7 +19494,7 @@ func (r accessApplicationUpdateResponseInfrastructureApplicationPolicyJSON) RawJ
 	return r.raw
 }
 
-// The rules that define how users may connect to the targets secured by your
+// AccessApplicationUpdateResponseInfrastructureApplicationPoliciesConnectionRules is the rules that define how users may connect to the targets secured by your
 // application.
 type AccessApplicationUpdateResponseInfrastructureApplicationPoliciesConnectionRules struct {
 	// The SSH-specific rules that define how users may connect to the targets secured
@@ -19520,7 +19520,7 @@ func (r accessApplicationUpdateResponseInfrastructureApplicationPoliciesConnecti
 	return r.raw
 }
 
-// The SSH-specific rules that define how users may connect to the targets secured
+// AccessApplicationUpdateResponseInfrastructureApplicationPoliciesConnectionRulesSSH is the SSH-specific rules that define how users may connect to the targets secured
 // by your application.
 type AccessApplicationUpdateResponseInfrastructureApplicationPoliciesConnectionRulesSSH struct {
 	// Contains the Unix usernames that may be used when connecting over SSH.
@@ -19548,7 +19548,7 @@ func (r accessApplicationUpdateResponseInfrastructureApplicationPoliciesConnecti
 	return r.raw
 }
 
-// Configures multi-factor authentication (MFA) settings for infrastructure
+// AccessApplicationUpdateResponseInfrastructureApplicationPoliciesMfaConfig configures multi-factor authentication (MFA) settings for infrastructure
 // applications.
 type AccessApplicationUpdateResponseInfrastructureApplicationPoliciesMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with. For infrastructure
@@ -19790,7 +19790,7 @@ func (r accessApplicationUpdateResponseBrowserRDPApplicationTargetCriterionJSON)
 	return r.raw
 }
 
-// The communication protocol your application secures.
+// AccessApplicationUpdateResponseBrowserRDPApplicationTargetCriteriaProtocol is the communication protocol your application secures.
 type AccessApplicationUpdateResponseBrowserRDPApplicationTargetCriteriaProtocol string
 
 const (
@@ -19805,7 +19805,7 @@ func (r AccessApplicationUpdateResponseBrowserRDPApplicationTargetCriteriaProtoc
 	return false
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationUpdateResponseBrowserRDPApplicationDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationUpdateResponseBrowserRDPApplicationDestination struct {
 	// The CIDR range of the destination. Single IPs will be computed as /32.
@@ -19879,7 +19879,7 @@ func (r AccessApplicationUpdateResponseBrowserRDPApplicationDestination) AsUnion
 	return r.union
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationUpdateResponseBrowserRDPApplicationDestinationsUnion is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 //
 // Union satisfied by
@@ -19930,7 +19930,7 @@ func init() {
 	)
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationUpdateResponseBrowserRDPApplicationDestinationsPublicDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationUpdateResponseBrowserRDPApplicationDestinationsPublicDestination struct {
 	Type AccessApplicationUpdateResponseBrowserRDPApplicationDestinationsPublicDestinationType `json:"type"`
@@ -20018,7 +20018,7 @@ func (r accessApplicationUpdateResponseBrowserRDPApplicationDestinationsPrivateD
 func (r AccessApplicationUpdateResponseBrowserRDPApplicationDestinationsPrivateDestination) implementsAccessApplicationUpdateResponseBrowserRDPApplicationDestination() {
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationUpdateResponseBrowserRDPApplicationDestinationsPrivateDestinationL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationUpdateResponseBrowserRDPApplicationDestinationsPrivateDestinationL4Protocol string
 
@@ -20049,7 +20049,7 @@ func (r AccessApplicationUpdateResponseBrowserRDPApplicationDestinationsPrivateD
 	return false
 }
 
-// A MCP server id configured in ai-controls. Access will secure the MCP server if
+// AccessApplicationUpdateResponseBrowserRDPApplicationDestinationsViaMcpServerPortalDestination is a MCP server id configured in ai-controls. Access will secure the MCP server if
 // accessed through a MCP portal.
 type AccessApplicationUpdateResponseBrowserRDPApplicationDestinationsViaMcpServerPortalDestination struct {
 	// The MCP server id configured in ai-controls.
@@ -20093,7 +20093,7 @@ func (r AccessApplicationUpdateResponseBrowserRDPApplicationDestinationsViaMcpSe
 	return false
 }
 
-// A specific Cloudflare Worker that Access will secure. All requests routed to the
+// AccessApplicationUpdateResponseBrowserRDPApplicationDestinationsWorkerDestination is a specific Cloudflare Worker that Access will secure. All requests routed to the
 // specified Worker, including its preview deployments, will be protected. The
 // `preview_worker` and `public` destination types takes precedence, so you can
 // create separate applications to override the policies for the Worker's previews
@@ -20140,7 +20140,7 @@ func (r AccessApplicationUpdateResponseBrowserRDPApplicationDestinationsWorkerDe
 	return false
 }
 
-// A specific Cloudflare Worker whose preview deployments Access will secure. Only
+// AccessApplicationUpdateResponseBrowserRDPApplicationDestinationsPreviewWorkerDestination is a specific Cloudflare Worker whose preview deployments Access will secure. Only
 // requests routed to the preview deployments of the specified Worker will be
 // protected. The `public` destination type takes precedence, so you can create
 // separate applications to override the policies for specific paths.
@@ -20187,7 +20187,7 @@ func (r AccessApplicationUpdateResponseBrowserRDPApplicationDestinationsPreviewW
 	return false
 }
 
-// Protects all Cloudflare Workers on the account with Access, including their
+// AccessApplicationUpdateResponseBrowserRDPApplicationDestinationsAllWorkersDestination protects all Cloudflare Workers on the account with Access, including their
 // preview deployments. At most one destination of this type can exist per account.
 // The `worker`, `preview_worker`, `all_preview_workers`, and `public` destination
 // types take precedence, so you can create separate applications to override the
@@ -20231,7 +20231,7 @@ func (r AccessApplicationUpdateResponseBrowserRDPApplicationDestinationsAllWorke
 	return false
 }
 
-// Protects the preview deployments of all Cloudflare Workers on the account with
+// AccessApplicationUpdateResponseBrowserRDPApplicationDestinationsAllPreviewWorkersDestination protects the preview deployments of all Cloudflare Workers on the account with
 // Access. At most one destination of this type can exist per account. The
 // `worker`, `preview_worker`, and `public` destination types take precedence, so
 // you can create separate applications to override the policies for specific
@@ -20275,7 +20275,7 @@ func (r AccessApplicationUpdateResponseBrowserRDPApplicationDestinationsAllPrevi
 	return false
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationUpdateResponseBrowserRDPApplicationDestinationsL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationUpdateResponseBrowserRDPApplicationDestinationsL4Protocol string
 
@@ -20312,7 +20312,7 @@ func (r AccessApplicationUpdateResponseBrowserRDPApplicationDestinationsType) Is
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationUpdateResponseBrowserRDPApplicationMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationUpdateResponseBrowserRDPApplicationMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationUpdateResponseBrowserRDPApplicationMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -20360,7 +20360,7 @@ func (r AccessApplicationUpdateResponseBrowserRDPApplicationMfaConfigAllowedAuth
 	return false
 }
 
-// **Beta:** Optional configuration for managing an OAuth authorization flow
+// AccessApplicationUpdateResponseBrowserRDPApplicationOAuthConfiguration **Beta:** Optional configuration for managing an OAuth authorization flow
 // controlled by Access. When set, Access will act as the OAuth authorization
 // server for this application. Only compatible with OAuth clients that support
 // [RFC 8707](https://datatracker.ietf.org/doc/html/rfc8707) (Resource Indicators
@@ -20396,7 +20396,7 @@ func (r accessApplicationUpdateResponseBrowserRDPApplicationOAuthConfigurationJS
 	return r.raw
 }
 
-// Settings for OAuth dynamic client registration.
+// AccessApplicationUpdateResponseBrowserRDPApplicationOAuthConfigurationDynamicClientRegistration settings for OAuth dynamic client registration.
 type AccessApplicationUpdateResponseBrowserRDPApplicationOAuthConfigurationDynamicClientRegistration struct {
 	// Allows any client with redirect URIs on localhost.
 	AllowAnyOnLocalhost bool `json:"allow_any_on_localhost"`
@@ -20430,7 +20430,7 @@ func (r accessApplicationUpdateResponseBrowserRDPApplicationOAuthConfigurationDy
 	return r.raw
 }
 
-// Settings for OAuth grant behavior.
+// AccessApplicationUpdateResponseBrowserRDPApplicationOAuthConfigurationGrant settings for OAuth grant behavior.
 type AccessApplicationUpdateResponseBrowserRDPApplicationOAuthConfigurationGrant struct {
 	// The lifetime of the access token. Must be in the format `300ms` or `2h45m`.
 	// Valid time units are ns, us (or µs), ms, s, m, h.
@@ -20539,7 +20539,7 @@ func (r accessApplicationUpdateResponseBrowserRDPApplicationPolicyJSON) RawJSON(
 	return r.raw
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationUpdateResponseBrowserRDPApplicationPoliciesConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationUpdateResponseBrowserRDPApplicationPoliciesConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -20564,7 +20564,7 @@ func (r accessApplicationUpdateResponseBrowserRDPApplicationPoliciesConnectionRu
 	return r.raw
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationUpdateResponseBrowserRDPApplicationPoliciesConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationUpdateResponseBrowserRDPApplicationPoliciesConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats []AccessApplicationUpdateResponseBrowserRDPApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat `json:"allowed_clipboard_local_to_remote_formats"`
@@ -20591,7 +20591,7 @@ func (r accessApplicationUpdateResponseBrowserRDPApplicationPoliciesConnectionRu
 	return r.raw
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationUpdateResponseBrowserRDPApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationUpdateResponseBrowserRDPApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -20606,7 +20606,7 @@ func (r AccessApplicationUpdateResponseBrowserRDPApplicationPoliciesConnectionRu
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationUpdateResponseBrowserRDPApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationUpdateResponseBrowserRDPApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -20621,7 +20621,7 @@ func (r AccessApplicationUpdateResponseBrowserRDPApplicationPoliciesConnectionRu
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationUpdateResponseBrowserRDPApplicationPoliciesMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationUpdateResponseBrowserRDPApplicationPoliciesMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationUpdateResponseBrowserRDPApplicationPoliciesMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -20669,7 +20669,7 @@ func (r AccessApplicationUpdateResponseBrowserRDPApplicationPoliciesMfaConfigAll
 	return false
 }
 
-// Configuration for provisioning to this application via SCIM. This is currently
+// AccessApplicationUpdateResponseBrowserRDPApplicationSCIMConfig configuration for provisioning to this application via SCIM. This is currently
 // in closed beta.
 type AccessApplicationUpdateResponseBrowserRDPApplicationSCIMConfig struct {
 	// The UID of the IdP to use as the source for SCIM resources to provision to this
@@ -20714,7 +20714,7 @@ func (r accessApplicationUpdateResponseBrowserRDPApplicationSCIMConfigJSON) RawJ
 	return r.raw
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationUpdateResponseBrowserRDPApplicationSCIMConfigAuthenticationUnion attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Union satisfied by [SCIMConfigAuthenticationHTTPBasic],
@@ -20753,7 +20753,7 @@ func init() {
 	)
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationUpdateResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationUpdateResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -20789,7 +20789,7 @@ func (r accessApplicationUpdateResponseBrowserRDPApplicationSCIMConfigAuthentica
 func (r AccessApplicationUpdateResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationUpdateResponseBrowserRDPApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationUpdateResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationUpdateResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -20809,7 +20809,7 @@ type AccessApplicationUpdateResponseBrowserRDPApplicationSCIMConfigAuthenticatio
 func (r AccessApplicationUpdateResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthentication) implementsAccessApplicationUpdateResponseBrowserRDPApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationUpdateResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationUpdateResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem struct {
 	// The authentication scheme to use when making SCIM requests to this application.
@@ -20878,7 +20878,7 @@ func (r AccessApplicationUpdateResponseBrowserRDPApplicationSCIMConfigAuthentica
 	return r.union
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationUpdateResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationUnionItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Union satisfied by [SCIMConfigAuthenticationHTTPBasic],
@@ -20911,7 +20911,7 @@ func init() {
 	)
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationUpdateResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationUpdateResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -20947,7 +20947,7 @@ func (r accessApplicationUpdateResponseBrowserRDPApplicationSCIMConfigAuthentica
 func (r AccessApplicationUpdateResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationUpdateResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationUpdateResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationUpdateResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -20962,7 +20962,7 @@ func (r AccessApplicationUpdateResponseBrowserRDPApplicationSCIMConfigAuthentica
 	return false
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationUpdateResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationUpdateResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme string
 
 const (
@@ -21085,7 +21085,7 @@ func (r accessApplicationUpdateResponseMcpServerApplicationJSON) RawJSON() strin
 func (r AccessApplicationUpdateResponseMcpServerApplication) implementsAccessApplicationUpdateResponse() {
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationUpdateResponseMcpServerApplicationDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationUpdateResponseMcpServerApplicationDestination struct {
 	// The CIDR range of the destination. Single IPs will be computed as /32.
@@ -21159,7 +21159,7 @@ func (r AccessApplicationUpdateResponseMcpServerApplicationDestination) AsUnion(
 	return r.union
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationUpdateResponseMcpServerApplicationDestinationsUnion is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 //
 // Union satisfied by
@@ -21210,7 +21210,7 @@ func init() {
 	)
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationUpdateResponseMcpServerApplicationDestinationsPublicDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationUpdateResponseMcpServerApplicationDestinationsPublicDestination struct {
 	Type AccessApplicationUpdateResponseMcpServerApplicationDestinationsPublicDestinationType `json:"type"`
@@ -21298,7 +21298,7 @@ func (r accessApplicationUpdateResponseMcpServerApplicationDestinationsPrivateDe
 func (r AccessApplicationUpdateResponseMcpServerApplicationDestinationsPrivateDestination) implementsAccessApplicationUpdateResponseMcpServerApplicationDestination() {
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationUpdateResponseMcpServerApplicationDestinationsPrivateDestinationL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationUpdateResponseMcpServerApplicationDestinationsPrivateDestinationL4Protocol string
 
@@ -21329,7 +21329,7 @@ func (r AccessApplicationUpdateResponseMcpServerApplicationDestinationsPrivateDe
 	return false
 }
 
-// A MCP server id configured in ai-controls. Access will secure the MCP server if
+// AccessApplicationUpdateResponseMcpServerApplicationDestinationsViaMcpServerPortalDestination is a MCP server id configured in ai-controls. Access will secure the MCP server if
 // accessed through a MCP portal.
 type AccessApplicationUpdateResponseMcpServerApplicationDestinationsViaMcpServerPortalDestination struct {
 	// The MCP server id configured in ai-controls.
@@ -21373,7 +21373,7 @@ func (r AccessApplicationUpdateResponseMcpServerApplicationDestinationsViaMcpSer
 	return false
 }
 
-// A specific Cloudflare Worker that Access will secure. All requests routed to the
+// AccessApplicationUpdateResponseMcpServerApplicationDestinationsWorkerDestination is a specific Cloudflare Worker that Access will secure. All requests routed to the
 // specified Worker, including its preview deployments, will be protected. The
 // `preview_worker` and `public` destination types takes precedence, so you can
 // create separate applications to override the policies for the Worker's previews
@@ -21420,7 +21420,7 @@ func (r AccessApplicationUpdateResponseMcpServerApplicationDestinationsWorkerDes
 	return false
 }
 
-// A specific Cloudflare Worker whose preview deployments Access will secure. Only
+// AccessApplicationUpdateResponseMcpServerApplicationDestinationsPreviewWorkerDestination is a specific Cloudflare Worker whose preview deployments Access will secure. Only
 // requests routed to the preview deployments of the specified Worker will be
 // protected. The `public` destination type takes precedence, so you can create
 // separate applications to override the policies for specific paths.
@@ -21467,7 +21467,7 @@ func (r AccessApplicationUpdateResponseMcpServerApplicationDestinationsPreviewWo
 	return false
 }
 
-// Protects all Cloudflare Workers on the account with Access, including their
+// AccessApplicationUpdateResponseMcpServerApplicationDestinationsAllWorkersDestination protects all Cloudflare Workers on the account with Access, including their
 // preview deployments. At most one destination of this type can exist per account.
 // The `worker`, `preview_worker`, `all_preview_workers`, and `public` destination
 // types take precedence, so you can create separate applications to override the
@@ -21511,7 +21511,7 @@ func (r AccessApplicationUpdateResponseMcpServerApplicationDestinationsAllWorker
 	return false
 }
 
-// Protects the preview deployments of all Cloudflare Workers on the account with
+// AccessApplicationUpdateResponseMcpServerApplicationDestinationsAllPreviewWorkersDestination protects the preview deployments of all Cloudflare Workers on the account with
 // Access. At most one destination of this type can exist per account. The
 // `worker`, `preview_worker`, and `public` destination types take precedence, so
 // you can create separate applications to override the policies for specific
@@ -21555,7 +21555,7 @@ func (r AccessApplicationUpdateResponseMcpServerApplicationDestinationsAllPrevie
 	return false
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationUpdateResponseMcpServerApplicationDestinationsL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationUpdateResponseMcpServerApplicationDestinationsL4Protocol string
 
@@ -21592,7 +21592,7 @@ func (r AccessApplicationUpdateResponseMcpServerApplicationDestinationsType) IsK
 	return false
 }
 
-// **Beta:** Optional configuration for managing an OAuth authorization flow
+// AccessApplicationUpdateResponseMcpServerApplicationOAuthConfiguration **Beta:** Optional configuration for managing an OAuth authorization flow
 // controlled by Access. When set, Access will act as the OAuth authorization
 // server for this application. Only compatible with OAuth clients that support
 // [RFC 8707](https://datatracker.ietf.org/doc/html/rfc8707) (Resource Indicators
@@ -21628,7 +21628,7 @@ func (r accessApplicationUpdateResponseMcpServerApplicationOAuthConfigurationJSO
 	return r.raw
 }
 
-// Settings for OAuth dynamic client registration.
+// AccessApplicationUpdateResponseMcpServerApplicationOAuthConfigurationDynamicClientRegistration settings for OAuth dynamic client registration.
 type AccessApplicationUpdateResponseMcpServerApplicationOAuthConfigurationDynamicClientRegistration struct {
 	// Allows any client with redirect URIs on localhost.
 	AllowAnyOnLocalhost bool `json:"allow_any_on_localhost"`
@@ -21662,7 +21662,7 @@ func (r accessApplicationUpdateResponseMcpServerApplicationOAuthConfigurationDyn
 	return r.raw
 }
 
-// Settings for OAuth grant behavior.
+// AccessApplicationUpdateResponseMcpServerApplicationOAuthConfigurationGrant settings for OAuth grant behavior.
 type AccessApplicationUpdateResponseMcpServerApplicationOAuthConfigurationGrant struct {
 	// The lifetime of the access token. Must be in the format `300ms` or `2h45m`.
 	// Valid time units are ns, us (or µs), ms, s, m, h.
@@ -21771,7 +21771,7 @@ func (r accessApplicationUpdateResponseMcpServerApplicationPolicyJSON) RawJSON()
 	return r.raw
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationUpdateResponseMcpServerApplicationPoliciesConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationUpdateResponseMcpServerApplicationPoliciesConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -21796,7 +21796,7 @@ func (r accessApplicationUpdateResponseMcpServerApplicationPoliciesConnectionRul
 	return r.raw
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationUpdateResponseMcpServerApplicationPoliciesConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationUpdateResponseMcpServerApplicationPoliciesConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats []AccessApplicationUpdateResponseMcpServerApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat `json:"allowed_clipboard_local_to_remote_formats"`
@@ -21823,7 +21823,7 @@ func (r accessApplicationUpdateResponseMcpServerApplicationPoliciesConnectionRul
 	return r.raw
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationUpdateResponseMcpServerApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationUpdateResponseMcpServerApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -21838,7 +21838,7 @@ func (r AccessApplicationUpdateResponseMcpServerApplicationPoliciesConnectionRul
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationUpdateResponseMcpServerApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationUpdateResponseMcpServerApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -21853,7 +21853,7 @@ func (r AccessApplicationUpdateResponseMcpServerApplicationPoliciesConnectionRul
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationUpdateResponseMcpServerApplicationPoliciesMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationUpdateResponseMcpServerApplicationPoliciesMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationUpdateResponseMcpServerApplicationPoliciesMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -21901,7 +21901,7 @@ func (r AccessApplicationUpdateResponseMcpServerApplicationPoliciesMfaConfigAllo
 	return false
 }
 
-// Configuration for provisioning to this application via SCIM. This is currently
+// AccessApplicationUpdateResponseMcpServerApplicationSCIMConfig configuration for provisioning to this application via SCIM. This is currently
 // in closed beta.
 type AccessApplicationUpdateResponseMcpServerApplicationSCIMConfig struct {
 	// The UID of the IdP to use as the source for SCIM resources to provision to this
@@ -21946,7 +21946,7 @@ func (r accessApplicationUpdateResponseMcpServerApplicationSCIMConfigJSON) RawJS
 	return r.raw
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationUpdateResponseMcpServerApplicationSCIMConfigAuthenticationUnion attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Union satisfied by [SCIMConfigAuthenticationHTTPBasic],
@@ -21985,7 +21985,7 @@ func init() {
 	)
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationUpdateResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationUpdateResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -22021,7 +22021,7 @@ func (r accessApplicationUpdateResponseMcpServerApplicationSCIMConfigAuthenticat
 func (r AccessApplicationUpdateResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationUpdateResponseMcpServerApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationUpdateResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationUpdateResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -22041,7 +22041,7 @@ type AccessApplicationUpdateResponseMcpServerApplicationSCIMConfigAuthentication
 func (r AccessApplicationUpdateResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthentication) implementsAccessApplicationUpdateResponseMcpServerApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationUpdateResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationUpdateResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem struct {
 	// The authentication scheme to use when making SCIM requests to this application.
@@ -22110,7 +22110,7 @@ func (r AccessApplicationUpdateResponseMcpServerApplicationSCIMConfigAuthenticat
 	return r.union
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationUpdateResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationUnionItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Union satisfied by [SCIMConfigAuthenticationHTTPBasic],
@@ -22143,7 +22143,7 @@ func init() {
 	)
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationUpdateResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationUpdateResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -22179,7 +22179,7 @@ func (r accessApplicationUpdateResponseMcpServerApplicationSCIMConfigAuthenticat
 func (r AccessApplicationUpdateResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationUpdateResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationUpdateResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationUpdateResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -22194,7 +22194,7 @@ func (r AccessApplicationUpdateResponseMcpServerApplicationSCIMConfigAuthenticat
 	return false
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationUpdateResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationUpdateResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme string
 
 const (
@@ -22322,7 +22322,7 @@ func (r accessApplicationUpdateResponseMcpServerPortalApplicationJSON) RawJSON()
 func (r AccessApplicationUpdateResponseMcpServerPortalApplication) implementsAccessApplicationUpdateResponse() {
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationUpdateResponseMcpServerPortalApplicationDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationUpdateResponseMcpServerPortalApplicationDestination struct {
 	// The CIDR range of the destination. Single IPs will be computed as /32.
@@ -22396,7 +22396,7 @@ func (r AccessApplicationUpdateResponseMcpServerPortalApplicationDestination) As
 	return r.union
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationUpdateResponseMcpServerPortalApplicationDestinationsUnion is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 //
 // Union satisfied by
@@ -22447,7 +22447,7 @@ func init() {
 	)
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationUpdateResponseMcpServerPortalApplicationDestinationsPublicDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationUpdateResponseMcpServerPortalApplicationDestinationsPublicDestination struct {
 	Type AccessApplicationUpdateResponseMcpServerPortalApplicationDestinationsPublicDestinationType `json:"type"`
@@ -22535,7 +22535,7 @@ func (r accessApplicationUpdateResponseMcpServerPortalApplicationDestinationsPri
 func (r AccessApplicationUpdateResponseMcpServerPortalApplicationDestinationsPrivateDestination) implementsAccessApplicationUpdateResponseMcpServerPortalApplicationDestination() {
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationUpdateResponseMcpServerPortalApplicationDestinationsPrivateDestinationL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationUpdateResponseMcpServerPortalApplicationDestinationsPrivateDestinationL4Protocol string
 
@@ -22566,7 +22566,7 @@ func (r AccessApplicationUpdateResponseMcpServerPortalApplicationDestinationsPri
 	return false
 }
 
-// A MCP server id configured in ai-controls. Access will secure the MCP server if
+// AccessApplicationUpdateResponseMcpServerPortalApplicationDestinationsViaMcpServerPortalDestination is a MCP server id configured in ai-controls. Access will secure the MCP server if
 // accessed through a MCP portal.
 type AccessApplicationUpdateResponseMcpServerPortalApplicationDestinationsViaMcpServerPortalDestination struct {
 	// The MCP server id configured in ai-controls.
@@ -22610,7 +22610,7 @@ func (r AccessApplicationUpdateResponseMcpServerPortalApplicationDestinationsVia
 	return false
 }
 
-// A specific Cloudflare Worker that Access will secure. All requests routed to the
+// AccessApplicationUpdateResponseMcpServerPortalApplicationDestinationsWorkerDestination is a specific Cloudflare Worker that Access will secure. All requests routed to the
 // specified Worker, including its preview deployments, will be protected. The
 // `preview_worker` and `public` destination types takes precedence, so you can
 // create separate applications to override the policies for the Worker's previews
@@ -22657,7 +22657,7 @@ func (r AccessApplicationUpdateResponseMcpServerPortalApplicationDestinationsWor
 	return false
 }
 
-// A specific Cloudflare Worker whose preview deployments Access will secure. Only
+// AccessApplicationUpdateResponseMcpServerPortalApplicationDestinationsPreviewWorkerDestination is a specific Cloudflare Worker whose preview deployments Access will secure. Only
 // requests routed to the preview deployments of the specified Worker will be
 // protected. The `public` destination type takes precedence, so you can create
 // separate applications to override the policies for specific paths.
@@ -22704,7 +22704,7 @@ func (r AccessApplicationUpdateResponseMcpServerPortalApplicationDestinationsPre
 	return false
 }
 
-// Protects all Cloudflare Workers on the account with Access, including their
+// AccessApplicationUpdateResponseMcpServerPortalApplicationDestinationsAllWorkersDestination protects all Cloudflare Workers on the account with Access, including their
 // preview deployments. At most one destination of this type can exist per account.
 // The `worker`, `preview_worker`, `all_preview_workers`, and `public` destination
 // types take precedence, so you can create separate applications to override the
@@ -22748,7 +22748,7 @@ func (r AccessApplicationUpdateResponseMcpServerPortalApplicationDestinationsAll
 	return false
 }
 
-// Protects the preview deployments of all Cloudflare Workers on the account with
+// AccessApplicationUpdateResponseMcpServerPortalApplicationDestinationsAllPreviewWorkersDestination protects the preview deployments of all Cloudflare Workers on the account with
 // Access. At most one destination of this type can exist per account. The
 // `worker`, `preview_worker`, and `public` destination types take precedence, so
 // you can create separate applications to override the policies for specific
@@ -22792,7 +22792,7 @@ func (r AccessApplicationUpdateResponseMcpServerPortalApplicationDestinationsAll
 	return false
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationUpdateResponseMcpServerPortalApplicationDestinationsL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationUpdateResponseMcpServerPortalApplicationDestinationsL4Protocol string
 
@@ -22829,7 +22829,7 @@ func (r AccessApplicationUpdateResponseMcpServerPortalApplicationDestinationsTyp
 	return false
 }
 
-// **Beta:** Optional configuration for managing an OAuth authorization flow
+// AccessApplicationUpdateResponseMcpServerPortalApplicationOAuthConfiguration **Beta:** Optional configuration for managing an OAuth authorization flow
 // controlled by Access. When set, Access will act as the OAuth authorization
 // server for this application. Only compatible with OAuth clients that support
 // [RFC 8707](https://datatracker.ietf.org/doc/html/rfc8707) (Resource Indicators
@@ -22865,7 +22865,7 @@ func (r accessApplicationUpdateResponseMcpServerPortalApplicationOAuthConfigurat
 	return r.raw
 }
 
-// Settings for OAuth dynamic client registration.
+// AccessApplicationUpdateResponseMcpServerPortalApplicationOAuthConfigurationDynamicClientRegistration settings for OAuth dynamic client registration.
 type AccessApplicationUpdateResponseMcpServerPortalApplicationOAuthConfigurationDynamicClientRegistration struct {
 	// Allows any client with redirect URIs on localhost.
 	AllowAnyOnLocalhost bool `json:"allow_any_on_localhost"`
@@ -22899,7 +22899,7 @@ func (r accessApplicationUpdateResponseMcpServerPortalApplicationOAuthConfigurat
 	return r.raw
 }
 
-// Settings for OAuth grant behavior.
+// AccessApplicationUpdateResponseMcpServerPortalApplicationOAuthConfigurationGrant settings for OAuth grant behavior.
 type AccessApplicationUpdateResponseMcpServerPortalApplicationOAuthConfigurationGrant struct {
 	// The lifetime of the access token. Must be in the format `300ms` or `2h45m`.
 	// Valid time units are ns, us (or µs), ms, s, m, h.
@@ -23008,7 +23008,7 @@ func (r accessApplicationUpdateResponseMcpServerPortalApplicationPolicyJSON) Raw
 	return r.raw
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationUpdateResponseMcpServerPortalApplicationPoliciesConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationUpdateResponseMcpServerPortalApplicationPoliciesConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -23033,7 +23033,7 @@ func (r accessApplicationUpdateResponseMcpServerPortalApplicationPoliciesConnect
 	return r.raw
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationUpdateResponseMcpServerPortalApplicationPoliciesConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationUpdateResponseMcpServerPortalApplicationPoliciesConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats []AccessApplicationUpdateResponseMcpServerPortalApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat `json:"allowed_clipboard_local_to_remote_formats"`
@@ -23060,7 +23060,7 @@ func (r accessApplicationUpdateResponseMcpServerPortalApplicationPoliciesConnect
 	return r.raw
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationUpdateResponseMcpServerPortalApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationUpdateResponseMcpServerPortalApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -23075,7 +23075,7 @@ func (r AccessApplicationUpdateResponseMcpServerPortalApplicationPoliciesConnect
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationUpdateResponseMcpServerPortalApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationUpdateResponseMcpServerPortalApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -23090,7 +23090,7 @@ func (r AccessApplicationUpdateResponseMcpServerPortalApplicationPoliciesConnect
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationUpdateResponseMcpServerPortalApplicationPoliciesMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationUpdateResponseMcpServerPortalApplicationPoliciesMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationUpdateResponseMcpServerPortalApplicationPoliciesMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -23138,7 +23138,7 @@ func (r AccessApplicationUpdateResponseMcpServerPortalApplicationPoliciesMfaConf
 	return false
 }
 
-// Configuration for provisioning to this application via SCIM. This is currently
+// AccessApplicationUpdateResponseMcpServerPortalApplicationSCIMConfig configuration for provisioning to this application via SCIM. This is currently
 // in closed beta.
 type AccessApplicationUpdateResponseMcpServerPortalApplicationSCIMConfig struct {
 	// The UID of the IdP to use as the source for SCIM resources to provision to this
@@ -23183,7 +23183,7 @@ func (r accessApplicationUpdateResponseMcpServerPortalApplicationSCIMConfigJSON)
 	return r.raw
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationUpdateResponseMcpServerPortalApplicationSCIMConfigAuthenticationUnion attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Union satisfied by [SCIMConfigAuthenticationHTTPBasic],
@@ -23222,7 +23222,7 @@ func init() {
 	)
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationUpdateResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationUpdateResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -23258,7 +23258,7 @@ func (r accessApplicationUpdateResponseMcpServerPortalApplicationSCIMConfigAuthe
 func (r AccessApplicationUpdateResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationUpdateResponseMcpServerPortalApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationUpdateResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationUpdateResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -23278,7 +23278,7 @@ type AccessApplicationUpdateResponseMcpServerPortalApplicationSCIMConfigAuthenti
 func (r AccessApplicationUpdateResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthentication) implementsAccessApplicationUpdateResponseMcpServerPortalApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationUpdateResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationUpdateResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem struct {
 	// The authentication scheme to use when making SCIM requests to this application.
@@ -23347,7 +23347,7 @@ func (r AccessApplicationUpdateResponseMcpServerPortalApplicationSCIMConfigAuthe
 	return r.union
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationUpdateResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationUnionItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Union satisfied by [SCIMConfigAuthenticationHTTPBasic],
@@ -23380,7 +23380,7 @@ func init() {
 	)
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationUpdateResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationUpdateResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -23416,7 +23416,7 @@ func (r accessApplicationUpdateResponseMcpServerPortalApplicationSCIMConfigAuthe
 func (r AccessApplicationUpdateResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationUpdateResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationUpdateResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationUpdateResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -23431,7 +23431,7 @@ func (r AccessApplicationUpdateResponseMcpServerPortalApplicationSCIMConfigAuthe
 	return false
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationUpdateResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationUpdateResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme string
 
 const (
@@ -23688,7 +23688,7 @@ func (r AccessApplicationListResponse) AsUnion() AccessApplicationListResponseUn
 	return r.union
 }
 
-// Union satisfied by [AccessApplicationListResponseSelfHostedApplication],
+// AccessApplicationListResponseUnion is satisfied by [AccessApplicationListResponseSelfHostedApplication],
 // [AccessApplicationListResponseSaaSApplication],
 // [AccessApplicationListResponseBrowserSSHApplication],
 // [AccessApplicationListResponseBrowserVNCApplication],
@@ -23926,7 +23926,7 @@ func (r accessApplicationListResponseSelfHostedApplicationJSON) RawJSON() string
 func (r AccessApplicationListResponseSelfHostedApplication) implementsAccessApplicationListResponse() {
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationListResponseSelfHostedApplicationDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationListResponseSelfHostedApplicationDestination struct {
 	// The CIDR range of the destination. Single IPs will be computed as /32.
@@ -24000,7 +24000,7 @@ func (r AccessApplicationListResponseSelfHostedApplicationDestination) AsUnion()
 	return r.union
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationListResponseSelfHostedApplicationDestinationsUnion is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 //
 // Union satisfied by
@@ -24051,7 +24051,7 @@ func init() {
 	)
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationListResponseSelfHostedApplicationDestinationsPublicDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationListResponseSelfHostedApplicationDestinationsPublicDestination struct {
 	Type AccessApplicationListResponseSelfHostedApplicationDestinationsPublicDestinationType `json:"type"`
@@ -24139,7 +24139,7 @@ func (r accessApplicationListResponseSelfHostedApplicationDestinationsPrivateDes
 func (r AccessApplicationListResponseSelfHostedApplicationDestinationsPrivateDestination) implementsAccessApplicationListResponseSelfHostedApplicationDestination() {
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationListResponseSelfHostedApplicationDestinationsPrivateDestinationL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationListResponseSelfHostedApplicationDestinationsPrivateDestinationL4Protocol string
 
@@ -24170,7 +24170,7 @@ func (r AccessApplicationListResponseSelfHostedApplicationDestinationsPrivateDes
 	return false
 }
 
-// A MCP server id configured in ai-controls. Access will secure the MCP server if
+// AccessApplicationListResponseSelfHostedApplicationDestinationsViaMcpServerPortalDestination is a MCP server id configured in ai-controls. Access will secure the MCP server if
 // accessed through a MCP portal.
 type AccessApplicationListResponseSelfHostedApplicationDestinationsViaMcpServerPortalDestination struct {
 	// The MCP server id configured in ai-controls.
@@ -24214,7 +24214,7 @@ func (r AccessApplicationListResponseSelfHostedApplicationDestinationsViaMcpServ
 	return false
 }
 
-// A specific Cloudflare Worker that Access will secure. All requests routed to the
+// AccessApplicationListResponseSelfHostedApplicationDestinationsWorkerDestination is a specific Cloudflare Worker that Access will secure. All requests routed to the
 // specified Worker, including its preview deployments, will be protected. The
 // `preview_worker` and `public` destination types takes precedence, so you can
 // create separate applications to override the policies for the Worker's previews
@@ -24261,7 +24261,7 @@ func (r AccessApplicationListResponseSelfHostedApplicationDestinationsWorkerDest
 	return false
 }
 
-// A specific Cloudflare Worker whose preview deployments Access will secure. Only
+// AccessApplicationListResponseSelfHostedApplicationDestinationsPreviewWorkerDestination is a specific Cloudflare Worker whose preview deployments Access will secure. Only
 // requests routed to the preview deployments of the specified Worker will be
 // protected. The `public` destination type takes precedence, so you can create
 // separate applications to override the policies for specific paths.
@@ -24308,7 +24308,7 @@ func (r AccessApplicationListResponseSelfHostedApplicationDestinationsPreviewWor
 	return false
 }
 
-// Protects all Cloudflare Workers on the account with Access, including their
+// AccessApplicationListResponseSelfHostedApplicationDestinationsAllWorkersDestination protects all Cloudflare Workers on the account with Access, including their
 // preview deployments. At most one destination of this type can exist per account.
 // The `worker`, `preview_worker`, `all_preview_workers`, and `public` destination
 // types take precedence, so you can create separate applications to override the
@@ -24352,7 +24352,7 @@ func (r AccessApplicationListResponseSelfHostedApplicationDestinationsAllWorkers
 	return false
 }
 
-// Protects the preview deployments of all Cloudflare Workers on the account with
+// AccessApplicationListResponseSelfHostedApplicationDestinationsAllPreviewWorkersDestination protects the preview deployments of all Cloudflare Workers on the account with
 // Access. At most one destination of this type can exist per account. The
 // `worker`, `preview_worker`, and `public` destination types take precedence, so
 // you can create separate applications to override the policies for specific
@@ -24396,7 +24396,7 @@ func (r AccessApplicationListResponseSelfHostedApplicationDestinationsAllPreview
 	return false
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationListResponseSelfHostedApplicationDestinationsL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationListResponseSelfHostedApplicationDestinationsL4Protocol string
 
@@ -24433,7 +24433,7 @@ func (r AccessApplicationListResponseSelfHostedApplicationDestinationsType) IsKn
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationListResponseSelfHostedApplicationMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationListResponseSelfHostedApplicationMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationListResponseSelfHostedApplicationMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -24481,7 +24481,7 @@ func (r AccessApplicationListResponseSelfHostedApplicationMfaConfigAllowedAuthen
 	return false
 }
 
-// **Beta:** Optional configuration for managing an OAuth authorization flow
+// AccessApplicationListResponseSelfHostedApplicationOAuthConfiguration **Beta:** Optional configuration for managing an OAuth authorization flow
 // controlled by Access. When set, Access will act as the OAuth authorization
 // server for this application. Only compatible with OAuth clients that support
 // [RFC 8707](https://datatracker.ietf.org/doc/html/rfc8707) (Resource Indicators
@@ -24517,7 +24517,7 @@ func (r accessApplicationListResponseSelfHostedApplicationOAuthConfigurationJSON
 	return r.raw
 }
 
-// Settings for OAuth dynamic client registration.
+// AccessApplicationListResponseSelfHostedApplicationOAuthConfigurationDynamicClientRegistration settings for OAuth dynamic client registration.
 type AccessApplicationListResponseSelfHostedApplicationOAuthConfigurationDynamicClientRegistration struct {
 	// Allows any client with redirect URIs on localhost.
 	AllowAnyOnLocalhost bool `json:"allow_any_on_localhost"`
@@ -24551,7 +24551,7 @@ func (r accessApplicationListResponseSelfHostedApplicationOAuthConfigurationDyna
 	return r.raw
 }
 
-// Settings for OAuth grant behavior.
+// AccessApplicationListResponseSelfHostedApplicationOAuthConfigurationGrant settings for OAuth grant behavior.
 type AccessApplicationListResponseSelfHostedApplicationOAuthConfigurationGrant struct {
 	// The lifetime of the access token. Must be in the format `300ms` or `2h45m`.
 	// Valid time units are ns, us (or µs), ms, s, m, h.
@@ -24660,7 +24660,7 @@ func (r accessApplicationListResponseSelfHostedApplicationPolicyJSON) RawJSON() 
 	return r.raw
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationListResponseSelfHostedApplicationPoliciesConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationListResponseSelfHostedApplicationPoliciesConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -24685,7 +24685,7 @@ func (r accessApplicationListResponseSelfHostedApplicationPoliciesConnectionRule
 	return r.raw
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationListResponseSelfHostedApplicationPoliciesConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationListResponseSelfHostedApplicationPoliciesConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats []AccessApplicationListResponseSelfHostedApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat `json:"allowed_clipboard_local_to_remote_formats"`
@@ -24712,7 +24712,7 @@ func (r accessApplicationListResponseSelfHostedApplicationPoliciesConnectionRule
 	return r.raw
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationListResponseSelfHostedApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationListResponseSelfHostedApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -24727,7 +24727,7 @@ func (r AccessApplicationListResponseSelfHostedApplicationPoliciesConnectionRule
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationListResponseSelfHostedApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationListResponseSelfHostedApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -24742,7 +24742,7 @@ func (r AccessApplicationListResponseSelfHostedApplicationPoliciesConnectionRule
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationListResponseSelfHostedApplicationPoliciesMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationListResponseSelfHostedApplicationPoliciesMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationListResponseSelfHostedApplicationPoliciesMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -24790,7 +24790,7 @@ func (r AccessApplicationListResponseSelfHostedApplicationPoliciesMfaConfigAllow
 	return false
 }
 
-// Configuration for provisioning to this application via SCIM. This is currently
+// AccessApplicationListResponseSelfHostedApplicationSCIMConfig configuration for provisioning to this application via SCIM. This is currently
 // in closed beta.
 type AccessApplicationListResponseSelfHostedApplicationSCIMConfig struct {
 	// The UID of the IdP to use as the source for SCIM resources to provision to this
@@ -24835,7 +24835,7 @@ func (r accessApplicationListResponseSelfHostedApplicationSCIMConfigJSON) RawJSO
 	return r.raw
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationListResponseSelfHostedApplicationSCIMConfigAuthenticationUnion attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Union satisfied by [SCIMConfigAuthenticationHTTPBasic],
@@ -24874,7 +24874,7 @@ func init() {
 	)
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationListResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationListResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -24910,7 +24910,7 @@ func (r accessApplicationListResponseSelfHostedApplicationSCIMConfigAuthenticati
 func (r AccessApplicationListResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationListResponseSelfHostedApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationListResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationListResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -24930,7 +24930,7 @@ type AccessApplicationListResponseSelfHostedApplicationSCIMConfigAuthenticationA
 func (r AccessApplicationListResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthentication) implementsAccessApplicationListResponseSelfHostedApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationListResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationListResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem struct {
 	// The authentication scheme to use when making SCIM requests to this application.
@@ -24999,7 +24999,7 @@ func (r AccessApplicationListResponseSelfHostedApplicationSCIMConfigAuthenticati
 	return r.union
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationListResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationUnionItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Union satisfied by [SCIMConfigAuthenticationHTTPBasic],
@@ -25032,7 +25032,7 @@ func init() {
 	)
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationListResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationListResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -25068,7 +25068,7 @@ func (r accessApplicationListResponseSelfHostedApplicationSCIMConfigAuthenticati
 func (r AccessApplicationListResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationListResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationListResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationListResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -25083,7 +25083,7 @@ func (r AccessApplicationListResponseSelfHostedApplicationSCIMConfigAuthenticati
 	return false
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationListResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationListResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme string
 
 const (
@@ -25242,7 +25242,7 @@ func (r accessApplicationListResponseSaaSApplicationPolicyJSON) RawJSON() string
 	return r.raw
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationListResponseSaaSApplicationPoliciesConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationListResponseSaaSApplicationPoliciesConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -25267,7 +25267,7 @@ func (r accessApplicationListResponseSaaSApplicationPoliciesConnectionRulesJSON)
 	return r.raw
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationListResponseSaaSApplicationPoliciesConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationListResponseSaaSApplicationPoliciesConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats []AccessApplicationListResponseSaaSApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat `json:"allowed_clipboard_local_to_remote_formats"`
@@ -25294,7 +25294,7 @@ func (r accessApplicationListResponseSaaSApplicationPoliciesConnectionRulesRDPJS
 	return r.raw
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationListResponseSaaSApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationListResponseSaaSApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -25309,7 +25309,7 @@ func (r AccessApplicationListResponseSaaSApplicationPoliciesConnectionRulesRDPAl
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationListResponseSaaSApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationListResponseSaaSApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -25324,7 +25324,7 @@ func (r AccessApplicationListResponseSaaSApplicationPoliciesConnectionRulesRDPAl
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationListResponseSaaSApplicationPoliciesMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationListResponseSaaSApplicationPoliciesMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationListResponseSaaSApplicationPoliciesMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -25486,7 +25486,7 @@ func (r AccessApplicationListResponseSaaSApplicationSaaSApp) AsUnion() AccessApp
 	return r.union
 }
 
-// Union satisfied by [SAMLSaaSApp] or [OIDCSaaSApp].
+// AccessApplicationListResponseSaaSApplicationSaaSAppUnion is satisfied by [SAMLSaaSApp] or [OIDCSaaSApp].
 type AccessApplicationListResponseSaaSApplicationSaaSAppUnion interface {
 	implementsAccessApplicationListResponseSaaSApplicationSaaSApp()
 }
@@ -25506,7 +25506,7 @@ func init() {
 	)
 }
 
-// Optional identifier indicating the authentication protocol used for the saas
+// AccessApplicationListResponseSaaSApplicationSaaSAppAuthType optional identifier indicating the authentication protocol used for the saas
 // app. Required for OIDC. Default if unset is "saml"
 type AccessApplicationListResponseSaaSApplicationSaaSAppAuthType string
 
@@ -25523,7 +25523,7 @@ func (r AccessApplicationListResponseSaaSApplicationSaaSAppAuthType) IsKnown() b
 	return false
 }
 
-// Configuration for provisioning to this application via SCIM. This is currently
+// AccessApplicationListResponseSaaSApplicationSCIMConfig configuration for provisioning to this application via SCIM. This is currently
 // in closed beta.
 type AccessApplicationListResponseSaaSApplicationSCIMConfig struct {
 	// The UID of the IdP to use as the source for SCIM resources to provision to this
@@ -25567,7 +25567,7 @@ func (r accessApplicationListResponseSaaSApplicationSCIMConfigJSON) RawJSON() st
 	return r.raw
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationListResponseSaaSApplicationSCIMConfigAuthenticationUnion attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Union satisfied by [SCIMConfigAuthenticationHTTPBasic],
@@ -25606,7 +25606,7 @@ func init() {
 	)
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationListResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationListResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -25642,7 +25642,7 @@ func (r accessApplicationListResponseSaaSApplicationSCIMConfigAuthenticationAcce
 func (r AccessApplicationListResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationListResponseSaaSApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationListResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationListResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -25662,7 +25662,7 @@ type AccessApplicationListResponseSaaSApplicationSCIMConfigAuthenticationAccessS
 func (r AccessApplicationListResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthentication) implementsAccessApplicationListResponseSaaSApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationListResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationListResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem struct {
 	// The authentication scheme to use when making SCIM requests to this application.
@@ -25731,7 +25731,7 @@ func (r AccessApplicationListResponseSaaSApplicationSCIMConfigAuthenticationAcce
 	return r.union
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationListResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationUnionItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Union satisfied by [SCIMConfigAuthenticationHTTPBasic],
@@ -25764,7 +25764,7 @@ func init() {
 	)
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationListResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationListResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -25800,7 +25800,7 @@ func (r accessApplicationListResponseSaaSApplicationSCIMConfigAuthenticationAcce
 func (r AccessApplicationListResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationListResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationListResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationListResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -25815,7 +25815,7 @@ func (r AccessApplicationListResponseSaaSApplicationSCIMConfigAuthenticationAcce
 	return false
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationListResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationListResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme string
 
 const (
@@ -25995,7 +25995,7 @@ func (r accessApplicationListResponseBrowserSSHApplicationJSON) RawJSON() string
 func (r AccessApplicationListResponseBrowserSSHApplication) implementsAccessApplicationListResponse() {
 }
 
-// The application type.
+// AccessApplicationListResponseBrowserSSHApplicationType is the application type.
 type AccessApplicationListResponseBrowserSSHApplicationType string
 
 const (
@@ -26023,7 +26023,7 @@ func (r AccessApplicationListResponseBrowserSSHApplicationType) IsKnown() bool {
 	return false
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationListResponseBrowserSSHApplicationDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationListResponseBrowserSSHApplicationDestination struct {
 	// The CIDR range of the destination. Single IPs will be computed as /32.
@@ -26097,7 +26097,7 @@ func (r AccessApplicationListResponseBrowserSSHApplicationDestination) AsUnion()
 	return r.union
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationListResponseBrowserSSHApplicationDestinationsUnion is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 //
 // Union satisfied by
@@ -26148,7 +26148,7 @@ func init() {
 	)
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationListResponseBrowserSSHApplicationDestinationsPublicDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationListResponseBrowserSSHApplicationDestinationsPublicDestination struct {
 	Type AccessApplicationListResponseBrowserSSHApplicationDestinationsPublicDestinationType `json:"type"`
@@ -26236,7 +26236,7 @@ func (r accessApplicationListResponseBrowserSSHApplicationDestinationsPrivateDes
 func (r AccessApplicationListResponseBrowserSSHApplicationDestinationsPrivateDestination) implementsAccessApplicationListResponseBrowserSSHApplicationDestination() {
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationListResponseBrowserSSHApplicationDestinationsPrivateDestinationL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationListResponseBrowserSSHApplicationDestinationsPrivateDestinationL4Protocol string
 
@@ -26267,7 +26267,7 @@ func (r AccessApplicationListResponseBrowserSSHApplicationDestinationsPrivateDes
 	return false
 }
 
-// A MCP server id configured in ai-controls. Access will secure the MCP server if
+// AccessApplicationListResponseBrowserSSHApplicationDestinationsViaMcpServerPortalDestination is a MCP server id configured in ai-controls. Access will secure the MCP server if
 // accessed through a MCP portal.
 type AccessApplicationListResponseBrowserSSHApplicationDestinationsViaMcpServerPortalDestination struct {
 	// The MCP server id configured in ai-controls.
@@ -26311,7 +26311,7 @@ func (r AccessApplicationListResponseBrowserSSHApplicationDestinationsViaMcpServ
 	return false
 }
 
-// A specific Cloudflare Worker that Access will secure. All requests routed to the
+// AccessApplicationListResponseBrowserSSHApplicationDestinationsWorkerDestination is a specific Cloudflare Worker that Access will secure. All requests routed to the
 // specified Worker, including its preview deployments, will be protected. The
 // `preview_worker` and `public` destination types takes precedence, so you can
 // create separate applications to override the policies for the Worker's previews
@@ -26358,7 +26358,7 @@ func (r AccessApplicationListResponseBrowserSSHApplicationDestinationsWorkerDest
 	return false
 }
 
-// A specific Cloudflare Worker whose preview deployments Access will secure. Only
+// AccessApplicationListResponseBrowserSSHApplicationDestinationsPreviewWorkerDestination is a specific Cloudflare Worker whose preview deployments Access will secure. Only
 // requests routed to the preview deployments of the specified Worker will be
 // protected. The `public` destination type takes precedence, so you can create
 // separate applications to override the policies for specific paths.
@@ -26405,7 +26405,7 @@ func (r AccessApplicationListResponseBrowserSSHApplicationDestinationsPreviewWor
 	return false
 }
 
-// Protects all Cloudflare Workers on the account with Access, including their
+// AccessApplicationListResponseBrowserSSHApplicationDestinationsAllWorkersDestination protects all Cloudflare Workers on the account with Access, including their
 // preview deployments. At most one destination of this type can exist per account.
 // The `worker`, `preview_worker`, `all_preview_workers`, and `public` destination
 // types take precedence, so you can create separate applications to override the
@@ -26449,7 +26449,7 @@ func (r AccessApplicationListResponseBrowserSSHApplicationDestinationsAllWorkers
 	return false
 }
 
-// Protects the preview deployments of all Cloudflare Workers on the account with
+// AccessApplicationListResponseBrowserSSHApplicationDestinationsAllPreviewWorkersDestination protects the preview deployments of all Cloudflare Workers on the account with
 // Access. At most one destination of this type can exist per account. The
 // `worker`, `preview_worker`, and `public` destination types take precedence, so
 // you can create separate applications to override the policies for specific
@@ -26493,7 +26493,7 @@ func (r AccessApplicationListResponseBrowserSSHApplicationDestinationsAllPreview
 	return false
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationListResponseBrowserSSHApplicationDestinationsL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationListResponseBrowserSSHApplicationDestinationsL4Protocol string
 
@@ -26530,7 +26530,7 @@ func (r AccessApplicationListResponseBrowserSSHApplicationDestinationsType) IsKn
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationListResponseBrowserSSHApplicationMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationListResponseBrowserSSHApplicationMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationListResponseBrowserSSHApplicationMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -26578,7 +26578,7 @@ func (r AccessApplicationListResponseBrowserSSHApplicationMfaConfigAllowedAuthen
 	return false
 }
 
-// **Beta:** Optional configuration for managing an OAuth authorization flow
+// AccessApplicationListResponseBrowserSSHApplicationOAuthConfiguration **Beta:** Optional configuration for managing an OAuth authorization flow
 // controlled by Access. When set, Access will act as the OAuth authorization
 // server for this application. Only compatible with OAuth clients that support
 // [RFC 8707](https://datatracker.ietf.org/doc/html/rfc8707) (Resource Indicators
@@ -26614,7 +26614,7 @@ func (r accessApplicationListResponseBrowserSSHApplicationOAuthConfigurationJSON
 	return r.raw
 }
 
-// Settings for OAuth dynamic client registration.
+// AccessApplicationListResponseBrowserSSHApplicationOAuthConfigurationDynamicClientRegistration settings for OAuth dynamic client registration.
 type AccessApplicationListResponseBrowserSSHApplicationOAuthConfigurationDynamicClientRegistration struct {
 	// Allows any client with redirect URIs on localhost.
 	AllowAnyOnLocalhost bool `json:"allow_any_on_localhost"`
@@ -26648,7 +26648,7 @@ func (r accessApplicationListResponseBrowserSSHApplicationOAuthConfigurationDyna
 	return r.raw
 }
 
-// Settings for OAuth grant behavior.
+// AccessApplicationListResponseBrowserSSHApplicationOAuthConfigurationGrant settings for OAuth grant behavior.
 type AccessApplicationListResponseBrowserSSHApplicationOAuthConfigurationGrant struct {
 	// The lifetime of the access token. Must be in the format `300ms` or `2h45m`.
 	// Valid time units are ns, us (or µs), ms, s, m, h.
@@ -26757,7 +26757,7 @@ func (r accessApplicationListResponseBrowserSSHApplicationPolicyJSON) RawJSON() 
 	return r.raw
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationListResponseBrowserSSHApplicationPoliciesConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationListResponseBrowserSSHApplicationPoliciesConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -26782,7 +26782,7 @@ func (r accessApplicationListResponseBrowserSSHApplicationPoliciesConnectionRule
 	return r.raw
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationListResponseBrowserSSHApplicationPoliciesConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationListResponseBrowserSSHApplicationPoliciesConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats []AccessApplicationListResponseBrowserSSHApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat `json:"allowed_clipboard_local_to_remote_formats"`
@@ -26809,7 +26809,7 @@ func (r accessApplicationListResponseBrowserSSHApplicationPoliciesConnectionRule
 	return r.raw
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationListResponseBrowserSSHApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationListResponseBrowserSSHApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -26824,7 +26824,7 @@ func (r AccessApplicationListResponseBrowserSSHApplicationPoliciesConnectionRule
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationListResponseBrowserSSHApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationListResponseBrowserSSHApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -26839,7 +26839,7 @@ func (r AccessApplicationListResponseBrowserSSHApplicationPoliciesConnectionRule
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationListResponseBrowserSSHApplicationPoliciesMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationListResponseBrowserSSHApplicationPoliciesMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationListResponseBrowserSSHApplicationPoliciesMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -26887,7 +26887,7 @@ func (r AccessApplicationListResponseBrowserSSHApplicationPoliciesMfaConfigAllow
 	return false
 }
 
-// Configuration for provisioning to this application via SCIM. This is currently
+// AccessApplicationListResponseBrowserSSHApplicationSCIMConfig configuration for provisioning to this application via SCIM. This is currently
 // in closed beta.
 type AccessApplicationListResponseBrowserSSHApplicationSCIMConfig struct {
 	// The UID of the IdP to use as the source for SCIM resources to provision to this
@@ -26932,7 +26932,7 @@ func (r accessApplicationListResponseBrowserSSHApplicationSCIMConfigJSON) RawJSO
 	return r.raw
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationListResponseBrowserSSHApplicationSCIMConfigAuthenticationUnion attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Union satisfied by [SCIMConfigAuthenticationHTTPBasic],
@@ -26971,7 +26971,7 @@ func init() {
 	)
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationListResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationListResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -27007,7 +27007,7 @@ func (r accessApplicationListResponseBrowserSSHApplicationSCIMConfigAuthenticati
 func (r AccessApplicationListResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationListResponseBrowserSSHApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationListResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationListResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -27027,7 +27027,7 @@ type AccessApplicationListResponseBrowserSSHApplicationSCIMConfigAuthenticationA
 func (r AccessApplicationListResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthentication) implementsAccessApplicationListResponseBrowserSSHApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationListResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationListResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem struct {
 	// The authentication scheme to use when making SCIM requests to this application.
@@ -27096,7 +27096,7 @@ func (r AccessApplicationListResponseBrowserSSHApplicationSCIMConfigAuthenticati
 	return r.union
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationListResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationUnionItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Union satisfied by [SCIMConfigAuthenticationHTTPBasic],
@@ -27129,7 +27129,7 @@ func init() {
 	)
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationListResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationListResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -27165,7 +27165,7 @@ func (r accessApplicationListResponseBrowserSSHApplicationSCIMConfigAuthenticati
 func (r AccessApplicationListResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationListResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationListResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationListResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -27180,7 +27180,7 @@ func (r AccessApplicationListResponseBrowserSSHApplicationSCIMConfigAuthenticati
 	return false
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationListResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationListResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme string
 
 const (
@@ -27360,7 +27360,7 @@ func (r accessApplicationListResponseBrowserVNCApplicationJSON) RawJSON() string
 func (r AccessApplicationListResponseBrowserVNCApplication) implementsAccessApplicationListResponse() {
 }
 
-// The application type.
+// AccessApplicationListResponseBrowserVNCApplicationType is the application type.
 type AccessApplicationListResponseBrowserVNCApplicationType string
 
 const (
@@ -27388,7 +27388,7 @@ func (r AccessApplicationListResponseBrowserVNCApplicationType) IsKnown() bool {
 	return false
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationListResponseBrowserVNCApplicationDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationListResponseBrowserVNCApplicationDestination struct {
 	// The CIDR range of the destination. Single IPs will be computed as /32.
@@ -27462,7 +27462,7 @@ func (r AccessApplicationListResponseBrowserVNCApplicationDestination) AsUnion()
 	return r.union
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationListResponseBrowserVNCApplicationDestinationsUnion is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 //
 // Union satisfied by
@@ -27513,7 +27513,7 @@ func init() {
 	)
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationListResponseBrowserVNCApplicationDestinationsPublicDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationListResponseBrowserVNCApplicationDestinationsPublicDestination struct {
 	Type AccessApplicationListResponseBrowserVNCApplicationDestinationsPublicDestinationType `json:"type"`
@@ -27601,7 +27601,7 @@ func (r accessApplicationListResponseBrowserVNCApplicationDestinationsPrivateDes
 func (r AccessApplicationListResponseBrowserVNCApplicationDestinationsPrivateDestination) implementsAccessApplicationListResponseBrowserVNCApplicationDestination() {
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationListResponseBrowserVNCApplicationDestinationsPrivateDestinationL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationListResponseBrowserVNCApplicationDestinationsPrivateDestinationL4Protocol string
 
@@ -27632,7 +27632,7 @@ func (r AccessApplicationListResponseBrowserVNCApplicationDestinationsPrivateDes
 	return false
 }
 
-// A MCP server id configured in ai-controls. Access will secure the MCP server if
+// AccessApplicationListResponseBrowserVNCApplicationDestinationsViaMcpServerPortalDestination is a MCP server id configured in ai-controls. Access will secure the MCP server if
 // accessed through a MCP portal.
 type AccessApplicationListResponseBrowserVNCApplicationDestinationsViaMcpServerPortalDestination struct {
 	// The MCP server id configured in ai-controls.
@@ -27676,7 +27676,7 @@ func (r AccessApplicationListResponseBrowserVNCApplicationDestinationsViaMcpServ
 	return false
 }
 
-// A specific Cloudflare Worker that Access will secure. All requests routed to the
+// AccessApplicationListResponseBrowserVNCApplicationDestinationsWorkerDestination is a specific Cloudflare Worker that Access will secure. All requests routed to the
 // specified Worker, including its preview deployments, will be protected. The
 // `preview_worker` and `public` destination types takes precedence, so you can
 // create separate applications to override the policies for the Worker's previews
@@ -27723,7 +27723,7 @@ func (r AccessApplicationListResponseBrowserVNCApplicationDestinationsWorkerDest
 	return false
 }
 
-// A specific Cloudflare Worker whose preview deployments Access will secure. Only
+// AccessApplicationListResponseBrowserVNCApplicationDestinationsPreviewWorkerDestination is a specific Cloudflare Worker whose preview deployments Access will secure. Only
 // requests routed to the preview deployments of the specified Worker will be
 // protected. The `public` destination type takes precedence, so you can create
 // separate applications to override the policies for specific paths.
@@ -27770,7 +27770,7 @@ func (r AccessApplicationListResponseBrowserVNCApplicationDestinationsPreviewWor
 	return false
 }
 
-// Protects all Cloudflare Workers on the account with Access, including their
+// AccessApplicationListResponseBrowserVNCApplicationDestinationsAllWorkersDestination protects all Cloudflare Workers on the account with Access, including their
 // preview deployments. At most one destination of this type can exist per account.
 // The `worker`, `preview_worker`, `all_preview_workers`, and `public` destination
 // types take precedence, so you can create separate applications to override the
@@ -27814,7 +27814,7 @@ func (r AccessApplicationListResponseBrowserVNCApplicationDestinationsAllWorkers
 	return false
 }
 
-// Protects the preview deployments of all Cloudflare Workers on the account with
+// AccessApplicationListResponseBrowserVNCApplicationDestinationsAllPreviewWorkersDestination protects the preview deployments of all Cloudflare Workers on the account with
 // Access. At most one destination of this type can exist per account. The
 // `worker`, `preview_worker`, and `public` destination types take precedence, so
 // you can create separate applications to override the policies for specific
@@ -27858,7 +27858,7 @@ func (r AccessApplicationListResponseBrowserVNCApplicationDestinationsAllPreview
 	return false
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationListResponseBrowserVNCApplicationDestinationsL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationListResponseBrowserVNCApplicationDestinationsL4Protocol string
 
@@ -27895,7 +27895,7 @@ func (r AccessApplicationListResponseBrowserVNCApplicationDestinationsType) IsKn
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationListResponseBrowserVNCApplicationMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationListResponseBrowserVNCApplicationMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationListResponseBrowserVNCApplicationMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -27943,7 +27943,7 @@ func (r AccessApplicationListResponseBrowserVNCApplicationMfaConfigAllowedAuthen
 	return false
 }
 
-// **Beta:** Optional configuration for managing an OAuth authorization flow
+// AccessApplicationListResponseBrowserVNCApplicationOAuthConfiguration **Beta:** Optional configuration for managing an OAuth authorization flow
 // controlled by Access. When set, Access will act as the OAuth authorization
 // server for this application. Only compatible with OAuth clients that support
 // [RFC 8707](https://datatracker.ietf.org/doc/html/rfc8707) (Resource Indicators
@@ -27979,7 +27979,7 @@ func (r accessApplicationListResponseBrowserVNCApplicationOAuthConfigurationJSON
 	return r.raw
 }
 
-// Settings for OAuth dynamic client registration.
+// AccessApplicationListResponseBrowserVNCApplicationOAuthConfigurationDynamicClientRegistration settings for OAuth dynamic client registration.
 type AccessApplicationListResponseBrowserVNCApplicationOAuthConfigurationDynamicClientRegistration struct {
 	// Allows any client with redirect URIs on localhost.
 	AllowAnyOnLocalhost bool `json:"allow_any_on_localhost"`
@@ -28013,7 +28013,7 @@ func (r accessApplicationListResponseBrowserVNCApplicationOAuthConfigurationDyna
 	return r.raw
 }
 
-// Settings for OAuth grant behavior.
+// AccessApplicationListResponseBrowserVNCApplicationOAuthConfigurationGrant settings for OAuth grant behavior.
 type AccessApplicationListResponseBrowserVNCApplicationOAuthConfigurationGrant struct {
 	// The lifetime of the access token. Must be in the format `300ms` or `2h45m`.
 	// Valid time units are ns, us (or µs), ms, s, m, h.
@@ -28122,7 +28122,7 @@ func (r accessApplicationListResponseBrowserVNCApplicationPolicyJSON) RawJSON() 
 	return r.raw
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationListResponseBrowserVNCApplicationPoliciesConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationListResponseBrowserVNCApplicationPoliciesConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -28147,7 +28147,7 @@ func (r accessApplicationListResponseBrowserVNCApplicationPoliciesConnectionRule
 	return r.raw
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationListResponseBrowserVNCApplicationPoliciesConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationListResponseBrowserVNCApplicationPoliciesConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats []AccessApplicationListResponseBrowserVNCApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat `json:"allowed_clipboard_local_to_remote_formats"`
@@ -28174,7 +28174,7 @@ func (r accessApplicationListResponseBrowserVNCApplicationPoliciesConnectionRule
 	return r.raw
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationListResponseBrowserVNCApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationListResponseBrowserVNCApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -28189,7 +28189,7 @@ func (r AccessApplicationListResponseBrowserVNCApplicationPoliciesConnectionRule
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationListResponseBrowserVNCApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationListResponseBrowserVNCApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -28204,7 +28204,7 @@ func (r AccessApplicationListResponseBrowserVNCApplicationPoliciesConnectionRule
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationListResponseBrowserVNCApplicationPoliciesMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationListResponseBrowserVNCApplicationPoliciesMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationListResponseBrowserVNCApplicationPoliciesMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -28252,7 +28252,7 @@ func (r AccessApplicationListResponseBrowserVNCApplicationPoliciesMfaConfigAllow
 	return false
 }
 
-// Configuration for provisioning to this application via SCIM. This is currently
+// AccessApplicationListResponseBrowserVNCApplicationSCIMConfig configuration for provisioning to this application via SCIM. This is currently
 // in closed beta.
 type AccessApplicationListResponseBrowserVNCApplicationSCIMConfig struct {
 	// The UID of the IdP to use as the source for SCIM resources to provision to this
@@ -28297,7 +28297,7 @@ func (r accessApplicationListResponseBrowserVNCApplicationSCIMConfigJSON) RawJSO
 	return r.raw
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationListResponseBrowserVNCApplicationSCIMConfigAuthenticationUnion attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Union satisfied by [SCIMConfigAuthenticationHTTPBasic],
@@ -28336,7 +28336,7 @@ func init() {
 	)
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationListResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationListResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -28372,7 +28372,7 @@ func (r accessApplicationListResponseBrowserVNCApplicationSCIMConfigAuthenticati
 func (r AccessApplicationListResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationListResponseBrowserVNCApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationListResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationListResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -28392,7 +28392,7 @@ type AccessApplicationListResponseBrowserVNCApplicationSCIMConfigAuthenticationA
 func (r AccessApplicationListResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthentication) implementsAccessApplicationListResponseBrowserVNCApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationListResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationListResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem struct {
 	// The authentication scheme to use when making SCIM requests to this application.
@@ -28461,7 +28461,7 @@ func (r AccessApplicationListResponseBrowserVNCApplicationSCIMConfigAuthenticati
 	return r.union
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationListResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationUnionItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Union satisfied by [SCIMConfigAuthenticationHTTPBasic],
@@ -28494,7 +28494,7 @@ func init() {
 	)
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationListResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationListResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -28530,7 +28530,7 @@ func (r accessApplicationListResponseBrowserVNCApplicationSCIMConfigAuthenticati
 func (r AccessApplicationListResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationListResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationListResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationListResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -28545,7 +28545,7 @@ func (r AccessApplicationListResponseBrowserVNCApplicationSCIMConfigAuthenticati
 	return false
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationListResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationListResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme string
 
 const (
@@ -28645,7 +28645,7 @@ func (r accessApplicationListResponseAppLauncherApplicationJSON) RawJSON() strin
 func (r AccessApplicationListResponseAppLauncherApplication) implementsAccessApplicationListResponse() {
 }
 
-// The application type.
+// AccessApplicationListResponseAppLauncherApplicationType is the application type.
 type AccessApplicationListResponseAppLauncherApplicationType string
 
 const (
@@ -28699,7 +28699,7 @@ func (r accessApplicationListResponseAppLauncherApplicationFooterLinkJSON) RawJS
 	return r.raw
 }
 
-// The design of the App Launcher landing page shown to users when they log in.
+// AccessApplicationListResponseAppLauncherApplicationLandingPageDesign is the design of the App Launcher landing page shown to users when they log in.
 type AccessApplicationListResponseAppLauncherApplicationLandingPageDesign struct {
 	// The background color of the log in button on the landing page.
 	ButtonColor string `json:"button_color"`
@@ -28815,7 +28815,7 @@ func (r accessApplicationListResponseAppLauncherApplicationPolicyJSON) RawJSON()
 	return r.raw
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationListResponseAppLauncherApplicationPoliciesConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationListResponseAppLauncherApplicationPoliciesConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -28840,7 +28840,7 @@ func (r accessApplicationListResponseAppLauncherApplicationPoliciesConnectionRul
 	return r.raw
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationListResponseAppLauncherApplicationPoliciesConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationListResponseAppLauncherApplicationPoliciesConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats []AccessApplicationListResponseAppLauncherApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat `json:"allowed_clipboard_local_to_remote_formats"`
@@ -28867,7 +28867,7 @@ func (r accessApplicationListResponseAppLauncherApplicationPoliciesConnectionRul
 	return r.raw
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationListResponseAppLauncherApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationListResponseAppLauncherApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -28882,7 +28882,7 @@ func (r AccessApplicationListResponseAppLauncherApplicationPoliciesConnectionRul
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationListResponseAppLauncherApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationListResponseAppLauncherApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -28897,7 +28897,7 @@ func (r AccessApplicationListResponseAppLauncherApplicationPoliciesConnectionRul
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationListResponseAppLauncherApplicationPoliciesMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationListResponseAppLauncherApplicationPoliciesMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationListResponseAppLauncherApplicationPoliciesMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -29090,7 +29090,7 @@ func (r accessApplicationListResponseDeviceEnrollmentPermissionsApplicationPolic
 	return r.raw
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationListResponseDeviceEnrollmentPermissionsApplicationPoliciesConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationListResponseDeviceEnrollmentPermissionsApplicationPoliciesConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -29115,7 +29115,7 @@ func (r accessApplicationListResponseDeviceEnrollmentPermissionsApplicationPolic
 	return r.raw
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationListResponseDeviceEnrollmentPermissionsApplicationPoliciesConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationListResponseDeviceEnrollmentPermissionsApplicationPoliciesConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats []AccessApplicationListResponseDeviceEnrollmentPermissionsApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat `json:"allowed_clipboard_local_to_remote_formats"`
@@ -29142,7 +29142,7 @@ func (r accessApplicationListResponseDeviceEnrollmentPermissionsApplicationPolic
 	return r.raw
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationListResponseDeviceEnrollmentPermissionsApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationListResponseDeviceEnrollmentPermissionsApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -29157,7 +29157,7 @@ func (r AccessApplicationListResponseDeviceEnrollmentPermissionsApplicationPolic
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationListResponseDeviceEnrollmentPermissionsApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationListResponseDeviceEnrollmentPermissionsApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -29172,7 +29172,7 @@ func (r AccessApplicationListResponseDeviceEnrollmentPermissionsApplicationPolic
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationListResponseDeviceEnrollmentPermissionsApplicationPoliciesMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationListResponseDeviceEnrollmentPermissionsApplicationPoliciesMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationListResponseDeviceEnrollmentPermissionsApplicationPoliciesMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -29365,7 +29365,7 @@ func (r accessApplicationListResponseBrowserIsolationPermissionsApplicationPolic
 	return r.raw
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationListResponseBrowserIsolationPermissionsApplicationPoliciesConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationListResponseBrowserIsolationPermissionsApplicationPoliciesConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -29390,7 +29390,7 @@ func (r accessApplicationListResponseBrowserIsolationPermissionsApplicationPolic
 	return r.raw
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationListResponseBrowserIsolationPermissionsApplicationPoliciesConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationListResponseBrowserIsolationPermissionsApplicationPoliciesConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats []AccessApplicationListResponseBrowserIsolationPermissionsApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat `json:"allowed_clipboard_local_to_remote_formats"`
@@ -29417,7 +29417,7 @@ func (r accessApplicationListResponseBrowserIsolationPermissionsApplicationPolic
 	return r.raw
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationListResponseBrowserIsolationPermissionsApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationListResponseBrowserIsolationPermissionsApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -29432,7 +29432,7 @@ func (r AccessApplicationListResponseBrowserIsolationPermissionsApplicationPolic
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationListResponseBrowserIsolationPermissionsApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationListResponseBrowserIsolationPermissionsApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -29447,7 +29447,7 @@ func (r AccessApplicationListResponseBrowserIsolationPermissionsApplicationPolic
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationListResponseBrowserIsolationPermissionsApplicationPoliciesMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationListResponseBrowserIsolationPermissionsApplicationPoliciesMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationListResponseBrowserIsolationPermissionsApplicationPoliciesMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -29640,7 +29640,7 @@ func (r accessApplicationListResponseGatewayIdentityProxyEndpointApplicationPoli
 	return r.raw
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationListResponseGatewayIdentityProxyEndpointApplicationPoliciesConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationListResponseGatewayIdentityProxyEndpointApplicationPoliciesConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -29665,7 +29665,7 @@ func (r accessApplicationListResponseGatewayIdentityProxyEndpointApplicationPoli
 	return r.raw
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationListResponseGatewayIdentityProxyEndpointApplicationPoliciesConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationListResponseGatewayIdentityProxyEndpointApplicationPoliciesConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats []AccessApplicationListResponseGatewayIdentityProxyEndpointApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat `json:"allowed_clipboard_local_to_remote_formats"`
@@ -29692,7 +29692,7 @@ func (r accessApplicationListResponseGatewayIdentityProxyEndpointApplicationPoli
 	return r.raw
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationListResponseGatewayIdentityProxyEndpointApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationListResponseGatewayIdentityProxyEndpointApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -29707,7 +29707,7 @@ func (r AccessApplicationListResponseGatewayIdentityProxyEndpointApplicationPoli
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationListResponseGatewayIdentityProxyEndpointApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationListResponseGatewayIdentityProxyEndpointApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -29722,7 +29722,7 @@ func (r AccessApplicationListResponseGatewayIdentityProxyEndpointApplicationPoli
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationListResponseGatewayIdentityProxyEndpointApplicationPoliciesMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationListResponseGatewayIdentityProxyEndpointApplicationPoliciesMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationListResponseGatewayIdentityProxyEndpointApplicationPoliciesMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -29897,7 +29897,7 @@ func (r accessApplicationListResponseBookmarkApplicationPolicyJSON) RawJSON() st
 	return r.raw
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationListResponseBookmarkApplicationPoliciesConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationListResponseBookmarkApplicationPoliciesConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -29922,7 +29922,7 @@ func (r accessApplicationListResponseBookmarkApplicationPoliciesConnectionRulesJ
 	return r.raw
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationListResponseBookmarkApplicationPoliciesConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationListResponseBookmarkApplicationPoliciesConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats []AccessApplicationListResponseBookmarkApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat `json:"allowed_clipboard_local_to_remote_formats"`
@@ -29949,7 +29949,7 @@ func (r accessApplicationListResponseBookmarkApplicationPoliciesConnectionRulesR
 	return r.raw
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationListResponseBookmarkApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationListResponseBookmarkApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -29964,7 +29964,7 @@ func (r AccessApplicationListResponseBookmarkApplicationPoliciesConnectionRulesR
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationListResponseBookmarkApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationListResponseBookmarkApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -29979,7 +29979,7 @@ func (r AccessApplicationListResponseBookmarkApplicationPoliciesConnectionRulesR
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationListResponseBookmarkApplicationPoliciesMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationListResponseBookmarkApplicationPoliciesMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationListResponseBookmarkApplicationPoliciesMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -30095,7 +30095,7 @@ func (r accessApplicationListResponseInfrastructureApplicationTargetCriterionJSO
 	return r.raw
 }
 
-// The communication protocol your application secures.
+// AccessApplicationListResponseInfrastructureApplicationTargetCriteriaProtocol is the communication protocol your application secures.
 type AccessApplicationListResponseInfrastructureApplicationTargetCriteriaProtocol string
 
 const (
@@ -30164,7 +30164,7 @@ func (r accessApplicationListResponseInfrastructureApplicationPolicyJSON) RawJSO
 	return r.raw
 }
 
-// The rules that define how users may connect to the targets secured by your
+// AccessApplicationListResponseInfrastructureApplicationPoliciesConnectionRules is the rules that define how users may connect to the targets secured by your
 // application.
 type AccessApplicationListResponseInfrastructureApplicationPoliciesConnectionRules struct {
 	// The SSH-specific rules that define how users may connect to the targets secured
@@ -30190,7 +30190,7 @@ func (r accessApplicationListResponseInfrastructureApplicationPoliciesConnection
 	return r.raw
 }
 
-// The SSH-specific rules that define how users may connect to the targets secured
+// AccessApplicationListResponseInfrastructureApplicationPoliciesConnectionRulesSSH is the SSH-specific rules that define how users may connect to the targets secured
 // by your application.
 type AccessApplicationListResponseInfrastructureApplicationPoliciesConnectionRulesSSH struct {
 	// Contains the Unix usernames that may be used when connecting over SSH.
@@ -30218,7 +30218,7 @@ func (r accessApplicationListResponseInfrastructureApplicationPoliciesConnection
 	return r.raw
 }
 
-// Configures multi-factor authentication (MFA) settings for infrastructure
+// AccessApplicationListResponseInfrastructureApplicationPoliciesMfaConfig configures multi-factor authentication (MFA) settings for infrastructure
 // applications.
 type AccessApplicationListResponseInfrastructureApplicationPoliciesMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with. For infrastructure
@@ -30460,7 +30460,7 @@ func (r accessApplicationListResponseBrowserRDPApplicationTargetCriterionJSON) R
 	return r.raw
 }
 
-// The communication protocol your application secures.
+// AccessApplicationListResponseBrowserRDPApplicationTargetCriteriaProtocol is the communication protocol your application secures.
 type AccessApplicationListResponseBrowserRDPApplicationTargetCriteriaProtocol string
 
 const (
@@ -30475,7 +30475,7 @@ func (r AccessApplicationListResponseBrowserRDPApplicationTargetCriteriaProtocol
 	return false
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationListResponseBrowserRDPApplicationDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationListResponseBrowserRDPApplicationDestination struct {
 	// The CIDR range of the destination. Single IPs will be computed as /32.
@@ -30549,7 +30549,7 @@ func (r AccessApplicationListResponseBrowserRDPApplicationDestination) AsUnion()
 	return r.union
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationListResponseBrowserRDPApplicationDestinationsUnion is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 //
 // Union satisfied by
@@ -30600,7 +30600,7 @@ func init() {
 	)
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationListResponseBrowserRDPApplicationDestinationsPublicDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationListResponseBrowserRDPApplicationDestinationsPublicDestination struct {
 	Type AccessApplicationListResponseBrowserRDPApplicationDestinationsPublicDestinationType `json:"type"`
@@ -30688,7 +30688,7 @@ func (r accessApplicationListResponseBrowserRDPApplicationDestinationsPrivateDes
 func (r AccessApplicationListResponseBrowserRDPApplicationDestinationsPrivateDestination) implementsAccessApplicationListResponseBrowserRDPApplicationDestination() {
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationListResponseBrowserRDPApplicationDestinationsPrivateDestinationL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationListResponseBrowserRDPApplicationDestinationsPrivateDestinationL4Protocol string
 
@@ -30719,7 +30719,7 @@ func (r AccessApplicationListResponseBrowserRDPApplicationDestinationsPrivateDes
 	return false
 }
 
-// A MCP server id configured in ai-controls. Access will secure the MCP server if
+// AccessApplicationListResponseBrowserRDPApplicationDestinationsViaMcpServerPortalDestination is a MCP server id configured in ai-controls. Access will secure the MCP server if
 // accessed through a MCP portal.
 type AccessApplicationListResponseBrowserRDPApplicationDestinationsViaMcpServerPortalDestination struct {
 	// The MCP server id configured in ai-controls.
@@ -30763,7 +30763,7 @@ func (r AccessApplicationListResponseBrowserRDPApplicationDestinationsViaMcpServ
 	return false
 }
 
-// A specific Cloudflare Worker that Access will secure. All requests routed to the
+// AccessApplicationListResponseBrowserRDPApplicationDestinationsWorkerDestination is a specific Cloudflare Worker that Access will secure. All requests routed to the
 // specified Worker, including its preview deployments, will be protected. The
 // `preview_worker` and `public` destination types takes precedence, so you can
 // create separate applications to override the policies for the Worker's previews
@@ -30810,7 +30810,7 @@ func (r AccessApplicationListResponseBrowserRDPApplicationDestinationsWorkerDest
 	return false
 }
 
-// A specific Cloudflare Worker whose preview deployments Access will secure. Only
+// AccessApplicationListResponseBrowserRDPApplicationDestinationsPreviewWorkerDestination is a specific Cloudflare Worker whose preview deployments Access will secure. Only
 // requests routed to the preview deployments of the specified Worker will be
 // protected. The `public` destination type takes precedence, so you can create
 // separate applications to override the policies for specific paths.
@@ -30857,7 +30857,7 @@ func (r AccessApplicationListResponseBrowserRDPApplicationDestinationsPreviewWor
 	return false
 }
 
-// Protects all Cloudflare Workers on the account with Access, including their
+// AccessApplicationListResponseBrowserRDPApplicationDestinationsAllWorkersDestination protects all Cloudflare Workers on the account with Access, including their
 // preview deployments. At most one destination of this type can exist per account.
 // The `worker`, `preview_worker`, `all_preview_workers`, and `public` destination
 // types take precedence, so you can create separate applications to override the
@@ -30901,7 +30901,7 @@ func (r AccessApplicationListResponseBrowserRDPApplicationDestinationsAllWorkers
 	return false
 }
 
-// Protects the preview deployments of all Cloudflare Workers on the account with
+// AccessApplicationListResponseBrowserRDPApplicationDestinationsAllPreviewWorkersDestination protects the preview deployments of all Cloudflare Workers on the account with
 // Access. At most one destination of this type can exist per account. The
 // `worker`, `preview_worker`, and `public` destination types take precedence, so
 // you can create separate applications to override the policies for specific
@@ -30945,7 +30945,7 @@ func (r AccessApplicationListResponseBrowserRDPApplicationDestinationsAllPreview
 	return false
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationListResponseBrowserRDPApplicationDestinationsL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationListResponseBrowserRDPApplicationDestinationsL4Protocol string
 
@@ -30982,7 +30982,7 @@ func (r AccessApplicationListResponseBrowserRDPApplicationDestinationsType) IsKn
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationListResponseBrowserRDPApplicationMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationListResponseBrowserRDPApplicationMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationListResponseBrowserRDPApplicationMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -31030,7 +31030,7 @@ func (r AccessApplicationListResponseBrowserRDPApplicationMfaConfigAllowedAuthen
 	return false
 }
 
-// **Beta:** Optional configuration for managing an OAuth authorization flow
+// AccessApplicationListResponseBrowserRDPApplicationOAuthConfiguration **Beta:** Optional configuration for managing an OAuth authorization flow
 // controlled by Access. When set, Access will act as the OAuth authorization
 // server for this application. Only compatible with OAuth clients that support
 // [RFC 8707](https://datatracker.ietf.org/doc/html/rfc8707) (Resource Indicators
@@ -31066,7 +31066,7 @@ func (r accessApplicationListResponseBrowserRDPApplicationOAuthConfigurationJSON
 	return r.raw
 }
 
-// Settings for OAuth dynamic client registration.
+// AccessApplicationListResponseBrowserRDPApplicationOAuthConfigurationDynamicClientRegistration settings for OAuth dynamic client registration.
 type AccessApplicationListResponseBrowserRDPApplicationOAuthConfigurationDynamicClientRegistration struct {
 	// Allows any client with redirect URIs on localhost.
 	AllowAnyOnLocalhost bool `json:"allow_any_on_localhost"`
@@ -31100,7 +31100,7 @@ func (r accessApplicationListResponseBrowserRDPApplicationOAuthConfigurationDyna
 	return r.raw
 }
 
-// Settings for OAuth grant behavior.
+// AccessApplicationListResponseBrowserRDPApplicationOAuthConfigurationGrant settings for OAuth grant behavior.
 type AccessApplicationListResponseBrowserRDPApplicationOAuthConfigurationGrant struct {
 	// The lifetime of the access token. Must be in the format `300ms` or `2h45m`.
 	// Valid time units are ns, us (or µs), ms, s, m, h.
@@ -31209,7 +31209,7 @@ func (r accessApplicationListResponseBrowserRDPApplicationPolicyJSON) RawJSON() 
 	return r.raw
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationListResponseBrowserRDPApplicationPoliciesConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationListResponseBrowserRDPApplicationPoliciesConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -31234,7 +31234,7 @@ func (r accessApplicationListResponseBrowserRDPApplicationPoliciesConnectionRule
 	return r.raw
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationListResponseBrowserRDPApplicationPoliciesConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationListResponseBrowserRDPApplicationPoliciesConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats []AccessApplicationListResponseBrowserRDPApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat `json:"allowed_clipboard_local_to_remote_formats"`
@@ -31261,7 +31261,7 @@ func (r accessApplicationListResponseBrowserRDPApplicationPoliciesConnectionRule
 	return r.raw
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationListResponseBrowserRDPApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationListResponseBrowserRDPApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -31276,7 +31276,7 @@ func (r AccessApplicationListResponseBrowserRDPApplicationPoliciesConnectionRule
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationListResponseBrowserRDPApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationListResponseBrowserRDPApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -31291,7 +31291,7 @@ func (r AccessApplicationListResponseBrowserRDPApplicationPoliciesConnectionRule
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationListResponseBrowserRDPApplicationPoliciesMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationListResponseBrowserRDPApplicationPoliciesMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationListResponseBrowserRDPApplicationPoliciesMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -31339,7 +31339,7 @@ func (r AccessApplicationListResponseBrowserRDPApplicationPoliciesMfaConfigAllow
 	return false
 }
 
-// Configuration for provisioning to this application via SCIM. This is currently
+// AccessApplicationListResponseBrowserRDPApplicationSCIMConfig configuration for provisioning to this application via SCIM. This is currently
 // in closed beta.
 type AccessApplicationListResponseBrowserRDPApplicationSCIMConfig struct {
 	// The UID of the IdP to use as the source for SCIM resources to provision to this
@@ -31384,7 +31384,7 @@ func (r accessApplicationListResponseBrowserRDPApplicationSCIMConfigJSON) RawJSO
 	return r.raw
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationListResponseBrowserRDPApplicationSCIMConfigAuthenticationUnion attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Union satisfied by [SCIMConfigAuthenticationHTTPBasic],
@@ -31423,7 +31423,7 @@ func init() {
 	)
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationListResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationListResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -31459,7 +31459,7 @@ func (r accessApplicationListResponseBrowserRDPApplicationSCIMConfigAuthenticati
 func (r AccessApplicationListResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationListResponseBrowserRDPApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationListResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationListResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -31479,7 +31479,7 @@ type AccessApplicationListResponseBrowserRDPApplicationSCIMConfigAuthenticationA
 func (r AccessApplicationListResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthentication) implementsAccessApplicationListResponseBrowserRDPApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationListResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationListResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem struct {
 	// The authentication scheme to use when making SCIM requests to this application.
@@ -31548,7 +31548,7 @@ func (r AccessApplicationListResponseBrowserRDPApplicationSCIMConfigAuthenticati
 	return r.union
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationListResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationUnionItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Union satisfied by [SCIMConfigAuthenticationHTTPBasic],
@@ -31581,7 +31581,7 @@ func init() {
 	)
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationListResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationListResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -31617,7 +31617,7 @@ func (r accessApplicationListResponseBrowserRDPApplicationSCIMConfigAuthenticati
 func (r AccessApplicationListResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationListResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationListResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationListResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -31632,7 +31632,7 @@ func (r AccessApplicationListResponseBrowserRDPApplicationSCIMConfigAuthenticati
 	return false
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationListResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationListResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme string
 
 const (
@@ -31755,7 +31755,7 @@ func (r accessApplicationListResponseMcpServerApplicationJSON) RawJSON() string 
 func (r AccessApplicationListResponseMcpServerApplication) implementsAccessApplicationListResponse() {
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationListResponseMcpServerApplicationDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationListResponseMcpServerApplicationDestination struct {
 	// The CIDR range of the destination. Single IPs will be computed as /32.
@@ -31829,7 +31829,7 @@ func (r AccessApplicationListResponseMcpServerApplicationDestination) AsUnion() 
 	return r.union
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationListResponseMcpServerApplicationDestinationsUnion is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 //
 // Union satisfied by
@@ -31880,7 +31880,7 @@ func init() {
 	)
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationListResponseMcpServerApplicationDestinationsPublicDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationListResponseMcpServerApplicationDestinationsPublicDestination struct {
 	Type AccessApplicationListResponseMcpServerApplicationDestinationsPublicDestinationType `json:"type"`
@@ -31968,7 +31968,7 @@ func (r accessApplicationListResponseMcpServerApplicationDestinationsPrivateDest
 func (r AccessApplicationListResponseMcpServerApplicationDestinationsPrivateDestination) implementsAccessApplicationListResponseMcpServerApplicationDestination() {
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationListResponseMcpServerApplicationDestinationsPrivateDestinationL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationListResponseMcpServerApplicationDestinationsPrivateDestinationL4Protocol string
 
@@ -31999,7 +31999,7 @@ func (r AccessApplicationListResponseMcpServerApplicationDestinationsPrivateDest
 	return false
 }
 
-// A MCP server id configured in ai-controls. Access will secure the MCP server if
+// AccessApplicationListResponseMcpServerApplicationDestinationsViaMcpServerPortalDestination is a MCP server id configured in ai-controls. Access will secure the MCP server if
 // accessed through a MCP portal.
 type AccessApplicationListResponseMcpServerApplicationDestinationsViaMcpServerPortalDestination struct {
 	// The MCP server id configured in ai-controls.
@@ -32043,7 +32043,7 @@ func (r AccessApplicationListResponseMcpServerApplicationDestinationsViaMcpServe
 	return false
 }
 
-// A specific Cloudflare Worker that Access will secure. All requests routed to the
+// AccessApplicationListResponseMcpServerApplicationDestinationsWorkerDestination is a specific Cloudflare Worker that Access will secure. All requests routed to the
 // specified Worker, including its preview deployments, will be protected. The
 // `preview_worker` and `public` destination types takes precedence, so you can
 // create separate applications to override the policies for the Worker's previews
@@ -32090,7 +32090,7 @@ func (r AccessApplicationListResponseMcpServerApplicationDestinationsWorkerDesti
 	return false
 }
 
-// A specific Cloudflare Worker whose preview deployments Access will secure. Only
+// AccessApplicationListResponseMcpServerApplicationDestinationsPreviewWorkerDestination is a specific Cloudflare Worker whose preview deployments Access will secure. Only
 // requests routed to the preview deployments of the specified Worker will be
 // protected. The `public` destination type takes precedence, so you can create
 // separate applications to override the policies for specific paths.
@@ -32137,7 +32137,7 @@ func (r AccessApplicationListResponseMcpServerApplicationDestinationsPreviewWork
 	return false
 }
 
-// Protects all Cloudflare Workers on the account with Access, including their
+// AccessApplicationListResponseMcpServerApplicationDestinationsAllWorkersDestination protects all Cloudflare Workers on the account with Access, including their
 // preview deployments. At most one destination of this type can exist per account.
 // The `worker`, `preview_worker`, `all_preview_workers`, and `public` destination
 // types take precedence, so you can create separate applications to override the
@@ -32181,7 +32181,7 @@ func (r AccessApplicationListResponseMcpServerApplicationDestinationsAllWorkersD
 	return false
 }
 
-// Protects the preview deployments of all Cloudflare Workers on the account with
+// AccessApplicationListResponseMcpServerApplicationDestinationsAllPreviewWorkersDestination protects the preview deployments of all Cloudflare Workers on the account with
 // Access. At most one destination of this type can exist per account. The
 // `worker`, `preview_worker`, and `public` destination types take precedence, so
 // you can create separate applications to override the policies for specific
@@ -32225,7 +32225,7 @@ func (r AccessApplicationListResponseMcpServerApplicationDestinationsAllPreviewW
 	return false
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationListResponseMcpServerApplicationDestinationsL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationListResponseMcpServerApplicationDestinationsL4Protocol string
 
@@ -32262,7 +32262,7 @@ func (r AccessApplicationListResponseMcpServerApplicationDestinationsType) IsKno
 	return false
 }
 
-// **Beta:** Optional configuration for managing an OAuth authorization flow
+// AccessApplicationListResponseMcpServerApplicationOAuthConfiguration **Beta:** Optional configuration for managing an OAuth authorization flow
 // controlled by Access. When set, Access will act as the OAuth authorization
 // server for this application. Only compatible with OAuth clients that support
 // [RFC 8707](https://datatracker.ietf.org/doc/html/rfc8707) (Resource Indicators
@@ -32298,7 +32298,7 @@ func (r accessApplicationListResponseMcpServerApplicationOAuthConfigurationJSON)
 	return r.raw
 }
 
-// Settings for OAuth dynamic client registration.
+// AccessApplicationListResponseMcpServerApplicationOAuthConfigurationDynamicClientRegistration settings for OAuth dynamic client registration.
 type AccessApplicationListResponseMcpServerApplicationOAuthConfigurationDynamicClientRegistration struct {
 	// Allows any client with redirect URIs on localhost.
 	AllowAnyOnLocalhost bool `json:"allow_any_on_localhost"`
@@ -32332,7 +32332,7 @@ func (r accessApplicationListResponseMcpServerApplicationOAuthConfigurationDynam
 	return r.raw
 }
 
-// Settings for OAuth grant behavior.
+// AccessApplicationListResponseMcpServerApplicationOAuthConfigurationGrant settings for OAuth grant behavior.
 type AccessApplicationListResponseMcpServerApplicationOAuthConfigurationGrant struct {
 	// The lifetime of the access token. Must be in the format `300ms` or `2h45m`.
 	// Valid time units are ns, us (or µs), ms, s, m, h.
@@ -32441,7 +32441,7 @@ func (r accessApplicationListResponseMcpServerApplicationPolicyJSON) RawJSON() s
 	return r.raw
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationListResponseMcpServerApplicationPoliciesConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationListResponseMcpServerApplicationPoliciesConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -32466,7 +32466,7 @@ func (r accessApplicationListResponseMcpServerApplicationPoliciesConnectionRules
 	return r.raw
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationListResponseMcpServerApplicationPoliciesConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationListResponseMcpServerApplicationPoliciesConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats []AccessApplicationListResponseMcpServerApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat `json:"allowed_clipboard_local_to_remote_formats"`
@@ -32493,7 +32493,7 @@ func (r accessApplicationListResponseMcpServerApplicationPoliciesConnectionRules
 	return r.raw
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationListResponseMcpServerApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationListResponseMcpServerApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -32508,7 +32508,7 @@ func (r AccessApplicationListResponseMcpServerApplicationPoliciesConnectionRules
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationListResponseMcpServerApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationListResponseMcpServerApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -32523,7 +32523,7 @@ func (r AccessApplicationListResponseMcpServerApplicationPoliciesConnectionRules
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationListResponseMcpServerApplicationPoliciesMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationListResponseMcpServerApplicationPoliciesMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationListResponseMcpServerApplicationPoliciesMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -32571,7 +32571,7 @@ func (r AccessApplicationListResponseMcpServerApplicationPoliciesMfaConfigAllowe
 	return false
 }
 
-// Configuration for provisioning to this application via SCIM. This is currently
+// AccessApplicationListResponseMcpServerApplicationSCIMConfig configuration for provisioning to this application via SCIM. This is currently
 // in closed beta.
 type AccessApplicationListResponseMcpServerApplicationSCIMConfig struct {
 	// The UID of the IdP to use as the source for SCIM resources to provision to this
@@ -32616,7 +32616,7 @@ func (r accessApplicationListResponseMcpServerApplicationSCIMConfigJSON) RawJSON
 	return r.raw
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationListResponseMcpServerApplicationSCIMConfigAuthenticationUnion attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Union satisfied by [SCIMConfigAuthenticationHTTPBasic],
@@ -32655,7 +32655,7 @@ func init() {
 	)
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationListResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationListResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -32691,7 +32691,7 @@ func (r accessApplicationListResponseMcpServerApplicationSCIMConfigAuthenticatio
 func (r AccessApplicationListResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationListResponseMcpServerApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationListResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationListResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -32711,7 +32711,7 @@ type AccessApplicationListResponseMcpServerApplicationSCIMConfigAuthenticationAc
 func (r AccessApplicationListResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthentication) implementsAccessApplicationListResponseMcpServerApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationListResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationListResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem struct {
 	// The authentication scheme to use when making SCIM requests to this application.
@@ -32780,7 +32780,7 @@ func (r AccessApplicationListResponseMcpServerApplicationSCIMConfigAuthenticatio
 	return r.union
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationListResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationUnionItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Union satisfied by [SCIMConfigAuthenticationHTTPBasic],
@@ -32813,7 +32813,7 @@ func init() {
 	)
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationListResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationListResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -32849,7 +32849,7 @@ func (r accessApplicationListResponseMcpServerApplicationSCIMConfigAuthenticatio
 func (r AccessApplicationListResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationListResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationListResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationListResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -32864,7 +32864,7 @@ func (r AccessApplicationListResponseMcpServerApplicationSCIMConfigAuthenticatio
 	return false
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationListResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationListResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme string
 
 const (
@@ -32992,7 +32992,7 @@ func (r accessApplicationListResponseMcpServerPortalApplicationJSON) RawJSON() s
 func (r AccessApplicationListResponseMcpServerPortalApplication) implementsAccessApplicationListResponse() {
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationListResponseMcpServerPortalApplicationDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationListResponseMcpServerPortalApplicationDestination struct {
 	// The CIDR range of the destination. Single IPs will be computed as /32.
@@ -33066,7 +33066,7 @@ func (r AccessApplicationListResponseMcpServerPortalApplicationDestination) AsUn
 	return r.union
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationListResponseMcpServerPortalApplicationDestinationsUnion is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 //
 // Union satisfied by
@@ -33117,7 +33117,7 @@ func init() {
 	)
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationListResponseMcpServerPortalApplicationDestinationsPublicDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationListResponseMcpServerPortalApplicationDestinationsPublicDestination struct {
 	Type AccessApplicationListResponseMcpServerPortalApplicationDestinationsPublicDestinationType `json:"type"`
@@ -33205,7 +33205,7 @@ func (r accessApplicationListResponseMcpServerPortalApplicationDestinationsPriva
 func (r AccessApplicationListResponseMcpServerPortalApplicationDestinationsPrivateDestination) implementsAccessApplicationListResponseMcpServerPortalApplicationDestination() {
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationListResponseMcpServerPortalApplicationDestinationsPrivateDestinationL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationListResponseMcpServerPortalApplicationDestinationsPrivateDestinationL4Protocol string
 
@@ -33236,7 +33236,7 @@ func (r AccessApplicationListResponseMcpServerPortalApplicationDestinationsPriva
 	return false
 }
 
-// A MCP server id configured in ai-controls. Access will secure the MCP server if
+// AccessApplicationListResponseMcpServerPortalApplicationDestinationsViaMcpServerPortalDestination is a MCP server id configured in ai-controls. Access will secure the MCP server if
 // accessed through a MCP portal.
 type AccessApplicationListResponseMcpServerPortalApplicationDestinationsViaMcpServerPortalDestination struct {
 	// The MCP server id configured in ai-controls.
@@ -33280,7 +33280,7 @@ func (r AccessApplicationListResponseMcpServerPortalApplicationDestinationsViaMc
 	return false
 }
 
-// A specific Cloudflare Worker that Access will secure. All requests routed to the
+// AccessApplicationListResponseMcpServerPortalApplicationDestinationsWorkerDestination is a specific Cloudflare Worker that Access will secure. All requests routed to the
 // specified Worker, including its preview deployments, will be protected. The
 // `preview_worker` and `public` destination types takes precedence, so you can
 // create separate applications to override the policies for the Worker's previews
@@ -33327,7 +33327,7 @@ func (r AccessApplicationListResponseMcpServerPortalApplicationDestinationsWorke
 	return false
 }
 
-// A specific Cloudflare Worker whose preview deployments Access will secure. Only
+// AccessApplicationListResponseMcpServerPortalApplicationDestinationsPreviewWorkerDestination is a specific Cloudflare Worker whose preview deployments Access will secure. Only
 // requests routed to the preview deployments of the specified Worker will be
 // protected. The `public` destination type takes precedence, so you can create
 // separate applications to override the policies for specific paths.
@@ -33374,7 +33374,7 @@ func (r AccessApplicationListResponseMcpServerPortalApplicationDestinationsPrevi
 	return false
 }
 
-// Protects all Cloudflare Workers on the account with Access, including their
+// AccessApplicationListResponseMcpServerPortalApplicationDestinationsAllWorkersDestination protects all Cloudflare Workers on the account with Access, including their
 // preview deployments. At most one destination of this type can exist per account.
 // The `worker`, `preview_worker`, `all_preview_workers`, and `public` destination
 // types take precedence, so you can create separate applications to override the
@@ -33418,7 +33418,7 @@ func (r AccessApplicationListResponseMcpServerPortalApplicationDestinationsAllWo
 	return false
 }
 
-// Protects the preview deployments of all Cloudflare Workers on the account with
+// AccessApplicationListResponseMcpServerPortalApplicationDestinationsAllPreviewWorkersDestination protects the preview deployments of all Cloudflare Workers on the account with
 // Access. At most one destination of this type can exist per account. The
 // `worker`, `preview_worker`, and `public` destination types take precedence, so
 // you can create separate applications to override the policies for specific
@@ -33462,7 +33462,7 @@ func (r AccessApplicationListResponseMcpServerPortalApplicationDestinationsAllPr
 	return false
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationListResponseMcpServerPortalApplicationDestinationsL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationListResponseMcpServerPortalApplicationDestinationsL4Protocol string
 
@@ -33499,7 +33499,7 @@ func (r AccessApplicationListResponseMcpServerPortalApplicationDestinationsType)
 	return false
 }
 
-// **Beta:** Optional configuration for managing an OAuth authorization flow
+// AccessApplicationListResponseMcpServerPortalApplicationOAuthConfiguration **Beta:** Optional configuration for managing an OAuth authorization flow
 // controlled by Access. When set, Access will act as the OAuth authorization
 // server for this application. Only compatible with OAuth clients that support
 // [RFC 8707](https://datatracker.ietf.org/doc/html/rfc8707) (Resource Indicators
@@ -33535,7 +33535,7 @@ func (r accessApplicationListResponseMcpServerPortalApplicationOAuthConfiguratio
 	return r.raw
 }
 
-// Settings for OAuth dynamic client registration.
+// AccessApplicationListResponseMcpServerPortalApplicationOAuthConfigurationDynamicClientRegistration settings for OAuth dynamic client registration.
 type AccessApplicationListResponseMcpServerPortalApplicationOAuthConfigurationDynamicClientRegistration struct {
 	// Allows any client with redirect URIs on localhost.
 	AllowAnyOnLocalhost bool `json:"allow_any_on_localhost"`
@@ -33569,7 +33569,7 @@ func (r accessApplicationListResponseMcpServerPortalApplicationOAuthConfiguratio
 	return r.raw
 }
 
-// Settings for OAuth grant behavior.
+// AccessApplicationListResponseMcpServerPortalApplicationOAuthConfigurationGrant settings for OAuth grant behavior.
 type AccessApplicationListResponseMcpServerPortalApplicationOAuthConfigurationGrant struct {
 	// The lifetime of the access token. Must be in the format `300ms` or `2h45m`.
 	// Valid time units are ns, us (or µs), ms, s, m, h.
@@ -33678,7 +33678,7 @@ func (r accessApplicationListResponseMcpServerPortalApplicationPolicyJSON) RawJS
 	return r.raw
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationListResponseMcpServerPortalApplicationPoliciesConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationListResponseMcpServerPortalApplicationPoliciesConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -33703,7 +33703,7 @@ func (r accessApplicationListResponseMcpServerPortalApplicationPoliciesConnectio
 	return r.raw
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationListResponseMcpServerPortalApplicationPoliciesConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationListResponseMcpServerPortalApplicationPoliciesConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats []AccessApplicationListResponseMcpServerPortalApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat `json:"allowed_clipboard_local_to_remote_formats"`
@@ -33730,7 +33730,7 @@ func (r accessApplicationListResponseMcpServerPortalApplicationPoliciesConnectio
 	return r.raw
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationListResponseMcpServerPortalApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationListResponseMcpServerPortalApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -33745,7 +33745,7 @@ func (r AccessApplicationListResponseMcpServerPortalApplicationPoliciesConnectio
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationListResponseMcpServerPortalApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationListResponseMcpServerPortalApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -33760,7 +33760,7 @@ func (r AccessApplicationListResponseMcpServerPortalApplicationPoliciesConnectio
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationListResponseMcpServerPortalApplicationPoliciesMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationListResponseMcpServerPortalApplicationPoliciesMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationListResponseMcpServerPortalApplicationPoliciesMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -33808,7 +33808,7 @@ func (r AccessApplicationListResponseMcpServerPortalApplicationPoliciesMfaConfig
 	return false
 }
 
-// Configuration for provisioning to this application via SCIM. This is currently
+// AccessApplicationListResponseMcpServerPortalApplicationSCIMConfig configuration for provisioning to this application via SCIM. This is currently
 // in closed beta.
 type AccessApplicationListResponseMcpServerPortalApplicationSCIMConfig struct {
 	// The UID of the IdP to use as the source for SCIM resources to provision to this
@@ -33853,7 +33853,7 @@ func (r accessApplicationListResponseMcpServerPortalApplicationSCIMConfigJSON) R
 	return r.raw
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationListResponseMcpServerPortalApplicationSCIMConfigAuthenticationUnion attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Union satisfied by [SCIMConfigAuthenticationHTTPBasic],
@@ -33892,7 +33892,7 @@ func init() {
 	)
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationListResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationListResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -33928,7 +33928,7 @@ func (r accessApplicationListResponseMcpServerPortalApplicationSCIMConfigAuthent
 func (r AccessApplicationListResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationListResponseMcpServerPortalApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationListResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationListResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -33948,7 +33948,7 @@ type AccessApplicationListResponseMcpServerPortalApplicationSCIMConfigAuthentica
 func (r AccessApplicationListResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthentication) implementsAccessApplicationListResponseMcpServerPortalApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationListResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationListResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem struct {
 	// The authentication scheme to use when making SCIM requests to this application.
@@ -34017,7 +34017,7 @@ func (r AccessApplicationListResponseMcpServerPortalApplicationSCIMConfigAuthent
 	return r.union
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationListResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationUnionItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Union satisfied by [SCIMConfigAuthenticationHTTPBasic],
@@ -34050,7 +34050,7 @@ func init() {
 	)
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationListResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationListResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -34086,7 +34086,7 @@ func (r accessApplicationListResponseMcpServerPortalApplicationSCIMConfigAuthent
 func (r AccessApplicationListResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationListResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationListResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationListResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -34101,7 +34101,7 @@ func (r AccessApplicationListResponseMcpServerPortalApplicationSCIMConfigAuthent
 	return false
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationListResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationListResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme string
 
 const (
@@ -34380,7 +34380,7 @@ func (r AccessApplicationGetResponse) AsUnion() AccessApplicationGetResponseUnio
 	return r.union
 }
 
-// Union satisfied by [AccessApplicationGetResponseSelfHostedApplication],
+// AccessApplicationGetResponseUnion is satisfied by [AccessApplicationGetResponseSelfHostedApplication],
 // [AccessApplicationGetResponseSaaSApplication],
 // [AccessApplicationGetResponseBrowserSSHApplication],
 // [AccessApplicationGetResponseBrowserVNCApplication],
@@ -34617,7 +34617,7 @@ func (r accessApplicationGetResponseSelfHostedApplicationJSON) RawJSON() string 
 
 func (r AccessApplicationGetResponseSelfHostedApplication) implementsAccessApplicationGetResponse() {}
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationGetResponseSelfHostedApplicationDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationGetResponseSelfHostedApplicationDestination struct {
 	// The CIDR range of the destination. Single IPs will be computed as /32.
@@ -34691,7 +34691,7 @@ func (r AccessApplicationGetResponseSelfHostedApplicationDestination) AsUnion() 
 	return r.union
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationGetResponseSelfHostedApplicationDestinationsUnion is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 //
 // Union satisfied by
@@ -34742,7 +34742,7 @@ func init() {
 	)
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationGetResponseSelfHostedApplicationDestinationsPublicDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationGetResponseSelfHostedApplicationDestinationsPublicDestination struct {
 	Type AccessApplicationGetResponseSelfHostedApplicationDestinationsPublicDestinationType `json:"type"`
@@ -34830,7 +34830,7 @@ func (r accessApplicationGetResponseSelfHostedApplicationDestinationsPrivateDest
 func (r AccessApplicationGetResponseSelfHostedApplicationDestinationsPrivateDestination) implementsAccessApplicationGetResponseSelfHostedApplicationDestination() {
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationGetResponseSelfHostedApplicationDestinationsPrivateDestinationL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationGetResponseSelfHostedApplicationDestinationsPrivateDestinationL4Protocol string
 
@@ -34861,7 +34861,7 @@ func (r AccessApplicationGetResponseSelfHostedApplicationDestinationsPrivateDest
 	return false
 }
 
-// A MCP server id configured in ai-controls. Access will secure the MCP server if
+// AccessApplicationGetResponseSelfHostedApplicationDestinationsViaMcpServerPortalDestination is a MCP server id configured in ai-controls. Access will secure the MCP server if
 // accessed through a MCP portal.
 type AccessApplicationGetResponseSelfHostedApplicationDestinationsViaMcpServerPortalDestination struct {
 	// The MCP server id configured in ai-controls.
@@ -34905,7 +34905,7 @@ func (r AccessApplicationGetResponseSelfHostedApplicationDestinationsViaMcpServe
 	return false
 }
 
-// A specific Cloudflare Worker that Access will secure. All requests routed to the
+// AccessApplicationGetResponseSelfHostedApplicationDestinationsWorkerDestination is a specific Cloudflare Worker that Access will secure. All requests routed to the
 // specified Worker, including its preview deployments, will be protected. The
 // `preview_worker` and `public` destination types takes precedence, so you can
 // create separate applications to override the policies for the Worker's previews
@@ -34952,7 +34952,7 @@ func (r AccessApplicationGetResponseSelfHostedApplicationDestinationsWorkerDesti
 	return false
 }
 
-// A specific Cloudflare Worker whose preview deployments Access will secure. Only
+// AccessApplicationGetResponseSelfHostedApplicationDestinationsPreviewWorkerDestination is a specific Cloudflare Worker whose preview deployments Access will secure. Only
 // requests routed to the preview deployments of the specified Worker will be
 // protected. The `public` destination type takes precedence, so you can create
 // separate applications to override the policies for specific paths.
@@ -34999,7 +34999,7 @@ func (r AccessApplicationGetResponseSelfHostedApplicationDestinationsPreviewWork
 	return false
 }
 
-// Protects all Cloudflare Workers on the account with Access, including their
+// AccessApplicationGetResponseSelfHostedApplicationDestinationsAllWorkersDestination protects all Cloudflare Workers on the account with Access, including their
 // preview deployments. At most one destination of this type can exist per account.
 // The `worker`, `preview_worker`, `all_preview_workers`, and `public` destination
 // types take precedence, so you can create separate applications to override the
@@ -35043,7 +35043,7 @@ func (r AccessApplicationGetResponseSelfHostedApplicationDestinationsAllWorkersD
 	return false
 }
 
-// Protects the preview deployments of all Cloudflare Workers on the account with
+// AccessApplicationGetResponseSelfHostedApplicationDestinationsAllPreviewWorkersDestination protects the preview deployments of all Cloudflare Workers on the account with
 // Access. At most one destination of this type can exist per account. The
 // `worker`, `preview_worker`, and `public` destination types take precedence, so
 // you can create separate applications to override the policies for specific
@@ -35087,7 +35087,7 @@ func (r AccessApplicationGetResponseSelfHostedApplicationDestinationsAllPreviewW
 	return false
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationGetResponseSelfHostedApplicationDestinationsL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationGetResponseSelfHostedApplicationDestinationsL4Protocol string
 
@@ -35124,7 +35124,7 @@ func (r AccessApplicationGetResponseSelfHostedApplicationDestinationsType) IsKno
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationGetResponseSelfHostedApplicationMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationGetResponseSelfHostedApplicationMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationGetResponseSelfHostedApplicationMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -35172,7 +35172,7 @@ func (r AccessApplicationGetResponseSelfHostedApplicationMfaConfigAllowedAuthent
 	return false
 }
 
-// **Beta:** Optional configuration for managing an OAuth authorization flow
+// AccessApplicationGetResponseSelfHostedApplicationOAuthConfiguration **Beta:** Optional configuration for managing an OAuth authorization flow
 // controlled by Access. When set, Access will act as the OAuth authorization
 // server for this application. Only compatible with OAuth clients that support
 // [RFC 8707](https://datatracker.ietf.org/doc/html/rfc8707) (Resource Indicators
@@ -35208,7 +35208,7 @@ func (r accessApplicationGetResponseSelfHostedApplicationOAuthConfigurationJSON)
 	return r.raw
 }
 
-// Settings for OAuth dynamic client registration.
+// AccessApplicationGetResponseSelfHostedApplicationOAuthConfigurationDynamicClientRegistration settings for OAuth dynamic client registration.
 type AccessApplicationGetResponseSelfHostedApplicationOAuthConfigurationDynamicClientRegistration struct {
 	// Allows any client with redirect URIs on localhost.
 	AllowAnyOnLocalhost bool `json:"allow_any_on_localhost"`
@@ -35242,7 +35242,7 @@ func (r accessApplicationGetResponseSelfHostedApplicationOAuthConfigurationDynam
 	return r.raw
 }
 
-// Settings for OAuth grant behavior.
+// AccessApplicationGetResponseSelfHostedApplicationOAuthConfigurationGrant settings for OAuth grant behavior.
 type AccessApplicationGetResponseSelfHostedApplicationOAuthConfigurationGrant struct {
 	// The lifetime of the access token. Must be in the format `300ms` or `2h45m`.
 	// Valid time units are ns, us (or µs), ms, s, m, h.
@@ -35351,7 +35351,7 @@ func (r accessApplicationGetResponseSelfHostedApplicationPolicyJSON) RawJSON() s
 	return r.raw
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationGetResponseSelfHostedApplicationPoliciesConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationGetResponseSelfHostedApplicationPoliciesConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -35376,7 +35376,7 @@ func (r accessApplicationGetResponseSelfHostedApplicationPoliciesConnectionRules
 	return r.raw
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationGetResponseSelfHostedApplicationPoliciesConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationGetResponseSelfHostedApplicationPoliciesConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats []AccessApplicationGetResponseSelfHostedApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat `json:"allowed_clipboard_local_to_remote_formats"`
@@ -35403,7 +35403,7 @@ func (r accessApplicationGetResponseSelfHostedApplicationPoliciesConnectionRules
 	return r.raw
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationGetResponseSelfHostedApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationGetResponseSelfHostedApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -35418,7 +35418,7 @@ func (r AccessApplicationGetResponseSelfHostedApplicationPoliciesConnectionRules
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationGetResponseSelfHostedApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationGetResponseSelfHostedApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -35433,7 +35433,7 @@ func (r AccessApplicationGetResponseSelfHostedApplicationPoliciesConnectionRules
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationGetResponseSelfHostedApplicationPoliciesMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationGetResponseSelfHostedApplicationPoliciesMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationGetResponseSelfHostedApplicationPoliciesMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -35481,7 +35481,7 @@ func (r AccessApplicationGetResponseSelfHostedApplicationPoliciesMfaConfigAllowe
 	return false
 }
 
-// Configuration for provisioning to this application via SCIM. This is currently
+// AccessApplicationGetResponseSelfHostedApplicationSCIMConfig configuration for provisioning to this application via SCIM. This is currently
 // in closed beta.
 type AccessApplicationGetResponseSelfHostedApplicationSCIMConfig struct {
 	// The UID of the IdP to use as the source for SCIM resources to provision to this
@@ -35526,7 +35526,7 @@ func (r accessApplicationGetResponseSelfHostedApplicationSCIMConfigJSON) RawJSON
 	return r.raw
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationGetResponseSelfHostedApplicationSCIMConfigAuthenticationUnion attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Union satisfied by [SCIMConfigAuthenticationHTTPBasic],
@@ -35565,7 +35565,7 @@ func init() {
 	)
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationGetResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationGetResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -35601,7 +35601,7 @@ func (r accessApplicationGetResponseSelfHostedApplicationSCIMConfigAuthenticatio
 func (r AccessApplicationGetResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationGetResponseSelfHostedApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationGetResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationGetResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -35621,7 +35621,7 @@ type AccessApplicationGetResponseSelfHostedApplicationSCIMConfigAuthenticationAc
 func (r AccessApplicationGetResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthentication) implementsAccessApplicationGetResponseSelfHostedApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationGetResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationGetResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem struct {
 	// The authentication scheme to use when making SCIM requests to this application.
@@ -35690,7 +35690,7 @@ func (r AccessApplicationGetResponseSelfHostedApplicationSCIMConfigAuthenticatio
 	return r.union
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationGetResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationUnionItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Union satisfied by [SCIMConfigAuthenticationHTTPBasic],
@@ -35723,7 +35723,7 @@ func init() {
 	)
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationGetResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationGetResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -35759,7 +35759,7 @@ func (r accessApplicationGetResponseSelfHostedApplicationSCIMConfigAuthenticatio
 func (r AccessApplicationGetResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationGetResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationGetResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationGetResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -35774,7 +35774,7 @@ func (r AccessApplicationGetResponseSelfHostedApplicationSCIMConfigAuthenticatio
 	return false
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationGetResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationGetResponseSelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme string
 
 const (
@@ -35933,7 +35933,7 @@ func (r accessApplicationGetResponseSaaSApplicationPolicyJSON) RawJSON() string 
 	return r.raw
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationGetResponseSaaSApplicationPoliciesConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationGetResponseSaaSApplicationPoliciesConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -35958,7 +35958,7 @@ func (r accessApplicationGetResponseSaaSApplicationPoliciesConnectionRulesJSON) 
 	return r.raw
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationGetResponseSaaSApplicationPoliciesConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationGetResponseSaaSApplicationPoliciesConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats []AccessApplicationGetResponseSaaSApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat `json:"allowed_clipboard_local_to_remote_formats"`
@@ -35985,7 +35985,7 @@ func (r accessApplicationGetResponseSaaSApplicationPoliciesConnectionRulesRDPJSO
 	return r.raw
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationGetResponseSaaSApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationGetResponseSaaSApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -36000,7 +36000,7 @@ func (r AccessApplicationGetResponseSaaSApplicationPoliciesConnectionRulesRDPAll
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationGetResponseSaaSApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationGetResponseSaaSApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -36015,7 +36015,7 @@ func (r AccessApplicationGetResponseSaaSApplicationPoliciesConnectionRulesRDPAll
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationGetResponseSaaSApplicationPoliciesMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationGetResponseSaaSApplicationPoliciesMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationGetResponseSaaSApplicationPoliciesMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -36177,7 +36177,7 @@ func (r AccessApplicationGetResponseSaaSApplicationSaaSApp) AsUnion() AccessAppl
 	return r.union
 }
 
-// Union satisfied by [SAMLSaaSApp] or [OIDCSaaSApp].
+// AccessApplicationGetResponseSaaSApplicationSaaSAppUnion is satisfied by [SAMLSaaSApp] or [OIDCSaaSApp].
 type AccessApplicationGetResponseSaaSApplicationSaaSAppUnion interface {
 	implementsAccessApplicationGetResponseSaaSApplicationSaaSApp()
 }
@@ -36197,7 +36197,7 @@ func init() {
 	)
 }
 
-// Optional identifier indicating the authentication protocol used for the saas
+// AccessApplicationGetResponseSaaSApplicationSaaSAppAuthType optional identifier indicating the authentication protocol used for the saas
 // app. Required for OIDC. Default if unset is "saml"
 type AccessApplicationGetResponseSaaSApplicationSaaSAppAuthType string
 
@@ -36214,7 +36214,7 @@ func (r AccessApplicationGetResponseSaaSApplicationSaaSAppAuthType) IsKnown() bo
 	return false
 }
 
-// Configuration for provisioning to this application via SCIM. This is currently
+// AccessApplicationGetResponseSaaSApplicationSCIMConfig configuration for provisioning to this application via SCIM. This is currently
 // in closed beta.
 type AccessApplicationGetResponseSaaSApplicationSCIMConfig struct {
 	// The UID of the IdP to use as the source for SCIM resources to provision to this
@@ -36258,7 +36258,7 @@ func (r accessApplicationGetResponseSaaSApplicationSCIMConfigJSON) RawJSON() str
 	return r.raw
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationGetResponseSaaSApplicationSCIMConfigAuthenticationUnion attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Union satisfied by [SCIMConfigAuthenticationHTTPBasic],
@@ -36297,7 +36297,7 @@ func init() {
 	)
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationGetResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationGetResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -36333,7 +36333,7 @@ func (r accessApplicationGetResponseSaaSApplicationSCIMConfigAuthenticationAcces
 func (r AccessApplicationGetResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationGetResponseSaaSApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationGetResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationGetResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -36353,7 +36353,7 @@ type AccessApplicationGetResponseSaaSApplicationSCIMConfigAuthenticationAccessSC
 func (r AccessApplicationGetResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthentication) implementsAccessApplicationGetResponseSaaSApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationGetResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationGetResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem struct {
 	// The authentication scheme to use when making SCIM requests to this application.
@@ -36422,7 +36422,7 @@ func (r AccessApplicationGetResponseSaaSApplicationSCIMConfigAuthenticationAcces
 	return r.union
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationGetResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationUnionItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Union satisfied by [SCIMConfigAuthenticationHTTPBasic],
@@ -36455,7 +36455,7 @@ func init() {
 	)
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationGetResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationGetResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -36491,7 +36491,7 @@ func (r accessApplicationGetResponseSaaSApplicationSCIMConfigAuthenticationAcces
 func (r AccessApplicationGetResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationGetResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationGetResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationGetResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -36506,7 +36506,7 @@ func (r AccessApplicationGetResponseSaaSApplicationSCIMConfigAuthenticationAcces
 	return false
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationGetResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationGetResponseSaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme string
 
 const (
@@ -36685,7 +36685,7 @@ func (r accessApplicationGetResponseBrowserSSHApplicationJSON) RawJSON() string 
 
 func (r AccessApplicationGetResponseBrowserSSHApplication) implementsAccessApplicationGetResponse() {}
 
-// The application type.
+// AccessApplicationGetResponseBrowserSSHApplicationType is the application type.
 type AccessApplicationGetResponseBrowserSSHApplicationType string
 
 const (
@@ -36713,7 +36713,7 @@ func (r AccessApplicationGetResponseBrowserSSHApplicationType) IsKnown() bool {
 	return false
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationGetResponseBrowserSSHApplicationDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationGetResponseBrowserSSHApplicationDestination struct {
 	// The CIDR range of the destination. Single IPs will be computed as /32.
@@ -36787,7 +36787,7 @@ func (r AccessApplicationGetResponseBrowserSSHApplicationDestination) AsUnion() 
 	return r.union
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationGetResponseBrowserSSHApplicationDestinationsUnion is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 //
 // Union satisfied by
@@ -36838,7 +36838,7 @@ func init() {
 	)
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationGetResponseBrowserSSHApplicationDestinationsPublicDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationGetResponseBrowserSSHApplicationDestinationsPublicDestination struct {
 	Type AccessApplicationGetResponseBrowserSSHApplicationDestinationsPublicDestinationType `json:"type"`
@@ -36926,7 +36926,7 @@ func (r accessApplicationGetResponseBrowserSSHApplicationDestinationsPrivateDest
 func (r AccessApplicationGetResponseBrowserSSHApplicationDestinationsPrivateDestination) implementsAccessApplicationGetResponseBrowserSSHApplicationDestination() {
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationGetResponseBrowserSSHApplicationDestinationsPrivateDestinationL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationGetResponseBrowserSSHApplicationDestinationsPrivateDestinationL4Protocol string
 
@@ -36957,7 +36957,7 @@ func (r AccessApplicationGetResponseBrowserSSHApplicationDestinationsPrivateDest
 	return false
 }
 
-// A MCP server id configured in ai-controls. Access will secure the MCP server if
+// AccessApplicationGetResponseBrowserSSHApplicationDestinationsViaMcpServerPortalDestination is a MCP server id configured in ai-controls. Access will secure the MCP server if
 // accessed through a MCP portal.
 type AccessApplicationGetResponseBrowserSSHApplicationDestinationsViaMcpServerPortalDestination struct {
 	// The MCP server id configured in ai-controls.
@@ -37001,7 +37001,7 @@ func (r AccessApplicationGetResponseBrowserSSHApplicationDestinationsViaMcpServe
 	return false
 }
 
-// A specific Cloudflare Worker that Access will secure. All requests routed to the
+// AccessApplicationGetResponseBrowserSSHApplicationDestinationsWorkerDestination is a specific Cloudflare Worker that Access will secure. All requests routed to the
 // specified Worker, including its preview deployments, will be protected. The
 // `preview_worker` and `public` destination types takes precedence, so you can
 // create separate applications to override the policies for the Worker's previews
@@ -37048,7 +37048,7 @@ func (r AccessApplicationGetResponseBrowserSSHApplicationDestinationsWorkerDesti
 	return false
 }
 
-// A specific Cloudflare Worker whose preview deployments Access will secure. Only
+// AccessApplicationGetResponseBrowserSSHApplicationDestinationsPreviewWorkerDestination is a specific Cloudflare Worker whose preview deployments Access will secure. Only
 // requests routed to the preview deployments of the specified Worker will be
 // protected. The `public` destination type takes precedence, so you can create
 // separate applications to override the policies for specific paths.
@@ -37095,7 +37095,7 @@ func (r AccessApplicationGetResponseBrowserSSHApplicationDestinationsPreviewWork
 	return false
 }
 
-// Protects all Cloudflare Workers on the account with Access, including their
+// AccessApplicationGetResponseBrowserSSHApplicationDestinationsAllWorkersDestination protects all Cloudflare Workers on the account with Access, including their
 // preview deployments. At most one destination of this type can exist per account.
 // The `worker`, `preview_worker`, `all_preview_workers`, and `public` destination
 // types take precedence, so you can create separate applications to override the
@@ -37139,7 +37139,7 @@ func (r AccessApplicationGetResponseBrowserSSHApplicationDestinationsAllWorkersD
 	return false
 }
 
-// Protects the preview deployments of all Cloudflare Workers on the account with
+// AccessApplicationGetResponseBrowserSSHApplicationDestinationsAllPreviewWorkersDestination protects the preview deployments of all Cloudflare Workers on the account with
 // Access. At most one destination of this type can exist per account. The
 // `worker`, `preview_worker`, and `public` destination types take precedence, so
 // you can create separate applications to override the policies for specific
@@ -37183,7 +37183,7 @@ func (r AccessApplicationGetResponseBrowserSSHApplicationDestinationsAllPreviewW
 	return false
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationGetResponseBrowserSSHApplicationDestinationsL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationGetResponseBrowserSSHApplicationDestinationsL4Protocol string
 
@@ -37220,7 +37220,7 @@ func (r AccessApplicationGetResponseBrowserSSHApplicationDestinationsType) IsKno
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationGetResponseBrowserSSHApplicationMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationGetResponseBrowserSSHApplicationMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationGetResponseBrowserSSHApplicationMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -37268,7 +37268,7 @@ func (r AccessApplicationGetResponseBrowserSSHApplicationMfaConfigAllowedAuthent
 	return false
 }
 
-// **Beta:** Optional configuration for managing an OAuth authorization flow
+// AccessApplicationGetResponseBrowserSSHApplicationOAuthConfiguration **Beta:** Optional configuration for managing an OAuth authorization flow
 // controlled by Access. When set, Access will act as the OAuth authorization
 // server for this application. Only compatible with OAuth clients that support
 // [RFC 8707](https://datatracker.ietf.org/doc/html/rfc8707) (Resource Indicators
@@ -37304,7 +37304,7 @@ func (r accessApplicationGetResponseBrowserSSHApplicationOAuthConfigurationJSON)
 	return r.raw
 }
 
-// Settings for OAuth dynamic client registration.
+// AccessApplicationGetResponseBrowserSSHApplicationOAuthConfigurationDynamicClientRegistration settings for OAuth dynamic client registration.
 type AccessApplicationGetResponseBrowserSSHApplicationOAuthConfigurationDynamicClientRegistration struct {
 	// Allows any client with redirect URIs on localhost.
 	AllowAnyOnLocalhost bool `json:"allow_any_on_localhost"`
@@ -37338,7 +37338,7 @@ func (r accessApplicationGetResponseBrowserSSHApplicationOAuthConfigurationDynam
 	return r.raw
 }
 
-// Settings for OAuth grant behavior.
+// AccessApplicationGetResponseBrowserSSHApplicationOAuthConfigurationGrant settings for OAuth grant behavior.
 type AccessApplicationGetResponseBrowserSSHApplicationOAuthConfigurationGrant struct {
 	// The lifetime of the access token. Must be in the format `300ms` or `2h45m`.
 	// Valid time units are ns, us (or µs), ms, s, m, h.
@@ -37447,7 +37447,7 @@ func (r accessApplicationGetResponseBrowserSSHApplicationPolicyJSON) RawJSON() s
 	return r.raw
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationGetResponseBrowserSSHApplicationPoliciesConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationGetResponseBrowserSSHApplicationPoliciesConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -37472,7 +37472,7 @@ func (r accessApplicationGetResponseBrowserSSHApplicationPoliciesConnectionRules
 	return r.raw
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationGetResponseBrowserSSHApplicationPoliciesConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationGetResponseBrowserSSHApplicationPoliciesConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats []AccessApplicationGetResponseBrowserSSHApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat `json:"allowed_clipboard_local_to_remote_formats"`
@@ -37499,7 +37499,7 @@ func (r accessApplicationGetResponseBrowserSSHApplicationPoliciesConnectionRules
 	return r.raw
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationGetResponseBrowserSSHApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationGetResponseBrowserSSHApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -37514,7 +37514,7 @@ func (r AccessApplicationGetResponseBrowserSSHApplicationPoliciesConnectionRules
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationGetResponseBrowserSSHApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationGetResponseBrowserSSHApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -37529,7 +37529,7 @@ func (r AccessApplicationGetResponseBrowserSSHApplicationPoliciesConnectionRules
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationGetResponseBrowserSSHApplicationPoliciesMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationGetResponseBrowserSSHApplicationPoliciesMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationGetResponseBrowserSSHApplicationPoliciesMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -37577,7 +37577,7 @@ func (r AccessApplicationGetResponseBrowserSSHApplicationPoliciesMfaConfigAllowe
 	return false
 }
 
-// Configuration for provisioning to this application via SCIM. This is currently
+// AccessApplicationGetResponseBrowserSSHApplicationSCIMConfig configuration for provisioning to this application via SCIM. This is currently
 // in closed beta.
 type AccessApplicationGetResponseBrowserSSHApplicationSCIMConfig struct {
 	// The UID of the IdP to use as the source for SCIM resources to provision to this
@@ -37622,7 +37622,7 @@ func (r accessApplicationGetResponseBrowserSSHApplicationSCIMConfigJSON) RawJSON
 	return r.raw
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationGetResponseBrowserSSHApplicationSCIMConfigAuthenticationUnion attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Union satisfied by [SCIMConfigAuthenticationHTTPBasic],
@@ -37661,7 +37661,7 @@ func init() {
 	)
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationGetResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationGetResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -37697,7 +37697,7 @@ func (r accessApplicationGetResponseBrowserSSHApplicationSCIMConfigAuthenticatio
 func (r AccessApplicationGetResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationGetResponseBrowserSSHApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationGetResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationGetResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -37717,7 +37717,7 @@ type AccessApplicationGetResponseBrowserSSHApplicationSCIMConfigAuthenticationAc
 func (r AccessApplicationGetResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthentication) implementsAccessApplicationGetResponseBrowserSSHApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationGetResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationGetResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem struct {
 	// The authentication scheme to use when making SCIM requests to this application.
@@ -37786,7 +37786,7 @@ func (r AccessApplicationGetResponseBrowserSSHApplicationSCIMConfigAuthenticatio
 	return r.union
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationGetResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationUnionItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Union satisfied by [SCIMConfigAuthenticationHTTPBasic],
@@ -37819,7 +37819,7 @@ func init() {
 	)
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationGetResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationGetResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -37855,7 +37855,7 @@ func (r accessApplicationGetResponseBrowserSSHApplicationSCIMConfigAuthenticatio
 func (r AccessApplicationGetResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationGetResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationGetResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationGetResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -37870,7 +37870,7 @@ func (r AccessApplicationGetResponseBrowserSSHApplicationSCIMConfigAuthenticatio
 	return false
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationGetResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationGetResponseBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme string
 
 const (
@@ -38049,7 +38049,7 @@ func (r accessApplicationGetResponseBrowserVNCApplicationJSON) RawJSON() string 
 
 func (r AccessApplicationGetResponseBrowserVNCApplication) implementsAccessApplicationGetResponse() {}
 
-// The application type.
+// AccessApplicationGetResponseBrowserVNCApplicationType is the application type.
 type AccessApplicationGetResponseBrowserVNCApplicationType string
 
 const (
@@ -38077,7 +38077,7 @@ func (r AccessApplicationGetResponseBrowserVNCApplicationType) IsKnown() bool {
 	return false
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationGetResponseBrowserVNCApplicationDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationGetResponseBrowserVNCApplicationDestination struct {
 	// The CIDR range of the destination. Single IPs will be computed as /32.
@@ -38151,7 +38151,7 @@ func (r AccessApplicationGetResponseBrowserVNCApplicationDestination) AsUnion() 
 	return r.union
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationGetResponseBrowserVNCApplicationDestinationsUnion is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 //
 // Union satisfied by
@@ -38202,7 +38202,7 @@ func init() {
 	)
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationGetResponseBrowserVNCApplicationDestinationsPublicDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationGetResponseBrowserVNCApplicationDestinationsPublicDestination struct {
 	Type AccessApplicationGetResponseBrowserVNCApplicationDestinationsPublicDestinationType `json:"type"`
@@ -38290,7 +38290,7 @@ func (r accessApplicationGetResponseBrowserVNCApplicationDestinationsPrivateDest
 func (r AccessApplicationGetResponseBrowserVNCApplicationDestinationsPrivateDestination) implementsAccessApplicationGetResponseBrowserVNCApplicationDestination() {
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationGetResponseBrowserVNCApplicationDestinationsPrivateDestinationL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationGetResponseBrowserVNCApplicationDestinationsPrivateDestinationL4Protocol string
 
@@ -38321,7 +38321,7 @@ func (r AccessApplicationGetResponseBrowserVNCApplicationDestinationsPrivateDest
 	return false
 }
 
-// A MCP server id configured in ai-controls. Access will secure the MCP server if
+// AccessApplicationGetResponseBrowserVNCApplicationDestinationsViaMcpServerPortalDestination is a MCP server id configured in ai-controls. Access will secure the MCP server if
 // accessed through a MCP portal.
 type AccessApplicationGetResponseBrowserVNCApplicationDestinationsViaMcpServerPortalDestination struct {
 	// The MCP server id configured in ai-controls.
@@ -38365,7 +38365,7 @@ func (r AccessApplicationGetResponseBrowserVNCApplicationDestinationsViaMcpServe
 	return false
 }
 
-// A specific Cloudflare Worker that Access will secure. All requests routed to the
+// AccessApplicationGetResponseBrowserVNCApplicationDestinationsWorkerDestination is a specific Cloudflare Worker that Access will secure. All requests routed to the
 // specified Worker, including its preview deployments, will be protected. The
 // `preview_worker` and `public` destination types takes precedence, so you can
 // create separate applications to override the policies for the Worker's previews
@@ -38412,7 +38412,7 @@ func (r AccessApplicationGetResponseBrowserVNCApplicationDestinationsWorkerDesti
 	return false
 }
 
-// A specific Cloudflare Worker whose preview deployments Access will secure. Only
+// AccessApplicationGetResponseBrowserVNCApplicationDestinationsPreviewWorkerDestination is a specific Cloudflare Worker whose preview deployments Access will secure. Only
 // requests routed to the preview deployments of the specified Worker will be
 // protected. The `public` destination type takes precedence, so you can create
 // separate applications to override the policies for specific paths.
@@ -38459,7 +38459,7 @@ func (r AccessApplicationGetResponseBrowserVNCApplicationDestinationsPreviewWork
 	return false
 }
 
-// Protects all Cloudflare Workers on the account with Access, including their
+// AccessApplicationGetResponseBrowserVNCApplicationDestinationsAllWorkersDestination protects all Cloudflare Workers on the account with Access, including their
 // preview deployments. At most one destination of this type can exist per account.
 // The `worker`, `preview_worker`, `all_preview_workers`, and `public` destination
 // types take precedence, so you can create separate applications to override the
@@ -38503,7 +38503,7 @@ func (r AccessApplicationGetResponseBrowserVNCApplicationDestinationsAllWorkersD
 	return false
 }
 
-// Protects the preview deployments of all Cloudflare Workers on the account with
+// AccessApplicationGetResponseBrowserVNCApplicationDestinationsAllPreviewWorkersDestination protects the preview deployments of all Cloudflare Workers on the account with
 // Access. At most one destination of this type can exist per account. The
 // `worker`, `preview_worker`, and `public` destination types take precedence, so
 // you can create separate applications to override the policies for specific
@@ -38547,7 +38547,7 @@ func (r AccessApplicationGetResponseBrowserVNCApplicationDestinationsAllPreviewW
 	return false
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationGetResponseBrowserVNCApplicationDestinationsL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationGetResponseBrowserVNCApplicationDestinationsL4Protocol string
 
@@ -38584,7 +38584,7 @@ func (r AccessApplicationGetResponseBrowserVNCApplicationDestinationsType) IsKno
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationGetResponseBrowserVNCApplicationMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationGetResponseBrowserVNCApplicationMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationGetResponseBrowserVNCApplicationMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -38632,7 +38632,7 @@ func (r AccessApplicationGetResponseBrowserVNCApplicationMfaConfigAllowedAuthent
 	return false
 }
 
-// **Beta:** Optional configuration for managing an OAuth authorization flow
+// AccessApplicationGetResponseBrowserVNCApplicationOAuthConfiguration **Beta:** Optional configuration for managing an OAuth authorization flow
 // controlled by Access. When set, Access will act as the OAuth authorization
 // server for this application. Only compatible with OAuth clients that support
 // [RFC 8707](https://datatracker.ietf.org/doc/html/rfc8707) (Resource Indicators
@@ -38668,7 +38668,7 @@ func (r accessApplicationGetResponseBrowserVNCApplicationOAuthConfigurationJSON)
 	return r.raw
 }
 
-// Settings for OAuth dynamic client registration.
+// AccessApplicationGetResponseBrowserVNCApplicationOAuthConfigurationDynamicClientRegistration settings for OAuth dynamic client registration.
 type AccessApplicationGetResponseBrowserVNCApplicationOAuthConfigurationDynamicClientRegistration struct {
 	// Allows any client with redirect URIs on localhost.
 	AllowAnyOnLocalhost bool `json:"allow_any_on_localhost"`
@@ -38702,7 +38702,7 @@ func (r accessApplicationGetResponseBrowserVNCApplicationOAuthConfigurationDynam
 	return r.raw
 }
 
-// Settings for OAuth grant behavior.
+// AccessApplicationGetResponseBrowserVNCApplicationOAuthConfigurationGrant settings for OAuth grant behavior.
 type AccessApplicationGetResponseBrowserVNCApplicationOAuthConfigurationGrant struct {
 	// The lifetime of the access token. Must be in the format `300ms` or `2h45m`.
 	// Valid time units are ns, us (or µs), ms, s, m, h.
@@ -38811,7 +38811,7 @@ func (r accessApplicationGetResponseBrowserVNCApplicationPolicyJSON) RawJSON() s
 	return r.raw
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationGetResponseBrowserVNCApplicationPoliciesConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationGetResponseBrowserVNCApplicationPoliciesConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -38836,7 +38836,7 @@ func (r accessApplicationGetResponseBrowserVNCApplicationPoliciesConnectionRules
 	return r.raw
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationGetResponseBrowserVNCApplicationPoliciesConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationGetResponseBrowserVNCApplicationPoliciesConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats []AccessApplicationGetResponseBrowserVNCApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat `json:"allowed_clipboard_local_to_remote_formats"`
@@ -38863,7 +38863,7 @@ func (r accessApplicationGetResponseBrowserVNCApplicationPoliciesConnectionRules
 	return r.raw
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationGetResponseBrowserVNCApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationGetResponseBrowserVNCApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -38878,7 +38878,7 @@ func (r AccessApplicationGetResponseBrowserVNCApplicationPoliciesConnectionRules
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationGetResponseBrowserVNCApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationGetResponseBrowserVNCApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -38893,7 +38893,7 @@ func (r AccessApplicationGetResponseBrowserVNCApplicationPoliciesConnectionRules
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationGetResponseBrowserVNCApplicationPoliciesMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationGetResponseBrowserVNCApplicationPoliciesMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationGetResponseBrowserVNCApplicationPoliciesMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -38941,7 +38941,7 @@ func (r AccessApplicationGetResponseBrowserVNCApplicationPoliciesMfaConfigAllowe
 	return false
 }
 
-// Configuration for provisioning to this application via SCIM. This is currently
+// AccessApplicationGetResponseBrowserVNCApplicationSCIMConfig configuration for provisioning to this application via SCIM. This is currently
 // in closed beta.
 type AccessApplicationGetResponseBrowserVNCApplicationSCIMConfig struct {
 	// The UID of the IdP to use as the source for SCIM resources to provision to this
@@ -38986,7 +38986,7 @@ func (r accessApplicationGetResponseBrowserVNCApplicationSCIMConfigJSON) RawJSON
 	return r.raw
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationGetResponseBrowserVNCApplicationSCIMConfigAuthenticationUnion attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Union satisfied by [SCIMConfigAuthenticationHTTPBasic],
@@ -39025,7 +39025,7 @@ func init() {
 	)
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationGetResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationGetResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -39061,7 +39061,7 @@ func (r accessApplicationGetResponseBrowserVNCApplicationSCIMConfigAuthenticatio
 func (r AccessApplicationGetResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationGetResponseBrowserVNCApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationGetResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationGetResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -39081,7 +39081,7 @@ type AccessApplicationGetResponseBrowserVNCApplicationSCIMConfigAuthenticationAc
 func (r AccessApplicationGetResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthentication) implementsAccessApplicationGetResponseBrowserVNCApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationGetResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationGetResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem struct {
 	// The authentication scheme to use when making SCIM requests to this application.
@@ -39150,7 +39150,7 @@ func (r AccessApplicationGetResponseBrowserVNCApplicationSCIMConfigAuthenticatio
 	return r.union
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationGetResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationUnionItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Union satisfied by [SCIMConfigAuthenticationHTTPBasic],
@@ -39183,7 +39183,7 @@ func init() {
 	)
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationGetResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationGetResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -39219,7 +39219,7 @@ func (r accessApplicationGetResponseBrowserVNCApplicationSCIMConfigAuthenticatio
 func (r AccessApplicationGetResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationGetResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationGetResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationGetResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -39234,7 +39234,7 @@ func (r AccessApplicationGetResponseBrowserVNCApplicationSCIMConfigAuthenticatio
 	return false
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationGetResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationGetResponseBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme string
 
 const (
@@ -39334,7 +39334,7 @@ func (r accessApplicationGetResponseAppLauncherApplicationJSON) RawJSON() string
 func (r AccessApplicationGetResponseAppLauncherApplication) implementsAccessApplicationGetResponse() {
 }
 
-// The application type.
+// AccessApplicationGetResponseAppLauncherApplicationType is the application type.
 type AccessApplicationGetResponseAppLauncherApplicationType string
 
 const (
@@ -39388,7 +39388,7 @@ func (r accessApplicationGetResponseAppLauncherApplicationFooterLinkJSON) RawJSO
 	return r.raw
 }
 
-// The design of the App Launcher landing page shown to users when they log in.
+// AccessApplicationGetResponseAppLauncherApplicationLandingPageDesign is the design of the App Launcher landing page shown to users when they log in.
 type AccessApplicationGetResponseAppLauncherApplicationLandingPageDesign struct {
 	// The background color of the log in button on the landing page.
 	ButtonColor string `json:"button_color"`
@@ -39504,7 +39504,7 @@ func (r accessApplicationGetResponseAppLauncherApplicationPolicyJSON) RawJSON() 
 	return r.raw
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationGetResponseAppLauncherApplicationPoliciesConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationGetResponseAppLauncherApplicationPoliciesConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -39529,7 +39529,7 @@ func (r accessApplicationGetResponseAppLauncherApplicationPoliciesConnectionRule
 	return r.raw
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationGetResponseAppLauncherApplicationPoliciesConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationGetResponseAppLauncherApplicationPoliciesConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats []AccessApplicationGetResponseAppLauncherApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat `json:"allowed_clipboard_local_to_remote_formats"`
@@ -39556,7 +39556,7 @@ func (r accessApplicationGetResponseAppLauncherApplicationPoliciesConnectionRule
 	return r.raw
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationGetResponseAppLauncherApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationGetResponseAppLauncherApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -39571,7 +39571,7 @@ func (r AccessApplicationGetResponseAppLauncherApplicationPoliciesConnectionRule
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationGetResponseAppLauncherApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationGetResponseAppLauncherApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -39586,7 +39586,7 @@ func (r AccessApplicationGetResponseAppLauncherApplicationPoliciesConnectionRule
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationGetResponseAppLauncherApplicationPoliciesMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationGetResponseAppLauncherApplicationPoliciesMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationGetResponseAppLauncherApplicationPoliciesMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -39779,7 +39779,7 @@ func (r accessApplicationGetResponseDeviceEnrollmentPermissionsApplicationPolicy
 	return r.raw
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationGetResponseDeviceEnrollmentPermissionsApplicationPoliciesConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationGetResponseDeviceEnrollmentPermissionsApplicationPoliciesConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -39804,7 +39804,7 @@ func (r accessApplicationGetResponseDeviceEnrollmentPermissionsApplicationPolici
 	return r.raw
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationGetResponseDeviceEnrollmentPermissionsApplicationPoliciesConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationGetResponseDeviceEnrollmentPermissionsApplicationPoliciesConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats []AccessApplicationGetResponseDeviceEnrollmentPermissionsApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat `json:"allowed_clipboard_local_to_remote_formats"`
@@ -39831,7 +39831,7 @@ func (r accessApplicationGetResponseDeviceEnrollmentPermissionsApplicationPolici
 	return r.raw
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationGetResponseDeviceEnrollmentPermissionsApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationGetResponseDeviceEnrollmentPermissionsApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -39846,7 +39846,7 @@ func (r AccessApplicationGetResponseDeviceEnrollmentPermissionsApplicationPolici
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationGetResponseDeviceEnrollmentPermissionsApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationGetResponseDeviceEnrollmentPermissionsApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -39861,7 +39861,7 @@ func (r AccessApplicationGetResponseDeviceEnrollmentPermissionsApplicationPolici
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationGetResponseDeviceEnrollmentPermissionsApplicationPoliciesMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationGetResponseDeviceEnrollmentPermissionsApplicationPoliciesMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationGetResponseDeviceEnrollmentPermissionsApplicationPoliciesMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -40054,7 +40054,7 @@ func (r accessApplicationGetResponseBrowserIsolationPermissionsApplicationPolicy
 	return r.raw
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationGetResponseBrowserIsolationPermissionsApplicationPoliciesConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationGetResponseBrowserIsolationPermissionsApplicationPoliciesConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -40079,7 +40079,7 @@ func (r accessApplicationGetResponseBrowserIsolationPermissionsApplicationPolici
 	return r.raw
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationGetResponseBrowserIsolationPermissionsApplicationPoliciesConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationGetResponseBrowserIsolationPermissionsApplicationPoliciesConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats []AccessApplicationGetResponseBrowserIsolationPermissionsApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat `json:"allowed_clipboard_local_to_remote_formats"`
@@ -40106,7 +40106,7 @@ func (r accessApplicationGetResponseBrowserIsolationPermissionsApplicationPolici
 	return r.raw
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationGetResponseBrowserIsolationPermissionsApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationGetResponseBrowserIsolationPermissionsApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -40121,7 +40121,7 @@ func (r AccessApplicationGetResponseBrowserIsolationPermissionsApplicationPolici
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationGetResponseBrowserIsolationPermissionsApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationGetResponseBrowserIsolationPermissionsApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -40136,7 +40136,7 @@ func (r AccessApplicationGetResponseBrowserIsolationPermissionsApplicationPolici
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationGetResponseBrowserIsolationPermissionsApplicationPoliciesMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationGetResponseBrowserIsolationPermissionsApplicationPoliciesMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationGetResponseBrowserIsolationPermissionsApplicationPoliciesMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -40329,7 +40329,7 @@ func (r accessApplicationGetResponseGatewayIdentityProxyEndpointApplicationPolic
 	return r.raw
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationGetResponseGatewayIdentityProxyEndpointApplicationPoliciesConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationGetResponseGatewayIdentityProxyEndpointApplicationPoliciesConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -40354,7 +40354,7 @@ func (r accessApplicationGetResponseGatewayIdentityProxyEndpointApplicationPolic
 	return r.raw
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationGetResponseGatewayIdentityProxyEndpointApplicationPoliciesConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationGetResponseGatewayIdentityProxyEndpointApplicationPoliciesConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats []AccessApplicationGetResponseGatewayIdentityProxyEndpointApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat `json:"allowed_clipboard_local_to_remote_formats"`
@@ -40381,7 +40381,7 @@ func (r accessApplicationGetResponseGatewayIdentityProxyEndpointApplicationPolic
 	return r.raw
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationGetResponseGatewayIdentityProxyEndpointApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationGetResponseGatewayIdentityProxyEndpointApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -40396,7 +40396,7 @@ func (r AccessApplicationGetResponseGatewayIdentityProxyEndpointApplicationPolic
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationGetResponseGatewayIdentityProxyEndpointApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationGetResponseGatewayIdentityProxyEndpointApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -40411,7 +40411,7 @@ func (r AccessApplicationGetResponseGatewayIdentityProxyEndpointApplicationPolic
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationGetResponseGatewayIdentityProxyEndpointApplicationPoliciesMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationGetResponseGatewayIdentityProxyEndpointApplicationPoliciesMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationGetResponseGatewayIdentityProxyEndpointApplicationPoliciesMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -40586,7 +40586,7 @@ func (r accessApplicationGetResponseBookmarkApplicationPolicyJSON) RawJSON() str
 	return r.raw
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationGetResponseBookmarkApplicationPoliciesConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationGetResponseBookmarkApplicationPoliciesConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -40611,7 +40611,7 @@ func (r accessApplicationGetResponseBookmarkApplicationPoliciesConnectionRulesJS
 	return r.raw
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationGetResponseBookmarkApplicationPoliciesConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationGetResponseBookmarkApplicationPoliciesConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats []AccessApplicationGetResponseBookmarkApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat `json:"allowed_clipboard_local_to_remote_formats"`
@@ -40638,7 +40638,7 @@ func (r accessApplicationGetResponseBookmarkApplicationPoliciesConnectionRulesRD
 	return r.raw
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationGetResponseBookmarkApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationGetResponseBookmarkApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -40653,7 +40653,7 @@ func (r AccessApplicationGetResponseBookmarkApplicationPoliciesConnectionRulesRD
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationGetResponseBookmarkApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationGetResponseBookmarkApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -40668,7 +40668,7 @@ func (r AccessApplicationGetResponseBookmarkApplicationPoliciesConnectionRulesRD
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationGetResponseBookmarkApplicationPoliciesMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationGetResponseBookmarkApplicationPoliciesMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationGetResponseBookmarkApplicationPoliciesMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -40784,7 +40784,7 @@ func (r accessApplicationGetResponseInfrastructureApplicationTargetCriterionJSON
 	return r.raw
 }
 
-// The communication protocol your application secures.
+// AccessApplicationGetResponseInfrastructureApplicationTargetCriteriaProtocol is the communication protocol your application secures.
 type AccessApplicationGetResponseInfrastructureApplicationTargetCriteriaProtocol string
 
 const (
@@ -40853,7 +40853,7 @@ func (r accessApplicationGetResponseInfrastructureApplicationPolicyJSON) RawJSON
 	return r.raw
 }
 
-// The rules that define how users may connect to the targets secured by your
+// AccessApplicationGetResponseInfrastructureApplicationPoliciesConnectionRules is the rules that define how users may connect to the targets secured by your
 // application.
 type AccessApplicationGetResponseInfrastructureApplicationPoliciesConnectionRules struct {
 	// The SSH-specific rules that define how users may connect to the targets secured
@@ -40879,7 +40879,7 @@ func (r accessApplicationGetResponseInfrastructureApplicationPoliciesConnectionR
 	return r.raw
 }
 
-// The SSH-specific rules that define how users may connect to the targets secured
+// AccessApplicationGetResponseInfrastructureApplicationPoliciesConnectionRulesSSH is the SSH-specific rules that define how users may connect to the targets secured
 // by your application.
 type AccessApplicationGetResponseInfrastructureApplicationPoliciesConnectionRulesSSH struct {
 	// Contains the Unix usernames that may be used when connecting over SSH.
@@ -40907,7 +40907,7 @@ func (r accessApplicationGetResponseInfrastructureApplicationPoliciesConnectionR
 	return r.raw
 }
 
-// Configures multi-factor authentication (MFA) settings for infrastructure
+// AccessApplicationGetResponseInfrastructureApplicationPoliciesMfaConfig configures multi-factor authentication (MFA) settings for infrastructure
 // applications.
 type AccessApplicationGetResponseInfrastructureApplicationPoliciesMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with. For infrastructure
@@ -41148,7 +41148,7 @@ func (r accessApplicationGetResponseBrowserRDPApplicationTargetCriterionJSON) Ra
 	return r.raw
 }
 
-// The communication protocol your application secures.
+// AccessApplicationGetResponseBrowserRDPApplicationTargetCriteriaProtocol is the communication protocol your application secures.
 type AccessApplicationGetResponseBrowserRDPApplicationTargetCriteriaProtocol string
 
 const (
@@ -41163,7 +41163,7 @@ func (r AccessApplicationGetResponseBrowserRDPApplicationTargetCriteriaProtocol)
 	return false
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationGetResponseBrowserRDPApplicationDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationGetResponseBrowserRDPApplicationDestination struct {
 	// The CIDR range of the destination. Single IPs will be computed as /32.
@@ -41237,7 +41237,7 @@ func (r AccessApplicationGetResponseBrowserRDPApplicationDestination) AsUnion() 
 	return r.union
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationGetResponseBrowserRDPApplicationDestinationsUnion is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 //
 // Union satisfied by
@@ -41288,7 +41288,7 @@ func init() {
 	)
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationGetResponseBrowserRDPApplicationDestinationsPublicDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationGetResponseBrowserRDPApplicationDestinationsPublicDestination struct {
 	Type AccessApplicationGetResponseBrowserRDPApplicationDestinationsPublicDestinationType `json:"type"`
@@ -41376,7 +41376,7 @@ func (r accessApplicationGetResponseBrowserRDPApplicationDestinationsPrivateDest
 func (r AccessApplicationGetResponseBrowserRDPApplicationDestinationsPrivateDestination) implementsAccessApplicationGetResponseBrowserRDPApplicationDestination() {
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationGetResponseBrowserRDPApplicationDestinationsPrivateDestinationL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationGetResponseBrowserRDPApplicationDestinationsPrivateDestinationL4Protocol string
 
@@ -41407,7 +41407,7 @@ func (r AccessApplicationGetResponseBrowserRDPApplicationDestinationsPrivateDest
 	return false
 }
 
-// A MCP server id configured in ai-controls. Access will secure the MCP server if
+// AccessApplicationGetResponseBrowserRDPApplicationDestinationsViaMcpServerPortalDestination is a MCP server id configured in ai-controls. Access will secure the MCP server if
 // accessed through a MCP portal.
 type AccessApplicationGetResponseBrowserRDPApplicationDestinationsViaMcpServerPortalDestination struct {
 	// The MCP server id configured in ai-controls.
@@ -41451,7 +41451,7 @@ func (r AccessApplicationGetResponseBrowserRDPApplicationDestinationsViaMcpServe
 	return false
 }
 
-// A specific Cloudflare Worker that Access will secure. All requests routed to the
+// AccessApplicationGetResponseBrowserRDPApplicationDestinationsWorkerDestination is a specific Cloudflare Worker that Access will secure. All requests routed to the
 // specified Worker, including its preview deployments, will be protected. The
 // `preview_worker` and `public` destination types takes precedence, so you can
 // create separate applications to override the policies for the Worker's previews
@@ -41498,7 +41498,7 @@ func (r AccessApplicationGetResponseBrowserRDPApplicationDestinationsWorkerDesti
 	return false
 }
 
-// A specific Cloudflare Worker whose preview deployments Access will secure. Only
+// AccessApplicationGetResponseBrowserRDPApplicationDestinationsPreviewWorkerDestination is a specific Cloudflare Worker whose preview deployments Access will secure. Only
 // requests routed to the preview deployments of the specified Worker will be
 // protected. The `public` destination type takes precedence, so you can create
 // separate applications to override the policies for specific paths.
@@ -41545,7 +41545,7 @@ func (r AccessApplicationGetResponseBrowserRDPApplicationDestinationsPreviewWork
 	return false
 }
 
-// Protects all Cloudflare Workers on the account with Access, including their
+// AccessApplicationGetResponseBrowserRDPApplicationDestinationsAllWorkersDestination protects all Cloudflare Workers on the account with Access, including their
 // preview deployments. At most one destination of this type can exist per account.
 // The `worker`, `preview_worker`, `all_preview_workers`, and `public` destination
 // types take precedence, so you can create separate applications to override the
@@ -41589,7 +41589,7 @@ func (r AccessApplicationGetResponseBrowserRDPApplicationDestinationsAllWorkersD
 	return false
 }
 
-// Protects the preview deployments of all Cloudflare Workers on the account with
+// AccessApplicationGetResponseBrowserRDPApplicationDestinationsAllPreviewWorkersDestination protects the preview deployments of all Cloudflare Workers on the account with
 // Access. At most one destination of this type can exist per account. The
 // `worker`, `preview_worker`, and `public` destination types take precedence, so
 // you can create separate applications to override the policies for specific
@@ -41633,7 +41633,7 @@ func (r AccessApplicationGetResponseBrowserRDPApplicationDestinationsAllPreviewW
 	return false
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationGetResponseBrowserRDPApplicationDestinationsL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationGetResponseBrowserRDPApplicationDestinationsL4Protocol string
 
@@ -41670,7 +41670,7 @@ func (r AccessApplicationGetResponseBrowserRDPApplicationDestinationsType) IsKno
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationGetResponseBrowserRDPApplicationMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationGetResponseBrowserRDPApplicationMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationGetResponseBrowserRDPApplicationMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -41718,7 +41718,7 @@ func (r AccessApplicationGetResponseBrowserRDPApplicationMfaConfigAllowedAuthent
 	return false
 }
 
-// **Beta:** Optional configuration for managing an OAuth authorization flow
+// AccessApplicationGetResponseBrowserRDPApplicationOAuthConfiguration **Beta:** Optional configuration for managing an OAuth authorization flow
 // controlled by Access. When set, Access will act as the OAuth authorization
 // server for this application. Only compatible with OAuth clients that support
 // [RFC 8707](https://datatracker.ietf.org/doc/html/rfc8707) (Resource Indicators
@@ -41754,7 +41754,7 @@ func (r accessApplicationGetResponseBrowserRDPApplicationOAuthConfigurationJSON)
 	return r.raw
 }
 
-// Settings for OAuth dynamic client registration.
+// AccessApplicationGetResponseBrowserRDPApplicationOAuthConfigurationDynamicClientRegistration settings for OAuth dynamic client registration.
 type AccessApplicationGetResponseBrowserRDPApplicationOAuthConfigurationDynamicClientRegistration struct {
 	// Allows any client with redirect URIs on localhost.
 	AllowAnyOnLocalhost bool `json:"allow_any_on_localhost"`
@@ -41788,7 +41788,7 @@ func (r accessApplicationGetResponseBrowserRDPApplicationOAuthConfigurationDynam
 	return r.raw
 }
 
-// Settings for OAuth grant behavior.
+// AccessApplicationGetResponseBrowserRDPApplicationOAuthConfigurationGrant settings for OAuth grant behavior.
 type AccessApplicationGetResponseBrowserRDPApplicationOAuthConfigurationGrant struct {
 	// The lifetime of the access token. Must be in the format `300ms` or `2h45m`.
 	// Valid time units are ns, us (or µs), ms, s, m, h.
@@ -41897,7 +41897,7 @@ func (r accessApplicationGetResponseBrowserRDPApplicationPolicyJSON) RawJSON() s
 	return r.raw
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationGetResponseBrowserRDPApplicationPoliciesConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationGetResponseBrowserRDPApplicationPoliciesConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -41922,7 +41922,7 @@ func (r accessApplicationGetResponseBrowserRDPApplicationPoliciesConnectionRules
 	return r.raw
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationGetResponseBrowserRDPApplicationPoliciesConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationGetResponseBrowserRDPApplicationPoliciesConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats []AccessApplicationGetResponseBrowserRDPApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat `json:"allowed_clipboard_local_to_remote_formats"`
@@ -41949,7 +41949,7 @@ func (r accessApplicationGetResponseBrowserRDPApplicationPoliciesConnectionRules
 	return r.raw
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationGetResponseBrowserRDPApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationGetResponseBrowserRDPApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -41964,7 +41964,7 @@ func (r AccessApplicationGetResponseBrowserRDPApplicationPoliciesConnectionRules
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationGetResponseBrowserRDPApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationGetResponseBrowserRDPApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -41979,7 +41979,7 @@ func (r AccessApplicationGetResponseBrowserRDPApplicationPoliciesConnectionRules
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationGetResponseBrowserRDPApplicationPoliciesMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationGetResponseBrowserRDPApplicationPoliciesMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationGetResponseBrowserRDPApplicationPoliciesMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -42027,7 +42027,7 @@ func (r AccessApplicationGetResponseBrowserRDPApplicationPoliciesMfaConfigAllowe
 	return false
 }
 
-// Configuration for provisioning to this application via SCIM. This is currently
+// AccessApplicationGetResponseBrowserRDPApplicationSCIMConfig configuration for provisioning to this application via SCIM. This is currently
 // in closed beta.
 type AccessApplicationGetResponseBrowserRDPApplicationSCIMConfig struct {
 	// The UID of the IdP to use as the source for SCIM resources to provision to this
@@ -42072,7 +42072,7 @@ func (r accessApplicationGetResponseBrowserRDPApplicationSCIMConfigJSON) RawJSON
 	return r.raw
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationGetResponseBrowserRDPApplicationSCIMConfigAuthenticationUnion attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Union satisfied by [SCIMConfigAuthenticationHTTPBasic],
@@ -42111,7 +42111,7 @@ func init() {
 	)
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationGetResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationGetResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -42147,7 +42147,7 @@ func (r accessApplicationGetResponseBrowserRDPApplicationSCIMConfigAuthenticatio
 func (r AccessApplicationGetResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationGetResponseBrowserRDPApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationGetResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationGetResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -42167,7 +42167,7 @@ type AccessApplicationGetResponseBrowserRDPApplicationSCIMConfigAuthenticationAc
 func (r AccessApplicationGetResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthentication) implementsAccessApplicationGetResponseBrowserRDPApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationGetResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationGetResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem struct {
 	// The authentication scheme to use when making SCIM requests to this application.
@@ -42236,7 +42236,7 @@ func (r AccessApplicationGetResponseBrowserRDPApplicationSCIMConfigAuthenticatio
 	return r.union
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationGetResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationUnionItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Union satisfied by [SCIMConfigAuthenticationHTTPBasic],
@@ -42269,7 +42269,7 @@ func init() {
 	)
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationGetResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationGetResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -42305,7 +42305,7 @@ func (r accessApplicationGetResponseBrowserRDPApplicationSCIMConfigAuthenticatio
 func (r AccessApplicationGetResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationGetResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationGetResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationGetResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -42320,7 +42320,7 @@ func (r AccessApplicationGetResponseBrowserRDPApplicationSCIMConfigAuthenticatio
 	return false
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationGetResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationGetResponseBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme string
 
 const (
@@ -42442,7 +42442,7 @@ func (r accessApplicationGetResponseMcpServerApplicationJSON) RawJSON() string {
 
 func (r AccessApplicationGetResponseMcpServerApplication) implementsAccessApplicationGetResponse() {}
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationGetResponseMcpServerApplicationDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationGetResponseMcpServerApplicationDestination struct {
 	// The CIDR range of the destination. Single IPs will be computed as /32.
@@ -42516,7 +42516,7 @@ func (r AccessApplicationGetResponseMcpServerApplicationDestination) AsUnion() A
 	return r.union
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationGetResponseMcpServerApplicationDestinationsUnion is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 //
 // Union satisfied by
@@ -42567,7 +42567,7 @@ func init() {
 	)
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationGetResponseMcpServerApplicationDestinationsPublicDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationGetResponseMcpServerApplicationDestinationsPublicDestination struct {
 	Type AccessApplicationGetResponseMcpServerApplicationDestinationsPublicDestinationType `json:"type"`
@@ -42655,7 +42655,7 @@ func (r accessApplicationGetResponseMcpServerApplicationDestinationsPrivateDesti
 func (r AccessApplicationGetResponseMcpServerApplicationDestinationsPrivateDestination) implementsAccessApplicationGetResponseMcpServerApplicationDestination() {
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationGetResponseMcpServerApplicationDestinationsPrivateDestinationL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationGetResponseMcpServerApplicationDestinationsPrivateDestinationL4Protocol string
 
@@ -42686,7 +42686,7 @@ func (r AccessApplicationGetResponseMcpServerApplicationDestinationsPrivateDesti
 	return false
 }
 
-// A MCP server id configured in ai-controls. Access will secure the MCP server if
+// AccessApplicationGetResponseMcpServerApplicationDestinationsViaMcpServerPortalDestination is a MCP server id configured in ai-controls. Access will secure the MCP server if
 // accessed through a MCP portal.
 type AccessApplicationGetResponseMcpServerApplicationDestinationsViaMcpServerPortalDestination struct {
 	// The MCP server id configured in ai-controls.
@@ -42730,7 +42730,7 @@ func (r AccessApplicationGetResponseMcpServerApplicationDestinationsViaMcpServer
 	return false
 }
 
-// A specific Cloudflare Worker that Access will secure. All requests routed to the
+// AccessApplicationGetResponseMcpServerApplicationDestinationsWorkerDestination is a specific Cloudflare Worker that Access will secure. All requests routed to the
 // specified Worker, including its preview deployments, will be protected. The
 // `preview_worker` and `public` destination types takes precedence, so you can
 // create separate applications to override the policies for the Worker's previews
@@ -42777,7 +42777,7 @@ func (r AccessApplicationGetResponseMcpServerApplicationDestinationsWorkerDestin
 	return false
 }
 
-// A specific Cloudflare Worker whose preview deployments Access will secure. Only
+// AccessApplicationGetResponseMcpServerApplicationDestinationsPreviewWorkerDestination is a specific Cloudflare Worker whose preview deployments Access will secure. Only
 // requests routed to the preview deployments of the specified Worker will be
 // protected. The `public` destination type takes precedence, so you can create
 // separate applications to override the policies for specific paths.
@@ -42824,7 +42824,7 @@ func (r AccessApplicationGetResponseMcpServerApplicationDestinationsPreviewWorke
 	return false
 }
 
-// Protects all Cloudflare Workers on the account with Access, including their
+// AccessApplicationGetResponseMcpServerApplicationDestinationsAllWorkersDestination protects all Cloudflare Workers on the account with Access, including their
 // preview deployments. At most one destination of this type can exist per account.
 // The `worker`, `preview_worker`, `all_preview_workers`, and `public` destination
 // types take precedence, so you can create separate applications to override the
@@ -42868,7 +42868,7 @@ func (r AccessApplicationGetResponseMcpServerApplicationDestinationsAllWorkersDe
 	return false
 }
 
-// Protects the preview deployments of all Cloudflare Workers on the account with
+// AccessApplicationGetResponseMcpServerApplicationDestinationsAllPreviewWorkersDestination protects the preview deployments of all Cloudflare Workers on the account with
 // Access. At most one destination of this type can exist per account. The
 // `worker`, `preview_worker`, and `public` destination types take precedence, so
 // you can create separate applications to override the policies for specific
@@ -42912,7 +42912,7 @@ func (r AccessApplicationGetResponseMcpServerApplicationDestinationsAllPreviewWo
 	return false
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationGetResponseMcpServerApplicationDestinationsL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationGetResponseMcpServerApplicationDestinationsL4Protocol string
 
@@ -42949,7 +42949,7 @@ func (r AccessApplicationGetResponseMcpServerApplicationDestinationsType) IsKnow
 	return false
 }
 
-// **Beta:** Optional configuration for managing an OAuth authorization flow
+// AccessApplicationGetResponseMcpServerApplicationOAuthConfiguration **Beta:** Optional configuration for managing an OAuth authorization flow
 // controlled by Access. When set, Access will act as the OAuth authorization
 // server for this application. Only compatible with OAuth clients that support
 // [RFC 8707](https://datatracker.ietf.org/doc/html/rfc8707) (Resource Indicators
@@ -42985,7 +42985,7 @@ func (r accessApplicationGetResponseMcpServerApplicationOAuthConfigurationJSON) 
 	return r.raw
 }
 
-// Settings for OAuth dynamic client registration.
+// AccessApplicationGetResponseMcpServerApplicationOAuthConfigurationDynamicClientRegistration settings for OAuth dynamic client registration.
 type AccessApplicationGetResponseMcpServerApplicationOAuthConfigurationDynamicClientRegistration struct {
 	// Allows any client with redirect URIs on localhost.
 	AllowAnyOnLocalhost bool `json:"allow_any_on_localhost"`
@@ -43019,7 +43019,7 @@ func (r accessApplicationGetResponseMcpServerApplicationOAuthConfigurationDynami
 	return r.raw
 }
 
-// Settings for OAuth grant behavior.
+// AccessApplicationGetResponseMcpServerApplicationOAuthConfigurationGrant settings for OAuth grant behavior.
 type AccessApplicationGetResponseMcpServerApplicationOAuthConfigurationGrant struct {
 	// The lifetime of the access token. Must be in the format `300ms` or `2h45m`.
 	// Valid time units are ns, us (or µs), ms, s, m, h.
@@ -43127,7 +43127,7 @@ func (r accessApplicationGetResponseMcpServerApplicationPolicyJSON) RawJSON() st
 	return r.raw
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationGetResponseMcpServerApplicationPoliciesConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationGetResponseMcpServerApplicationPoliciesConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -43152,7 +43152,7 @@ func (r accessApplicationGetResponseMcpServerApplicationPoliciesConnectionRulesJ
 	return r.raw
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationGetResponseMcpServerApplicationPoliciesConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationGetResponseMcpServerApplicationPoliciesConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats []AccessApplicationGetResponseMcpServerApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat `json:"allowed_clipboard_local_to_remote_formats"`
@@ -43179,7 +43179,7 @@ func (r accessApplicationGetResponseMcpServerApplicationPoliciesConnectionRulesR
 	return r.raw
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationGetResponseMcpServerApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationGetResponseMcpServerApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -43194,7 +43194,7 @@ func (r AccessApplicationGetResponseMcpServerApplicationPoliciesConnectionRulesR
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationGetResponseMcpServerApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationGetResponseMcpServerApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -43209,7 +43209,7 @@ func (r AccessApplicationGetResponseMcpServerApplicationPoliciesConnectionRulesR
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationGetResponseMcpServerApplicationPoliciesMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationGetResponseMcpServerApplicationPoliciesMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationGetResponseMcpServerApplicationPoliciesMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -43257,7 +43257,7 @@ func (r AccessApplicationGetResponseMcpServerApplicationPoliciesMfaConfigAllowed
 	return false
 }
 
-// Configuration for provisioning to this application via SCIM. This is currently
+// AccessApplicationGetResponseMcpServerApplicationSCIMConfig configuration for provisioning to this application via SCIM. This is currently
 // in closed beta.
 type AccessApplicationGetResponseMcpServerApplicationSCIMConfig struct {
 	// The UID of the IdP to use as the source for SCIM resources to provision to this
@@ -43302,7 +43302,7 @@ func (r accessApplicationGetResponseMcpServerApplicationSCIMConfigJSON) RawJSON(
 	return r.raw
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationGetResponseMcpServerApplicationSCIMConfigAuthenticationUnion attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Union satisfied by [SCIMConfigAuthenticationHTTPBasic],
@@ -43341,7 +43341,7 @@ func init() {
 	)
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationGetResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationGetResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -43377,7 +43377,7 @@ func (r accessApplicationGetResponseMcpServerApplicationSCIMConfigAuthentication
 func (r AccessApplicationGetResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationGetResponseMcpServerApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationGetResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationGetResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -43397,7 +43397,7 @@ type AccessApplicationGetResponseMcpServerApplicationSCIMConfigAuthenticationAcc
 func (r AccessApplicationGetResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthentication) implementsAccessApplicationGetResponseMcpServerApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationGetResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationGetResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem struct {
 	// The authentication scheme to use when making SCIM requests to this application.
@@ -43466,7 +43466,7 @@ func (r AccessApplicationGetResponseMcpServerApplicationSCIMConfigAuthentication
 	return r.union
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationGetResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationUnionItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Union satisfied by [SCIMConfigAuthenticationHTTPBasic],
@@ -43499,7 +43499,7 @@ func init() {
 	)
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationGetResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationGetResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -43535,7 +43535,7 @@ func (r accessApplicationGetResponseMcpServerApplicationSCIMConfigAuthentication
 func (r AccessApplicationGetResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationGetResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationGetResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationGetResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -43550,7 +43550,7 @@ func (r AccessApplicationGetResponseMcpServerApplicationSCIMConfigAuthentication
 	return false
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationGetResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationGetResponseMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme string
 
 const (
@@ -43677,7 +43677,7 @@ func (r accessApplicationGetResponseMcpServerPortalApplicationJSON) RawJSON() st
 func (r AccessApplicationGetResponseMcpServerPortalApplication) implementsAccessApplicationGetResponse() {
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationGetResponseMcpServerPortalApplicationDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationGetResponseMcpServerPortalApplicationDestination struct {
 	// The CIDR range of the destination. Single IPs will be computed as /32.
@@ -43751,7 +43751,7 @@ func (r AccessApplicationGetResponseMcpServerPortalApplicationDestination) AsUni
 	return r.union
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationGetResponseMcpServerPortalApplicationDestinationsUnion is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 //
 // Union satisfied by
@@ -43802,7 +43802,7 @@ func init() {
 	)
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationGetResponseMcpServerPortalApplicationDestinationsPublicDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationGetResponseMcpServerPortalApplicationDestinationsPublicDestination struct {
 	Type AccessApplicationGetResponseMcpServerPortalApplicationDestinationsPublicDestinationType `json:"type"`
@@ -43890,7 +43890,7 @@ func (r accessApplicationGetResponseMcpServerPortalApplicationDestinationsPrivat
 func (r AccessApplicationGetResponseMcpServerPortalApplicationDestinationsPrivateDestination) implementsAccessApplicationGetResponseMcpServerPortalApplicationDestination() {
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationGetResponseMcpServerPortalApplicationDestinationsPrivateDestinationL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationGetResponseMcpServerPortalApplicationDestinationsPrivateDestinationL4Protocol string
 
@@ -43921,7 +43921,7 @@ func (r AccessApplicationGetResponseMcpServerPortalApplicationDestinationsPrivat
 	return false
 }
 
-// A MCP server id configured in ai-controls. Access will secure the MCP server if
+// AccessApplicationGetResponseMcpServerPortalApplicationDestinationsViaMcpServerPortalDestination is a MCP server id configured in ai-controls. Access will secure the MCP server if
 // accessed through a MCP portal.
 type AccessApplicationGetResponseMcpServerPortalApplicationDestinationsViaMcpServerPortalDestination struct {
 	// The MCP server id configured in ai-controls.
@@ -43965,7 +43965,7 @@ func (r AccessApplicationGetResponseMcpServerPortalApplicationDestinationsViaMcp
 	return false
 }
 
-// A specific Cloudflare Worker that Access will secure. All requests routed to the
+// AccessApplicationGetResponseMcpServerPortalApplicationDestinationsWorkerDestination is a specific Cloudflare Worker that Access will secure. All requests routed to the
 // specified Worker, including its preview deployments, will be protected. The
 // `preview_worker` and `public` destination types takes precedence, so you can
 // create separate applications to override the policies for the Worker's previews
@@ -44012,7 +44012,7 @@ func (r AccessApplicationGetResponseMcpServerPortalApplicationDestinationsWorker
 	return false
 }
 
-// A specific Cloudflare Worker whose preview deployments Access will secure. Only
+// AccessApplicationGetResponseMcpServerPortalApplicationDestinationsPreviewWorkerDestination is a specific Cloudflare Worker whose preview deployments Access will secure. Only
 // requests routed to the preview deployments of the specified Worker will be
 // protected. The `public` destination type takes precedence, so you can create
 // separate applications to override the policies for specific paths.
@@ -44059,7 +44059,7 @@ func (r AccessApplicationGetResponseMcpServerPortalApplicationDestinationsPrevie
 	return false
 }
 
-// Protects all Cloudflare Workers on the account with Access, including their
+// AccessApplicationGetResponseMcpServerPortalApplicationDestinationsAllWorkersDestination protects all Cloudflare Workers on the account with Access, including their
 // preview deployments. At most one destination of this type can exist per account.
 // The `worker`, `preview_worker`, `all_preview_workers`, and `public` destination
 // types take precedence, so you can create separate applications to override the
@@ -44103,7 +44103,7 @@ func (r AccessApplicationGetResponseMcpServerPortalApplicationDestinationsAllWor
 	return false
 }
 
-// Protects the preview deployments of all Cloudflare Workers on the account with
+// AccessApplicationGetResponseMcpServerPortalApplicationDestinationsAllPreviewWorkersDestination protects the preview deployments of all Cloudflare Workers on the account with
 // Access. At most one destination of this type can exist per account. The
 // `worker`, `preview_worker`, and `public` destination types take precedence, so
 // you can create separate applications to override the policies for specific
@@ -44147,7 +44147,7 @@ func (r AccessApplicationGetResponseMcpServerPortalApplicationDestinationsAllPre
 	return false
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationGetResponseMcpServerPortalApplicationDestinationsL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationGetResponseMcpServerPortalApplicationDestinationsL4Protocol string
 
@@ -44184,7 +44184,7 @@ func (r AccessApplicationGetResponseMcpServerPortalApplicationDestinationsType) 
 	return false
 }
 
-// **Beta:** Optional configuration for managing an OAuth authorization flow
+// AccessApplicationGetResponseMcpServerPortalApplicationOAuthConfiguration **Beta:** Optional configuration for managing an OAuth authorization flow
 // controlled by Access. When set, Access will act as the OAuth authorization
 // server for this application. Only compatible with OAuth clients that support
 // [RFC 8707](https://datatracker.ietf.org/doc/html/rfc8707) (Resource Indicators
@@ -44220,7 +44220,7 @@ func (r accessApplicationGetResponseMcpServerPortalApplicationOAuthConfiguration
 	return r.raw
 }
 
-// Settings for OAuth dynamic client registration.
+// AccessApplicationGetResponseMcpServerPortalApplicationOAuthConfigurationDynamicClientRegistration settings for OAuth dynamic client registration.
 type AccessApplicationGetResponseMcpServerPortalApplicationOAuthConfigurationDynamicClientRegistration struct {
 	// Allows any client with redirect URIs on localhost.
 	AllowAnyOnLocalhost bool `json:"allow_any_on_localhost"`
@@ -44254,7 +44254,7 @@ func (r accessApplicationGetResponseMcpServerPortalApplicationOAuthConfiguration
 	return r.raw
 }
 
-// Settings for OAuth grant behavior.
+// AccessApplicationGetResponseMcpServerPortalApplicationOAuthConfigurationGrant settings for OAuth grant behavior.
 type AccessApplicationGetResponseMcpServerPortalApplicationOAuthConfigurationGrant struct {
 	// The lifetime of the access token. Must be in the format `300ms` or `2h45m`.
 	// Valid time units are ns, us (or µs), ms, s, m, h.
@@ -44363,7 +44363,7 @@ func (r accessApplicationGetResponseMcpServerPortalApplicationPolicyJSON) RawJSO
 	return r.raw
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationGetResponseMcpServerPortalApplicationPoliciesConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationGetResponseMcpServerPortalApplicationPoliciesConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -44388,7 +44388,7 @@ func (r accessApplicationGetResponseMcpServerPortalApplicationPoliciesConnection
 	return r.raw
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationGetResponseMcpServerPortalApplicationPoliciesConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationGetResponseMcpServerPortalApplicationPoliciesConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats []AccessApplicationGetResponseMcpServerPortalApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat `json:"allowed_clipboard_local_to_remote_formats"`
@@ -44415,7 +44415,7 @@ func (r accessApplicationGetResponseMcpServerPortalApplicationPoliciesConnection
 	return r.raw
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationGetResponseMcpServerPortalApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationGetResponseMcpServerPortalApplicationPoliciesConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -44430,7 +44430,7 @@ func (r AccessApplicationGetResponseMcpServerPortalApplicationPoliciesConnection
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationGetResponseMcpServerPortalApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationGetResponseMcpServerPortalApplicationPoliciesConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -44445,7 +44445,7 @@ func (r AccessApplicationGetResponseMcpServerPortalApplicationPoliciesConnection
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationGetResponseMcpServerPortalApplicationPoliciesMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationGetResponseMcpServerPortalApplicationPoliciesMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators []AccessApplicationGetResponseMcpServerPortalApplicationPoliciesMfaConfigAllowedAuthenticator `json:"allowed_authenticators"`
@@ -44493,7 +44493,7 @@ func (r AccessApplicationGetResponseMcpServerPortalApplicationPoliciesMfaConfigA
 	return false
 }
 
-// Configuration for provisioning to this application via SCIM. This is currently
+// AccessApplicationGetResponseMcpServerPortalApplicationSCIMConfig configuration for provisioning to this application via SCIM. This is currently
 // in closed beta.
 type AccessApplicationGetResponseMcpServerPortalApplicationSCIMConfig struct {
 	// The UID of the IdP to use as the source for SCIM resources to provision to this
@@ -44538,7 +44538,7 @@ func (r accessApplicationGetResponseMcpServerPortalApplicationSCIMConfigJSON) Ra
 	return r.raw
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationGetResponseMcpServerPortalApplicationSCIMConfigAuthenticationUnion attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Union satisfied by [SCIMConfigAuthenticationHTTPBasic],
@@ -44577,7 +44577,7 @@ func init() {
 	)
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationGetResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationGetResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -44613,7 +44613,7 @@ func (r accessApplicationGetResponseMcpServerPortalApplicationSCIMConfigAuthenti
 func (r AccessApplicationGetResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationGetResponseMcpServerPortalApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationGetResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationGetResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -44633,7 +44633,7 @@ type AccessApplicationGetResponseMcpServerPortalApplicationSCIMConfigAuthenticat
 func (r AccessApplicationGetResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthentication) implementsAccessApplicationGetResponseMcpServerPortalApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationGetResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationGetResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem struct {
 	// The authentication scheme to use when making SCIM requests to this application.
@@ -44702,7 +44702,7 @@ func (r AccessApplicationGetResponseMcpServerPortalApplicationSCIMConfigAuthenti
 	return r.union
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationGetResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationUnionItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Union satisfied by [SCIMConfigAuthenticationHTTPBasic],
@@ -44735,7 +44735,7 @@ func init() {
 	)
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationGetResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationGetResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -44771,7 +44771,7 @@ func (r accessApplicationGetResponseMcpServerPortalApplicationSCIMConfigAuthenti
 func (r AccessApplicationGetResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationGetResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationGetResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationGetResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -44786,7 +44786,7 @@ func (r AccessApplicationGetResponseMcpServerPortalApplicationSCIMConfigAuthenti
 	return false
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationGetResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationGetResponseMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme string
 
 const (
@@ -44819,7 +44819,7 @@ func (r AccessApplicationNewParams) MarshalJSON() (data []byte, err error) {
 	return apijson.MarshalRoot(r.Body)
 }
 
-// Contains the targets secured by the application.
+// AccessApplicationNewParamsBody contains the targets secured by the application.
 type AccessApplicationNewParamsBody struct {
 	// When set to true, users can authenticate to this application using their WARP
 	// session. When set to false this application will always require direct IdP
@@ -44922,7 +44922,7 @@ func (r AccessApplicationNewParamsBody) MarshalJSON() (data []byte, err error) {
 
 func (r AccessApplicationNewParamsBody) implementsAccessApplicationNewParamsBodyUnion() {}
 
-// Contains the targets secured by the application.
+// AccessApplicationNewParamsBodyUnion contains the targets secured by the application.
 //
 // Satisfied by [zero_trust.AccessApplicationNewParamsBodySelfHostedApplication],
 // [zero_trust.AccessApplicationNewParamsBodySaaSApplication],
@@ -45058,7 +45058,7 @@ func (r AccessApplicationNewParamsBodySelfHostedApplication) MarshalJSON() (data
 func (r AccessApplicationNewParamsBodySelfHostedApplication) implementsAccessApplicationNewParamsBodyUnion() {
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationNewParamsBodySelfHostedApplicationDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationNewParamsBodySelfHostedApplicationDestination struct {
 	// The CIDR range of the destination. Single IPs will be computed as /32.
@@ -45091,7 +45091,7 @@ func (r AccessApplicationNewParamsBodySelfHostedApplicationDestination) MarshalJ
 func (r AccessApplicationNewParamsBodySelfHostedApplicationDestination) implementsAccessApplicationNewParamsBodySelfHostedApplicationDestinationUnion() {
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationNewParamsBodySelfHostedApplicationDestinationUnion is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 //
 // Satisfied by
@@ -45107,7 +45107,7 @@ type AccessApplicationNewParamsBodySelfHostedApplicationDestinationUnion interfa
 	implementsAccessApplicationNewParamsBodySelfHostedApplicationDestinationUnion()
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationNewParamsBodySelfHostedApplicationDestinationsPublicDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationNewParamsBodySelfHostedApplicationDestinationsPublicDestination struct {
 	Type param.Field[AccessApplicationNewParamsBodySelfHostedApplicationDestinationsPublicDestinationType] `json:"type"`
@@ -45161,7 +45161,7 @@ func (r AccessApplicationNewParamsBodySelfHostedApplicationDestinationsPrivateDe
 func (r AccessApplicationNewParamsBodySelfHostedApplicationDestinationsPrivateDestination) implementsAccessApplicationNewParamsBodySelfHostedApplicationDestinationUnion() {
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationNewParamsBodySelfHostedApplicationDestinationsPrivateDestinationL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationNewParamsBodySelfHostedApplicationDestinationsPrivateDestinationL4Protocol string
 
@@ -45192,7 +45192,7 @@ func (r AccessApplicationNewParamsBodySelfHostedApplicationDestinationsPrivateDe
 	return false
 }
 
-// A MCP server id configured in ai-controls. Access will secure the MCP server if
+// AccessApplicationNewParamsBodySelfHostedApplicationDestinationsViaMcpServerPortalDestination is a MCP server id configured in ai-controls. Access will secure the MCP server if
 // accessed through a MCP portal.
 type AccessApplicationNewParamsBodySelfHostedApplicationDestinationsViaMcpServerPortalDestination struct {
 	// The MCP server id configured in ai-controls.
@@ -45221,7 +45221,7 @@ func (r AccessApplicationNewParamsBodySelfHostedApplicationDestinationsViaMcpSer
 	return false
 }
 
-// A specific Cloudflare Worker that Access will secure. All requests routed to the
+// AccessApplicationNewParamsBodySelfHostedApplicationDestinationsWorkerDestination is a specific Cloudflare Worker that Access will secure. All requests routed to the
 // specified Worker, including its preview deployments, will be protected. The
 // `preview_worker` and `public` destination types takes precedence, so you can
 // create separate applications to override the policies for the Worker's previews
@@ -45253,7 +45253,7 @@ func (r AccessApplicationNewParamsBodySelfHostedApplicationDestinationsWorkerDes
 	return false
 }
 
-// A specific Cloudflare Worker whose preview deployments Access will secure. Only
+// AccessApplicationNewParamsBodySelfHostedApplicationDestinationsPreviewWorkerDestination is a specific Cloudflare Worker whose preview deployments Access will secure. Only
 // requests routed to the preview deployments of the specified Worker will be
 // protected. The `public` destination type takes precedence, so you can create
 // separate applications to override the policies for specific paths.
@@ -45285,7 +45285,7 @@ func (r AccessApplicationNewParamsBodySelfHostedApplicationDestinationsPreviewWo
 	return false
 }
 
-// Protects all Cloudflare Workers on the account with Access, including their
+// AccessApplicationNewParamsBodySelfHostedApplicationDestinationsAllWorkersDestination protects all Cloudflare Workers on the account with Access, including their
 // preview deployments. At most one destination of this type can exist per account.
 // The `worker`, `preview_worker`, `all_preview_workers`, and `public` destination
 // types take precedence, so you can create separate applications to override the
@@ -45315,7 +45315,7 @@ func (r AccessApplicationNewParamsBodySelfHostedApplicationDestinationsAllWorker
 	return false
 }
 
-// Protects the preview deployments of all Cloudflare Workers on the account with
+// AccessApplicationNewParamsBodySelfHostedApplicationDestinationsAllPreviewWorkersDestination protects the preview deployments of all Cloudflare Workers on the account with
 // Access. At most one destination of this type can exist per account. The
 // `worker`, `preview_worker`, and `public` destination types take precedence, so
 // you can create separate applications to override the policies for specific
@@ -45345,7 +45345,7 @@ func (r AccessApplicationNewParamsBodySelfHostedApplicationDestinationsAllPrevie
 	return false
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationNewParamsBodySelfHostedApplicationDestinationsL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationNewParamsBodySelfHostedApplicationDestinationsL4Protocol string
 
@@ -45382,7 +45382,7 @@ func (r AccessApplicationNewParamsBodySelfHostedApplicationDestinationsType) IsK
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationNewParamsBodySelfHostedApplicationMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationNewParamsBodySelfHostedApplicationMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators param.Field[[]AccessApplicationNewParamsBodySelfHostedApplicationMfaConfigAllowedAuthenticator] `json:"allowed_authenticators"`
@@ -45414,7 +45414,7 @@ func (r AccessApplicationNewParamsBodySelfHostedApplicationMfaConfigAllowedAuthe
 	return false
 }
 
-// **Beta:** Optional configuration for managing an OAuth authorization flow
+// AccessApplicationNewParamsBodySelfHostedApplicationOAuthConfiguration **Beta:** Optional configuration for managing an OAuth authorization flow
 // controlled by Access. When set, Access will act as the OAuth authorization
 // server for this application. Only compatible with OAuth clients that support
 // [RFC 8707](https://datatracker.ietf.org/doc/html/rfc8707) (Resource Indicators
@@ -45434,7 +45434,7 @@ func (r AccessApplicationNewParamsBodySelfHostedApplicationOAuthConfiguration) M
 	return apijson.MarshalRoot(r)
 }
 
-// Settings for OAuth dynamic client registration.
+// AccessApplicationNewParamsBodySelfHostedApplicationOAuthConfigurationDynamicClientRegistration settings for OAuth dynamic client registration.
 type AccessApplicationNewParamsBodySelfHostedApplicationOAuthConfigurationDynamicClientRegistration struct {
 	// Allows any client with redirect URIs on localhost.
 	AllowAnyOnLocalhost param.Field[bool] `json:"allow_any_on_localhost"`
@@ -45451,7 +45451,7 @@ func (r AccessApplicationNewParamsBodySelfHostedApplicationOAuthConfigurationDyn
 	return apijson.MarshalRoot(r)
 }
 
-// Settings for OAuth grant behavior.
+// AccessApplicationNewParamsBodySelfHostedApplicationOAuthConfigurationGrant settings for OAuth grant behavior.
 type AccessApplicationNewParamsBodySelfHostedApplicationOAuthConfigurationGrant struct {
 	// The lifetime of the access token. Must be in the format `300ms` or `2h45m`.
 	// Valid time units are ns, us (or µs), ms, s, m, h.
@@ -45465,7 +45465,7 @@ func (r AccessApplicationNewParamsBodySelfHostedApplicationOAuthConfigurationGra
 	return apijson.MarshalRoot(r)
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationNewParamsBodySelfHostedApplicationPolicy is a JSON that links a reusable policy to an application.
 type AccessApplicationNewParamsBodySelfHostedApplicationPolicy struct {
 	// The UUID of the policy
 	ID             param.Field[string]      `json:"id"`
@@ -45499,7 +45499,7 @@ func (r AccessApplicationNewParamsBodySelfHostedApplicationPolicy) MarshalJSON()
 func (r AccessApplicationNewParamsBodySelfHostedApplicationPolicy) ImplementsAccessApplicationNewParamsBodySelfHostedApplicationPolicyUnion() {
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationNewParamsBodySelfHostedApplicationPolicyUnion is a JSON that links a reusable policy to an application.
 //
 // Satisfied by
 // [zero_trust.AccessApplicationNewParamsBodySelfHostedApplicationPoliciesAccessAppPolicyLink],
@@ -45510,7 +45510,7 @@ type AccessApplicationNewParamsBodySelfHostedApplicationPolicyUnion interface {
 	ImplementsAccessApplicationNewParamsBodySelfHostedApplicationPolicyUnion()
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationNewParamsBodySelfHostedApplicationPoliciesAccessAppPolicyLink is a JSON that links a reusable policy to an application.
 type AccessApplicationNewParamsBodySelfHostedApplicationPoliciesAccessAppPolicyLink struct {
 	// The UUID of the policy
 	ID param.Field[string] `json:"id"`
@@ -45563,7 +45563,7 @@ func (r AccessApplicationNewParamsBodySelfHostedApplicationPoliciesObject) Marsh
 func (r AccessApplicationNewParamsBodySelfHostedApplicationPoliciesObject) ImplementsAccessApplicationNewParamsBodySelfHostedApplicationPolicyUnion() {
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationNewParamsBodySelfHostedApplicationPoliciesObjectConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationNewParamsBodySelfHostedApplicationPoliciesObjectConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -45574,7 +45574,7 @@ func (r AccessApplicationNewParamsBodySelfHostedApplicationPoliciesObjectConnect
 	return apijson.MarshalRoot(r)
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationNewParamsBodySelfHostedApplicationPoliciesObjectConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationNewParamsBodySelfHostedApplicationPoliciesObjectConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats param.Field[[]AccessApplicationNewParamsBodySelfHostedApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat] `json:"allowed_clipboard_local_to_remote_formats"`
@@ -45586,7 +45586,7 @@ func (r AccessApplicationNewParamsBodySelfHostedApplicationPoliciesObjectConnect
 	return apijson.MarshalRoot(r)
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationNewParamsBodySelfHostedApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationNewParamsBodySelfHostedApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -45601,7 +45601,7 @@ func (r AccessApplicationNewParamsBodySelfHostedApplicationPoliciesObjectConnect
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationNewParamsBodySelfHostedApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationNewParamsBodySelfHostedApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -45616,7 +45616,7 @@ func (r AccessApplicationNewParamsBodySelfHostedApplicationPoliciesObjectConnect
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationNewParamsBodySelfHostedApplicationPoliciesObjectMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationNewParamsBodySelfHostedApplicationPoliciesObjectMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators param.Field[[]AccessApplicationNewParamsBodySelfHostedApplicationPoliciesObjectMfaConfigAllowedAuthenticator] `json:"allowed_authenticators"`
@@ -45648,7 +45648,7 @@ func (r AccessApplicationNewParamsBodySelfHostedApplicationPoliciesObjectMfaConf
 	return false
 }
 
-// Configuration for provisioning to this application via SCIM. This is currently
+// AccessApplicationNewParamsBodySelfHostedApplicationSCIMConfig configuration for provisioning to this application via SCIM. This is currently
 // in closed beta.
 type AccessApplicationNewParamsBodySelfHostedApplicationSCIMConfig struct {
 	// The UID of the IdP to use as the source for SCIM resources to provision to this
@@ -45674,7 +45674,7 @@ func (r AccessApplicationNewParamsBodySelfHostedApplicationSCIMConfig) MarshalJS
 	return apijson.MarshalRoot(r)
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationNewParamsBodySelfHostedApplicationSCIMConfigAuthentication attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationNewParamsBodySelfHostedApplicationSCIMConfigAuthentication struct {
 	// The authentication scheme to use when making SCIM requests to this application.
@@ -45706,7 +45706,7 @@ func (r AccessApplicationNewParamsBodySelfHostedApplicationSCIMConfigAuthenticat
 func (r AccessApplicationNewParamsBodySelfHostedApplicationSCIMConfigAuthentication) implementsAccessApplicationNewParamsBodySelfHostedApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationNewParamsBodySelfHostedApplicationSCIMConfigAuthenticationUnion attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Satisfied by [zero_trust.SCIMConfigAuthenticationHTTPBasicParam],
@@ -45719,7 +45719,7 @@ type AccessApplicationNewParamsBodySelfHostedApplicationSCIMConfigAuthentication
 	implementsAccessApplicationNewParamsBodySelfHostedApplicationSCIMConfigAuthenticationUnion()
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationNewParamsBodySelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationNewParamsBodySelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -45739,7 +45739,7 @@ func (r AccessApplicationNewParamsBodySelfHostedApplicationSCIMConfigAuthenticat
 func (r AccessApplicationNewParamsBodySelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationNewParamsBodySelfHostedApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationNewParamsBodySelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationNewParamsBodySelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -45759,7 +45759,7 @@ type AccessApplicationNewParamsBodySelfHostedApplicationSCIMConfigAuthentication
 func (r AccessApplicationNewParamsBodySelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthentication) implementsAccessApplicationNewParamsBodySelfHostedApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationNewParamsBodySelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationNewParamsBodySelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem struct {
 	// The authentication scheme to use when making SCIM requests to this application.
@@ -45791,7 +45791,7 @@ func (r AccessApplicationNewParamsBodySelfHostedApplicationSCIMConfigAuthenticat
 func (r AccessApplicationNewParamsBodySelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem) implementsAccessApplicationNewParamsBodySelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItemUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationNewParamsBodySelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItemUnion attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Satisfied by [zero_trust.SCIMConfigAuthenticationHTTPBasicParam],
@@ -45803,7 +45803,7 @@ type AccessApplicationNewParamsBodySelfHostedApplicationSCIMConfigAuthentication
 	implementsAccessApplicationNewParamsBodySelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItemUnion()
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationNewParamsBodySelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationNewParamsBodySelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -45823,7 +45823,7 @@ func (r AccessApplicationNewParamsBodySelfHostedApplicationSCIMConfigAuthenticat
 func (r AccessApplicationNewParamsBodySelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationNewParamsBodySelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItemUnion() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationNewParamsBodySelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationNewParamsBodySelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -45838,7 +45838,7 @@ func (r AccessApplicationNewParamsBodySelfHostedApplicationSCIMConfigAuthenticat
 	return false
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationNewParamsBodySelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationNewParamsBodySelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme string
 
 const (
@@ -45856,7 +45856,7 @@ func (r AccessApplicationNewParamsBodySelfHostedApplicationSCIMConfigAuthenticat
 	return false
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationNewParamsBodySelfHostedApplicationSCIMConfigAuthenticationScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationNewParamsBodySelfHostedApplicationSCIMConfigAuthenticationScheme string
 
 const (
@@ -45912,7 +45912,7 @@ func (r AccessApplicationNewParamsBodySaaSApplication) MarshalJSON() (data []byt
 func (r AccessApplicationNewParamsBodySaaSApplication) implementsAccessApplicationNewParamsBodyUnion() {
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationNewParamsBodySaaSApplicationPolicy is a JSON that links a reusable policy to an application.
 type AccessApplicationNewParamsBodySaaSApplicationPolicy struct {
 	// The UUID of the policy
 	ID             param.Field[string]      `json:"id"`
@@ -45946,7 +45946,7 @@ func (r AccessApplicationNewParamsBodySaaSApplicationPolicy) MarshalJSON() (data
 func (r AccessApplicationNewParamsBodySaaSApplicationPolicy) ImplementsAccessApplicationNewParamsBodySaaSApplicationPolicyUnion() {
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationNewParamsBodySaaSApplicationPolicyUnion is a JSON that links a reusable policy to an application.
 //
 // Satisfied by
 // [zero_trust.AccessApplicationNewParamsBodySaaSApplicationPoliciesAccessAppPolicyLink],
@@ -45957,7 +45957,7 @@ type AccessApplicationNewParamsBodySaaSApplicationPolicyUnion interface {
 	ImplementsAccessApplicationNewParamsBodySaaSApplicationPolicyUnion()
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationNewParamsBodySaaSApplicationPoliciesAccessAppPolicyLink is a JSON that links a reusable policy to an application.
 type AccessApplicationNewParamsBodySaaSApplicationPoliciesAccessAppPolicyLink struct {
 	// The UUID of the policy
 	ID param.Field[string] `json:"id"`
@@ -46010,7 +46010,7 @@ func (r AccessApplicationNewParamsBodySaaSApplicationPoliciesObject) MarshalJSON
 func (r AccessApplicationNewParamsBodySaaSApplicationPoliciesObject) ImplementsAccessApplicationNewParamsBodySaaSApplicationPolicyUnion() {
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationNewParamsBodySaaSApplicationPoliciesObjectConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationNewParamsBodySaaSApplicationPoliciesObjectConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -46021,7 +46021,7 @@ func (r AccessApplicationNewParamsBodySaaSApplicationPoliciesObjectConnectionRul
 	return apijson.MarshalRoot(r)
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationNewParamsBodySaaSApplicationPoliciesObjectConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationNewParamsBodySaaSApplicationPoliciesObjectConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats param.Field[[]AccessApplicationNewParamsBodySaaSApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat] `json:"allowed_clipboard_local_to_remote_formats"`
@@ -46033,7 +46033,7 @@ func (r AccessApplicationNewParamsBodySaaSApplicationPoliciesObjectConnectionRul
 	return apijson.MarshalRoot(r)
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationNewParamsBodySaaSApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationNewParamsBodySaaSApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -46048,7 +46048,7 @@ func (r AccessApplicationNewParamsBodySaaSApplicationPoliciesObjectConnectionRul
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationNewParamsBodySaaSApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationNewParamsBodySaaSApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -46063,7 +46063,7 @@ func (r AccessApplicationNewParamsBodySaaSApplicationPoliciesObjectConnectionRul
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationNewParamsBodySaaSApplicationPoliciesObjectMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationNewParamsBodySaaSApplicationPoliciesObjectMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators param.Field[[]AccessApplicationNewParamsBodySaaSApplicationPoliciesObjectMfaConfigAllowedAuthenticator] `json:"allowed_authenticators"`
@@ -46156,13 +46156,13 @@ func (r AccessApplicationNewParamsBodySaaSApplicationSaaSApp) MarshalJSON() (dat
 func (r AccessApplicationNewParamsBodySaaSApplicationSaaSApp) implementsAccessApplicationNewParamsBodySaaSApplicationSaaSAppUnion() {
 }
 
-// Satisfied by [zero_trust.SAMLSaaSAppParam], [zero_trust.OIDCSaaSAppParam],
+// AccessApplicationNewParamsBodySaaSApplicationSaaSAppUnion satisfied by [zero_trust.SAMLSaaSAppParam], [zero_trust.OIDCSaaSAppParam],
 // [AccessApplicationNewParamsBodySaaSApplicationSaaSApp].
 type AccessApplicationNewParamsBodySaaSApplicationSaaSAppUnion interface {
 	implementsAccessApplicationNewParamsBodySaaSApplicationSaaSAppUnion()
 }
 
-// Optional identifier indicating the authentication protocol used for the saas
+// AccessApplicationNewParamsBodySaaSApplicationSaaSAppAuthType optional identifier indicating the authentication protocol used for the saas
 // app. Required for OIDC. Default if unset is "saml"
 type AccessApplicationNewParamsBodySaaSApplicationSaaSAppAuthType string
 
@@ -46179,7 +46179,7 @@ func (r AccessApplicationNewParamsBodySaaSApplicationSaaSAppAuthType) IsKnown() 
 	return false
 }
 
-// Configuration for provisioning to this application via SCIM. This is currently
+// AccessApplicationNewParamsBodySaaSApplicationSCIMConfig configuration for provisioning to this application via SCIM. This is currently
 // in closed beta.
 type AccessApplicationNewParamsBodySaaSApplicationSCIMConfig struct {
 	// The UID of the IdP to use as the source for SCIM resources to provision to this
@@ -46205,7 +46205,7 @@ func (r AccessApplicationNewParamsBodySaaSApplicationSCIMConfig) MarshalJSON() (
 	return apijson.MarshalRoot(r)
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationNewParamsBodySaaSApplicationSCIMConfigAuthentication attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationNewParamsBodySaaSApplicationSCIMConfigAuthentication struct {
 	// The authentication scheme to use when making SCIM requests to this application.
@@ -46237,7 +46237,7 @@ func (r AccessApplicationNewParamsBodySaaSApplicationSCIMConfigAuthentication) M
 func (r AccessApplicationNewParamsBodySaaSApplicationSCIMConfigAuthentication) implementsAccessApplicationNewParamsBodySaaSApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationNewParamsBodySaaSApplicationSCIMConfigAuthenticationUnion attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Satisfied by [zero_trust.SCIMConfigAuthenticationHTTPBasicParam],
@@ -46250,7 +46250,7 @@ type AccessApplicationNewParamsBodySaaSApplicationSCIMConfigAuthenticationUnion 
 	implementsAccessApplicationNewParamsBodySaaSApplicationSCIMConfigAuthenticationUnion()
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationNewParamsBodySaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationNewParamsBodySaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -46270,7 +46270,7 @@ func (r AccessApplicationNewParamsBodySaaSApplicationSCIMConfigAuthenticationAcc
 func (r AccessApplicationNewParamsBodySaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationNewParamsBodySaaSApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationNewParamsBodySaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationNewParamsBodySaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -46290,7 +46290,7 @@ type AccessApplicationNewParamsBodySaaSApplicationSCIMConfigAuthenticationAccess
 func (r AccessApplicationNewParamsBodySaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthentication) implementsAccessApplicationNewParamsBodySaaSApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationNewParamsBodySaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationNewParamsBodySaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem struct {
 	// The authentication scheme to use when making SCIM requests to this application.
@@ -46322,7 +46322,7 @@ func (r AccessApplicationNewParamsBodySaaSApplicationSCIMConfigAuthenticationAcc
 func (r AccessApplicationNewParamsBodySaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem) implementsAccessApplicationNewParamsBodySaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItemUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationNewParamsBodySaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItemUnion attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Satisfied by [zero_trust.SCIMConfigAuthenticationHTTPBasicParam],
@@ -46334,7 +46334,7 @@ type AccessApplicationNewParamsBodySaaSApplicationSCIMConfigAuthenticationAccess
 	implementsAccessApplicationNewParamsBodySaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItemUnion()
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationNewParamsBodySaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationNewParamsBodySaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -46354,7 +46354,7 @@ func (r AccessApplicationNewParamsBodySaaSApplicationSCIMConfigAuthenticationAcc
 func (r AccessApplicationNewParamsBodySaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationNewParamsBodySaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItemUnion() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationNewParamsBodySaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationNewParamsBodySaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -46369,7 +46369,7 @@ func (r AccessApplicationNewParamsBodySaaSApplicationSCIMConfigAuthenticationAcc
 	return false
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationNewParamsBodySaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationNewParamsBodySaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme string
 
 const (
@@ -46387,7 +46387,7 @@ func (r AccessApplicationNewParamsBodySaaSApplicationSCIMConfigAuthenticationAcc
 	return false
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationNewParamsBodySaaSApplicationSCIMConfigAuthenticationScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationNewParamsBodySaaSApplicationSCIMConfigAuthenticationScheme string
 
 const (
@@ -46521,7 +46521,7 @@ func (r AccessApplicationNewParamsBodyBrowserSSHApplication) MarshalJSON() (data
 func (r AccessApplicationNewParamsBodyBrowserSSHApplication) implementsAccessApplicationNewParamsBodyUnion() {
 }
 
-// The application type.
+// AccessApplicationNewParamsBodyBrowserSSHApplicationType is the application type.
 type AccessApplicationNewParamsBodyBrowserSSHApplicationType string
 
 const (
@@ -46549,7 +46549,7 @@ func (r AccessApplicationNewParamsBodyBrowserSSHApplicationType) IsKnown() bool 
 	return false
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationNewParamsBodyBrowserSSHApplicationDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationNewParamsBodyBrowserSSHApplicationDestination struct {
 	// The CIDR range of the destination. Single IPs will be computed as /32.
@@ -46582,7 +46582,7 @@ func (r AccessApplicationNewParamsBodyBrowserSSHApplicationDestination) MarshalJ
 func (r AccessApplicationNewParamsBodyBrowserSSHApplicationDestination) implementsAccessApplicationNewParamsBodyBrowserSSHApplicationDestinationUnion() {
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationNewParamsBodyBrowserSSHApplicationDestinationUnion is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 //
 // Satisfied by
@@ -46598,7 +46598,7 @@ type AccessApplicationNewParamsBodyBrowserSSHApplicationDestinationUnion interfa
 	implementsAccessApplicationNewParamsBodyBrowserSSHApplicationDestinationUnion()
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationNewParamsBodyBrowserSSHApplicationDestinationsPublicDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationNewParamsBodyBrowserSSHApplicationDestinationsPublicDestination struct {
 	Type param.Field[AccessApplicationNewParamsBodyBrowserSSHApplicationDestinationsPublicDestinationType] `json:"type"`
@@ -46652,7 +46652,7 @@ func (r AccessApplicationNewParamsBodyBrowserSSHApplicationDestinationsPrivateDe
 func (r AccessApplicationNewParamsBodyBrowserSSHApplicationDestinationsPrivateDestination) implementsAccessApplicationNewParamsBodyBrowserSSHApplicationDestinationUnion() {
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationNewParamsBodyBrowserSSHApplicationDestinationsPrivateDestinationL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationNewParamsBodyBrowserSSHApplicationDestinationsPrivateDestinationL4Protocol string
 
@@ -46683,7 +46683,7 @@ func (r AccessApplicationNewParamsBodyBrowserSSHApplicationDestinationsPrivateDe
 	return false
 }
 
-// A MCP server id configured in ai-controls. Access will secure the MCP server if
+// AccessApplicationNewParamsBodyBrowserSSHApplicationDestinationsViaMcpServerPortalDestination is a MCP server id configured in ai-controls. Access will secure the MCP server if
 // accessed through a MCP portal.
 type AccessApplicationNewParamsBodyBrowserSSHApplicationDestinationsViaMcpServerPortalDestination struct {
 	// The MCP server id configured in ai-controls.
@@ -46712,7 +46712,7 @@ func (r AccessApplicationNewParamsBodyBrowserSSHApplicationDestinationsViaMcpSer
 	return false
 }
 
-// A specific Cloudflare Worker that Access will secure. All requests routed to the
+// AccessApplicationNewParamsBodyBrowserSSHApplicationDestinationsWorkerDestination is a specific Cloudflare Worker that Access will secure. All requests routed to the
 // specified Worker, including its preview deployments, will be protected. The
 // `preview_worker` and `public` destination types takes precedence, so you can
 // create separate applications to override the policies for the Worker's previews
@@ -46744,7 +46744,7 @@ func (r AccessApplicationNewParamsBodyBrowserSSHApplicationDestinationsWorkerDes
 	return false
 }
 
-// A specific Cloudflare Worker whose preview deployments Access will secure. Only
+// AccessApplicationNewParamsBodyBrowserSSHApplicationDestinationsPreviewWorkerDestination is a specific Cloudflare Worker whose preview deployments Access will secure. Only
 // requests routed to the preview deployments of the specified Worker will be
 // protected. The `public` destination type takes precedence, so you can create
 // separate applications to override the policies for specific paths.
@@ -46776,7 +46776,7 @@ func (r AccessApplicationNewParamsBodyBrowserSSHApplicationDestinationsPreviewWo
 	return false
 }
 
-// Protects all Cloudflare Workers on the account with Access, including their
+// AccessApplicationNewParamsBodyBrowserSSHApplicationDestinationsAllWorkersDestination protects all Cloudflare Workers on the account with Access, including their
 // preview deployments. At most one destination of this type can exist per account.
 // The `worker`, `preview_worker`, `all_preview_workers`, and `public` destination
 // types take precedence, so you can create separate applications to override the
@@ -46806,7 +46806,7 @@ func (r AccessApplicationNewParamsBodyBrowserSSHApplicationDestinationsAllWorker
 	return false
 }
 
-// Protects the preview deployments of all Cloudflare Workers on the account with
+// AccessApplicationNewParamsBodyBrowserSSHApplicationDestinationsAllPreviewWorkersDestination protects the preview deployments of all Cloudflare Workers on the account with
 // Access. At most one destination of this type can exist per account. The
 // `worker`, `preview_worker`, and `public` destination types take precedence, so
 // you can create separate applications to override the policies for specific
@@ -46836,7 +46836,7 @@ func (r AccessApplicationNewParamsBodyBrowserSSHApplicationDestinationsAllPrevie
 	return false
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationNewParamsBodyBrowserSSHApplicationDestinationsL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationNewParamsBodyBrowserSSHApplicationDestinationsL4Protocol string
 
@@ -46873,7 +46873,7 @@ func (r AccessApplicationNewParamsBodyBrowserSSHApplicationDestinationsType) IsK
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationNewParamsBodyBrowserSSHApplicationMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationNewParamsBodyBrowserSSHApplicationMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators param.Field[[]AccessApplicationNewParamsBodyBrowserSSHApplicationMfaConfigAllowedAuthenticator] `json:"allowed_authenticators"`
@@ -46905,7 +46905,7 @@ func (r AccessApplicationNewParamsBodyBrowserSSHApplicationMfaConfigAllowedAuthe
 	return false
 }
 
-// **Beta:** Optional configuration for managing an OAuth authorization flow
+// AccessApplicationNewParamsBodyBrowserSSHApplicationOAuthConfiguration **Beta:** Optional configuration for managing an OAuth authorization flow
 // controlled by Access. When set, Access will act as the OAuth authorization
 // server for this application. Only compatible with OAuth clients that support
 // [RFC 8707](https://datatracker.ietf.org/doc/html/rfc8707) (Resource Indicators
@@ -46925,7 +46925,7 @@ func (r AccessApplicationNewParamsBodyBrowserSSHApplicationOAuthConfiguration) M
 	return apijson.MarshalRoot(r)
 }
 
-// Settings for OAuth dynamic client registration.
+// AccessApplicationNewParamsBodyBrowserSSHApplicationOAuthConfigurationDynamicClientRegistration settings for OAuth dynamic client registration.
 type AccessApplicationNewParamsBodyBrowserSSHApplicationOAuthConfigurationDynamicClientRegistration struct {
 	// Allows any client with redirect URIs on localhost.
 	AllowAnyOnLocalhost param.Field[bool] `json:"allow_any_on_localhost"`
@@ -46942,7 +46942,7 @@ func (r AccessApplicationNewParamsBodyBrowserSSHApplicationOAuthConfigurationDyn
 	return apijson.MarshalRoot(r)
 }
 
-// Settings for OAuth grant behavior.
+// AccessApplicationNewParamsBodyBrowserSSHApplicationOAuthConfigurationGrant settings for OAuth grant behavior.
 type AccessApplicationNewParamsBodyBrowserSSHApplicationOAuthConfigurationGrant struct {
 	// The lifetime of the access token. Must be in the format `300ms` or `2h45m`.
 	// Valid time units are ns, us (or µs), ms, s, m, h.
@@ -46956,7 +46956,7 @@ func (r AccessApplicationNewParamsBodyBrowserSSHApplicationOAuthConfigurationGra
 	return apijson.MarshalRoot(r)
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationNewParamsBodyBrowserSSHApplicationPolicy is a JSON that links a reusable policy to an application.
 type AccessApplicationNewParamsBodyBrowserSSHApplicationPolicy struct {
 	// The UUID of the policy
 	ID             param.Field[string]      `json:"id"`
@@ -46990,7 +46990,7 @@ func (r AccessApplicationNewParamsBodyBrowserSSHApplicationPolicy) MarshalJSON()
 func (r AccessApplicationNewParamsBodyBrowserSSHApplicationPolicy) ImplementsAccessApplicationNewParamsBodyBrowserSSHApplicationPolicyUnion() {
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationNewParamsBodyBrowserSSHApplicationPolicyUnion is a JSON that links a reusable policy to an application.
 //
 // Satisfied by
 // [zero_trust.AccessApplicationNewParamsBodyBrowserSSHApplicationPoliciesAccessAppPolicyLink],
@@ -47001,7 +47001,7 @@ type AccessApplicationNewParamsBodyBrowserSSHApplicationPolicyUnion interface {
 	ImplementsAccessApplicationNewParamsBodyBrowserSSHApplicationPolicyUnion()
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationNewParamsBodyBrowserSSHApplicationPoliciesAccessAppPolicyLink is a JSON that links a reusable policy to an application.
 type AccessApplicationNewParamsBodyBrowserSSHApplicationPoliciesAccessAppPolicyLink struct {
 	// The UUID of the policy
 	ID param.Field[string] `json:"id"`
@@ -47054,7 +47054,7 @@ func (r AccessApplicationNewParamsBodyBrowserSSHApplicationPoliciesObject) Marsh
 func (r AccessApplicationNewParamsBodyBrowserSSHApplicationPoliciesObject) ImplementsAccessApplicationNewParamsBodyBrowserSSHApplicationPolicyUnion() {
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationNewParamsBodyBrowserSSHApplicationPoliciesObjectConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationNewParamsBodyBrowserSSHApplicationPoliciesObjectConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -47065,7 +47065,7 @@ func (r AccessApplicationNewParamsBodyBrowserSSHApplicationPoliciesObjectConnect
 	return apijson.MarshalRoot(r)
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationNewParamsBodyBrowserSSHApplicationPoliciesObjectConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationNewParamsBodyBrowserSSHApplicationPoliciesObjectConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats param.Field[[]AccessApplicationNewParamsBodyBrowserSSHApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat] `json:"allowed_clipboard_local_to_remote_formats"`
@@ -47077,7 +47077,7 @@ func (r AccessApplicationNewParamsBodyBrowserSSHApplicationPoliciesObjectConnect
 	return apijson.MarshalRoot(r)
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationNewParamsBodyBrowserSSHApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationNewParamsBodyBrowserSSHApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -47092,7 +47092,7 @@ func (r AccessApplicationNewParamsBodyBrowserSSHApplicationPoliciesObjectConnect
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationNewParamsBodyBrowserSSHApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationNewParamsBodyBrowserSSHApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -47107,7 +47107,7 @@ func (r AccessApplicationNewParamsBodyBrowserSSHApplicationPoliciesObjectConnect
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationNewParamsBodyBrowserSSHApplicationPoliciesObjectMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationNewParamsBodyBrowserSSHApplicationPoliciesObjectMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators param.Field[[]AccessApplicationNewParamsBodyBrowserSSHApplicationPoliciesObjectMfaConfigAllowedAuthenticator] `json:"allowed_authenticators"`
@@ -47139,7 +47139,7 @@ func (r AccessApplicationNewParamsBodyBrowserSSHApplicationPoliciesObjectMfaConf
 	return false
 }
 
-// Configuration for provisioning to this application via SCIM. This is currently
+// AccessApplicationNewParamsBodyBrowserSSHApplicationSCIMConfig configuration for provisioning to this application via SCIM. This is currently
 // in closed beta.
 type AccessApplicationNewParamsBodyBrowserSSHApplicationSCIMConfig struct {
 	// The UID of the IdP to use as the source for SCIM resources to provision to this
@@ -47165,7 +47165,7 @@ func (r AccessApplicationNewParamsBodyBrowserSSHApplicationSCIMConfig) MarshalJS
 	return apijson.MarshalRoot(r)
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationNewParamsBodyBrowserSSHApplicationSCIMConfigAuthentication attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationNewParamsBodyBrowserSSHApplicationSCIMConfigAuthentication struct {
 	// The authentication scheme to use when making SCIM requests to this application.
@@ -47197,7 +47197,7 @@ func (r AccessApplicationNewParamsBodyBrowserSSHApplicationSCIMConfigAuthenticat
 func (r AccessApplicationNewParamsBodyBrowserSSHApplicationSCIMConfigAuthentication) implementsAccessApplicationNewParamsBodyBrowserSSHApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationNewParamsBodyBrowserSSHApplicationSCIMConfigAuthenticationUnion attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Satisfied by [zero_trust.SCIMConfigAuthenticationHTTPBasicParam],
@@ -47210,7 +47210,7 @@ type AccessApplicationNewParamsBodyBrowserSSHApplicationSCIMConfigAuthentication
 	implementsAccessApplicationNewParamsBodyBrowserSSHApplicationSCIMConfigAuthenticationUnion()
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationNewParamsBodyBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationNewParamsBodyBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -47230,7 +47230,7 @@ func (r AccessApplicationNewParamsBodyBrowserSSHApplicationSCIMConfigAuthenticat
 func (r AccessApplicationNewParamsBodyBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationNewParamsBodyBrowserSSHApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationNewParamsBodyBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationNewParamsBodyBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -47250,7 +47250,7 @@ type AccessApplicationNewParamsBodyBrowserSSHApplicationSCIMConfigAuthentication
 func (r AccessApplicationNewParamsBodyBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthentication) implementsAccessApplicationNewParamsBodyBrowserSSHApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationNewParamsBodyBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationNewParamsBodyBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem struct {
 	// The authentication scheme to use when making SCIM requests to this application.
@@ -47282,7 +47282,7 @@ func (r AccessApplicationNewParamsBodyBrowserSSHApplicationSCIMConfigAuthenticat
 func (r AccessApplicationNewParamsBodyBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem) implementsAccessApplicationNewParamsBodyBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItemUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationNewParamsBodyBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItemUnion attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Satisfied by [zero_trust.SCIMConfigAuthenticationHTTPBasicParam],
@@ -47294,7 +47294,7 @@ type AccessApplicationNewParamsBodyBrowserSSHApplicationSCIMConfigAuthentication
 	implementsAccessApplicationNewParamsBodyBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItemUnion()
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationNewParamsBodyBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationNewParamsBodyBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -47314,7 +47314,7 @@ func (r AccessApplicationNewParamsBodyBrowserSSHApplicationSCIMConfigAuthenticat
 func (r AccessApplicationNewParamsBodyBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationNewParamsBodyBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItemUnion() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationNewParamsBodyBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationNewParamsBodyBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -47329,7 +47329,7 @@ func (r AccessApplicationNewParamsBodyBrowserSSHApplicationSCIMConfigAuthenticat
 	return false
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationNewParamsBodyBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationNewParamsBodyBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme string
 
 const (
@@ -47347,7 +47347,7 @@ func (r AccessApplicationNewParamsBodyBrowserSSHApplicationSCIMConfigAuthenticat
 	return false
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationNewParamsBodyBrowserSSHApplicationSCIMConfigAuthenticationScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationNewParamsBodyBrowserSSHApplicationSCIMConfigAuthenticationScheme string
 
 const (
@@ -47481,7 +47481,7 @@ func (r AccessApplicationNewParamsBodyBrowserVNCApplication) MarshalJSON() (data
 func (r AccessApplicationNewParamsBodyBrowserVNCApplication) implementsAccessApplicationNewParamsBodyUnion() {
 }
 
-// The application type.
+// AccessApplicationNewParamsBodyBrowserVNCApplicationType is the application type.
 type AccessApplicationNewParamsBodyBrowserVNCApplicationType string
 
 const (
@@ -47509,7 +47509,7 @@ func (r AccessApplicationNewParamsBodyBrowserVNCApplicationType) IsKnown() bool 
 	return false
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationNewParamsBodyBrowserVNCApplicationDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationNewParamsBodyBrowserVNCApplicationDestination struct {
 	// The CIDR range of the destination. Single IPs will be computed as /32.
@@ -47542,7 +47542,7 @@ func (r AccessApplicationNewParamsBodyBrowserVNCApplicationDestination) MarshalJ
 func (r AccessApplicationNewParamsBodyBrowserVNCApplicationDestination) implementsAccessApplicationNewParamsBodyBrowserVNCApplicationDestinationUnion() {
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationNewParamsBodyBrowserVNCApplicationDestinationUnion is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 //
 // Satisfied by
@@ -47558,7 +47558,7 @@ type AccessApplicationNewParamsBodyBrowserVNCApplicationDestinationUnion interfa
 	implementsAccessApplicationNewParamsBodyBrowserVNCApplicationDestinationUnion()
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationNewParamsBodyBrowserVNCApplicationDestinationsPublicDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationNewParamsBodyBrowserVNCApplicationDestinationsPublicDestination struct {
 	Type param.Field[AccessApplicationNewParamsBodyBrowserVNCApplicationDestinationsPublicDestinationType] `json:"type"`
@@ -47612,7 +47612,7 @@ func (r AccessApplicationNewParamsBodyBrowserVNCApplicationDestinationsPrivateDe
 func (r AccessApplicationNewParamsBodyBrowserVNCApplicationDestinationsPrivateDestination) implementsAccessApplicationNewParamsBodyBrowserVNCApplicationDestinationUnion() {
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationNewParamsBodyBrowserVNCApplicationDestinationsPrivateDestinationL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationNewParamsBodyBrowserVNCApplicationDestinationsPrivateDestinationL4Protocol string
 
@@ -47643,7 +47643,7 @@ func (r AccessApplicationNewParamsBodyBrowserVNCApplicationDestinationsPrivateDe
 	return false
 }
 
-// A MCP server id configured in ai-controls. Access will secure the MCP server if
+// AccessApplicationNewParamsBodyBrowserVNCApplicationDestinationsViaMcpServerPortalDestination is a MCP server id configured in ai-controls. Access will secure the MCP server if
 // accessed through a MCP portal.
 type AccessApplicationNewParamsBodyBrowserVNCApplicationDestinationsViaMcpServerPortalDestination struct {
 	// The MCP server id configured in ai-controls.
@@ -47672,7 +47672,7 @@ func (r AccessApplicationNewParamsBodyBrowserVNCApplicationDestinationsViaMcpSer
 	return false
 }
 
-// A specific Cloudflare Worker that Access will secure. All requests routed to the
+// AccessApplicationNewParamsBodyBrowserVNCApplicationDestinationsWorkerDestination is a specific Cloudflare Worker that Access will secure. All requests routed to the
 // specified Worker, including its preview deployments, will be protected. The
 // `preview_worker` and `public` destination types takes precedence, so you can
 // create separate applications to override the policies for the Worker's previews
@@ -47704,7 +47704,7 @@ func (r AccessApplicationNewParamsBodyBrowserVNCApplicationDestinationsWorkerDes
 	return false
 }
 
-// A specific Cloudflare Worker whose preview deployments Access will secure. Only
+// AccessApplicationNewParamsBodyBrowserVNCApplicationDestinationsPreviewWorkerDestination is a specific Cloudflare Worker whose preview deployments Access will secure. Only
 // requests routed to the preview deployments of the specified Worker will be
 // protected. The `public` destination type takes precedence, so you can create
 // separate applications to override the policies for specific paths.
@@ -47736,7 +47736,7 @@ func (r AccessApplicationNewParamsBodyBrowserVNCApplicationDestinationsPreviewWo
 	return false
 }
 
-// Protects all Cloudflare Workers on the account with Access, including their
+// AccessApplicationNewParamsBodyBrowserVNCApplicationDestinationsAllWorkersDestination protects all Cloudflare Workers on the account with Access, including their
 // preview deployments. At most one destination of this type can exist per account.
 // The `worker`, `preview_worker`, `all_preview_workers`, and `public` destination
 // types take precedence, so you can create separate applications to override the
@@ -47766,7 +47766,7 @@ func (r AccessApplicationNewParamsBodyBrowserVNCApplicationDestinationsAllWorker
 	return false
 }
 
-// Protects the preview deployments of all Cloudflare Workers on the account with
+// AccessApplicationNewParamsBodyBrowserVNCApplicationDestinationsAllPreviewWorkersDestination protects the preview deployments of all Cloudflare Workers on the account with
 // Access. At most one destination of this type can exist per account. The
 // `worker`, `preview_worker`, and `public` destination types take precedence, so
 // you can create separate applications to override the policies for specific
@@ -47796,7 +47796,7 @@ func (r AccessApplicationNewParamsBodyBrowserVNCApplicationDestinationsAllPrevie
 	return false
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationNewParamsBodyBrowserVNCApplicationDestinationsL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationNewParamsBodyBrowserVNCApplicationDestinationsL4Protocol string
 
@@ -47833,7 +47833,7 @@ func (r AccessApplicationNewParamsBodyBrowserVNCApplicationDestinationsType) IsK
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationNewParamsBodyBrowserVNCApplicationMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationNewParamsBodyBrowserVNCApplicationMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators param.Field[[]AccessApplicationNewParamsBodyBrowserVNCApplicationMfaConfigAllowedAuthenticator] `json:"allowed_authenticators"`
@@ -47865,7 +47865,7 @@ func (r AccessApplicationNewParamsBodyBrowserVNCApplicationMfaConfigAllowedAuthe
 	return false
 }
 
-// **Beta:** Optional configuration for managing an OAuth authorization flow
+// AccessApplicationNewParamsBodyBrowserVNCApplicationOAuthConfiguration **Beta:** Optional configuration for managing an OAuth authorization flow
 // controlled by Access. When set, Access will act as the OAuth authorization
 // server for this application. Only compatible with OAuth clients that support
 // [RFC 8707](https://datatracker.ietf.org/doc/html/rfc8707) (Resource Indicators
@@ -47885,7 +47885,7 @@ func (r AccessApplicationNewParamsBodyBrowserVNCApplicationOAuthConfiguration) M
 	return apijson.MarshalRoot(r)
 }
 
-// Settings for OAuth dynamic client registration.
+// AccessApplicationNewParamsBodyBrowserVNCApplicationOAuthConfigurationDynamicClientRegistration settings for OAuth dynamic client registration.
 type AccessApplicationNewParamsBodyBrowserVNCApplicationOAuthConfigurationDynamicClientRegistration struct {
 	// Allows any client with redirect URIs on localhost.
 	AllowAnyOnLocalhost param.Field[bool] `json:"allow_any_on_localhost"`
@@ -47902,7 +47902,7 @@ func (r AccessApplicationNewParamsBodyBrowserVNCApplicationOAuthConfigurationDyn
 	return apijson.MarshalRoot(r)
 }
 
-// Settings for OAuth grant behavior.
+// AccessApplicationNewParamsBodyBrowserVNCApplicationOAuthConfigurationGrant settings for OAuth grant behavior.
 type AccessApplicationNewParamsBodyBrowserVNCApplicationOAuthConfigurationGrant struct {
 	// The lifetime of the access token. Must be in the format `300ms` or `2h45m`.
 	// Valid time units are ns, us (or µs), ms, s, m, h.
@@ -47916,7 +47916,7 @@ func (r AccessApplicationNewParamsBodyBrowserVNCApplicationOAuthConfigurationGra
 	return apijson.MarshalRoot(r)
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationNewParamsBodyBrowserVNCApplicationPolicy is a JSON that links a reusable policy to an application.
 type AccessApplicationNewParamsBodyBrowserVNCApplicationPolicy struct {
 	// The UUID of the policy
 	ID             param.Field[string]      `json:"id"`
@@ -47950,7 +47950,7 @@ func (r AccessApplicationNewParamsBodyBrowserVNCApplicationPolicy) MarshalJSON()
 func (r AccessApplicationNewParamsBodyBrowserVNCApplicationPolicy) ImplementsAccessApplicationNewParamsBodyBrowserVNCApplicationPolicyUnion() {
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationNewParamsBodyBrowserVNCApplicationPolicyUnion is a JSON that links a reusable policy to an application.
 //
 // Satisfied by
 // [zero_trust.AccessApplicationNewParamsBodyBrowserVNCApplicationPoliciesAccessAppPolicyLink],
@@ -47961,7 +47961,7 @@ type AccessApplicationNewParamsBodyBrowserVNCApplicationPolicyUnion interface {
 	ImplementsAccessApplicationNewParamsBodyBrowserVNCApplicationPolicyUnion()
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationNewParamsBodyBrowserVNCApplicationPoliciesAccessAppPolicyLink is a JSON that links a reusable policy to an application.
 type AccessApplicationNewParamsBodyBrowserVNCApplicationPoliciesAccessAppPolicyLink struct {
 	// The UUID of the policy
 	ID param.Field[string] `json:"id"`
@@ -48014,7 +48014,7 @@ func (r AccessApplicationNewParamsBodyBrowserVNCApplicationPoliciesObject) Marsh
 func (r AccessApplicationNewParamsBodyBrowserVNCApplicationPoliciesObject) ImplementsAccessApplicationNewParamsBodyBrowserVNCApplicationPolicyUnion() {
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationNewParamsBodyBrowserVNCApplicationPoliciesObjectConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationNewParamsBodyBrowserVNCApplicationPoliciesObjectConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -48025,7 +48025,7 @@ func (r AccessApplicationNewParamsBodyBrowserVNCApplicationPoliciesObjectConnect
 	return apijson.MarshalRoot(r)
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationNewParamsBodyBrowserVNCApplicationPoliciesObjectConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationNewParamsBodyBrowserVNCApplicationPoliciesObjectConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats param.Field[[]AccessApplicationNewParamsBodyBrowserVNCApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat] `json:"allowed_clipboard_local_to_remote_formats"`
@@ -48037,7 +48037,7 @@ func (r AccessApplicationNewParamsBodyBrowserVNCApplicationPoliciesObjectConnect
 	return apijson.MarshalRoot(r)
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationNewParamsBodyBrowserVNCApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationNewParamsBodyBrowserVNCApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -48052,7 +48052,7 @@ func (r AccessApplicationNewParamsBodyBrowserVNCApplicationPoliciesObjectConnect
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationNewParamsBodyBrowserVNCApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationNewParamsBodyBrowserVNCApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -48067,7 +48067,7 @@ func (r AccessApplicationNewParamsBodyBrowserVNCApplicationPoliciesObjectConnect
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationNewParamsBodyBrowserVNCApplicationPoliciesObjectMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationNewParamsBodyBrowserVNCApplicationPoliciesObjectMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators param.Field[[]AccessApplicationNewParamsBodyBrowserVNCApplicationPoliciesObjectMfaConfigAllowedAuthenticator] `json:"allowed_authenticators"`
@@ -48099,7 +48099,7 @@ func (r AccessApplicationNewParamsBodyBrowserVNCApplicationPoliciesObjectMfaConf
 	return false
 }
 
-// Configuration for provisioning to this application via SCIM. This is currently
+// AccessApplicationNewParamsBodyBrowserVNCApplicationSCIMConfig configuration for provisioning to this application via SCIM. This is currently
 // in closed beta.
 type AccessApplicationNewParamsBodyBrowserVNCApplicationSCIMConfig struct {
 	// The UID of the IdP to use as the source for SCIM resources to provision to this
@@ -48125,7 +48125,7 @@ func (r AccessApplicationNewParamsBodyBrowserVNCApplicationSCIMConfig) MarshalJS
 	return apijson.MarshalRoot(r)
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationNewParamsBodyBrowserVNCApplicationSCIMConfigAuthentication attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationNewParamsBodyBrowserVNCApplicationSCIMConfigAuthentication struct {
 	// The authentication scheme to use when making SCIM requests to this application.
@@ -48157,7 +48157,7 @@ func (r AccessApplicationNewParamsBodyBrowserVNCApplicationSCIMConfigAuthenticat
 func (r AccessApplicationNewParamsBodyBrowserVNCApplicationSCIMConfigAuthentication) implementsAccessApplicationNewParamsBodyBrowserVNCApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationNewParamsBodyBrowserVNCApplicationSCIMConfigAuthenticationUnion attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Satisfied by [zero_trust.SCIMConfigAuthenticationHTTPBasicParam],
@@ -48170,7 +48170,7 @@ type AccessApplicationNewParamsBodyBrowserVNCApplicationSCIMConfigAuthentication
 	implementsAccessApplicationNewParamsBodyBrowserVNCApplicationSCIMConfigAuthenticationUnion()
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationNewParamsBodyBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationNewParamsBodyBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -48190,7 +48190,7 @@ func (r AccessApplicationNewParamsBodyBrowserVNCApplicationSCIMConfigAuthenticat
 func (r AccessApplicationNewParamsBodyBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationNewParamsBodyBrowserVNCApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationNewParamsBodyBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationNewParamsBodyBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -48210,7 +48210,7 @@ type AccessApplicationNewParamsBodyBrowserVNCApplicationSCIMConfigAuthentication
 func (r AccessApplicationNewParamsBodyBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthentication) implementsAccessApplicationNewParamsBodyBrowserVNCApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationNewParamsBodyBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationNewParamsBodyBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem struct {
 	// The authentication scheme to use when making SCIM requests to this application.
@@ -48242,7 +48242,7 @@ func (r AccessApplicationNewParamsBodyBrowserVNCApplicationSCIMConfigAuthenticat
 func (r AccessApplicationNewParamsBodyBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem) implementsAccessApplicationNewParamsBodyBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItemUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationNewParamsBodyBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItemUnion attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Satisfied by [zero_trust.SCIMConfigAuthenticationHTTPBasicParam],
@@ -48254,7 +48254,7 @@ type AccessApplicationNewParamsBodyBrowserVNCApplicationSCIMConfigAuthentication
 	implementsAccessApplicationNewParamsBodyBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItemUnion()
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationNewParamsBodyBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationNewParamsBodyBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -48274,7 +48274,7 @@ func (r AccessApplicationNewParamsBodyBrowserVNCApplicationSCIMConfigAuthenticat
 func (r AccessApplicationNewParamsBodyBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationNewParamsBodyBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItemUnion() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationNewParamsBodyBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationNewParamsBodyBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -48289,7 +48289,7 @@ func (r AccessApplicationNewParamsBodyBrowserVNCApplicationSCIMConfigAuthenticat
 	return false
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationNewParamsBodyBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationNewParamsBodyBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme string
 
 const (
@@ -48307,7 +48307,7 @@ func (r AccessApplicationNewParamsBodyBrowserVNCApplicationSCIMConfigAuthenticat
 	return false
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationNewParamsBodyBrowserVNCApplicationSCIMConfigAuthenticationScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationNewParamsBodyBrowserVNCApplicationSCIMConfigAuthenticationScheme string
 
 const (
@@ -48372,7 +48372,7 @@ func (r AccessApplicationNewParamsBodyAppLauncherApplication) MarshalJSON() (dat
 func (r AccessApplicationNewParamsBodyAppLauncherApplication) implementsAccessApplicationNewParamsBodyUnion() {
 }
 
-// The application type.
+// AccessApplicationNewParamsBodyAppLauncherApplicationType is the application type.
 type AccessApplicationNewParamsBodyAppLauncherApplicationType string
 
 const (
@@ -48411,7 +48411,7 @@ func (r AccessApplicationNewParamsBodyAppLauncherApplicationFooterLink) MarshalJ
 	return apijson.MarshalRoot(r)
 }
 
-// The design of the App Launcher landing page shown to users when they log in.
+// AccessApplicationNewParamsBodyAppLauncherApplicationLandingPageDesign is the design of the App Launcher landing page shown to users when they log in.
 type AccessApplicationNewParamsBodyAppLauncherApplicationLandingPageDesign struct {
 	// The background color of the log in button on the landing page.
 	ButtonColor param.Field[string] `json:"button_color"`
@@ -48429,7 +48429,7 @@ func (r AccessApplicationNewParamsBodyAppLauncherApplicationLandingPageDesign) M
 	return apijson.MarshalRoot(r)
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationNewParamsBodyAppLauncherApplicationPolicy is a JSON that links a reusable policy to an application.
 type AccessApplicationNewParamsBodyAppLauncherApplicationPolicy struct {
 	// The UUID of the policy
 	ID             param.Field[string]      `json:"id"`
@@ -48463,7 +48463,7 @@ func (r AccessApplicationNewParamsBodyAppLauncherApplicationPolicy) MarshalJSON(
 func (r AccessApplicationNewParamsBodyAppLauncherApplicationPolicy) ImplementsAccessApplicationNewParamsBodyAppLauncherApplicationPolicyUnion() {
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationNewParamsBodyAppLauncherApplicationPolicyUnion is a JSON that links a reusable policy to an application.
 //
 // Satisfied by
 // [zero_trust.AccessApplicationNewParamsBodyAppLauncherApplicationPoliciesAccessAppPolicyLink],
@@ -48474,7 +48474,7 @@ type AccessApplicationNewParamsBodyAppLauncherApplicationPolicyUnion interface {
 	ImplementsAccessApplicationNewParamsBodyAppLauncherApplicationPolicyUnion()
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationNewParamsBodyAppLauncherApplicationPoliciesAccessAppPolicyLink is a JSON that links a reusable policy to an application.
 type AccessApplicationNewParamsBodyAppLauncherApplicationPoliciesAccessAppPolicyLink struct {
 	// The UUID of the policy
 	ID param.Field[string] `json:"id"`
@@ -48527,7 +48527,7 @@ func (r AccessApplicationNewParamsBodyAppLauncherApplicationPoliciesObject) Mars
 func (r AccessApplicationNewParamsBodyAppLauncherApplicationPoliciesObject) ImplementsAccessApplicationNewParamsBodyAppLauncherApplicationPolicyUnion() {
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationNewParamsBodyAppLauncherApplicationPoliciesObjectConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationNewParamsBodyAppLauncherApplicationPoliciesObjectConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -48538,7 +48538,7 @@ func (r AccessApplicationNewParamsBodyAppLauncherApplicationPoliciesObjectConnec
 	return apijson.MarshalRoot(r)
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationNewParamsBodyAppLauncherApplicationPoliciesObjectConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationNewParamsBodyAppLauncherApplicationPoliciesObjectConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats param.Field[[]AccessApplicationNewParamsBodyAppLauncherApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat] `json:"allowed_clipboard_local_to_remote_formats"`
@@ -48550,7 +48550,7 @@ func (r AccessApplicationNewParamsBodyAppLauncherApplicationPoliciesObjectConnec
 	return apijson.MarshalRoot(r)
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationNewParamsBodyAppLauncherApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationNewParamsBodyAppLauncherApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -48565,7 +48565,7 @@ func (r AccessApplicationNewParamsBodyAppLauncherApplicationPoliciesObjectConnec
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationNewParamsBodyAppLauncherApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationNewParamsBodyAppLauncherApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -48580,7 +48580,7 @@ func (r AccessApplicationNewParamsBodyAppLauncherApplicationPoliciesObjectConnec
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationNewParamsBodyAppLauncherApplicationPoliciesObjectMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationNewParamsBodyAppLauncherApplicationPoliciesObjectMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators param.Field[[]AccessApplicationNewParamsBodyAppLauncherApplicationPoliciesObjectMfaConfigAllowedAuthenticator] `json:"allowed_authenticators"`
@@ -48647,7 +48647,7 @@ func (r AccessApplicationNewParamsBodyDeviceEnrollmentPermissionsApplication) Ma
 func (r AccessApplicationNewParamsBodyDeviceEnrollmentPermissionsApplication) implementsAccessApplicationNewParamsBodyUnion() {
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationNewParamsBodyDeviceEnrollmentPermissionsApplicationPolicy is a JSON that links a reusable policy to an application.
 type AccessApplicationNewParamsBodyDeviceEnrollmentPermissionsApplicationPolicy struct {
 	// The UUID of the policy
 	ID             param.Field[string]      `json:"id"`
@@ -48681,7 +48681,7 @@ func (r AccessApplicationNewParamsBodyDeviceEnrollmentPermissionsApplicationPoli
 func (r AccessApplicationNewParamsBodyDeviceEnrollmentPermissionsApplicationPolicy) ImplementsAccessApplicationNewParamsBodyDeviceEnrollmentPermissionsApplicationPolicyUnion() {
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationNewParamsBodyDeviceEnrollmentPermissionsApplicationPolicyUnion is a JSON that links a reusable policy to an application.
 //
 // Satisfied by
 // [zero_trust.AccessApplicationNewParamsBodyDeviceEnrollmentPermissionsApplicationPoliciesAccessAppPolicyLink],
@@ -48692,7 +48692,7 @@ type AccessApplicationNewParamsBodyDeviceEnrollmentPermissionsApplicationPolicyU
 	ImplementsAccessApplicationNewParamsBodyDeviceEnrollmentPermissionsApplicationPolicyUnion()
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationNewParamsBodyDeviceEnrollmentPermissionsApplicationPoliciesAccessAppPolicyLink is a JSON that links a reusable policy to an application.
 type AccessApplicationNewParamsBodyDeviceEnrollmentPermissionsApplicationPoliciesAccessAppPolicyLink struct {
 	// The UUID of the policy
 	ID param.Field[string] `json:"id"`
@@ -48745,7 +48745,7 @@ func (r AccessApplicationNewParamsBodyDeviceEnrollmentPermissionsApplicationPoli
 func (r AccessApplicationNewParamsBodyDeviceEnrollmentPermissionsApplicationPoliciesObject) ImplementsAccessApplicationNewParamsBodyDeviceEnrollmentPermissionsApplicationPolicyUnion() {
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationNewParamsBodyDeviceEnrollmentPermissionsApplicationPoliciesObjectConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationNewParamsBodyDeviceEnrollmentPermissionsApplicationPoliciesObjectConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -48756,7 +48756,7 @@ func (r AccessApplicationNewParamsBodyDeviceEnrollmentPermissionsApplicationPoli
 	return apijson.MarshalRoot(r)
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationNewParamsBodyDeviceEnrollmentPermissionsApplicationPoliciesObjectConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationNewParamsBodyDeviceEnrollmentPermissionsApplicationPoliciesObjectConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats param.Field[[]AccessApplicationNewParamsBodyDeviceEnrollmentPermissionsApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat] `json:"allowed_clipboard_local_to_remote_formats"`
@@ -48768,7 +48768,7 @@ func (r AccessApplicationNewParamsBodyDeviceEnrollmentPermissionsApplicationPoli
 	return apijson.MarshalRoot(r)
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationNewParamsBodyDeviceEnrollmentPermissionsApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationNewParamsBodyDeviceEnrollmentPermissionsApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -48783,7 +48783,7 @@ func (r AccessApplicationNewParamsBodyDeviceEnrollmentPermissionsApplicationPoli
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationNewParamsBodyDeviceEnrollmentPermissionsApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationNewParamsBodyDeviceEnrollmentPermissionsApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -48798,7 +48798,7 @@ func (r AccessApplicationNewParamsBodyDeviceEnrollmentPermissionsApplicationPoli
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationNewParamsBodyDeviceEnrollmentPermissionsApplicationPoliciesObjectMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationNewParamsBodyDeviceEnrollmentPermissionsApplicationPoliciesObjectMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators param.Field[[]AccessApplicationNewParamsBodyDeviceEnrollmentPermissionsApplicationPoliciesObjectMfaConfigAllowedAuthenticator] `json:"allowed_authenticators"`
@@ -48865,7 +48865,7 @@ func (r AccessApplicationNewParamsBodyBrowserIsolationPermissionsApplication) Ma
 func (r AccessApplicationNewParamsBodyBrowserIsolationPermissionsApplication) implementsAccessApplicationNewParamsBodyUnion() {
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationNewParamsBodyBrowserIsolationPermissionsApplicationPolicy is a JSON that links a reusable policy to an application.
 type AccessApplicationNewParamsBodyBrowserIsolationPermissionsApplicationPolicy struct {
 	// The UUID of the policy
 	ID             param.Field[string]      `json:"id"`
@@ -48899,7 +48899,7 @@ func (r AccessApplicationNewParamsBodyBrowserIsolationPermissionsApplicationPoli
 func (r AccessApplicationNewParamsBodyBrowserIsolationPermissionsApplicationPolicy) ImplementsAccessApplicationNewParamsBodyBrowserIsolationPermissionsApplicationPolicyUnion() {
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationNewParamsBodyBrowserIsolationPermissionsApplicationPolicyUnion is a JSON that links a reusable policy to an application.
 //
 // Satisfied by
 // [zero_trust.AccessApplicationNewParamsBodyBrowserIsolationPermissionsApplicationPoliciesAccessAppPolicyLink],
@@ -48910,7 +48910,7 @@ type AccessApplicationNewParamsBodyBrowserIsolationPermissionsApplicationPolicyU
 	ImplementsAccessApplicationNewParamsBodyBrowserIsolationPermissionsApplicationPolicyUnion()
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationNewParamsBodyBrowserIsolationPermissionsApplicationPoliciesAccessAppPolicyLink is a JSON that links a reusable policy to an application.
 type AccessApplicationNewParamsBodyBrowserIsolationPermissionsApplicationPoliciesAccessAppPolicyLink struct {
 	// The UUID of the policy
 	ID param.Field[string] `json:"id"`
@@ -48963,7 +48963,7 @@ func (r AccessApplicationNewParamsBodyBrowserIsolationPermissionsApplicationPoli
 func (r AccessApplicationNewParamsBodyBrowserIsolationPermissionsApplicationPoliciesObject) ImplementsAccessApplicationNewParamsBodyBrowserIsolationPermissionsApplicationPolicyUnion() {
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationNewParamsBodyBrowserIsolationPermissionsApplicationPoliciesObjectConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationNewParamsBodyBrowserIsolationPermissionsApplicationPoliciesObjectConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -48974,7 +48974,7 @@ func (r AccessApplicationNewParamsBodyBrowserIsolationPermissionsApplicationPoli
 	return apijson.MarshalRoot(r)
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationNewParamsBodyBrowserIsolationPermissionsApplicationPoliciesObjectConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationNewParamsBodyBrowserIsolationPermissionsApplicationPoliciesObjectConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats param.Field[[]AccessApplicationNewParamsBodyBrowserIsolationPermissionsApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat] `json:"allowed_clipboard_local_to_remote_formats"`
@@ -48986,7 +48986,7 @@ func (r AccessApplicationNewParamsBodyBrowserIsolationPermissionsApplicationPoli
 	return apijson.MarshalRoot(r)
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationNewParamsBodyBrowserIsolationPermissionsApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationNewParamsBodyBrowserIsolationPermissionsApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -49001,7 +49001,7 @@ func (r AccessApplicationNewParamsBodyBrowserIsolationPermissionsApplicationPoli
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationNewParamsBodyBrowserIsolationPermissionsApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationNewParamsBodyBrowserIsolationPermissionsApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -49016,7 +49016,7 @@ func (r AccessApplicationNewParamsBodyBrowserIsolationPermissionsApplicationPoli
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationNewParamsBodyBrowserIsolationPermissionsApplicationPoliciesObjectMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationNewParamsBodyBrowserIsolationPermissionsApplicationPoliciesObjectMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators param.Field[[]AccessApplicationNewParamsBodyBrowserIsolationPermissionsApplicationPoliciesObjectMfaConfigAllowedAuthenticator] `json:"allowed_authenticators"`
@@ -49088,7 +49088,7 @@ func (r AccessApplicationNewParamsBodyGatewayIdentityProxyEndpointApplication) M
 func (r AccessApplicationNewParamsBodyGatewayIdentityProxyEndpointApplication) implementsAccessApplicationNewParamsBodyUnion() {
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationNewParamsBodyGatewayIdentityProxyEndpointApplicationPolicy is a JSON that links a reusable policy to an application.
 type AccessApplicationNewParamsBodyGatewayIdentityProxyEndpointApplicationPolicy struct {
 	// The UUID of the policy
 	ID             param.Field[string]      `json:"id"`
@@ -49122,7 +49122,7 @@ func (r AccessApplicationNewParamsBodyGatewayIdentityProxyEndpointApplicationPol
 func (r AccessApplicationNewParamsBodyGatewayIdentityProxyEndpointApplicationPolicy) ImplementsAccessApplicationNewParamsBodyGatewayIdentityProxyEndpointApplicationPolicyUnion() {
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationNewParamsBodyGatewayIdentityProxyEndpointApplicationPolicyUnion is a JSON that links a reusable policy to an application.
 //
 // Satisfied by
 // [zero_trust.AccessApplicationNewParamsBodyGatewayIdentityProxyEndpointApplicationPoliciesAccessAppPolicyLink],
@@ -49133,7 +49133,7 @@ type AccessApplicationNewParamsBodyGatewayIdentityProxyEndpointApplicationPolicy
 	ImplementsAccessApplicationNewParamsBodyGatewayIdentityProxyEndpointApplicationPolicyUnion()
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationNewParamsBodyGatewayIdentityProxyEndpointApplicationPoliciesAccessAppPolicyLink is a JSON that links a reusable policy to an application.
 type AccessApplicationNewParamsBodyGatewayIdentityProxyEndpointApplicationPoliciesAccessAppPolicyLink struct {
 	// The UUID of the policy
 	ID param.Field[string] `json:"id"`
@@ -49186,7 +49186,7 @@ func (r AccessApplicationNewParamsBodyGatewayIdentityProxyEndpointApplicationPol
 func (r AccessApplicationNewParamsBodyGatewayIdentityProxyEndpointApplicationPoliciesObject) ImplementsAccessApplicationNewParamsBodyGatewayIdentityProxyEndpointApplicationPolicyUnion() {
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationNewParamsBodyGatewayIdentityProxyEndpointApplicationPoliciesObjectConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationNewParamsBodyGatewayIdentityProxyEndpointApplicationPoliciesObjectConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -49197,7 +49197,7 @@ func (r AccessApplicationNewParamsBodyGatewayIdentityProxyEndpointApplicationPol
 	return apijson.MarshalRoot(r)
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationNewParamsBodyGatewayIdentityProxyEndpointApplicationPoliciesObjectConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationNewParamsBodyGatewayIdentityProxyEndpointApplicationPoliciesObjectConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats param.Field[[]AccessApplicationNewParamsBodyGatewayIdentityProxyEndpointApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat] `json:"allowed_clipboard_local_to_remote_formats"`
@@ -49209,7 +49209,7 @@ func (r AccessApplicationNewParamsBodyGatewayIdentityProxyEndpointApplicationPol
 	return apijson.MarshalRoot(r)
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationNewParamsBodyGatewayIdentityProxyEndpointApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationNewParamsBodyGatewayIdentityProxyEndpointApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -49224,7 +49224,7 @@ func (r AccessApplicationNewParamsBodyGatewayIdentityProxyEndpointApplicationPol
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationNewParamsBodyGatewayIdentityProxyEndpointApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationNewParamsBodyGatewayIdentityProxyEndpointApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -49239,7 +49239,7 @@ func (r AccessApplicationNewParamsBodyGatewayIdentityProxyEndpointApplicationPol
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationNewParamsBodyGatewayIdentityProxyEndpointApplicationPoliciesObjectMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationNewParamsBodyGatewayIdentityProxyEndpointApplicationPoliciesObjectMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators param.Field[[]AccessApplicationNewParamsBodyGatewayIdentityProxyEndpointApplicationPoliciesObjectMfaConfigAllowedAuthenticator] `json:"allowed_authenticators"`
@@ -49299,7 +49299,7 @@ func (r AccessApplicationNewParamsBodyBookmarkApplication) MarshalJSON() (data [
 func (r AccessApplicationNewParamsBodyBookmarkApplication) implementsAccessApplicationNewParamsBodyUnion() {
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationNewParamsBodyBookmarkApplicationPolicy is a JSON that links a reusable policy to an application.
 type AccessApplicationNewParamsBodyBookmarkApplicationPolicy struct {
 	// The UUID of the policy
 	ID             param.Field[string]      `json:"id"`
@@ -49333,7 +49333,7 @@ func (r AccessApplicationNewParamsBodyBookmarkApplicationPolicy) MarshalJSON() (
 func (r AccessApplicationNewParamsBodyBookmarkApplicationPolicy) ImplementsAccessApplicationNewParamsBodyBookmarkApplicationPolicyUnion() {
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationNewParamsBodyBookmarkApplicationPolicyUnion is a JSON that links a reusable policy to an application.
 //
 // Satisfied by
 // [zero_trust.AccessApplicationNewParamsBodyBookmarkApplicationPoliciesAccessAppPolicyLink],
@@ -49344,7 +49344,7 @@ type AccessApplicationNewParamsBodyBookmarkApplicationPolicyUnion interface {
 	ImplementsAccessApplicationNewParamsBodyBookmarkApplicationPolicyUnion()
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationNewParamsBodyBookmarkApplicationPoliciesAccessAppPolicyLink is a JSON that links a reusable policy to an application.
 type AccessApplicationNewParamsBodyBookmarkApplicationPoliciesAccessAppPolicyLink struct {
 	// The UUID of the policy
 	ID param.Field[string] `json:"id"`
@@ -49397,7 +49397,7 @@ func (r AccessApplicationNewParamsBodyBookmarkApplicationPoliciesObject) Marshal
 func (r AccessApplicationNewParamsBodyBookmarkApplicationPoliciesObject) ImplementsAccessApplicationNewParamsBodyBookmarkApplicationPolicyUnion() {
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationNewParamsBodyBookmarkApplicationPoliciesObjectConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationNewParamsBodyBookmarkApplicationPoliciesObjectConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -49408,7 +49408,7 @@ func (r AccessApplicationNewParamsBodyBookmarkApplicationPoliciesObjectConnectio
 	return apijson.MarshalRoot(r)
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationNewParamsBodyBookmarkApplicationPoliciesObjectConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationNewParamsBodyBookmarkApplicationPoliciesObjectConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats param.Field[[]AccessApplicationNewParamsBodyBookmarkApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat] `json:"allowed_clipboard_local_to_remote_formats"`
@@ -49420,7 +49420,7 @@ func (r AccessApplicationNewParamsBodyBookmarkApplicationPoliciesObjectConnectio
 	return apijson.MarshalRoot(r)
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationNewParamsBodyBookmarkApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationNewParamsBodyBookmarkApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -49435,7 +49435,7 @@ func (r AccessApplicationNewParamsBodyBookmarkApplicationPoliciesObjectConnectio
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationNewParamsBodyBookmarkApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationNewParamsBodyBookmarkApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -49450,7 +49450,7 @@ func (r AccessApplicationNewParamsBodyBookmarkApplicationPoliciesObjectConnectio
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationNewParamsBodyBookmarkApplicationPoliciesObjectMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationNewParamsBodyBookmarkApplicationPoliciesObjectMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators param.Field[[]AccessApplicationNewParamsBodyBookmarkApplicationPoliciesObjectMfaConfigAllowedAuthenticator] `json:"allowed_authenticators"`
@@ -49513,7 +49513,7 @@ func (r AccessApplicationNewParamsBodyInfrastructureApplicationTargetCriterion) 
 	return apijson.MarshalRoot(r)
 }
 
-// The communication protocol your application secures.
+// AccessApplicationNewParamsBodyInfrastructureApplicationTargetCriteriaProtocol is the communication protocol your application secures.
 type AccessApplicationNewParamsBodyInfrastructureApplicationTargetCriteriaProtocol string
 
 const (
@@ -49555,7 +49555,7 @@ func (r AccessApplicationNewParamsBodyInfrastructureApplicationPolicy) MarshalJS
 	return apijson.MarshalRoot(r)
 }
 
-// The rules that define how users may connect to the targets secured by your
+// AccessApplicationNewParamsBodyInfrastructureApplicationPoliciesConnectionRules is the rules that define how users may connect to the targets secured by your
 // application.
 type AccessApplicationNewParamsBodyInfrastructureApplicationPoliciesConnectionRules struct {
 	// The SSH-specific rules that define how users may connect to the targets secured
@@ -49567,7 +49567,7 @@ func (r AccessApplicationNewParamsBodyInfrastructureApplicationPoliciesConnectio
 	return apijson.MarshalRoot(r)
 }
 
-// The SSH-specific rules that define how users may connect to the targets secured
+// AccessApplicationNewParamsBodyInfrastructureApplicationPoliciesConnectionRulesSSH is the SSH-specific rules that define how users may connect to the targets secured
 // by your application.
 type AccessApplicationNewParamsBodyInfrastructureApplicationPoliciesConnectionRulesSSH struct {
 	// Contains the Unix usernames that may be used when connecting over SSH.
@@ -49580,7 +49580,7 @@ func (r AccessApplicationNewParamsBodyInfrastructureApplicationPoliciesConnectio
 	return apijson.MarshalRoot(r)
 }
 
-// Configures multi-factor authentication (MFA) settings for infrastructure
+// AccessApplicationNewParamsBodyInfrastructureApplicationPoliciesMfaConfig configures multi-factor authentication (MFA) settings for infrastructure
 // applications.
 type AccessApplicationNewParamsBodyInfrastructureApplicationPoliciesMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with. For infrastructure
@@ -49612,7 +49612,7 @@ func (r AccessApplicationNewParamsBodyInfrastructureApplicationPoliciesMfaConfig
 	return false
 }
 
-// Contains the targets secured by the application.
+// AccessApplicationNewParamsBodyBrowserRDPApplication contains the targets secured by the application.
 type AccessApplicationNewParamsBodyBrowserRDPApplication struct {
 	// The primary hostname and path secured by Access. This domain will be displayed
 	// if the app is visible in the App Launcher.
@@ -49744,7 +49744,7 @@ func (r AccessApplicationNewParamsBodyBrowserRDPApplicationTargetCriterion) Mars
 	return apijson.MarshalRoot(r)
 }
 
-// The communication protocol your application secures.
+// AccessApplicationNewParamsBodyBrowserRDPApplicationTargetCriteriaProtocol is the communication protocol your application secures.
 type AccessApplicationNewParamsBodyBrowserRDPApplicationTargetCriteriaProtocol string
 
 const (
@@ -49759,7 +49759,7 @@ func (r AccessApplicationNewParamsBodyBrowserRDPApplicationTargetCriteriaProtoco
 	return false
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationNewParamsBodyBrowserRDPApplicationDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationNewParamsBodyBrowserRDPApplicationDestination struct {
 	// The CIDR range of the destination. Single IPs will be computed as /32.
@@ -49792,7 +49792,7 @@ func (r AccessApplicationNewParamsBodyBrowserRDPApplicationDestination) MarshalJ
 func (r AccessApplicationNewParamsBodyBrowserRDPApplicationDestination) implementsAccessApplicationNewParamsBodyBrowserRDPApplicationDestinationUnion() {
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationNewParamsBodyBrowserRDPApplicationDestinationUnion is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 //
 // Satisfied by
@@ -49808,7 +49808,7 @@ type AccessApplicationNewParamsBodyBrowserRDPApplicationDestinationUnion interfa
 	implementsAccessApplicationNewParamsBodyBrowserRDPApplicationDestinationUnion()
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationNewParamsBodyBrowserRDPApplicationDestinationsPublicDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationNewParamsBodyBrowserRDPApplicationDestinationsPublicDestination struct {
 	Type param.Field[AccessApplicationNewParamsBodyBrowserRDPApplicationDestinationsPublicDestinationType] `json:"type"`
@@ -49862,7 +49862,7 @@ func (r AccessApplicationNewParamsBodyBrowserRDPApplicationDestinationsPrivateDe
 func (r AccessApplicationNewParamsBodyBrowserRDPApplicationDestinationsPrivateDestination) implementsAccessApplicationNewParamsBodyBrowserRDPApplicationDestinationUnion() {
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationNewParamsBodyBrowserRDPApplicationDestinationsPrivateDestinationL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationNewParamsBodyBrowserRDPApplicationDestinationsPrivateDestinationL4Protocol string
 
@@ -49893,7 +49893,7 @@ func (r AccessApplicationNewParamsBodyBrowserRDPApplicationDestinationsPrivateDe
 	return false
 }
 
-// A MCP server id configured in ai-controls. Access will secure the MCP server if
+// AccessApplicationNewParamsBodyBrowserRDPApplicationDestinationsViaMcpServerPortalDestination is a MCP server id configured in ai-controls. Access will secure the MCP server if
 // accessed through a MCP portal.
 type AccessApplicationNewParamsBodyBrowserRDPApplicationDestinationsViaMcpServerPortalDestination struct {
 	// The MCP server id configured in ai-controls.
@@ -49922,7 +49922,7 @@ func (r AccessApplicationNewParamsBodyBrowserRDPApplicationDestinationsViaMcpSer
 	return false
 }
 
-// A specific Cloudflare Worker that Access will secure. All requests routed to the
+// AccessApplicationNewParamsBodyBrowserRDPApplicationDestinationsWorkerDestination is a specific Cloudflare Worker that Access will secure. All requests routed to the
 // specified Worker, including its preview deployments, will be protected. The
 // `preview_worker` and `public` destination types takes precedence, so you can
 // create separate applications to override the policies for the Worker's previews
@@ -49954,7 +49954,7 @@ func (r AccessApplicationNewParamsBodyBrowserRDPApplicationDestinationsWorkerDes
 	return false
 }
 
-// A specific Cloudflare Worker whose preview deployments Access will secure. Only
+// AccessApplicationNewParamsBodyBrowserRDPApplicationDestinationsPreviewWorkerDestination is a specific Cloudflare Worker whose preview deployments Access will secure. Only
 // requests routed to the preview deployments of the specified Worker will be
 // protected. The `public` destination type takes precedence, so you can create
 // separate applications to override the policies for specific paths.
@@ -49986,7 +49986,7 @@ func (r AccessApplicationNewParamsBodyBrowserRDPApplicationDestinationsPreviewWo
 	return false
 }
 
-// Protects all Cloudflare Workers on the account with Access, including their
+// AccessApplicationNewParamsBodyBrowserRDPApplicationDestinationsAllWorkersDestination protects all Cloudflare Workers on the account with Access, including their
 // preview deployments. At most one destination of this type can exist per account.
 // The `worker`, `preview_worker`, `all_preview_workers`, and `public` destination
 // types take precedence, so you can create separate applications to override the
@@ -50016,7 +50016,7 @@ func (r AccessApplicationNewParamsBodyBrowserRDPApplicationDestinationsAllWorker
 	return false
 }
 
-// Protects the preview deployments of all Cloudflare Workers on the account with
+// AccessApplicationNewParamsBodyBrowserRDPApplicationDestinationsAllPreviewWorkersDestination protects the preview deployments of all Cloudflare Workers on the account with
 // Access. At most one destination of this type can exist per account. The
 // `worker`, `preview_worker`, and `public` destination types take precedence, so
 // you can create separate applications to override the policies for specific
@@ -50046,7 +50046,7 @@ func (r AccessApplicationNewParamsBodyBrowserRDPApplicationDestinationsAllPrevie
 	return false
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationNewParamsBodyBrowserRDPApplicationDestinationsL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationNewParamsBodyBrowserRDPApplicationDestinationsL4Protocol string
 
@@ -50083,7 +50083,7 @@ func (r AccessApplicationNewParamsBodyBrowserRDPApplicationDestinationsType) IsK
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationNewParamsBodyBrowserRDPApplicationMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationNewParamsBodyBrowserRDPApplicationMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators param.Field[[]AccessApplicationNewParamsBodyBrowserRDPApplicationMfaConfigAllowedAuthenticator] `json:"allowed_authenticators"`
@@ -50115,7 +50115,7 @@ func (r AccessApplicationNewParamsBodyBrowserRDPApplicationMfaConfigAllowedAuthe
 	return false
 }
 
-// **Beta:** Optional configuration for managing an OAuth authorization flow
+// AccessApplicationNewParamsBodyBrowserRDPApplicationOAuthConfiguration **Beta:** Optional configuration for managing an OAuth authorization flow
 // controlled by Access. When set, Access will act as the OAuth authorization
 // server for this application. Only compatible with OAuth clients that support
 // [RFC 8707](https://datatracker.ietf.org/doc/html/rfc8707) (Resource Indicators
@@ -50135,7 +50135,7 @@ func (r AccessApplicationNewParamsBodyBrowserRDPApplicationOAuthConfiguration) M
 	return apijson.MarshalRoot(r)
 }
 
-// Settings for OAuth dynamic client registration.
+// AccessApplicationNewParamsBodyBrowserRDPApplicationOAuthConfigurationDynamicClientRegistration settings for OAuth dynamic client registration.
 type AccessApplicationNewParamsBodyBrowserRDPApplicationOAuthConfigurationDynamicClientRegistration struct {
 	// Allows any client with redirect URIs on localhost.
 	AllowAnyOnLocalhost param.Field[bool] `json:"allow_any_on_localhost"`
@@ -50152,7 +50152,7 @@ func (r AccessApplicationNewParamsBodyBrowserRDPApplicationOAuthConfigurationDyn
 	return apijson.MarshalRoot(r)
 }
 
-// Settings for OAuth grant behavior.
+// AccessApplicationNewParamsBodyBrowserRDPApplicationOAuthConfigurationGrant settings for OAuth grant behavior.
 type AccessApplicationNewParamsBodyBrowserRDPApplicationOAuthConfigurationGrant struct {
 	// The lifetime of the access token. Must be in the format `300ms` or `2h45m`.
 	// Valid time units are ns, us (or µs), ms, s, m, h.
@@ -50166,7 +50166,7 @@ func (r AccessApplicationNewParamsBodyBrowserRDPApplicationOAuthConfigurationGra
 	return apijson.MarshalRoot(r)
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationNewParamsBodyBrowserRDPApplicationPolicy is a JSON that links a reusable policy to an application.
 type AccessApplicationNewParamsBodyBrowserRDPApplicationPolicy struct {
 	// The UUID of the policy
 	ID             param.Field[string]      `json:"id"`
@@ -50200,7 +50200,7 @@ func (r AccessApplicationNewParamsBodyBrowserRDPApplicationPolicy) MarshalJSON()
 func (r AccessApplicationNewParamsBodyBrowserRDPApplicationPolicy) ImplementsAccessApplicationNewParamsBodyBrowserRDPApplicationPolicyUnion() {
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationNewParamsBodyBrowserRDPApplicationPolicyUnion is a JSON that links a reusable policy to an application.
 //
 // Satisfied by
 // [zero_trust.AccessApplicationNewParamsBodyBrowserRDPApplicationPoliciesAccessAppPolicyLink],
@@ -50211,7 +50211,7 @@ type AccessApplicationNewParamsBodyBrowserRDPApplicationPolicyUnion interface {
 	ImplementsAccessApplicationNewParamsBodyBrowserRDPApplicationPolicyUnion()
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationNewParamsBodyBrowserRDPApplicationPoliciesAccessAppPolicyLink is a JSON that links a reusable policy to an application.
 type AccessApplicationNewParamsBodyBrowserRDPApplicationPoliciesAccessAppPolicyLink struct {
 	// The UUID of the policy
 	ID param.Field[string] `json:"id"`
@@ -50264,7 +50264,7 @@ func (r AccessApplicationNewParamsBodyBrowserRDPApplicationPoliciesObject) Marsh
 func (r AccessApplicationNewParamsBodyBrowserRDPApplicationPoliciesObject) ImplementsAccessApplicationNewParamsBodyBrowserRDPApplicationPolicyUnion() {
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationNewParamsBodyBrowserRDPApplicationPoliciesObjectConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationNewParamsBodyBrowserRDPApplicationPoliciesObjectConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -50275,7 +50275,7 @@ func (r AccessApplicationNewParamsBodyBrowserRDPApplicationPoliciesObjectConnect
 	return apijson.MarshalRoot(r)
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationNewParamsBodyBrowserRDPApplicationPoliciesObjectConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationNewParamsBodyBrowserRDPApplicationPoliciesObjectConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats param.Field[[]AccessApplicationNewParamsBodyBrowserRDPApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat] `json:"allowed_clipboard_local_to_remote_formats"`
@@ -50287,7 +50287,7 @@ func (r AccessApplicationNewParamsBodyBrowserRDPApplicationPoliciesObjectConnect
 	return apijson.MarshalRoot(r)
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationNewParamsBodyBrowserRDPApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationNewParamsBodyBrowserRDPApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -50302,7 +50302,7 @@ func (r AccessApplicationNewParamsBodyBrowserRDPApplicationPoliciesObjectConnect
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationNewParamsBodyBrowserRDPApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationNewParamsBodyBrowserRDPApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -50317,7 +50317,7 @@ func (r AccessApplicationNewParamsBodyBrowserRDPApplicationPoliciesObjectConnect
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationNewParamsBodyBrowserRDPApplicationPoliciesObjectMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationNewParamsBodyBrowserRDPApplicationPoliciesObjectMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators param.Field[[]AccessApplicationNewParamsBodyBrowserRDPApplicationPoliciesObjectMfaConfigAllowedAuthenticator] `json:"allowed_authenticators"`
@@ -50349,7 +50349,7 @@ func (r AccessApplicationNewParamsBodyBrowserRDPApplicationPoliciesObjectMfaConf
 	return false
 }
 
-// Configuration for provisioning to this application via SCIM. This is currently
+// AccessApplicationNewParamsBodyBrowserRDPApplicationSCIMConfig configuration for provisioning to this application via SCIM. This is currently
 // in closed beta.
 type AccessApplicationNewParamsBodyBrowserRDPApplicationSCIMConfig struct {
 	// The UID of the IdP to use as the source for SCIM resources to provision to this
@@ -50375,7 +50375,7 @@ func (r AccessApplicationNewParamsBodyBrowserRDPApplicationSCIMConfig) MarshalJS
 	return apijson.MarshalRoot(r)
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationNewParamsBodyBrowserRDPApplicationSCIMConfigAuthentication attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationNewParamsBodyBrowserRDPApplicationSCIMConfigAuthentication struct {
 	// The authentication scheme to use when making SCIM requests to this application.
@@ -50407,7 +50407,7 @@ func (r AccessApplicationNewParamsBodyBrowserRDPApplicationSCIMConfigAuthenticat
 func (r AccessApplicationNewParamsBodyBrowserRDPApplicationSCIMConfigAuthentication) implementsAccessApplicationNewParamsBodyBrowserRDPApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationNewParamsBodyBrowserRDPApplicationSCIMConfigAuthenticationUnion attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Satisfied by [zero_trust.SCIMConfigAuthenticationHTTPBasicParam],
@@ -50420,7 +50420,7 @@ type AccessApplicationNewParamsBodyBrowserRDPApplicationSCIMConfigAuthentication
 	implementsAccessApplicationNewParamsBodyBrowserRDPApplicationSCIMConfigAuthenticationUnion()
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationNewParamsBodyBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationNewParamsBodyBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -50440,7 +50440,7 @@ func (r AccessApplicationNewParamsBodyBrowserRDPApplicationSCIMConfigAuthenticat
 func (r AccessApplicationNewParamsBodyBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationNewParamsBodyBrowserRDPApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationNewParamsBodyBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationNewParamsBodyBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -50460,7 +50460,7 @@ type AccessApplicationNewParamsBodyBrowserRDPApplicationSCIMConfigAuthentication
 func (r AccessApplicationNewParamsBodyBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthentication) implementsAccessApplicationNewParamsBodyBrowserRDPApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationNewParamsBodyBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationNewParamsBodyBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem struct {
 	// The authentication scheme to use when making SCIM requests to this application.
@@ -50492,7 +50492,7 @@ func (r AccessApplicationNewParamsBodyBrowserRDPApplicationSCIMConfigAuthenticat
 func (r AccessApplicationNewParamsBodyBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem) implementsAccessApplicationNewParamsBodyBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItemUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationNewParamsBodyBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItemUnion attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Satisfied by [zero_trust.SCIMConfigAuthenticationHTTPBasicParam],
@@ -50504,7 +50504,7 @@ type AccessApplicationNewParamsBodyBrowserRDPApplicationSCIMConfigAuthentication
 	implementsAccessApplicationNewParamsBodyBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItemUnion()
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationNewParamsBodyBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationNewParamsBodyBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -50524,7 +50524,7 @@ func (r AccessApplicationNewParamsBodyBrowserRDPApplicationSCIMConfigAuthenticat
 func (r AccessApplicationNewParamsBodyBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationNewParamsBodyBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItemUnion() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationNewParamsBodyBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationNewParamsBodyBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -50539,7 +50539,7 @@ func (r AccessApplicationNewParamsBodyBrowserRDPApplicationSCIMConfigAuthenticat
 	return false
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationNewParamsBodyBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationNewParamsBodyBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme string
 
 const (
@@ -50557,7 +50557,7 @@ func (r AccessApplicationNewParamsBodyBrowserRDPApplicationSCIMConfigAuthenticat
 	return false
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationNewParamsBodyBrowserRDPApplicationSCIMConfigAuthenticationScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationNewParamsBodyBrowserRDPApplicationSCIMConfigAuthenticationScheme string
 
 const (
@@ -50647,7 +50647,7 @@ func (r AccessApplicationNewParamsBodyMcpServerApplication) MarshalJSON() (data 
 func (r AccessApplicationNewParamsBodyMcpServerApplication) implementsAccessApplicationNewParamsBodyUnion() {
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationNewParamsBodyMcpServerApplicationDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationNewParamsBodyMcpServerApplicationDestination struct {
 	// The CIDR range of the destination. Single IPs will be computed as /32.
@@ -50680,7 +50680,7 @@ func (r AccessApplicationNewParamsBodyMcpServerApplicationDestination) MarshalJS
 func (r AccessApplicationNewParamsBodyMcpServerApplicationDestination) implementsAccessApplicationNewParamsBodyMcpServerApplicationDestinationUnion() {
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationNewParamsBodyMcpServerApplicationDestinationUnion is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 //
 // Satisfied by
@@ -50696,7 +50696,7 @@ type AccessApplicationNewParamsBodyMcpServerApplicationDestinationUnion interfac
 	implementsAccessApplicationNewParamsBodyMcpServerApplicationDestinationUnion()
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationNewParamsBodyMcpServerApplicationDestinationsPublicDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationNewParamsBodyMcpServerApplicationDestinationsPublicDestination struct {
 	Type param.Field[AccessApplicationNewParamsBodyMcpServerApplicationDestinationsPublicDestinationType] `json:"type"`
@@ -50750,7 +50750,7 @@ func (r AccessApplicationNewParamsBodyMcpServerApplicationDestinationsPrivateDes
 func (r AccessApplicationNewParamsBodyMcpServerApplicationDestinationsPrivateDestination) implementsAccessApplicationNewParamsBodyMcpServerApplicationDestinationUnion() {
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationNewParamsBodyMcpServerApplicationDestinationsPrivateDestinationL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationNewParamsBodyMcpServerApplicationDestinationsPrivateDestinationL4Protocol string
 
@@ -50781,7 +50781,7 @@ func (r AccessApplicationNewParamsBodyMcpServerApplicationDestinationsPrivateDes
 	return false
 }
 
-// A MCP server id configured in ai-controls. Access will secure the MCP server if
+// AccessApplicationNewParamsBodyMcpServerApplicationDestinationsViaMcpServerPortalDestination is a MCP server id configured in ai-controls. Access will secure the MCP server if
 // accessed through a MCP portal.
 type AccessApplicationNewParamsBodyMcpServerApplicationDestinationsViaMcpServerPortalDestination struct {
 	// The MCP server id configured in ai-controls.
@@ -50810,7 +50810,7 @@ func (r AccessApplicationNewParamsBodyMcpServerApplicationDestinationsViaMcpServ
 	return false
 }
 
-// A specific Cloudflare Worker that Access will secure. All requests routed to the
+// AccessApplicationNewParamsBodyMcpServerApplicationDestinationsWorkerDestination is a specific Cloudflare Worker that Access will secure. All requests routed to the
 // specified Worker, including its preview deployments, will be protected. The
 // `preview_worker` and `public` destination types takes precedence, so you can
 // create separate applications to override the policies for the Worker's previews
@@ -50842,7 +50842,7 @@ func (r AccessApplicationNewParamsBodyMcpServerApplicationDestinationsWorkerDest
 	return false
 }
 
-// A specific Cloudflare Worker whose preview deployments Access will secure. Only
+// AccessApplicationNewParamsBodyMcpServerApplicationDestinationsPreviewWorkerDestination is a specific Cloudflare Worker whose preview deployments Access will secure. Only
 // requests routed to the preview deployments of the specified Worker will be
 // protected. The `public` destination type takes precedence, so you can create
 // separate applications to override the policies for specific paths.
@@ -50874,7 +50874,7 @@ func (r AccessApplicationNewParamsBodyMcpServerApplicationDestinationsPreviewWor
 	return false
 }
 
-// Protects all Cloudflare Workers on the account with Access, including their
+// AccessApplicationNewParamsBodyMcpServerApplicationDestinationsAllWorkersDestination protects all Cloudflare Workers on the account with Access, including their
 // preview deployments. At most one destination of this type can exist per account.
 // The `worker`, `preview_worker`, `all_preview_workers`, and `public` destination
 // types take precedence, so you can create separate applications to override the
@@ -50904,7 +50904,7 @@ func (r AccessApplicationNewParamsBodyMcpServerApplicationDestinationsAllWorkers
 	return false
 }
 
-// Protects the preview deployments of all Cloudflare Workers on the account with
+// AccessApplicationNewParamsBodyMcpServerApplicationDestinationsAllPreviewWorkersDestination protects the preview deployments of all Cloudflare Workers on the account with
 // Access. At most one destination of this type can exist per account. The
 // `worker`, `preview_worker`, and `public` destination types take precedence, so
 // you can create separate applications to override the policies for specific
@@ -50934,7 +50934,7 @@ func (r AccessApplicationNewParamsBodyMcpServerApplicationDestinationsAllPreview
 	return false
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationNewParamsBodyMcpServerApplicationDestinationsL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationNewParamsBodyMcpServerApplicationDestinationsL4Protocol string
 
@@ -50971,7 +50971,7 @@ func (r AccessApplicationNewParamsBodyMcpServerApplicationDestinationsType) IsKn
 	return false
 }
 
-// **Beta:** Optional configuration for managing an OAuth authorization flow
+// AccessApplicationNewParamsBodyMcpServerApplicationOAuthConfiguration **Beta:** Optional configuration for managing an OAuth authorization flow
 // controlled by Access. When set, Access will act as the OAuth authorization
 // server for this application. Only compatible with OAuth clients that support
 // [RFC 8707](https://datatracker.ietf.org/doc/html/rfc8707) (Resource Indicators
@@ -50991,7 +50991,7 @@ func (r AccessApplicationNewParamsBodyMcpServerApplicationOAuthConfiguration) Ma
 	return apijson.MarshalRoot(r)
 }
 
-// Settings for OAuth dynamic client registration.
+// AccessApplicationNewParamsBodyMcpServerApplicationOAuthConfigurationDynamicClientRegistration settings for OAuth dynamic client registration.
 type AccessApplicationNewParamsBodyMcpServerApplicationOAuthConfigurationDynamicClientRegistration struct {
 	// Allows any client with redirect URIs on localhost.
 	AllowAnyOnLocalhost param.Field[bool] `json:"allow_any_on_localhost"`
@@ -51008,7 +51008,7 @@ func (r AccessApplicationNewParamsBodyMcpServerApplicationOAuthConfigurationDyna
 	return apijson.MarshalRoot(r)
 }
 
-// Settings for OAuth grant behavior.
+// AccessApplicationNewParamsBodyMcpServerApplicationOAuthConfigurationGrant settings for OAuth grant behavior.
 type AccessApplicationNewParamsBodyMcpServerApplicationOAuthConfigurationGrant struct {
 	// The lifetime of the access token. Must be in the format `300ms` or `2h45m`.
 	// Valid time units are ns, us (or µs), ms, s, m, h.
@@ -51022,7 +51022,7 @@ func (r AccessApplicationNewParamsBodyMcpServerApplicationOAuthConfigurationGran
 	return apijson.MarshalRoot(r)
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationNewParamsBodyMcpServerApplicationPolicy is a JSON that links a reusable policy to an application.
 type AccessApplicationNewParamsBodyMcpServerApplicationPolicy struct {
 	// The UUID of the policy
 	ID             param.Field[string]      `json:"id"`
@@ -51056,7 +51056,7 @@ func (r AccessApplicationNewParamsBodyMcpServerApplicationPolicy) MarshalJSON() 
 func (r AccessApplicationNewParamsBodyMcpServerApplicationPolicy) ImplementsAccessApplicationNewParamsBodyMcpServerApplicationPolicyUnion() {
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationNewParamsBodyMcpServerApplicationPolicyUnion is a JSON that links a reusable policy to an application.
 //
 // Satisfied by
 // [zero_trust.AccessApplicationNewParamsBodyMcpServerApplicationPoliciesAccessAppPolicyLink],
@@ -51067,7 +51067,7 @@ type AccessApplicationNewParamsBodyMcpServerApplicationPolicyUnion interface {
 	ImplementsAccessApplicationNewParamsBodyMcpServerApplicationPolicyUnion()
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationNewParamsBodyMcpServerApplicationPoliciesAccessAppPolicyLink is a JSON that links a reusable policy to an application.
 type AccessApplicationNewParamsBodyMcpServerApplicationPoliciesAccessAppPolicyLink struct {
 	// The UUID of the policy
 	ID param.Field[string] `json:"id"`
@@ -51120,7 +51120,7 @@ func (r AccessApplicationNewParamsBodyMcpServerApplicationPoliciesObject) Marsha
 func (r AccessApplicationNewParamsBodyMcpServerApplicationPoliciesObject) ImplementsAccessApplicationNewParamsBodyMcpServerApplicationPolicyUnion() {
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationNewParamsBodyMcpServerApplicationPoliciesObjectConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationNewParamsBodyMcpServerApplicationPoliciesObjectConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -51131,7 +51131,7 @@ func (r AccessApplicationNewParamsBodyMcpServerApplicationPoliciesObjectConnecti
 	return apijson.MarshalRoot(r)
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationNewParamsBodyMcpServerApplicationPoliciesObjectConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationNewParamsBodyMcpServerApplicationPoliciesObjectConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats param.Field[[]AccessApplicationNewParamsBodyMcpServerApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat] `json:"allowed_clipboard_local_to_remote_formats"`
@@ -51143,7 +51143,7 @@ func (r AccessApplicationNewParamsBodyMcpServerApplicationPoliciesObjectConnecti
 	return apijson.MarshalRoot(r)
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationNewParamsBodyMcpServerApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationNewParamsBodyMcpServerApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -51158,7 +51158,7 @@ func (r AccessApplicationNewParamsBodyMcpServerApplicationPoliciesObjectConnecti
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationNewParamsBodyMcpServerApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationNewParamsBodyMcpServerApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -51173,7 +51173,7 @@ func (r AccessApplicationNewParamsBodyMcpServerApplicationPoliciesObjectConnecti
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationNewParamsBodyMcpServerApplicationPoliciesObjectMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationNewParamsBodyMcpServerApplicationPoliciesObjectMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators param.Field[[]AccessApplicationNewParamsBodyMcpServerApplicationPoliciesObjectMfaConfigAllowedAuthenticator] `json:"allowed_authenticators"`
@@ -51205,7 +51205,7 @@ func (r AccessApplicationNewParamsBodyMcpServerApplicationPoliciesObjectMfaConfi
 	return false
 }
 
-// Configuration for provisioning to this application via SCIM. This is currently
+// AccessApplicationNewParamsBodyMcpServerApplicationSCIMConfig configuration for provisioning to this application via SCIM. This is currently
 // in closed beta.
 type AccessApplicationNewParamsBodyMcpServerApplicationSCIMConfig struct {
 	// The UID of the IdP to use as the source for SCIM resources to provision to this
@@ -51231,7 +51231,7 @@ func (r AccessApplicationNewParamsBodyMcpServerApplicationSCIMConfig) MarshalJSO
 	return apijson.MarshalRoot(r)
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationNewParamsBodyMcpServerApplicationSCIMConfigAuthentication attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationNewParamsBodyMcpServerApplicationSCIMConfigAuthentication struct {
 	// The authentication scheme to use when making SCIM requests to this application.
@@ -51263,7 +51263,7 @@ func (r AccessApplicationNewParamsBodyMcpServerApplicationSCIMConfigAuthenticati
 func (r AccessApplicationNewParamsBodyMcpServerApplicationSCIMConfigAuthentication) implementsAccessApplicationNewParamsBodyMcpServerApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationNewParamsBodyMcpServerApplicationSCIMConfigAuthenticationUnion attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Satisfied by [zero_trust.SCIMConfigAuthenticationHTTPBasicParam],
@@ -51276,7 +51276,7 @@ type AccessApplicationNewParamsBodyMcpServerApplicationSCIMConfigAuthenticationU
 	implementsAccessApplicationNewParamsBodyMcpServerApplicationSCIMConfigAuthenticationUnion()
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationNewParamsBodyMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationNewParamsBodyMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -51296,7 +51296,7 @@ func (r AccessApplicationNewParamsBodyMcpServerApplicationSCIMConfigAuthenticati
 func (r AccessApplicationNewParamsBodyMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationNewParamsBodyMcpServerApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationNewParamsBodyMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationNewParamsBodyMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -51316,7 +51316,7 @@ type AccessApplicationNewParamsBodyMcpServerApplicationSCIMConfigAuthenticationA
 func (r AccessApplicationNewParamsBodyMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthentication) implementsAccessApplicationNewParamsBodyMcpServerApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationNewParamsBodyMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationNewParamsBodyMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem struct {
 	// The authentication scheme to use when making SCIM requests to this application.
@@ -51348,7 +51348,7 @@ func (r AccessApplicationNewParamsBodyMcpServerApplicationSCIMConfigAuthenticati
 func (r AccessApplicationNewParamsBodyMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem) implementsAccessApplicationNewParamsBodyMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItemUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationNewParamsBodyMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItemUnion attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Satisfied by [zero_trust.SCIMConfigAuthenticationHTTPBasicParam],
@@ -51360,7 +51360,7 @@ type AccessApplicationNewParamsBodyMcpServerApplicationSCIMConfigAuthenticationA
 	implementsAccessApplicationNewParamsBodyMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItemUnion()
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationNewParamsBodyMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationNewParamsBodyMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -51380,7 +51380,7 @@ func (r AccessApplicationNewParamsBodyMcpServerApplicationSCIMConfigAuthenticati
 func (r AccessApplicationNewParamsBodyMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationNewParamsBodyMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItemUnion() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationNewParamsBodyMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationNewParamsBodyMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -51395,7 +51395,7 @@ func (r AccessApplicationNewParamsBodyMcpServerApplicationSCIMConfigAuthenticati
 	return false
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationNewParamsBodyMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationNewParamsBodyMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme string
 
 const (
@@ -51413,7 +51413,7 @@ func (r AccessApplicationNewParamsBodyMcpServerApplicationSCIMConfigAuthenticati
 	return false
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationNewParamsBodyMcpServerApplicationSCIMConfigAuthenticationScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationNewParamsBodyMcpServerApplicationSCIMConfigAuthenticationScheme string
 
 const (
@@ -51506,7 +51506,7 @@ func (r AccessApplicationNewParamsBodyMcpServerPortalApplication) MarshalJSON() 
 func (r AccessApplicationNewParamsBodyMcpServerPortalApplication) implementsAccessApplicationNewParamsBodyUnion() {
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationNewParamsBodyMcpServerPortalApplicationDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationNewParamsBodyMcpServerPortalApplicationDestination struct {
 	// The CIDR range of the destination. Single IPs will be computed as /32.
@@ -51539,7 +51539,7 @@ func (r AccessApplicationNewParamsBodyMcpServerPortalApplicationDestination) Mar
 func (r AccessApplicationNewParamsBodyMcpServerPortalApplicationDestination) implementsAccessApplicationNewParamsBodyMcpServerPortalApplicationDestinationUnion() {
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationNewParamsBodyMcpServerPortalApplicationDestinationUnion is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 //
 // Satisfied by
@@ -51555,7 +51555,7 @@ type AccessApplicationNewParamsBodyMcpServerPortalApplicationDestinationUnion in
 	implementsAccessApplicationNewParamsBodyMcpServerPortalApplicationDestinationUnion()
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationNewParamsBodyMcpServerPortalApplicationDestinationsPublicDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationNewParamsBodyMcpServerPortalApplicationDestinationsPublicDestination struct {
 	Type param.Field[AccessApplicationNewParamsBodyMcpServerPortalApplicationDestinationsPublicDestinationType] `json:"type"`
@@ -51609,7 +51609,7 @@ func (r AccessApplicationNewParamsBodyMcpServerPortalApplicationDestinationsPriv
 func (r AccessApplicationNewParamsBodyMcpServerPortalApplicationDestinationsPrivateDestination) implementsAccessApplicationNewParamsBodyMcpServerPortalApplicationDestinationUnion() {
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationNewParamsBodyMcpServerPortalApplicationDestinationsPrivateDestinationL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationNewParamsBodyMcpServerPortalApplicationDestinationsPrivateDestinationL4Protocol string
 
@@ -51640,7 +51640,7 @@ func (r AccessApplicationNewParamsBodyMcpServerPortalApplicationDestinationsPriv
 	return false
 }
 
-// A MCP server id configured in ai-controls. Access will secure the MCP server if
+// AccessApplicationNewParamsBodyMcpServerPortalApplicationDestinationsViaMcpServerPortalDestination is a MCP server id configured in ai-controls. Access will secure the MCP server if
 // accessed through a MCP portal.
 type AccessApplicationNewParamsBodyMcpServerPortalApplicationDestinationsViaMcpServerPortalDestination struct {
 	// The MCP server id configured in ai-controls.
@@ -51669,7 +51669,7 @@ func (r AccessApplicationNewParamsBodyMcpServerPortalApplicationDestinationsViaM
 	return false
 }
 
-// A specific Cloudflare Worker that Access will secure. All requests routed to the
+// AccessApplicationNewParamsBodyMcpServerPortalApplicationDestinationsWorkerDestination is a specific Cloudflare Worker that Access will secure. All requests routed to the
 // specified Worker, including its preview deployments, will be protected. The
 // `preview_worker` and `public` destination types takes precedence, so you can
 // create separate applications to override the policies for the Worker's previews
@@ -51701,7 +51701,7 @@ func (r AccessApplicationNewParamsBodyMcpServerPortalApplicationDestinationsWork
 	return false
 }
 
-// A specific Cloudflare Worker whose preview deployments Access will secure. Only
+// AccessApplicationNewParamsBodyMcpServerPortalApplicationDestinationsPreviewWorkerDestination is a specific Cloudflare Worker whose preview deployments Access will secure. Only
 // requests routed to the preview deployments of the specified Worker will be
 // protected. The `public` destination type takes precedence, so you can create
 // separate applications to override the policies for specific paths.
@@ -51733,7 +51733,7 @@ func (r AccessApplicationNewParamsBodyMcpServerPortalApplicationDestinationsPrev
 	return false
 }
 
-// Protects all Cloudflare Workers on the account with Access, including their
+// AccessApplicationNewParamsBodyMcpServerPortalApplicationDestinationsAllWorkersDestination protects all Cloudflare Workers on the account with Access, including their
 // preview deployments. At most one destination of this type can exist per account.
 // The `worker`, `preview_worker`, `all_preview_workers`, and `public` destination
 // types take precedence, so you can create separate applications to override the
@@ -51763,7 +51763,7 @@ func (r AccessApplicationNewParamsBodyMcpServerPortalApplicationDestinationsAllW
 	return false
 }
 
-// Protects the preview deployments of all Cloudflare Workers on the account with
+// AccessApplicationNewParamsBodyMcpServerPortalApplicationDestinationsAllPreviewWorkersDestination protects the preview deployments of all Cloudflare Workers on the account with
 // Access. At most one destination of this type can exist per account. The
 // `worker`, `preview_worker`, and `public` destination types take precedence, so
 // you can create separate applications to override the policies for specific
@@ -51793,7 +51793,7 @@ func (r AccessApplicationNewParamsBodyMcpServerPortalApplicationDestinationsAllP
 	return false
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationNewParamsBodyMcpServerPortalApplicationDestinationsL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationNewParamsBodyMcpServerPortalApplicationDestinationsL4Protocol string
 
@@ -51830,7 +51830,7 @@ func (r AccessApplicationNewParamsBodyMcpServerPortalApplicationDestinationsType
 	return false
 }
 
-// **Beta:** Optional configuration for managing an OAuth authorization flow
+// AccessApplicationNewParamsBodyMcpServerPortalApplicationOAuthConfiguration **Beta:** Optional configuration for managing an OAuth authorization flow
 // controlled by Access. When set, Access will act as the OAuth authorization
 // server for this application. Only compatible with OAuth clients that support
 // [RFC 8707](https://datatracker.ietf.org/doc/html/rfc8707) (Resource Indicators
@@ -51850,7 +51850,7 @@ func (r AccessApplicationNewParamsBodyMcpServerPortalApplicationOAuthConfigurati
 	return apijson.MarshalRoot(r)
 }
 
-// Settings for OAuth dynamic client registration.
+// AccessApplicationNewParamsBodyMcpServerPortalApplicationOAuthConfigurationDynamicClientRegistration settings for OAuth dynamic client registration.
 type AccessApplicationNewParamsBodyMcpServerPortalApplicationOAuthConfigurationDynamicClientRegistration struct {
 	// Allows any client with redirect URIs on localhost.
 	AllowAnyOnLocalhost param.Field[bool] `json:"allow_any_on_localhost"`
@@ -51867,7 +51867,7 @@ func (r AccessApplicationNewParamsBodyMcpServerPortalApplicationOAuthConfigurati
 	return apijson.MarshalRoot(r)
 }
 
-// Settings for OAuth grant behavior.
+// AccessApplicationNewParamsBodyMcpServerPortalApplicationOAuthConfigurationGrant settings for OAuth grant behavior.
 type AccessApplicationNewParamsBodyMcpServerPortalApplicationOAuthConfigurationGrant struct {
 	// The lifetime of the access token. Must be in the format `300ms` or `2h45m`.
 	// Valid time units are ns, us (or µs), ms, s, m, h.
@@ -51881,7 +51881,7 @@ func (r AccessApplicationNewParamsBodyMcpServerPortalApplicationOAuthConfigurati
 	return apijson.MarshalRoot(r)
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationNewParamsBodyMcpServerPortalApplicationPolicy is a JSON that links a reusable policy to an application.
 type AccessApplicationNewParamsBodyMcpServerPortalApplicationPolicy struct {
 	// The UUID of the policy
 	ID             param.Field[string]      `json:"id"`
@@ -51915,7 +51915,7 @@ func (r AccessApplicationNewParamsBodyMcpServerPortalApplicationPolicy) MarshalJ
 func (r AccessApplicationNewParamsBodyMcpServerPortalApplicationPolicy) ImplementsAccessApplicationNewParamsBodyMcpServerPortalApplicationPolicyUnion() {
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationNewParamsBodyMcpServerPortalApplicationPolicyUnion is a JSON that links a reusable policy to an application.
 //
 // Satisfied by
 // [zero_trust.AccessApplicationNewParamsBodyMcpServerPortalApplicationPoliciesAccessAppPolicyLink],
@@ -51926,7 +51926,7 @@ type AccessApplicationNewParamsBodyMcpServerPortalApplicationPolicyUnion interfa
 	ImplementsAccessApplicationNewParamsBodyMcpServerPortalApplicationPolicyUnion()
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationNewParamsBodyMcpServerPortalApplicationPoliciesAccessAppPolicyLink is a JSON that links a reusable policy to an application.
 type AccessApplicationNewParamsBodyMcpServerPortalApplicationPoliciesAccessAppPolicyLink struct {
 	// The UUID of the policy
 	ID param.Field[string] `json:"id"`
@@ -51979,7 +51979,7 @@ func (r AccessApplicationNewParamsBodyMcpServerPortalApplicationPoliciesObject) 
 func (r AccessApplicationNewParamsBodyMcpServerPortalApplicationPoliciesObject) ImplementsAccessApplicationNewParamsBodyMcpServerPortalApplicationPolicyUnion() {
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationNewParamsBodyMcpServerPortalApplicationPoliciesObjectConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationNewParamsBodyMcpServerPortalApplicationPoliciesObjectConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -51990,7 +51990,7 @@ func (r AccessApplicationNewParamsBodyMcpServerPortalApplicationPoliciesObjectCo
 	return apijson.MarshalRoot(r)
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationNewParamsBodyMcpServerPortalApplicationPoliciesObjectConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationNewParamsBodyMcpServerPortalApplicationPoliciesObjectConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats param.Field[[]AccessApplicationNewParamsBodyMcpServerPortalApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat] `json:"allowed_clipboard_local_to_remote_formats"`
@@ -52002,7 +52002,7 @@ func (r AccessApplicationNewParamsBodyMcpServerPortalApplicationPoliciesObjectCo
 	return apijson.MarshalRoot(r)
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationNewParamsBodyMcpServerPortalApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationNewParamsBodyMcpServerPortalApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -52017,7 +52017,7 @@ func (r AccessApplicationNewParamsBodyMcpServerPortalApplicationPoliciesObjectCo
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationNewParamsBodyMcpServerPortalApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationNewParamsBodyMcpServerPortalApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -52032,7 +52032,7 @@ func (r AccessApplicationNewParamsBodyMcpServerPortalApplicationPoliciesObjectCo
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationNewParamsBodyMcpServerPortalApplicationPoliciesObjectMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationNewParamsBodyMcpServerPortalApplicationPoliciesObjectMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators param.Field[[]AccessApplicationNewParamsBodyMcpServerPortalApplicationPoliciesObjectMfaConfigAllowedAuthenticator] `json:"allowed_authenticators"`
@@ -52064,7 +52064,7 @@ func (r AccessApplicationNewParamsBodyMcpServerPortalApplicationPoliciesObjectMf
 	return false
 }
 
-// Configuration for provisioning to this application via SCIM. This is currently
+// AccessApplicationNewParamsBodyMcpServerPortalApplicationSCIMConfig configuration for provisioning to this application via SCIM. This is currently
 // in closed beta.
 type AccessApplicationNewParamsBodyMcpServerPortalApplicationSCIMConfig struct {
 	// The UID of the IdP to use as the source for SCIM resources to provision to this
@@ -52090,7 +52090,7 @@ func (r AccessApplicationNewParamsBodyMcpServerPortalApplicationSCIMConfig) Mars
 	return apijson.MarshalRoot(r)
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationNewParamsBodyMcpServerPortalApplicationSCIMConfigAuthentication attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationNewParamsBodyMcpServerPortalApplicationSCIMConfigAuthentication struct {
 	// The authentication scheme to use when making SCIM requests to this application.
@@ -52122,7 +52122,7 @@ func (r AccessApplicationNewParamsBodyMcpServerPortalApplicationSCIMConfigAuthen
 func (r AccessApplicationNewParamsBodyMcpServerPortalApplicationSCIMConfigAuthentication) implementsAccessApplicationNewParamsBodyMcpServerPortalApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationNewParamsBodyMcpServerPortalApplicationSCIMConfigAuthenticationUnion attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Satisfied by [zero_trust.SCIMConfigAuthenticationHTTPBasicParam],
@@ -52135,7 +52135,7 @@ type AccessApplicationNewParamsBodyMcpServerPortalApplicationSCIMConfigAuthentic
 	implementsAccessApplicationNewParamsBodyMcpServerPortalApplicationSCIMConfigAuthenticationUnion()
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationNewParamsBodyMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationNewParamsBodyMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -52155,7 +52155,7 @@ func (r AccessApplicationNewParamsBodyMcpServerPortalApplicationSCIMConfigAuthen
 func (r AccessApplicationNewParamsBodyMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationNewParamsBodyMcpServerPortalApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationNewParamsBodyMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationNewParamsBodyMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -52175,7 +52175,7 @@ type AccessApplicationNewParamsBodyMcpServerPortalApplicationSCIMConfigAuthentic
 func (r AccessApplicationNewParamsBodyMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthentication) implementsAccessApplicationNewParamsBodyMcpServerPortalApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationNewParamsBodyMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationNewParamsBodyMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem struct {
 	// The authentication scheme to use when making SCIM requests to this application.
@@ -52207,7 +52207,7 @@ func (r AccessApplicationNewParamsBodyMcpServerPortalApplicationSCIMConfigAuthen
 func (r AccessApplicationNewParamsBodyMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem) implementsAccessApplicationNewParamsBodyMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItemUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationNewParamsBodyMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItemUnion attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Satisfied by [zero_trust.SCIMConfigAuthenticationHTTPBasicParam],
@@ -52219,7 +52219,7 @@ type AccessApplicationNewParamsBodyMcpServerPortalApplicationSCIMConfigAuthentic
 	implementsAccessApplicationNewParamsBodyMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItemUnion()
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationNewParamsBodyMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationNewParamsBodyMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -52239,7 +52239,7 @@ func (r AccessApplicationNewParamsBodyMcpServerPortalApplicationSCIMConfigAuthen
 func (r AccessApplicationNewParamsBodyMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationNewParamsBodyMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItemUnion() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationNewParamsBodyMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationNewParamsBodyMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -52254,7 +52254,7 @@ func (r AccessApplicationNewParamsBodyMcpServerPortalApplicationSCIMConfigAuthen
 	return false
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationNewParamsBodyMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationNewParamsBodyMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme string
 
 const (
@@ -52272,7 +52272,7 @@ func (r AccessApplicationNewParamsBodyMcpServerPortalApplicationSCIMConfigAuthen
 	return false
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationNewParamsBodyMcpServerPortalApplicationSCIMConfigAuthenticationScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationNewParamsBodyMcpServerPortalApplicationSCIMConfigAuthenticationScheme string
 
 const (
@@ -52414,7 +52414,7 @@ func (r accessApplicationNewResponseEnvelopeMessagesSourceJSON) RawJSON() string
 	return r.raw
 }
 
-// Whether the API call was successful.
+// AccessApplicationNewResponseEnvelopeSuccess indicates whether the API call was successful.
 type AccessApplicationNewResponseEnvelopeSuccess bool
 
 const (
@@ -52442,7 +52442,7 @@ func (r AccessApplicationUpdateParams) MarshalJSON() (data []byte, err error) {
 	return apijson.MarshalRoot(r.Body)
 }
 
-// Contains the targets secured by the application.
+// AccessApplicationUpdateParamsBody contains the targets secured by the application.
 type AccessApplicationUpdateParamsBody struct {
 	// When set to true, users can authenticate to this application using their WARP
 	// session. When set to false this application will always require direct IdP
@@ -52545,7 +52545,7 @@ func (r AccessApplicationUpdateParamsBody) MarshalJSON() (data []byte, err error
 
 func (r AccessApplicationUpdateParamsBody) implementsAccessApplicationUpdateParamsBodyUnion() {}
 
-// Contains the targets secured by the application.
+// AccessApplicationUpdateParamsBodyUnion contains the targets secured by the application.
 //
 // Satisfied by
 // [zero_trust.AccessApplicationUpdateParamsBodySelfHostedApplication],
@@ -52682,7 +52682,7 @@ func (r AccessApplicationUpdateParamsBodySelfHostedApplication) MarshalJSON() (d
 func (r AccessApplicationUpdateParamsBodySelfHostedApplication) implementsAccessApplicationUpdateParamsBodyUnion() {
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationUpdateParamsBodySelfHostedApplicationDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationUpdateParamsBodySelfHostedApplicationDestination struct {
 	// The CIDR range of the destination. Single IPs will be computed as /32.
@@ -52715,7 +52715,7 @@ func (r AccessApplicationUpdateParamsBodySelfHostedApplicationDestination) Marsh
 func (r AccessApplicationUpdateParamsBodySelfHostedApplicationDestination) implementsAccessApplicationUpdateParamsBodySelfHostedApplicationDestinationUnion() {
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationUpdateParamsBodySelfHostedApplicationDestinationUnion is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 //
 // Satisfied by
@@ -52731,7 +52731,7 @@ type AccessApplicationUpdateParamsBodySelfHostedApplicationDestinationUnion inte
 	implementsAccessApplicationUpdateParamsBodySelfHostedApplicationDestinationUnion()
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationUpdateParamsBodySelfHostedApplicationDestinationsPublicDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationUpdateParamsBodySelfHostedApplicationDestinationsPublicDestination struct {
 	Type param.Field[AccessApplicationUpdateParamsBodySelfHostedApplicationDestinationsPublicDestinationType] `json:"type"`
@@ -52785,7 +52785,7 @@ func (r AccessApplicationUpdateParamsBodySelfHostedApplicationDestinationsPrivat
 func (r AccessApplicationUpdateParamsBodySelfHostedApplicationDestinationsPrivateDestination) implementsAccessApplicationUpdateParamsBodySelfHostedApplicationDestinationUnion() {
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationUpdateParamsBodySelfHostedApplicationDestinationsPrivateDestinationL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationUpdateParamsBodySelfHostedApplicationDestinationsPrivateDestinationL4Protocol string
 
@@ -52816,7 +52816,7 @@ func (r AccessApplicationUpdateParamsBodySelfHostedApplicationDestinationsPrivat
 	return false
 }
 
-// A MCP server id configured in ai-controls. Access will secure the MCP server if
+// AccessApplicationUpdateParamsBodySelfHostedApplicationDestinationsViaMcpServerPortalDestination is a MCP server id configured in ai-controls. Access will secure the MCP server if
 // accessed through a MCP portal.
 type AccessApplicationUpdateParamsBodySelfHostedApplicationDestinationsViaMcpServerPortalDestination struct {
 	// The MCP server id configured in ai-controls.
@@ -52845,7 +52845,7 @@ func (r AccessApplicationUpdateParamsBodySelfHostedApplicationDestinationsViaMcp
 	return false
 }
 
-// A specific Cloudflare Worker that Access will secure. All requests routed to the
+// AccessApplicationUpdateParamsBodySelfHostedApplicationDestinationsWorkerDestination is a specific Cloudflare Worker that Access will secure. All requests routed to the
 // specified Worker, including its preview deployments, will be protected. The
 // `preview_worker` and `public` destination types takes precedence, so you can
 // create separate applications to override the policies for the Worker's previews
@@ -52877,7 +52877,7 @@ func (r AccessApplicationUpdateParamsBodySelfHostedApplicationDestinationsWorker
 	return false
 }
 
-// A specific Cloudflare Worker whose preview deployments Access will secure. Only
+// AccessApplicationUpdateParamsBodySelfHostedApplicationDestinationsPreviewWorkerDestination is a specific Cloudflare Worker whose preview deployments Access will secure. Only
 // requests routed to the preview deployments of the specified Worker will be
 // protected. The `public` destination type takes precedence, so you can create
 // separate applications to override the policies for specific paths.
@@ -52909,7 +52909,7 @@ func (r AccessApplicationUpdateParamsBodySelfHostedApplicationDestinationsPrevie
 	return false
 }
 
-// Protects all Cloudflare Workers on the account with Access, including their
+// AccessApplicationUpdateParamsBodySelfHostedApplicationDestinationsAllWorkersDestination protects all Cloudflare Workers on the account with Access, including their
 // preview deployments. At most one destination of this type can exist per account.
 // The `worker`, `preview_worker`, `all_preview_workers`, and `public` destination
 // types take precedence, so you can create separate applications to override the
@@ -52939,7 +52939,7 @@ func (r AccessApplicationUpdateParamsBodySelfHostedApplicationDestinationsAllWor
 	return false
 }
 
-// Protects the preview deployments of all Cloudflare Workers on the account with
+// AccessApplicationUpdateParamsBodySelfHostedApplicationDestinationsAllPreviewWorkersDestination protects the preview deployments of all Cloudflare Workers on the account with
 // Access. At most one destination of this type can exist per account. The
 // `worker`, `preview_worker`, and `public` destination types take precedence, so
 // you can create separate applications to override the policies for specific
@@ -52969,7 +52969,7 @@ func (r AccessApplicationUpdateParamsBodySelfHostedApplicationDestinationsAllPre
 	return false
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationUpdateParamsBodySelfHostedApplicationDestinationsL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationUpdateParamsBodySelfHostedApplicationDestinationsL4Protocol string
 
@@ -53006,7 +53006,7 @@ func (r AccessApplicationUpdateParamsBodySelfHostedApplicationDestinationsType) 
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationUpdateParamsBodySelfHostedApplicationMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationUpdateParamsBodySelfHostedApplicationMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators param.Field[[]AccessApplicationUpdateParamsBodySelfHostedApplicationMfaConfigAllowedAuthenticator] `json:"allowed_authenticators"`
@@ -53038,7 +53038,7 @@ func (r AccessApplicationUpdateParamsBodySelfHostedApplicationMfaConfigAllowedAu
 	return false
 }
 
-// **Beta:** Optional configuration for managing an OAuth authorization flow
+// AccessApplicationUpdateParamsBodySelfHostedApplicationOAuthConfiguration **Beta:** Optional configuration for managing an OAuth authorization flow
 // controlled by Access. When set, Access will act as the OAuth authorization
 // server for this application. Only compatible with OAuth clients that support
 // [RFC 8707](https://datatracker.ietf.org/doc/html/rfc8707) (Resource Indicators
@@ -53058,7 +53058,7 @@ func (r AccessApplicationUpdateParamsBodySelfHostedApplicationOAuthConfiguration
 	return apijson.MarshalRoot(r)
 }
 
-// Settings for OAuth dynamic client registration.
+// AccessApplicationUpdateParamsBodySelfHostedApplicationOAuthConfigurationDynamicClientRegistration settings for OAuth dynamic client registration.
 type AccessApplicationUpdateParamsBodySelfHostedApplicationOAuthConfigurationDynamicClientRegistration struct {
 	// Allows any client with redirect URIs on localhost.
 	AllowAnyOnLocalhost param.Field[bool] `json:"allow_any_on_localhost"`
@@ -53075,7 +53075,7 @@ func (r AccessApplicationUpdateParamsBodySelfHostedApplicationOAuthConfiguration
 	return apijson.MarshalRoot(r)
 }
 
-// Settings for OAuth grant behavior.
+// AccessApplicationUpdateParamsBodySelfHostedApplicationOAuthConfigurationGrant settings for OAuth grant behavior.
 type AccessApplicationUpdateParamsBodySelfHostedApplicationOAuthConfigurationGrant struct {
 	// The lifetime of the access token. Must be in the format `300ms` or `2h45m`.
 	// Valid time units are ns, us (or µs), ms, s, m, h.
@@ -53089,7 +53089,7 @@ func (r AccessApplicationUpdateParamsBodySelfHostedApplicationOAuthConfiguration
 	return apijson.MarshalRoot(r)
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationUpdateParamsBodySelfHostedApplicationPolicy is a JSON that links a reusable policy to an application.
 type AccessApplicationUpdateParamsBodySelfHostedApplicationPolicy struct {
 	// The UUID of the policy
 	ID             param.Field[string]      `json:"id"`
@@ -53123,7 +53123,7 @@ func (r AccessApplicationUpdateParamsBodySelfHostedApplicationPolicy) MarshalJSO
 func (r AccessApplicationUpdateParamsBodySelfHostedApplicationPolicy) ImplementsAccessApplicationUpdateParamsBodySelfHostedApplicationPolicyUnion() {
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationUpdateParamsBodySelfHostedApplicationPolicyUnion is a JSON that links a reusable policy to an application.
 //
 // Satisfied by
 // [zero_trust.AccessApplicationUpdateParamsBodySelfHostedApplicationPoliciesAccessAppPolicyLink],
@@ -53134,7 +53134,7 @@ type AccessApplicationUpdateParamsBodySelfHostedApplicationPolicyUnion interface
 	ImplementsAccessApplicationUpdateParamsBodySelfHostedApplicationPolicyUnion()
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationUpdateParamsBodySelfHostedApplicationPoliciesAccessAppPolicyLink is a JSON that links a reusable policy to an application.
 type AccessApplicationUpdateParamsBodySelfHostedApplicationPoliciesAccessAppPolicyLink struct {
 	// The UUID of the policy
 	ID param.Field[string] `json:"id"`
@@ -53187,7 +53187,7 @@ func (r AccessApplicationUpdateParamsBodySelfHostedApplicationPoliciesObject) Ma
 func (r AccessApplicationUpdateParamsBodySelfHostedApplicationPoliciesObject) ImplementsAccessApplicationUpdateParamsBodySelfHostedApplicationPolicyUnion() {
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationUpdateParamsBodySelfHostedApplicationPoliciesObjectConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationUpdateParamsBodySelfHostedApplicationPoliciesObjectConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -53198,7 +53198,7 @@ func (r AccessApplicationUpdateParamsBodySelfHostedApplicationPoliciesObjectConn
 	return apijson.MarshalRoot(r)
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationUpdateParamsBodySelfHostedApplicationPoliciesObjectConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationUpdateParamsBodySelfHostedApplicationPoliciesObjectConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats param.Field[[]AccessApplicationUpdateParamsBodySelfHostedApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat] `json:"allowed_clipboard_local_to_remote_formats"`
@@ -53210,7 +53210,7 @@ func (r AccessApplicationUpdateParamsBodySelfHostedApplicationPoliciesObjectConn
 	return apijson.MarshalRoot(r)
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationUpdateParamsBodySelfHostedApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationUpdateParamsBodySelfHostedApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -53225,7 +53225,7 @@ func (r AccessApplicationUpdateParamsBodySelfHostedApplicationPoliciesObjectConn
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationUpdateParamsBodySelfHostedApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationUpdateParamsBodySelfHostedApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -53240,7 +53240,7 @@ func (r AccessApplicationUpdateParamsBodySelfHostedApplicationPoliciesObjectConn
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationUpdateParamsBodySelfHostedApplicationPoliciesObjectMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationUpdateParamsBodySelfHostedApplicationPoliciesObjectMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators param.Field[[]AccessApplicationUpdateParamsBodySelfHostedApplicationPoliciesObjectMfaConfigAllowedAuthenticator] `json:"allowed_authenticators"`
@@ -53272,7 +53272,7 @@ func (r AccessApplicationUpdateParamsBodySelfHostedApplicationPoliciesObjectMfaC
 	return false
 }
 
-// Configuration for provisioning to this application via SCIM. This is currently
+// AccessApplicationUpdateParamsBodySelfHostedApplicationSCIMConfig configuration for provisioning to this application via SCIM. This is currently
 // in closed beta.
 type AccessApplicationUpdateParamsBodySelfHostedApplicationSCIMConfig struct {
 	// The UID of the IdP to use as the source for SCIM resources to provision to this
@@ -53298,7 +53298,7 @@ func (r AccessApplicationUpdateParamsBodySelfHostedApplicationSCIMConfig) Marsha
 	return apijson.MarshalRoot(r)
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationUpdateParamsBodySelfHostedApplicationSCIMConfigAuthentication attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationUpdateParamsBodySelfHostedApplicationSCIMConfigAuthentication struct {
 	// The authentication scheme to use when making SCIM requests to this application.
@@ -53330,7 +53330,7 @@ func (r AccessApplicationUpdateParamsBodySelfHostedApplicationSCIMConfigAuthenti
 func (r AccessApplicationUpdateParamsBodySelfHostedApplicationSCIMConfigAuthentication) implementsAccessApplicationUpdateParamsBodySelfHostedApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationUpdateParamsBodySelfHostedApplicationSCIMConfigAuthenticationUnion attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Satisfied by [zero_trust.SCIMConfigAuthenticationHTTPBasicParam],
@@ -53343,7 +53343,7 @@ type AccessApplicationUpdateParamsBodySelfHostedApplicationSCIMConfigAuthenticat
 	implementsAccessApplicationUpdateParamsBodySelfHostedApplicationSCIMConfigAuthenticationUnion()
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationUpdateParamsBodySelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationUpdateParamsBodySelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -53363,7 +53363,7 @@ func (r AccessApplicationUpdateParamsBodySelfHostedApplicationSCIMConfigAuthenti
 func (r AccessApplicationUpdateParamsBodySelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationUpdateParamsBodySelfHostedApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationUpdateParamsBodySelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationUpdateParamsBodySelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -53383,7 +53383,7 @@ type AccessApplicationUpdateParamsBodySelfHostedApplicationSCIMConfigAuthenticat
 func (r AccessApplicationUpdateParamsBodySelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthentication) implementsAccessApplicationUpdateParamsBodySelfHostedApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationUpdateParamsBodySelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationUpdateParamsBodySelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem struct {
 	// The authentication scheme to use when making SCIM requests to this application.
@@ -53415,7 +53415,7 @@ func (r AccessApplicationUpdateParamsBodySelfHostedApplicationSCIMConfigAuthenti
 func (r AccessApplicationUpdateParamsBodySelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem) implementsAccessApplicationUpdateParamsBodySelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItemUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationUpdateParamsBodySelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItemUnion attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Satisfied by [zero_trust.SCIMConfigAuthenticationHTTPBasicParam],
@@ -53427,7 +53427,7 @@ type AccessApplicationUpdateParamsBodySelfHostedApplicationSCIMConfigAuthenticat
 	implementsAccessApplicationUpdateParamsBodySelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItemUnion()
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationUpdateParamsBodySelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationUpdateParamsBodySelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -53447,7 +53447,7 @@ func (r AccessApplicationUpdateParamsBodySelfHostedApplicationSCIMConfigAuthenti
 func (r AccessApplicationUpdateParamsBodySelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationUpdateParamsBodySelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItemUnion() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationUpdateParamsBodySelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationUpdateParamsBodySelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -53462,7 +53462,7 @@ func (r AccessApplicationUpdateParamsBodySelfHostedApplicationSCIMConfigAuthenti
 	return false
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationUpdateParamsBodySelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationUpdateParamsBodySelfHostedApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme string
 
 const (
@@ -53480,7 +53480,7 @@ func (r AccessApplicationUpdateParamsBodySelfHostedApplicationSCIMConfigAuthenti
 	return false
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationUpdateParamsBodySelfHostedApplicationSCIMConfigAuthenticationScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationUpdateParamsBodySelfHostedApplicationSCIMConfigAuthenticationScheme string
 
 const (
@@ -53536,7 +53536,7 @@ func (r AccessApplicationUpdateParamsBodySaaSApplication) MarshalJSON() (data []
 func (r AccessApplicationUpdateParamsBodySaaSApplication) implementsAccessApplicationUpdateParamsBodyUnion() {
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationUpdateParamsBodySaaSApplicationPolicy is a JSON that links a reusable policy to an application.
 type AccessApplicationUpdateParamsBodySaaSApplicationPolicy struct {
 	// The UUID of the policy
 	ID             param.Field[string]      `json:"id"`
@@ -53570,7 +53570,7 @@ func (r AccessApplicationUpdateParamsBodySaaSApplicationPolicy) MarshalJSON() (d
 func (r AccessApplicationUpdateParamsBodySaaSApplicationPolicy) ImplementsAccessApplicationUpdateParamsBodySaaSApplicationPolicyUnion() {
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationUpdateParamsBodySaaSApplicationPolicyUnion is a JSON that links a reusable policy to an application.
 //
 // Satisfied by
 // [zero_trust.AccessApplicationUpdateParamsBodySaaSApplicationPoliciesAccessAppPolicyLink],
@@ -53581,7 +53581,7 @@ type AccessApplicationUpdateParamsBodySaaSApplicationPolicyUnion interface {
 	ImplementsAccessApplicationUpdateParamsBodySaaSApplicationPolicyUnion()
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationUpdateParamsBodySaaSApplicationPoliciesAccessAppPolicyLink is a JSON that links a reusable policy to an application.
 type AccessApplicationUpdateParamsBodySaaSApplicationPoliciesAccessAppPolicyLink struct {
 	// The UUID of the policy
 	ID param.Field[string] `json:"id"`
@@ -53634,7 +53634,7 @@ func (r AccessApplicationUpdateParamsBodySaaSApplicationPoliciesObject) MarshalJ
 func (r AccessApplicationUpdateParamsBodySaaSApplicationPoliciesObject) ImplementsAccessApplicationUpdateParamsBodySaaSApplicationPolicyUnion() {
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationUpdateParamsBodySaaSApplicationPoliciesObjectConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationUpdateParamsBodySaaSApplicationPoliciesObjectConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -53645,7 +53645,7 @@ func (r AccessApplicationUpdateParamsBodySaaSApplicationPoliciesObjectConnection
 	return apijson.MarshalRoot(r)
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationUpdateParamsBodySaaSApplicationPoliciesObjectConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationUpdateParamsBodySaaSApplicationPoliciesObjectConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats param.Field[[]AccessApplicationUpdateParamsBodySaaSApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat] `json:"allowed_clipboard_local_to_remote_formats"`
@@ -53657,7 +53657,7 @@ func (r AccessApplicationUpdateParamsBodySaaSApplicationPoliciesObjectConnection
 	return apijson.MarshalRoot(r)
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationUpdateParamsBodySaaSApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationUpdateParamsBodySaaSApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -53672,7 +53672,7 @@ func (r AccessApplicationUpdateParamsBodySaaSApplicationPoliciesObjectConnection
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationUpdateParamsBodySaaSApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationUpdateParamsBodySaaSApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -53687,7 +53687,7 @@ func (r AccessApplicationUpdateParamsBodySaaSApplicationPoliciesObjectConnection
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationUpdateParamsBodySaaSApplicationPoliciesObjectMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationUpdateParamsBodySaaSApplicationPoliciesObjectMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators param.Field[[]AccessApplicationUpdateParamsBodySaaSApplicationPoliciesObjectMfaConfigAllowedAuthenticator] `json:"allowed_authenticators"`
@@ -53780,13 +53780,13 @@ func (r AccessApplicationUpdateParamsBodySaaSApplicationSaaSApp) MarshalJSON() (
 func (r AccessApplicationUpdateParamsBodySaaSApplicationSaaSApp) implementsAccessApplicationUpdateParamsBodySaaSApplicationSaaSAppUnion() {
 }
 
-// Satisfied by [zero_trust.SAMLSaaSAppParam], [zero_trust.OIDCSaaSAppParam],
+// AccessApplicationUpdateParamsBodySaaSApplicationSaaSAppUnion satisfied by [zero_trust.SAMLSaaSAppParam], [zero_trust.OIDCSaaSAppParam],
 // [AccessApplicationUpdateParamsBodySaaSApplicationSaaSApp].
 type AccessApplicationUpdateParamsBodySaaSApplicationSaaSAppUnion interface {
 	implementsAccessApplicationUpdateParamsBodySaaSApplicationSaaSAppUnion()
 }
 
-// Optional identifier indicating the authentication protocol used for the saas
+// AccessApplicationUpdateParamsBodySaaSApplicationSaaSAppAuthType optional identifier indicating the authentication protocol used for the saas
 // app. Required for OIDC. Default if unset is "saml"
 type AccessApplicationUpdateParamsBodySaaSApplicationSaaSAppAuthType string
 
@@ -53803,7 +53803,7 @@ func (r AccessApplicationUpdateParamsBodySaaSApplicationSaaSAppAuthType) IsKnown
 	return false
 }
 
-// Configuration for provisioning to this application via SCIM. This is currently
+// AccessApplicationUpdateParamsBodySaaSApplicationSCIMConfig configuration for provisioning to this application via SCIM. This is currently
 // in closed beta.
 type AccessApplicationUpdateParamsBodySaaSApplicationSCIMConfig struct {
 	// The UID of the IdP to use as the source for SCIM resources to provision to this
@@ -53829,7 +53829,7 @@ func (r AccessApplicationUpdateParamsBodySaaSApplicationSCIMConfig) MarshalJSON(
 	return apijson.MarshalRoot(r)
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationUpdateParamsBodySaaSApplicationSCIMConfigAuthentication attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationUpdateParamsBodySaaSApplicationSCIMConfigAuthentication struct {
 	// The authentication scheme to use when making SCIM requests to this application.
@@ -53861,7 +53861,7 @@ func (r AccessApplicationUpdateParamsBodySaaSApplicationSCIMConfigAuthentication
 func (r AccessApplicationUpdateParamsBodySaaSApplicationSCIMConfigAuthentication) implementsAccessApplicationUpdateParamsBodySaaSApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationUpdateParamsBodySaaSApplicationSCIMConfigAuthenticationUnion attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Satisfied by [zero_trust.SCIMConfigAuthenticationHTTPBasicParam],
@@ -53874,7 +53874,7 @@ type AccessApplicationUpdateParamsBodySaaSApplicationSCIMConfigAuthenticationUni
 	implementsAccessApplicationUpdateParamsBodySaaSApplicationSCIMConfigAuthenticationUnion()
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationUpdateParamsBodySaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationUpdateParamsBodySaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -53894,7 +53894,7 @@ func (r AccessApplicationUpdateParamsBodySaaSApplicationSCIMConfigAuthentication
 func (r AccessApplicationUpdateParamsBodySaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationUpdateParamsBodySaaSApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationUpdateParamsBodySaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationUpdateParamsBodySaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -53914,7 +53914,7 @@ type AccessApplicationUpdateParamsBodySaaSApplicationSCIMConfigAuthenticationAcc
 func (r AccessApplicationUpdateParamsBodySaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthentication) implementsAccessApplicationUpdateParamsBodySaaSApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationUpdateParamsBodySaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationUpdateParamsBodySaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem struct {
 	// The authentication scheme to use when making SCIM requests to this application.
@@ -53946,7 +53946,7 @@ func (r AccessApplicationUpdateParamsBodySaaSApplicationSCIMConfigAuthentication
 func (r AccessApplicationUpdateParamsBodySaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem) implementsAccessApplicationUpdateParamsBodySaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItemUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationUpdateParamsBodySaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItemUnion attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Satisfied by [zero_trust.SCIMConfigAuthenticationHTTPBasicParam],
@@ -53958,7 +53958,7 @@ type AccessApplicationUpdateParamsBodySaaSApplicationSCIMConfigAuthenticationAcc
 	implementsAccessApplicationUpdateParamsBodySaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItemUnion()
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationUpdateParamsBodySaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationUpdateParamsBodySaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -53978,7 +53978,7 @@ func (r AccessApplicationUpdateParamsBodySaaSApplicationSCIMConfigAuthentication
 func (r AccessApplicationUpdateParamsBodySaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationUpdateParamsBodySaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItemUnion() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationUpdateParamsBodySaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationUpdateParamsBodySaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -53993,7 +53993,7 @@ func (r AccessApplicationUpdateParamsBodySaaSApplicationSCIMConfigAuthentication
 	return false
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationUpdateParamsBodySaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationUpdateParamsBodySaaSApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme string
 
 const (
@@ -54011,7 +54011,7 @@ func (r AccessApplicationUpdateParamsBodySaaSApplicationSCIMConfigAuthentication
 	return false
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationUpdateParamsBodySaaSApplicationSCIMConfigAuthenticationScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationUpdateParamsBodySaaSApplicationSCIMConfigAuthenticationScheme string
 
 const (
@@ -54145,7 +54145,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserSSHApplication) MarshalJSON() (d
 func (r AccessApplicationUpdateParamsBodyBrowserSSHApplication) implementsAccessApplicationUpdateParamsBodyUnion() {
 }
 
-// The application type.
+// AccessApplicationUpdateParamsBodyBrowserSSHApplicationType is the application type.
 type AccessApplicationUpdateParamsBodyBrowserSSHApplicationType string
 
 const (
@@ -54173,7 +54173,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserSSHApplicationType) IsKnown() bo
 	return false
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationUpdateParamsBodyBrowserSSHApplicationDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationUpdateParamsBodyBrowserSSHApplicationDestination struct {
 	// The CIDR range of the destination. Single IPs will be computed as /32.
@@ -54206,7 +54206,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserSSHApplicationDestination) Marsh
 func (r AccessApplicationUpdateParamsBodyBrowserSSHApplicationDestination) implementsAccessApplicationUpdateParamsBodyBrowserSSHApplicationDestinationUnion() {
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationUpdateParamsBodyBrowserSSHApplicationDestinationUnion is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 //
 // Satisfied by
@@ -54222,7 +54222,7 @@ type AccessApplicationUpdateParamsBodyBrowserSSHApplicationDestinationUnion inte
 	implementsAccessApplicationUpdateParamsBodyBrowserSSHApplicationDestinationUnion()
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationUpdateParamsBodyBrowserSSHApplicationDestinationsPublicDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationUpdateParamsBodyBrowserSSHApplicationDestinationsPublicDestination struct {
 	Type param.Field[AccessApplicationUpdateParamsBodyBrowserSSHApplicationDestinationsPublicDestinationType] `json:"type"`
@@ -54276,7 +54276,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserSSHApplicationDestinationsPrivat
 func (r AccessApplicationUpdateParamsBodyBrowserSSHApplicationDestinationsPrivateDestination) implementsAccessApplicationUpdateParamsBodyBrowserSSHApplicationDestinationUnion() {
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationUpdateParamsBodyBrowserSSHApplicationDestinationsPrivateDestinationL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationUpdateParamsBodyBrowserSSHApplicationDestinationsPrivateDestinationL4Protocol string
 
@@ -54307,7 +54307,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserSSHApplicationDestinationsPrivat
 	return false
 }
 
-// A MCP server id configured in ai-controls. Access will secure the MCP server if
+// AccessApplicationUpdateParamsBodyBrowserSSHApplicationDestinationsViaMcpServerPortalDestination is a MCP server id configured in ai-controls. Access will secure the MCP server if
 // accessed through a MCP portal.
 type AccessApplicationUpdateParamsBodyBrowserSSHApplicationDestinationsViaMcpServerPortalDestination struct {
 	// The MCP server id configured in ai-controls.
@@ -54336,7 +54336,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserSSHApplicationDestinationsViaMcp
 	return false
 }
 
-// A specific Cloudflare Worker that Access will secure. All requests routed to the
+// AccessApplicationUpdateParamsBodyBrowserSSHApplicationDestinationsWorkerDestination is a specific Cloudflare Worker that Access will secure. All requests routed to the
 // specified Worker, including its preview deployments, will be protected. The
 // `preview_worker` and `public` destination types takes precedence, so you can
 // create separate applications to override the policies for the Worker's previews
@@ -54368,7 +54368,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserSSHApplicationDestinationsWorker
 	return false
 }
 
-// A specific Cloudflare Worker whose preview deployments Access will secure. Only
+// AccessApplicationUpdateParamsBodyBrowserSSHApplicationDestinationsPreviewWorkerDestination is a specific Cloudflare Worker whose preview deployments Access will secure. Only
 // requests routed to the preview deployments of the specified Worker will be
 // protected. The `public` destination type takes precedence, so you can create
 // separate applications to override the policies for specific paths.
@@ -54400,7 +54400,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserSSHApplicationDestinationsPrevie
 	return false
 }
 
-// Protects all Cloudflare Workers on the account with Access, including their
+// AccessApplicationUpdateParamsBodyBrowserSSHApplicationDestinationsAllWorkersDestination protects all Cloudflare Workers on the account with Access, including their
 // preview deployments. At most one destination of this type can exist per account.
 // The `worker`, `preview_worker`, `all_preview_workers`, and `public` destination
 // types take precedence, so you can create separate applications to override the
@@ -54430,7 +54430,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserSSHApplicationDestinationsAllWor
 	return false
 }
 
-// Protects the preview deployments of all Cloudflare Workers on the account with
+// AccessApplicationUpdateParamsBodyBrowserSSHApplicationDestinationsAllPreviewWorkersDestination protects the preview deployments of all Cloudflare Workers on the account with
 // Access. At most one destination of this type can exist per account. The
 // `worker`, `preview_worker`, and `public` destination types take precedence, so
 // you can create separate applications to override the policies for specific
@@ -54460,7 +54460,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserSSHApplicationDestinationsAllPre
 	return false
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationUpdateParamsBodyBrowserSSHApplicationDestinationsL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationUpdateParamsBodyBrowserSSHApplicationDestinationsL4Protocol string
 
@@ -54497,7 +54497,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserSSHApplicationDestinationsType) 
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationUpdateParamsBodyBrowserSSHApplicationMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationUpdateParamsBodyBrowserSSHApplicationMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators param.Field[[]AccessApplicationUpdateParamsBodyBrowserSSHApplicationMfaConfigAllowedAuthenticator] `json:"allowed_authenticators"`
@@ -54529,7 +54529,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserSSHApplicationMfaConfigAllowedAu
 	return false
 }
 
-// **Beta:** Optional configuration for managing an OAuth authorization flow
+// AccessApplicationUpdateParamsBodyBrowserSSHApplicationOAuthConfiguration **Beta:** Optional configuration for managing an OAuth authorization flow
 // controlled by Access. When set, Access will act as the OAuth authorization
 // server for this application. Only compatible with OAuth clients that support
 // [RFC 8707](https://datatracker.ietf.org/doc/html/rfc8707) (Resource Indicators
@@ -54549,7 +54549,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserSSHApplicationOAuthConfiguration
 	return apijson.MarshalRoot(r)
 }
 
-// Settings for OAuth dynamic client registration.
+// AccessApplicationUpdateParamsBodyBrowserSSHApplicationOAuthConfigurationDynamicClientRegistration settings for OAuth dynamic client registration.
 type AccessApplicationUpdateParamsBodyBrowserSSHApplicationOAuthConfigurationDynamicClientRegistration struct {
 	// Allows any client with redirect URIs on localhost.
 	AllowAnyOnLocalhost param.Field[bool] `json:"allow_any_on_localhost"`
@@ -54566,7 +54566,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserSSHApplicationOAuthConfiguration
 	return apijson.MarshalRoot(r)
 }
 
-// Settings for OAuth grant behavior.
+// AccessApplicationUpdateParamsBodyBrowserSSHApplicationOAuthConfigurationGrant settings for OAuth grant behavior.
 type AccessApplicationUpdateParamsBodyBrowserSSHApplicationOAuthConfigurationGrant struct {
 	// The lifetime of the access token. Must be in the format `300ms` or `2h45m`.
 	// Valid time units are ns, us (or µs), ms, s, m, h.
@@ -54580,7 +54580,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserSSHApplicationOAuthConfiguration
 	return apijson.MarshalRoot(r)
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationUpdateParamsBodyBrowserSSHApplicationPolicy is a JSON that links a reusable policy to an application.
 type AccessApplicationUpdateParamsBodyBrowserSSHApplicationPolicy struct {
 	// The UUID of the policy
 	ID             param.Field[string]      `json:"id"`
@@ -54614,7 +54614,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserSSHApplicationPolicy) MarshalJSO
 func (r AccessApplicationUpdateParamsBodyBrowserSSHApplicationPolicy) ImplementsAccessApplicationUpdateParamsBodyBrowserSSHApplicationPolicyUnion() {
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationUpdateParamsBodyBrowserSSHApplicationPolicyUnion is a JSON that links a reusable policy to an application.
 //
 // Satisfied by
 // [zero_trust.AccessApplicationUpdateParamsBodyBrowserSSHApplicationPoliciesAccessAppPolicyLink],
@@ -54625,7 +54625,7 @@ type AccessApplicationUpdateParamsBodyBrowserSSHApplicationPolicyUnion interface
 	ImplementsAccessApplicationUpdateParamsBodyBrowserSSHApplicationPolicyUnion()
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationUpdateParamsBodyBrowserSSHApplicationPoliciesAccessAppPolicyLink is a JSON that links a reusable policy to an application.
 type AccessApplicationUpdateParamsBodyBrowserSSHApplicationPoliciesAccessAppPolicyLink struct {
 	// The UUID of the policy
 	ID param.Field[string] `json:"id"`
@@ -54678,7 +54678,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserSSHApplicationPoliciesObject) Ma
 func (r AccessApplicationUpdateParamsBodyBrowserSSHApplicationPoliciesObject) ImplementsAccessApplicationUpdateParamsBodyBrowserSSHApplicationPolicyUnion() {
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationUpdateParamsBodyBrowserSSHApplicationPoliciesObjectConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationUpdateParamsBodyBrowserSSHApplicationPoliciesObjectConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -54689,7 +54689,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserSSHApplicationPoliciesObjectConn
 	return apijson.MarshalRoot(r)
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationUpdateParamsBodyBrowserSSHApplicationPoliciesObjectConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationUpdateParamsBodyBrowserSSHApplicationPoliciesObjectConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats param.Field[[]AccessApplicationUpdateParamsBodyBrowserSSHApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat] `json:"allowed_clipboard_local_to_remote_formats"`
@@ -54701,7 +54701,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserSSHApplicationPoliciesObjectConn
 	return apijson.MarshalRoot(r)
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationUpdateParamsBodyBrowserSSHApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationUpdateParamsBodyBrowserSSHApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -54716,7 +54716,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserSSHApplicationPoliciesObjectConn
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationUpdateParamsBodyBrowserSSHApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationUpdateParamsBodyBrowserSSHApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -54731,7 +54731,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserSSHApplicationPoliciesObjectConn
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationUpdateParamsBodyBrowserSSHApplicationPoliciesObjectMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationUpdateParamsBodyBrowserSSHApplicationPoliciesObjectMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators param.Field[[]AccessApplicationUpdateParamsBodyBrowserSSHApplicationPoliciesObjectMfaConfigAllowedAuthenticator] `json:"allowed_authenticators"`
@@ -54763,7 +54763,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserSSHApplicationPoliciesObjectMfaC
 	return false
 }
 
-// Configuration for provisioning to this application via SCIM. This is currently
+// AccessApplicationUpdateParamsBodyBrowserSSHApplicationSCIMConfig configuration for provisioning to this application via SCIM. This is currently
 // in closed beta.
 type AccessApplicationUpdateParamsBodyBrowserSSHApplicationSCIMConfig struct {
 	// The UID of the IdP to use as the source for SCIM resources to provision to this
@@ -54789,7 +54789,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserSSHApplicationSCIMConfig) Marsha
 	return apijson.MarshalRoot(r)
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationUpdateParamsBodyBrowserSSHApplicationSCIMConfigAuthentication attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationUpdateParamsBodyBrowserSSHApplicationSCIMConfigAuthentication struct {
 	// The authentication scheme to use when making SCIM requests to this application.
@@ -54821,7 +54821,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserSSHApplicationSCIMConfigAuthenti
 func (r AccessApplicationUpdateParamsBodyBrowserSSHApplicationSCIMConfigAuthentication) implementsAccessApplicationUpdateParamsBodyBrowserSSHApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationUpdateParamsBodyBrowserSSHApplicationSCIMConfigAuthenticationUnion attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Satisfied by [zero_trust.SCIMConfigAuthenticationHTTPBasicParam],
@@ -54834,7 +54834,7 @@ type AccessApplicationUpdateParamsBodyBrowserSSHApplicationSCIMConfigAuthenticat
 	implementsAccessApplicationUpdateParamsBodyBrowserSSHApplicationSCIMConfigAuthenticationUnion()
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationUpdateParamsBodyBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationUpdateParamsBodyBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -54854,7 +54854,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserSSHApplicationSCIMConfigAuthenti
 func (r AccessApplicationUpdateParamsBodyBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationUpdateParamsBodyBrowserSSHApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationUpdateParamsBodyBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationUpdateParamsBodyBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -54874,7 +54874,7 @@ type AccessApplicationUpdateParamsBodyBrowserSSHApplicationSCIMConfigAuthenticat
 func (r AccessApplicationUpdateParamsBodyBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthentication) implementsAccessApplicationUpdateParamsBodyBrowserSSHApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationUpdateParamsBodyBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationUpdateParamsBodyBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem struct {
 	// The authentication scheme to use when making SCIM requests to this application.
@@ -54906,7 +54906,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserSSHApplicationSCIMConfigAuthenti
 func (r AccessApplicationUpdateParamsBodyBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem) implementsAccessApplicationUpdateParamsBodyBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItemUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationUpdateParamsBodyBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItemUnion attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Satisfied by [zero_trust.SCIMConfigAuthenticationHTTPBasicParam],
@@ -54918,7 +54918,7 @@ type AccessApplicationUpdateParamsBodyBrowserSSHApplicationSCIMConfigAuthenticat
 	implementsAccessApplicationUpdateParamsBodyBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItemUnion()
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationUpdateParamsBodyBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationUpdateParamsBodyBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -54938,7 +54938,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserSSHApplicationSCIMConfigAuthenti
 func (r AccessApplicationUpdateParamsBodyBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationUpdateParamsBodyBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItemUnion() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationUpdateParamsBodyBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationUpdateParamsBodyBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -54953,7 +54953,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserSSHApplicationSCIMConfigAuthenti
 	return false
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationUpdateParamsBodyBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationUpdateParamsBodyBrowserSSHApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme string
 
 const (
@@ -54971,7 +54971,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserSSHApplicationSCIMConfigAuthenti
 	return false
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationUpdateParamsBodyBrowserSSHApplicationSCIMConfigAuthenticationScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationUpdateParamsBodyBrowserSSHApplicationSCIMConfigAuthenticationScheme string
 
 const (
@@ -55105,7 +55105,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserVNCApplication) MarshalJSON() (d
 func (r AccessApplicationUpdateParamsBodyBrowserVNCApplication) implementsAccessApplicationUpdateParamsBodyUnion() {
 }
 
-// The application type.
+// AccessApplicationUpdateParamsBodyBrowserVNCApplicationType is the application type.
 type AccessApplicationUpdateParamsBodyBrowserVNCApplicationType string
 
 const (
@@ -55133,7 +55133,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserVNCApplicationType) IsKnown() bo
 	return false
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationUpdateParamsBodyBrowserVNCApplicationDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationUpdateParamsBodyBrowserVNCApplicationDestination struct {
 	// The CIDR range of the destination. Single IPs will be computed as /32.
@@ -55166,7 +55166,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserVNCApplicationDestination) Marsh
 func (r AccessApplicationUpdateParamsBodyBrowserVNCApplicationDestination) implementsAccessApplicationUpdateParamsBodyBrowserVNCApplicationDestinationUnion() {
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationUpdateParamsBodyBrowserVNCApplicationDestinationUnion is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 //
 // Satisfied by
@@ -55182,7 +55182,7 @@ type AccessApplicationUpdateParamsBodyBrowserVNCApplicationDestinationUnion inte
 	implementsAccessApplicationUpdateParamsBodyBrowserVNCApplicationDestinationUnion()
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationUpdateParamsBodyBrowserVNCApplicationDestinationsPublicDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationUpdateParamsBodyBrowserVNCApplicationDestinationsPublicDestination struct {
 	Type param.Field[AccessApplicationUpdateParamsBodyBrowserVNCApplicationDestinationsPublicDestinationType] `json:"type"`
@@ -55236,7 +55236,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserVNCApplicationDestinationsPrivat
 func (r AccessApplicationUpdateParamsBodyBrowserVNCApplicationDestinationsPrivateDestination) implementsAccessApplicationUpdateParamsBodyBrowserVNCApplicationDestinationUnion() {
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationUpdateParamsBodyBrowserVNCApplicationDestinationsPrivateDestinationL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationUpdateParamsBodyBrowserVNCApplicationDestinationsPrivateDestinationL4Protocol string
 
@@ -55267,7 +55267,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserVNCApplicationDestinationsPrivat
 	return false
 }
 
-// A MCP server id configured in ai-controls. Access will secure the MCP server if
+// AccessApplicationUpdateParamsBodyBrowserVNCApplicationDestinationsViaMcpServerPortalDestination is a MCP server id configured in ai-controls. Access will secure the MCP server if
 // accessed through a MCP portal.
 type AccessApplicationUpdateParamsBodyBrowserVNCApplicationDestinationsViaMcpServerPortalDestination struct {
 	// The MCP server id configured in ai-controls.
@@ -55296,7 +55296,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserVNCApplicationDestinationsViaMcp
 	return false
 }
 
-// A specific Cloudflare Worker that Access will secure. All requests routed to the
+// AccessApplicationUpdateParamsBodyBrowserVNCApplicationDestinationsWorkerDestination is a specific Cloudflare Worker that Access will secure. All requests routed to the
 // specified Worker, including its preview deployments, will be protected. The
 // `preview_worker` and `public` destination types takes precedence, so you can
 // create separate applications to override the policies for the Worker's previews
@@ -55328,7 +55328,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserVNCApplicationDestinationsWorker
 	return false
 }
 
-// A specific Cloudflare Worker whose preview deployments Access will secure. Only
+// AccessApplicationUpdateParamsBodyBrowserVNCApplicationDestinationsPreviewWorkerDestination is a specific Cloudflare Worker whose preview deployments Access will secure. Only
 // requests routed to the preview deployments of the specified Worker will be
 // protected. The `public` destination type takes precedence, so you can create
 // separate applications to override the policies for specific paths.
@@ -55360,7 +55360,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserVNCApplicationDestinationsPrevie
 	return false
 }
 
-// Protects all Cloudflare Workers on the account with Access, including their
+// AccessApplicationUpdateParamsBodyBrowserVNCApplicationDestinationsAllWorkersDestination protects all Cloudflare Workers on the account with Access, including their
 // preview deployments. At most one destination of this type can exist per account.
 // The `worker`, `preview_worker`, `all_preview_workers`, and `public` destination
 // types take precedence, so you can create separate applications to override the
@@ -55390,7 +55390,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserVNCApplicationDestinationsAllWor
 	return false
 }
 
-// Protects the preview deployments of all Cloudflare Workers on the account with
+// AccessApplicationUpdateParamsBodyBrowserVNCApplicationDestinationsAllPreviewWorkersDestination protects the preview deployments of all Cloudflare Workers on the account with
 // Access. At most one destination of this type can exist per account. The
 // `worker`, `preview_worker`, and `public` destination types take precedence, so
 // you can create separate applications to override the policies for specific
@@ -55420,7 +55420,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserVNCApplicationDestinationsAllPre
 	return false
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationUpdateParamsBodyBrowserVNCApplicationDestinationsL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationUpdateParamsBodyBrowserVNCApplicationDestinationsL4Protocol string
 
@@ -55457,7 +55457,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserVNCApplicationDestinationsType) 
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationUpdateParamsBodyBrowserVNCApplicationMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationUpdateParamsBodyBrowserVNCApplicationMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators param.Field[[]AccessApplicationUpdateParamsBodyBrowserVNCApplicationMfaConfigAllowedAuthenticator] `json:"allowed_authenticators"`
@@ -55489,7 +55489,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserVNCApplicationMfaConfigAllowedAu
 	return false
 }
 
-// **Beta:** Optional configuration for managing an OAuth authorization flow
+// AccessApplicationUpdateParamsBodyBrowserVNCApplicationOAuthConfiguration **Beta:** Optional configuration for managing an OAuth authorization flow
 // controlled by Access. When set, Access will act as the OAuth authorization
 // server for this application. Only compatible with OAuth clients that support
 // [RFC 8707](https://datatracker.ietf.org/doc/html/rfc8707) (Resource Indicators
@@ -55509,7 +55509,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserVNCApplicationOAuthConfiguration
 	return apijson.MarshalRoot(r)
 }
 
-// Settings for OAuth dynamic client registration.
+// AccessApplicationUpdateParamsBodyBrowserVNCApplicationOAuthConfigurationDynamicClientRegistration settings for OAuth dynamic client registration.
 type AccessApplicationUpdateParamsBodyBrowserVNCApplicationOAuthConfigurationDynamicClientRegistration struct {
 	// Allows any client with redirect URIs on localhost.
 	AllowAnyOnLocalhost param.Field[bool] `json:"allow_any_on_localhost"`
@@ -55526,7 +55526,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserVNCApplicationOAuthConfiguration
 	return apijson.MarshalRoot(r)
 }
 
-// Settings for OAuth grant behavior.
+// AccessApplicationUpdateParamsBodyBrowserVNCApplicationOAuthConfigurationGrant settings for OAuth grant behavior.
 type AccessApplicationUpdateParamsBodyBrowserVNCApplicationOAuthConfigurationGrant struct {
 	// The lifetime of the access token. Must be in the format `300ms` or `2h45m`.
 	// Valid time units are ns, us (or µs), ms, s, m, h.
@@ -55540,7 +55540,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserVNCApplicationOAuthConfiguration
 	return apijson.MarshalRoot(r)
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationUpdateParamsBodyBrowserVNCApplicationPolicy is a JSON that links a reusable policy to an application.
 type AccessApplicationUpdateParamsBodyBrowserVNCApplicationPolicy struct {
 	// The UUID of the policy
 	ID             param.Field[string]      `json:"id"`
@@ -55574,7 +55574,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserVNCApplicationPolicy) MarshalJSO
 func (r AccessApplicationUpdateParamsBodyBrowserVNCApplicationPolicy) ImplementsAccessApplicationUpdateParamsBodyBrowserVNCApplicationPolicyUnion() {
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationUpdateParamsBodyBrowserVNCApplicationPolicyUnion is a JSON that links a reusable policy to an application.
 //
 // Satisfied by
 // [zero_trust.AccessApplicationUpdateParamsBodyBrowserVNCApplicationPoliciesAccessAppPolicyLink],
@@ -55585,7 +55585,7 @@ type AccessApplicationUpdateParamsBodyBrowserVNCApplicationPolicyUnion interface
 	ImplementsAccessApplicationUpdateParamsBodyBrowserVNCApplicationPolicyUnion()
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationUpdateParamsBodyBrowserVNCApplicationPoliciesAccessAppPolicyLink is a JSON that links a reusable policy to an application.
 type AccessApplicationUpdateParamsBodyBrowserVNCApplicationPoliciesAccessAppPolicyLink struct {
 	// The UUID of the policy
 	ID param.Field[string] `json:"id"`
@@ -55638,7 +55638,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserVNCApplicationPoliciesObject) Ma
 func (r AccessApplicationUpdateParamsBodyBrowserVNCApplicationPoliciesObject) ImplementsAccessApplicationUpdateParamsBodyBrowserVNCApplicationPolicyUnion() {
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationUpdateParamsBodyBrowserVNCApplicationPoliciesObjectConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationUpdateParamsBodyBrowserVNCApplicationPoliciesObjectConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -55649,7 +55649,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserVNCApplicationPoliciesObjectConn
 	return apijson.MarshalRoot(r)
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationUpdateParamsBodyBrowserVNCApplicationPoliciesObjectConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationUpdateParamsBodyBrowserVNCApplicationPoliciesObjectConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats param.Field[[]AccessApplicationUpdateParamsBodyBrowserVNCApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat] `json:"allowed_clipboard_local_to_remote_formats"`
@@ -55661,7 +55661,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserVNCApplicationPoliciesObjectConn
 	return apijson.MarshalRoot(r)
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationUpdateParamsBodyBrowserVNCApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationUpdateParamsBodyBrowserVNCApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -55676,7 +55676,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserVNCApplicationPoliciesObjectConn
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationUpdateParamsBodyBrowserVNCApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationUpdateParamsBodyBrowserVNCApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -55691,7 +55691,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserVNCApplicationPoliciesObjectConn
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationUpdateParamsBodyBrowserVNCApplicationPoliciesObjectMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationUpdateParamsBodyBrowserVNCApplicationPoliciesObjectMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators param.Field[[]AccessApplicationUpdateParamsBodyBrowserVNCApplicationPoliciesObjectMfaConfigAllowedAuthenticator] `json:"allowed_authenticators"`
@@ -55723,7 +55723,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserVNCApplicationPoliciesObjectMfaC
 	return false
 }
 
-// Configuration for provisioning to this application via SCIM. This is currently
+// AccessApplicationUpdateParamsBodyBrowserVNCApplicationSCIMConfig configuration for provisioning to this application via SCIM. This is currently
 // in closed beta.
 type AccessApplicationUpdateParamsBodyBrowserVNCApplicationSCIMConfig struct {
 	// The UID of the IdP to use as the source for SCIM resources to provision to this
@@ -55749,7 +55749,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserVNCApplicationSCIMConfig) Marsha
 	return apijson.MarshalRoot(r)
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationUpdateParamsBodyBrowserVNCApplicationSCIMConfigAuthentication attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationUpdateParamsBodyBrowserVNCApplicationSCIMConfigAuthentication struct {
 	// The authentication scheme to use when making SCIM requests to this application.
@@ -55781,7 +55781,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserVNCApplicationSCIMConfigAuthenti
 func (r AccessApplicationUpdateParamsBodyBrowserVNCApplicationSCIMConfigAuthentication) implementsAccessApplicationUpdateParamsBodyBrowserVNCApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationUpdateParamsBodyBrowserVNCApplicationSCIMConfigAuthenticationUnion attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Satisfied by [zero_trust.SCIMConfigAuthenticationHTTPBasicParam],
@@ -55794,7 +55794,7 @@ type AccessApplicationUpdateParamsBodyBrowserVNCApplicationSCIMConfigAuthenticat
 	implementsAccessApplicationUpdateParamsBodyBrowserVNCApplicationSCIMConfigAuthenticationUnion()
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationUpdateParamsBodyBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationUpdateParamsBodyBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -55814,7 +55814,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserVNCApplicationSCIMConfigAuthenti
 func (r AccessApplicationUpdateParamsBodyBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationUpdateParamsBodyBrowserVNCApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationUpdateParamsBodyBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationUpdateParamsBodyBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -55834,7 +55834,7 @@ type AccessApplicationUpdateParamsBodyBrowserVNCApplicationSCIMConfigAuthenticat
 func (r AccessApplicationUpdateParamsBodyBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthentication) implementsAccessApplicationUpdateParamsBodyBrowserVNCApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationUpdateParamsBodyBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationUpdateParamsBodyBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem struct {
 	// The authentication scheme to use when making SCIM requests to this application.
@@ -55866,7 +55866,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserVNCApplicationSCIMConfigAuthenti
 func (r AccessApplicationUpdateParamsBodyBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem) implementsAccessApplicationUpdateParamsBodyBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItemUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationUpdateParamsBodyBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItemUnion attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Satisfied by [zero_trust.SCIMConfigAuthenticationHTTPBasicParam],
@@ -55878,7 +55878,7 @@ type AccessApplicationUpdateParamsBodyBrowserVNCApplicationSCIMConfigAuthenticat
 	implementsAccessApplicationUpdateParamsBodyBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItemUnion()
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationUpdateParamsBodyBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationUpdateParamsBodyBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -55898,7 +55898,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserVNCApplicationSCIMConfigAuthenti
 func (r AccessApplicationUpdateParamsBodyBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationUpdateParamsBodyBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItemUnion() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationUpdateParamsBodyBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationUpdateParamsBodyBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -55913,7 +55913,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserVNCApplicationSCIMConfigAuthenti
 	return false
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationUpdateParamsBodyBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationUpdateParamsBodyBrowserVNCApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme string
 
 const (
@@ -55931,7 +55931,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserVNCApplicationSCIMConfigAuthenti
 	return false
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationUpdateParamsBodyBrowserVNCApplicationSCIMConfigAuthenticationScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationUpdateParamsBodyBrowserVNCApplicationSCIMConfigAuthenticationScheme string
 
 const (
@@ -55996,7 +55996,7 @@ func (r AccessApplicationUpdateParamsBodyAppLauncherApplication) MarshalJSON() (
 func (r AccessApplicationUpdateParamsBodyAppLauncherApplication) implementsAccessApplicationUpdateParamsBodyUnion() {
 }
 
-// The application type.
+// AccessApplicationUpdateParamsBodyAppLauncherApplicationType is the application type.
 type AccessApplicationUpdateParamsBodyAppLauncherApplicationType string
 
 const (
@@ -56035,7 +56035,7 @@ func (r AccessApplicationUpdateParamsBodyAppLauncherApplicationFooterLink) Marsh
 	return apijson.MarshalRoot(r)
 }
 
-// The design of the App Launcher landing page shown to users when they log in.
+// AccessApplicationUpdateParamsBodyAppLauncherApplicationLandingPageDesign is the design of the App Launcher landing page shown to users when they log in.
 type AccessApplicationUpdateParamsBodyAppLauncherApplicationLandingPageDesign struct {
 	// The background color of the log in button on the landing page.
 	ButtonColor param.Field[string] `json:"button_color"`
@@ -56053,7 +56053,7 @@ func (r AccessApplicationUpdateParamsBodyAppLauncherApplicationLandingPageDesign
 	return apijson.MarshalRoot(r)
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationUpdateParamsBodyAppLauncherApplicationPolicy is a JSON that links a reusable policy to an application.
 type AccessApplicationUpdateParamsBodyAppLauncherApplicationPolicy struct {
 	// The UUID of the policy
 	ID             param.Field[string]      `json:"id"`
@@ -56087,7 +56087,7 @@ func (r AccessApplicationUpdateParamsBodyAppLauncherApplicationPolicy) MarshalJS
 func (r AccessApplicationUpdateParamsBodyAppLauncherApplicationPolicy) ImplementsAccessApplicationUpdateParamsBodyAppLauncherApplicationPolicyUnion() {
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationUpdateParamsBodyAppLauncherApplicationPolicyUnion is a JSON that links a reusable policy to an application.
 //
 // Satisfied by
 // [zero_trust.AccessApplicationUpdateParamsBodyAppLauncherApplicationPoliciesAccessAppPolicyLink],
@@ -56098,7 +56098,7 @@ type AccessApplicationUpdateParamsBodyAppLauncherApplicationPolicyUnion interfac
 	ImplementsAccessApplicationUpdateParamsBodyAppLauncherApplicationPolicyUnion()
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationUpdateParamsBodyAppLauncherApplicationPoliciesAccessAppPolicyLink is a JSON that links a reusable policy to an application.
 type AccessApplicationUpdateParamsBodyAppLauncherApplicationPoliciesAccessAppPolicyLink struct {
 	// The UUID of the policy
 	ID param.Field[string] `json:"id"`
@@ -56151,7 +56151,7 @@ func (r AccessApplicationUpdateParamsBodyAppLauncherApplicationPoliciesObject) M
 func (r AccessApplicationUpdateParamsBodyAppLauncherApplicationPoliciesObject) ImplementsAccessApplicationUpdateParamsBodyAppLauncherApplicationPolicyUnion() {
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationUpdateParamsBodyAppLauncherApplicationPoliciesObjectConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationUpdateParamsBodyAppLauncherApplicationPoliciesObjectConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -56162,7 +56162,7 @@ func (r AccessApplicationUpdateParamsBodyAppLauncherApplicationPoliciesObjectCon
 	return apijson.MarshalRoot(r)
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationUpdateParamsBodyAppLauncherApplicationPoliciesObjectConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationUpdateParamsBodyAppLauncherApplicationPoliciesObjectConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats param.Field[[]AccessApplicationUpdateParamsBodyAppLauncherApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat] `json:"allowed_clipboard_local_to_remote_formats"`
@@ -56174,7 +56174,7 @@ func (r AccessApplicationUpdateParamsBodyAppLauncherApplicationPoliciesObjectCon
 	return apijson.MarshalRoot(r)
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationUpdateParamsBodyAppLauncherApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationUpdateParamsBodyAppLauncherApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -56189,7 +56189,7 @@ func (r AccessApplicationUpdateParamsBodyAppLauncherApplicationPoliciesObjectCon
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationUpdateParamsBodyAppLauncherApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationUpdateParamsBodyAppLauncherApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -56204,7 +56204,7 @@ func (r AccessApplicationUpdateParamsBodyAppLauncherApplicationPoliciesObjectCon
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationUpdateParamsBodyAppLauncherApplicationPoliciesObjectMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationUpdateParamsBodyAppLauncherApplicationPoliciesObjectMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators param.Field[[]AccessApplicationUpdateParamsBodyAppLauncherApplicationPoliciesObjectMfaConfigAllowedAuthenticator] `json:"allowed_authenticators"`
@@ -56271,7 +56271,7 @@ func (r AccessApplicationUpdateParamsBodyDeviceEnrollmentPermissionsApplication)
 func (r AccessApplicationUpdateParamsBodyDeviceEnrollmentPermissionsApplication) implementsAccessApplicationUpdateParamsBodyUnion() {
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationUpdateParamsBodyDeviceEnrollmentPermissionsApplicationPolicy is a JSON that links a reusable policy to an application.
 type AccessApplicationUpdateParamsBodyDeviceEnrollmentPermissionsApplicationPolicy struct {
 	// The UUID of the policy
 	ID             param.Field[string]      `json:"id"`
@@ -56305,7 +56305,7 @@ func (r AccessApplicationUpdateParamsBodyDeviceEnrollmentPermissionsApplicationP
 func (r AccessApplicationUpdateParamsBodyDeviceEnrollmentPermissionsApplicationPolicy) ImplementsAccessApplicationUpdateParamsBodyDeviceEnrollmentPermissionsApplicationPolicyUnion() {
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationUpdateParamsBodyDeviceEnrollmentPermissionsApplicationPolicyUnion is a JSON that links a reusable policy to an application.
 //
 // Satisfied by
 // [zero_trust.AccessApplicationUpdateParamsBodyDeviceEnrollmentPermissionsApplicationPoliciesAccessAppPolicyLink],
@@ -56316,7 +56316,7 @@ type AccessApplicationUpdateParamsBodyDeviceEnrollmentPermissionsApplicationPoli
 	ImplementsAccessApplicationUpdateParamsBodyDeviceEnrollmentPermissionsApplicationPolicyUnion()
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationUpdateParamsBodyDeviceEnrollmentPermissionsApplicationPoliciesAccessAppPolicyLink is a JSON that links a reusable policy to an application.
 type AccessApplicationUpdateParamsBodyDeviceEnrollmentPermissionsApplicationPoliciesAccessAppPolicyLink struct {
 	// The UUID of the policy
 	ID param.Field[string] `json:"id"`
@@ -56369,7 +56369,7 @@ func (r AccessApplicationUpdateParamsBodyDeviceEnrollmentPermissionsApplicationP
 func (r AccessApplicationUpdateParamsBodyDeviceEnrollmentPermissionsApplicationPoliciesObject) ImplementsAccessApplicationUpdateParamsBodyDeviceEnrollmentPermissionsApplicationPolicyUnion() {
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationUpdateParamsBodyDeviceEnrollmentPermissionsApplicationPoliciesObjectConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationUpdateParamsBodyDeviceEnrollmentPermissionsApplicationPoliciesObjectConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -56380,7 +56380,7 @@ func (r AccessApplicationUpdateParamsBodyDeviceEnrollmentPermissionsApplicationP
 	return apijson.MarshalRoot(r)
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationUpdateParamsBodyDeviceEnrollmentPermissionsApplicationPoliciesObjectConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationUpdateParamsBodyDeviceEnrollmentPermissionsApplicationPoliciesObjectConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats param.Field[[]AccessApplicationUpdateParamsBodyDeviceEnrollmentPermissionsApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat] `json:"allowed_clipboard_local_to_remote_formats"`
@@ -56392,7 +56392,7 @@ func (r AccessApplicationUpdateParamsBodyDeviceEnrollmentPermissionsApplicationP
 	return apijson.MarshalRoot(r)
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationUpdateParamsBodyDeviceEnrollmentPermissionsApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationUpdateParamsBodyDeviceEnrollmentPermissionsApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -56407,7 +56407,7 @@ func (r AccessApplicationUpdateParamsBodyDeviceEnrollmentPermissionsApplicationP
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationUpdateParamsBodyDeviceEnrollmentPermissionsApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationUpdateParamsBodyDeviceEnrollmentPermissionsApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -56422,7 +56422,7 @@ func (r AccessApplicationUpdateParamsBodyDeviceEnrollmentPermissionsApplicationP
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationUpdateParamsBodyDeviceEnrollmentPermissionsApplicationPoliciesObjectMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationUpdateParamsBodyDeviceEnrollmentPermissionsApplicationPoliciesObjectMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators param.Field[[]AccessApplicationUpdateParamsBodyDeviceEnrollmentPermissionsApplicationPoliciesObjectMfaConfigAllowedAuthenticator] `json:"allowed_authenticators"`
@@ -56489,7 +56489,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserIsolationPermissionsApplication)
 func (r AccessApplicationUpdateParamsBodyBrowserIsolationPermissionsApplication) implementsAccessApplicationUpdateParamsBodyUnion() {
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationUpdateParamsBodyBrowserIsolationPermissionsApplicationPolicy is a JSON that links a reusable policy to an application.
 type AccessApplicationUpdateParamsBodyBrowserIsolationPermissionsApplicationPolicy struct {
 	// The UUID of the policy
 	ID             param.Field[string]      `json:"id"`
@@ -56523,7 +56523,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserIsolationPermissionsApplicationP
 func (r AccessApplicationUpdateParamsBodyBrowserIsolationPermissionsApplicationPolicy) ImplementsAccessApplicationUpdateParamsBodyBrowserIsolationPermissionsApplicationPolicyUnion() {
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationUpdateParamsBodyBrowserIsolationPermissionsApplicationPolicyUnion is a JSON that links a reusable policy to an application.
 //
 // Satisfied by
 // [zero_trust.AccessApplicationUpdateParamsBodyBrowserIsolationPermissionsApplicationPoliciesAccessAppPolicyLink],
@@ -56534,7 +56534,7 @@ type AccessApplicationUpdateParamsBodyBrowserIsolationPermissionsApplicationPoli
 	ImplementsAccessApplicationUpdateParamsBodyBrowserIsolationPermissionsApplicationPolicyUnion()
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationUpdateParamsBodyBrowserIsolationPermissionsApplicationPoliciesAccessAppPolicyLink is a JSON that links a reusable policy to an application.
 type AccessApplicationUpdateParamsBodyBrowserIsolationPermissionsApplicationPoliciesAccessAppPolicyLink struct {
 	// The UUID of the policy
 	ID param.Field[string] `json:"id"`
@@ -56587,7 +56587,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserIsolationPermissionsApplicationP
 func (r AccessApplicationUpdateParamsBodyBrowserIsolationPermissionsApplicationPoliciesObject) ImplementsAccessApplicationUpdateParamsBodyBrowserIsolationPermissionsApplicationPolicyUnion() {
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationUpdateParamsBodyBrowserIsolationPermissionsApplicationPoliciesObjectConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationUpdateParamsBodyBrowserIsolationPermissionsApplicationPoliciesObjectConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -56598,7 +56598,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserIsolationPermissionsApplicationP
 	return apijson.MarshalRoot(r)
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationUpdateParamsBodyBrowserIsolationPermissionsApplicationPoliciesObjectConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationUpdateParamsBodyBrowserIsolationPermissionsApplicationPoliciesObjectConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats param.Field[[]AccessApplicationUpdateParamsBodyBrowserIsolationPermissionsApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat] `json:"allowed_clipboard_local_to_remote_formats"`
@@ -56610,7 +56610,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserIsolationPermissionsApplicationP
 	return apijson.MarshalRoot(r)
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationUpdateParamsBodyBrowserIsolationPermissionsApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationUpdateParamsBodyBrowserIsolationPermissionsApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -56625,7 +56625,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserIsolationPermissionsApplicationP
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationUpdateParamsBodyBrowserIsolationPermissionsApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationUpdateParamsBodyBrowserIsolationPermissionsApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -56640,7 +56640,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserIsolationPermissionsApplicationP
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationUpdateParamsBodyBrowserIsolationPermissionsApplicationPoliciesObjectMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationUpdateParamsBodyBrowserIsolationPermissionsApplicationPoliciesObjectMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators param.Field[[]AccessApplicationUpdateParamsBodyBrowserIsolationPermissionsApplicationPoliciesObjectMfaConfigAllowedAuthenticator] `json:"allowed_authenticators"`
@@ -56712,7 +56712,7 @@ func (r AccessApplicationUpdateParamsBodyGatewayIdentityProxyEndpointApplication
 func (r AccessApplicationUpdateParamsBodyGatewayIdentityProxyEndpointApplication) implementsAccessApplicationUpdateParamsBodyUnion() {
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationUpdateParamsBodyGatewayIdentityProxyEndpointApplicationPolicy is a JSON that links a reusable policy to an application.
 type AccessApplicationUpdateParamsBodyGatewayIdentityProxyEndpointApplicationPolicy struct {
 	// The UUID of the policy
 	ID             param.Field[string]      `json:"id"`
@@ -56746,7 +56746,7 @@ func (r AccessApplicationUpdateParamsBodyGatewayIdentityProxyEndpointApplication
 func (r AccessApplicationUpdateParamsBodyGatewayIdentityProxyEndpointApplicationPolicy) ImplementsAccessApplicationUpdateParamsBodyGatewayIdentityProxyEndpointApplicationPolicyUnion() {
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationUpdateParamsBodyGatewayIdentityProxyEndpointApplicationPolicyUnion is a JSON that links a reusable policy to an application.
 //
 // Satisfied by
 // [zero_trust.AccessApplicationUpdateParamsBodyGatewayIdentityProxyEndpointApplicationPoliciesAccessAppPolicyLink],
@@ -56757,7 +56757,7 @@ type AccessApplicationUpdateParamsBodyGatewayIdentityProxyEndpointApplicationPol
 	ImplementsAccessApplicationUpdateParamsBodyGatewayIdentityProxyEndpointApplicationPolicyUnion()
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationUpdateParamsBodyGatewayIdentityProxyEndpointApplicationPoliciesAccessAppPolicyLink is a JSON that links a reusable policy to an application.
 type AccessApplicationUpdateParamsBodyGatewayIdentityProxyEndpointApplicationPoliciesAccessAppPolicyLink struct {
 	// The UUID of the policy
 	ID param.Field[string] `json:"id"`
@@ -56810,7 +56810,7 @@ func (r AccessApplicationUpdateParamsBodyGatewayIdentityProxyEndpointApplication
 func (r AccessApplicationUpdateParamsBodyGatewayIdentityProxyEndpointApplicationPoliciesObject) ImplementsAccessApplicationUpdateParamsBodyGatewayIdentityProxyEndpointApplicationPolicyUnion() {
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationUpdateParamsBodyGatewayIdentityProxyEndpointApplicationPoliciesObjectConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationUpdateParamsBodyGatewayIdentityProxyEndpointApplicationPoliciesObjectConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -56821,7 +56821,7 @@ func (r AccessApplicationUpdateParamsBodyGatewayIdentityProxyEndpointApplication
 	return apijson.MarshalRoot(r)
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationUpdateParamsBodyGatewayIdentityProxyEndpointApplicationPoliciesObjectConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationUpdateParamsBodyGatewayIdentityProxyEndpointApplicationPoliciesObjectConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats param.Field[[]AccessApplicationUpdateParamsBodyGatewayIdentityProxyEndpointApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat] `json:"allowed_clipboard_local_to_remote_formats"`
@@ -56833,7 +56833,7 @@ func (r AccessApplicationUpdateParamsBodyGatewayIdentityProxyEndpointApplication
 	return apijson.MarshalRoot(r)
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationUpdateParamsBodyGatewayIdentityProxyEndpointApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationUpdateParamsBodyGatewayIdentityProxyEndpointApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -56848,7 +56848,7 @@ func (r AccessApplicationUpdateParamsBodyGatewayIdentityProxyEndpointApplication
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationUpdateParamsBodyGatewayIdentityProxyEndpointApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationUpdateParamsBodyGatewayIdentityProxyEndpointApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -56863,7 +56863,7 @@ func (r AccessApplicationUpdateParamsBodyGatewayIdentityProxyEndpointApplication
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationUpdateParamsBodyGatewayIdentityProxyEndpointApplicationPoliciesObjectMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationUpdateParamsBodyGatewayIdentityProxyEndpointApplicationPoliciesObjectMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators param.Field[[]AccessApplicationUpdateParamsBodyGatewayIdentityProxyEndpointApplicationPoliciesObjectMfaConfigAllowedAuthenticator] `json:"allowed_authenticators"`
@@ -56923,7 +56923,7 @@ func (r AccessApplicationUpdateParamsBodyBookmarkApplication) MarshalJSON() (dat
 func (r AccessApplicationUpdateParamsBodyBookmarkApplication) implementsAccessApplicationUpdateParamsBodyUnion() {
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationUpdateParamsBodyBookmarkApplicationPolicy is a JSON that links a reusable policy to an application.
 type AccessApplicationUpdateParamsBodyBookmarkApplicationPolicy struct {
 	// The UUID of the policy
 	ID             param.Field[string]      `json:"id"`
@@ -56957,7 +56957,7 @@ func (r AccessApplicationUpdateParamsBodyBookmarkApplicationPolicy) MarshalJSON(
 func (r AccessApplicationUpdateParamsBodyBookmarkApplicationPolicy) ImplementsAccessApplicationUpdateParamsBodyBookmarkApplicationPolicyUnion() {
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationUpdateParamsBodyBookmarkApplicationPolicyUnion is a JSON that links a reusable policy to an application.
 //
 // Satisfied by
 // [zero_trust.AccessApplicationUpdateParamsBodyBookmarkApplicationPoliciesAccessAppPolicyLink],
@@ -56968,7 +56968,7 @@ type AccessApplicationUpdateParamsBodyBookmarkApplicationPolicyUnion interface {
 	ImplementsAccessApplicationUpdateParamsBodyBookmarkApplicationPolicyUnion()
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationUpdateParamsBodyBookmarkApplicationPoliciesAccessAppPolicyLink is a JSON that links a reusable policy to an application.
 type AccessApplicationUpdateParamsBodyBookmarkApplicationPoliciesAccessAppPolicyLink struct {
 	// The UUID of the policy
 	ID param.Field[string] `json:"id"`
@@ -57021,7 +57021,7 @@ func (r AccessApplicationUpdateParamsBodyBookmarkApplicationPoliciesObject) Mars
 func (r AccessApplicationUpdateParamsBodyBookmarkApplicationPoliciesObject) ImplementsAccessApplicationUpdateParamsBodyBookmarkApplicationPolicyUnion() {
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationUpdateParamsBodyBookmarkApplicationPoliciesObjectConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationUpdateParamsBodyBookmarkApplicationPoliciesObjectConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -57032,7 +57032,7 @@ func (r AccessApplicationUpdateParamsBodyBookmarkApplicationPoliciesObjectConnec
 	return apijson.MarshalRoot(r)
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationUpdateParamsBodyBookmarkApplicationPoliciesObjectConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationUpdateParamsBodyBookmarkApplicationPoliciesObjectConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats param.Field[[]AccessApplicationUpdateParamsBodyBookmarkApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat] `json:"allowed_clipboard_local_to_remote_formats"`
@@ -57044,7 +57044,7 @@ func (r AccessApplicationUpdateParamsBodyBookmarkApplicationPoliciesObjectConnec
 	return apijson.MarshalRoot(r)
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationUpdateParamsBodyBookmarkApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationUpdateParamsBodyBookmarkApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -57059,7 +57059,7 @@ func (r AccessApplicationUpdateParamsBodyBookmarkApplicationPoliciesObjectConnec
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationUpdateParamsBodyBookmarkApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationUpdateParamsBodyBookmarkApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -57074,7 +57074,7 @@ func (r AccessApplicationUpdateParamsBodyBookmarkApplicationPoliciesObjectConnec
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationUpdateParamsBodyBookmarkApplicationPoliciesObjectMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationUpdateParamsBodyBookmarkApplicationPoliciesObjectMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators param.Field[[]AccessApplicationUpdateParamsBodyBookmarkApplicationPoliciesObjectMfaConfigAllowedAuthenticator] `json:"allowed_authenticators"`
@@ -57137,7 +57137,7 @@ func (r AccessApplicationUpdateParamsBodyInfrastructureApplicationTargetCriterio
 	return apijson.MarshalRoot(r)
 }
 
-// The communication protocol your application secures.
+// AccessApplicationUpdateParamsBodyInfrastructureApplicationTargetCriteriaProtocol is the communication protocol your application secures.
 type AccessApplicationUpdateParamsBodyInfrastructureApplicationTargetCriteriaProtocol string
 
 const (
@@ -57179,7 +57179,7 @@ func (r AccessApplicationUpdateParamsBodyInfrastructureApplicationPolicy) Marsha
 	return apijson.MarshalRoot(r)
 }
 
-// The rules that define how users may connect to the targets secured by your
+// AccessApplicationUpdateParamsBodyInfrastructureApplicationPoliciesConnectionRules is the rules that define how users may connect to the targets secured by your
 // application.
 type AccessApplicationUpdateParamsBodyInfrastructureApplicationPoliciesConnectionRules struct {
 	// The SSH-specific rules that define how users may connect to the targets secured
@@ -57191,7 +57191,7 @@ func (r AccessApplicationUpdateParamsBodyInfrastructureApplicationPoliciesConnec
 	return apijson.MarshalRoot(r)
 }
 
-// The SSH-specific rules that define how users may connect to the targets secured
+// AccessApplicationUpdateParamsBodyInfrastructureApplicationPoliciesConnectionRulesSSH is the SSH-specific rules that define how users may connect to the targets secured
 // by your application.
 type AccessApplicationUpdateParamsBodyInfrastructureApplicationPoliciesConnectionRulesSSH struct {
 	// Contains the Unix usernames that may be used when connecting over SSH.
@@ -57204,7 +57204,7 @@ func (r AccessApplicationUpdateParamsBodyInfrastructureApplicationPoliciesConnec
 	return apijson.MarshalRoot(r)
 }
 
-// Configures multi-factor authentication (MFA) settings for infrastructure
+// AccessApplicationUpdateParamsBodyInfrastructureApplicationPoliciesMfaConfig configures multi-factor authentication (MFA) settings for infrastructure
 // applications.
 type AccessApplicationUpdateParamsBodyInfrastructureApplicationPoliciesMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with. For infrastructure
@@ -57236,7 +57236,7 @@ func (r AccessApplicationUpdateParamsBodyInfrastructureApplicationPoliciesMfaCon
 	return false
 }
 
-// Contains the targets secured by the application.
+// AccessApplicationUpdateParamsBodyBrowserRDPApplication contains the targets secured by the application.
 type AccessApplicationUpdateParamsBodyBrowserRDPApplication struct {
 	// The primary hostname and path secured by Access. This domain will be displayed
 	// if the app is visible in the App Launcher.
@@ -57368,7 +57368,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserRDPApplicationTargetCriterion) M
 	return apijson.MarshalRoot(r)
 }
 
-// The communication protocol your application secures.
+// AccessApplicationUpdateParamsBodyBrowserRDPApplicationTargetCriteriaProtocol is the communication protocol your application secures.
 type AccessApplicationUpdateParamsBodyBrowserRDPApplicationTargetCriteriaProtocol string
 
 const (
@@ -57383,7 +57383,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserRDPApplicationTargetCriteriaProt
 	return false
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationUpdateParamsBodyBrowserRDPApplicationDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationUpdateParamsBodyBrowserRDPApplicationDestination struct {
 	// The CIDR range of the destination. Single IPs will be computed as /32.
@@ -57416,7 +57416,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserRDPApplicationDestination) Marsh
 func (r AccessApplicationUpdateParamsBodyBrowserRDPApplicationDestination) implementsAccessApplicationUpdateParamsBodyBrowserRDPApplicationDestinationUnion() {
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationUpdateParamsBodyBrowserRDPApplicationDestinationUnion is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 //
 // Satisfied by
@@ -57432,7 +57432,7 @@ type AccessApplicationUpdateParamsBodyBrowserRDPApplicationDestinationUnion inte
 	implementsAccessApplicationUpdateParamsBodyBrowserRDPApplicationDestinationUnion()
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationUpdateParamsBodyBrowserRDPApplicationDestinationsPublicDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationUpdateParamsBodyBrowserRDPApplicationDestinationsPublicDestination struct {
 	Type param.Field[AccessApplicationUpdateParamsBodyBrowserRDPApplicationDestinationsPublicDestinationType] `json:"type"`
@@ -57486,7 +57486,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserRDPApplicationDestinationsPrivat
 func (r AccessApplicationUpdateParamsBodyBrowserRDPApplicationDestinationsPrivateDestination) implementsAccessApplicationUpdateParamsBodyBrowserRDPApplicationDestinationUnion() {
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationUpdateParamsBodyBrowserRDPApplicationDestinationsPrivateDestinationL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationUpdateParamsBodyBrowserRDPApplicationDestinationsPrivateDestinationL4Protocol string
 
@@ -57517,7 +57517,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserRDPApplicationDestinationsPrivat
 	return false
 }
 
-// A MCP server id configured in ai-controls. Access will secure the MCP server if
+// AccessApplicationUpdateParamsBodyBrowserRDPApplicationDestinationsViaMcpServerPortalDestination is a MCP server id configured in ai-controls. Access will secure the MCP server if
 // accessed through a MCP portal.
 type AccessApplicationUpdateParamsBodyBrowserRDPApplicationDestinationsViaMcpServerPortalDestination struct {
 	// The MCP server id configured in ai-controls.
@@ -57546,7 +57546,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserRDPApplicationDestinationsViaMcp
 	return false
 }
 
-// A specific Cloudflare Worker that Access will secure. All requests routed to the
+// AccessApplicationUpdateParamsBodyBrowserRDPApplicationDestinationsWorkerDestination is a specific Cloudflare Worker that Access will secure. All requests routed to the
 // specified Worker, including its preview deployments, will be protected. The
 // `preview_worker` and `public` destination types takes precedence, so you can
 // create separate applications to override the policies for the Worker's previews
@@ -57578,7 +57578,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserRDPApplicationDestinationsWorker
 	return false
 }
 
-// A specific Cloudflare Worker whose preview deployments Access will secure. Only
+// AccessApplicationUpdateParamsBodyBrowserRDPApplicationDestinationsPreviewWorkerDestination is a specific Cloudflare Worker whose preview deployments Access will secure. Only
 // requests routed to the preview deployments of the specified Worker will be
 // protected. The `public` destination type takes precedence, so you can create
 // separate applications to override the policies for specific paths.
@@ -57610,7 +57610,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserRDPApplicationDestinationsPrevie
 	return false
 }
 
-// Protects all Cloudflare Workers on the account with Access, including their
+// AccessApplicationUpdateParamsBodyBrowserRDPApplicationDestinationsAllWorkersDestination protects all Cloudflare Workers on the account with Access, including their
 // preview deployments. At most one destination of this type can exist per account.
 // The `worker`, `preview_worker`, `all_preview_workers`, and `public` destination
 // types take precedence, so you can create separate applications to override the
@@ -57640,7 +57640,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserRDPApplicationDestinationsAllWor
 	return false
 }
 
-// Protects the preview deployments of all Cloudflare Workers on the account with
+// AccessApplicationUpdateParamsBodyBrowserRDPApplicationDestinationsAllPreviewWorkersDestination protects the preview deployments of all Cloudflare Workers on the account with
 // Access. At most one destination of this type can exist per account. The
 // `worker`, `preview_worker`, and `public` destination types take precedence, so
 // you can create separate applications to override the policies for specific
@@ -57670,7 +57670,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserRDPApplicationDestinationsAllPre
 	return false
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationUpdateParamsBodyBrowserRDPApplicationDestinationsL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationUpdateParamsBodyBrowserRDPApplicationDestinationsL4Protocol string
 
@@ -57707,7 +57707,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserRDPApplicationDestinationsType) 
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationUpdateParamsBodyBrowserRDPApplicationMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationUpdateParamsBodyBrowserRDPApplicationMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators param.Field[[]AccessApplicationUpdateParamsBodyBrowserRDPApplicationMfaConfigAllowedAuthenticator] `json:"allowed_authenticators"`
@@ -57739,7 +57739,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserRDPApplicationMfaConfigAllowedAu
 	return false
 }
 
-// **Beta:** Optional configuration for managing an OAuth authorization flow
+// AccessApplicationUpdateParamsBodyBrowserRDPApplicationOAuthConfiguration **Beta:** Optional configuration for managing an OAuth authorization flow
 // controlled by Access. When set, Access will act as the OAuth authorization
 // server for this application. Only compatible with OAuth clients that support
 // [RFC 8707](https://datatracker.ietf.org/doc/html/rfc8707) (Resource Indicators
@@ -57759,7 +57759,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserRDPApplicationOAuthConfiguration
 	return apijson.MarshalRoot(r)
 }
 
-// Settings for OAuth dynamic client registration.
+// AccessApplicationUpdateParamsBodyBrowserRDPApplicationOAuthConfigurationDynamicClientRegistration settings for OAuth dynamic client registration.
 type AccessApplicationUpdateParamsBodyBrowserRDPApplicationOAuthConfigurationDynamicClientRegistration struct {
 	// Allows any client with redirect URIs on localhost.
 	AllowAnyOnLocalhost param.Field[bool] `json:"allow_any_on_localhost"`
@@ -57776,7 +57776,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserRDPApplicationOAuthConfiguration
 	return apijson.MarshalRoot(r)
 }
 
-// Settings for OAuth grant behavior.
+// AccessApplicationUpdateParamsBodyBrowserRDPApplicationOAuthConfigurationGrant settings for OAuth grant behavior.
 type AccessApplicationUpdateParamsBodyBrowserRDPApplicationOAuthConfigurationGrant struct {
 	// The lifetime of the access token. Must be in the format `300ms` or `2h45m`.
 	// Valid time units are ns, us (or µs), ms, s, m, h.
@@ -57790,7 +57790,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserRDPApplicationOAuthConfiguration
 	return apijson.MarshalRoot(r)
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationUpdateParamsBodyBrowserRDPApplicationPolicy is a JSON that links a reusable policy to an application.
 type AccessApplicationUpdateParamsBodyBrowserRDPApplicationPolicy struct {
 	// The UUID of the policy
 	ID             param.Field[string]      `json:"id"`
@@ -57824,7 +57824,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserRDPApplicationPolicy) MarshalJSO
 func (r AccessApplicationUpdateParamsBodyBrowserRDPApplicationPolicy) ImplementsAccessApplicationUpdateParamsBodyBrowserRDPApplicationPolicyUnion() {
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationUpdateParamsBodyBrowserRDPApplicationPolicyUnion is a JSON that links a reusable policy to an application.
 //
 // Satisfied by
 // [zero_trust.AccessApplicationUpdateParamsBodyBrowserRDPApplicationPoliciesAccessAppPolicyLink],
@@ -57835,7 +57835,7 @@ type AccessApplicationUpdateParamsBodyBrowserRDPApplicationPolicyUnion interface
 	ImplementsAccessApplicationUpdateParamsBodyBrowserRDPApplicationPolicyUnion()
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationUpdateParamsBodyBrowserRDPApplicationPoliciesAccessAppPolicyLink is a JSON that links a reusable policy to an application.
 type AccessApplicationUpdateParamsBodyBrowserRDPApplicationPoliciesAccessAppPolicyLink struct {
 	// The UUID of the policy
 	ID param.Field[string] `json:"id"`
@@ -57888,7 +57888,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserRDPApplicationPoliciesObject) Ma
 func (r AccessApplicationUpdateParamsBodyBrowserRDPApplicationPoliciesObject) ImplementsAccessApplicationUpdateParamsBodyBrowserRDPApplicationPolicyUnion() {
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationUpdateParamsBodyBrowserRDPApplicationPoliciesObjectConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationUpdateParamsBodyBrowserRDPApplicationPoliciesObjectConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -57899,7 +57899,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserRDPApplicationPoliciesObjectConn
 	return apijson.MarshalRoot(r)
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationUpdateParamsBodyBrowserRDPApplicationPoliciesObjectConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationUpdateParamsBodyBrowserRDPApplicationPoliciesObjectConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats param.Field[[]AccessApplicationUpdateParamsBodyBrowserRDPApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat] `json:"allowed_clipboard_local_to_remote_formats"`
@@ -57911,7 +57911,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserRDPApplicationPoliciesObjectConn
 	return apijson.MarshalRoot(r)
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationUpdateParamsBodyBrowserRDPApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationUpdateParamsBodyBrowserRDPApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -57926,7 +57926,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserRDPApplicationPoliciesObjectConn
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationUpdateParamsBodyBrowserRDPApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationUpdateParamsBodyBrowserRDPApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -57941,7 +57941,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserRDPApplicationPoliciesObjectConn
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationUpdateParamsBodyBrowserRDPApplicationPoliciesObjectMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationUpdateParamsBodyBrowserRDPApplicationPoliciesObjectMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators param.Field[[]AccessApplicationUpdateParamsBodyBrowserRDPApplicationPoliciesObjectMfaConfigAllowedAuthenticator] `json:"allowed_authenticators"`
@@ -57973,7 +57973,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserRDPApplicationPoliciesObjectMfaC
 	return false
 }
 
-// Configuration for provisioning to this application via SCIM. This is currently
+// AccessApplicationUpdateParamsBodyBrowserRDPApplicationSCIMConfig configuration for provisioning to this application via SCIM. This is currently
 // in closed beta.
 type AccessApplicationUpdateParamsBodyBrowserRDPApplicationSCIMConfig struct {
 	// The UID of the IdP to use as the source for SCIM resources to provision to this
@@ -57999,7 +57999,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserRDPApplicationSCIMConfig) Marsha
 	return apijson.MarshalRoot(r)
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationUpdateParamsBodyBrowserRDPApplicationSCIMConfigAuthentication attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationUpdateParamsBodyBrowserRDPApplicationSCIMConfigAuthentication struct {
 	// The authentication scheme to use when making SCIM requests to this application.
@@ -58031,7 +58031,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserRDPApplicationSCIMConfigAuthenti
 func (r AccessApplicationUpdateParamsBodyBrowserRDPApplicationSCIMConfigAuthentication) implementsAccessApplicationUpdateParamsBodyBrowserRDPApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationUpdateParamsBodyBrowserRDPApplicationSCIMConfigAuthenticationUnion attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Satisfied by [zero_trust.SCIMConfigAuthenticationHTTPBasicParam],
@@ -58044,7 +58044,7 @@ type AccessApplicationUpdateParamsBodyBrowserRDPApplicationSCIMConfigAuthenticat
 	implementsAccessApplicationUpdateParamsBodyBrowserRDPApplicationSCIMConfigAuthenticationUnion()
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationUpdateParamsBodyBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationUpdateParamsBodyBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -58064,7 +58064,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserRDPApplicationSCIMConfigAuthenti
 func (r AccessApplicationUpdateParamsBodyBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationUpdateParamsBodyBrowserRDPApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationUpdateParamsBodyBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationUpdateParamsBodyBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -58084,7 +58084,7 @@ type AccessApplicationUpdateParamsBodyBrowserRDPApplicationSCIMConfigAuthenticat
 func (r AccessApplicationUpdateParamsBodyBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthentication) implementsAccessApplicationUpdateParamsBodyBrowserRDPApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationUpdateParamsBodyBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationUpdateParamsBodyBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem struct {
 	// The authentication scheme to use when making SCIM requests to this application.
@@ -58116,7 +58116,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserRDPApplicationSCIMConfigAuthenti
 func (r AccessApplicationUpdateParamsBodyBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem) implementsAccessApplicationUpdateParamsBodyBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItemUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationUpdateParamsBodyBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItemUnion attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Satisfied by [zero_trust.SCIMConfigAuthenticationHTTPBasicParam],
@@ -58128,7 +58128,7 @@ type AccessApplicationUpdateParamsBodyBrowserRDPApplicationSCIMConfigAuthenticat
 	implementsAccessApplicationUpdateParamsBodyBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItemUnion()
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationUpdateParamsBodyBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationUpdateParamsBodyBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -58148,7 +58148,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserRDPApplicationSCIMConfigAuthenti
 func (r AccessApplicationUpdateParamsBodyBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationUpdateParamsBodyBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItemUnion() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationUpdateParamsBodyBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationUpdateParamsBodyBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -58163,7 +58163,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserRDPApplicationSCIMConfigAuthenti
 	return false
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationUpdateParamsBodyBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationUpdateParamsBodyBrowserRDPApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme string
 
 const (
@@ -58181,7 +58181,7 @@ func (r AccessApplicationUpdateParamsBodyBrowserRDPApplicationSCIMConfigAuthenti
 	return false
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationUpdateParamsBodyBrowserRDPApplicationSCIMConfigAuthenticationScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationUpdateParamsBodyBrowserRDPApplicationSCIMConfigAuthenticationScheme string
 
 const (
@@ -58271,7 +58271,7 @@ func (r AccessApplicationUpdateParamsBodyMcpServerApplication) MarshalJSON() (da
 func (r AccessApplicationUpdateParamsBodyMcpServerApplication) implementsAccessApplicationUpdateParamsBodyUnion() {
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationUpdateParamsBodyMcpServerApplicationDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationUpdateParamsBodyMcpServerApplicationDestination struct {
 	// The CIDR range of the destination. Single IPs will be computed as /32.
@@ -58304,7 +58304,7 @@ func (r AccessApplicationUpdateParamsBodyMcpServerApplicationDestination) Marsha
 func (r AccessApplicationUpdateParamsBodyMcpServerApplicationDestination) implementsAccessApplicationUpdateParamsBodyMcpServerApplicationDestinationUnion() {
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationUpdateParamsBodyMcpServerApplicationDestinationUnion is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 //
 // Satisfied by
@@ -58320,7 +58320,7 @@ type AccessApplicationUpdateParamsBodyMcpServerApplicationDestinationUnion inter
 	implementsAccessApplicationUpdateParamsBodyMcpServerApplicationDestinationUnion()
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationUpdateParamsBodyMcpServerApplicationDestinationsPublicDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationUpdateParamsBodyMcpServerApplicationDestinationsPublicDestination struct {
 	Type param.Field[AccessApplicationUpdateParamsBodyMcpServerApplicationDestinationsPublicDestinationType] `json:"type"`
@@ -58374,7 +58374,7 @@ func (r AccessApplicationUpdateParamsBodyMcpServerApplicationDestinationsPrivate
 func (r AccessApplicationUpdateParamsBodyMcpServerApplicationDestinationsPrivateDestination) implementsAccessApplicationUpdateParamsBodyMcpServerApplicationDestinationUnion() {
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationUpdateParamsBodyMcpServerApplicationDestinationsPrivateDestinationL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationUpdateParamsBodyMcpServerApplicationDestinationsPrivateDestinationL4Protocol string
 
@@ -58405,7 +58405,7 @@ func (r AccessApplicationUpdateParamsBodyMcpServerApplicationDestinationsPrivate
 	return false
 }
 
-// A MCP server id configured in ai-controls. Access will secure the MCP server if
+// AccessApplicationUpdateParamsBodyMcpServerApplicationDestinationsViaMcpServerPortalDestination is a MCP server id configured in ai-controls. Access will secure the MCP server if
 // accessed through a MCP portal.
 type AccessApplicationUpdateParamsBodyMcpServerApplicationDestinationsViaMcpServerPortalDestination struct {
 	// The MCP server id configured in ai-controls.
@@ -58434,7 +58434,7 @@ func (r AccessApplicationUpdateParamsBodyMcpServerApplicationDestinationsViaMcpS
 	return false
 }
 
-// A specific Cloudflare Worker that Access will secure. All requests routed to the
+// AccessApplicationUpdateParamsBodyMcpServerApplicationDestinationsWorkerDestination is a specific Cloudflare Worker that Access will secure. All requests routed to the
 // specified Worker, including its preview deployments, will be protected. The
 // `preview_worker` and `public` destination types takes precedence, so you can
 // create separate applications to override the policies for the Worker's previews
@@ -58466,7 +58466,7 @@ func (r AccessApplicationUpdateParamsBodyMcpServerApplicationDestinationsWorkerD
 	return false
 }
 
-// A specific Cloudflare Worker whose preview deployments Access will secure. Only
+// AccessApplicationUpdateParamsBodyMcpServerApplicationDestinationsPreviewWorkerDestination is a specific Cloudflare Worker whose preview deployments Access will secure. Only
 // requests routed to the preview deployments of the specified Worker will be
 // protected. The `public` destination type takes precedence, so you can create
 // separate applications to override the policies for specific paths.
@@ -58498,7 +58498,7 @@ func (r AccessApplicationUpdateParamsBodyMcpServerApplicationDestinationsPreview
 	return false
 }
 
-// Protects all Cloudflare Workers on the account with Access, including their
+// AccessApplicationUpdateParamsBodyMcpServerApplicationDestinationsAllWorkersDestination protects all Cloudflare Workers on the account with Access, including their
 // preview deployments. At most one destination of this type can exist per account.
 // The `worker`, `preview_worker`, `all_preview_workers`, and `public` destination
 // types take precedence, so you can create separate applications to override the
@@ -58528,7 +58528,7 @@ func (r AccessApplicationUpdateParamsBodyMcpServerApplicationDestinationsAllWork
 	return false
 }
 
-// Protects the preview deployments of all Cloudflare Workers on the account with
+// AccessApplicationUpdateParamsBodyMcpServerApplicationDestinationsAllPreviewWorkersDestination protects the preview deployments of all Cloudflare Workers on the account with
 // Access. At most one destination of this type can exist per account. The
 // `worker`, `preview_worker`, and `public` destination types take precedence, so
 // you can create separate applications to override the policies for specific
@@ -58558,7 +58558,7 @@ func (r AccessApplicationUpdateParamsBodyMcpServerApplicationDestinationsAllPrev
 	return false
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationUpdateParamsBodyMcpServerApplicationDestinationsL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationUpdateParamsBodyMcpServerApplicationDestinationsL4Protocol string
 
@@ -58595,7 +58595,7 @@ func (r AccessApplicationUpdateParamsBodyMcpServerApplicationDestinationsType) I
 	return false
 }
 
-// **Beta:** Optional configuration for managing an OAuth authorization flow
+// AccessApplicationUpdateParamsBodyMcpServerApplicationOAuthConfiguration **Beta:** Optional configuration for managing an OAuth authorization flow
 // controlled by Access. When set, Access will act as the OAuth authorization
 // server for this application. Only compatible with OAuth clients that support
 // [RFC 8707](https://datatracker.ietf.org/doc/html/rfc8707) (Resource Indicators
@@ -58615,7 +58615,7 @@ func (r AccessApplicationUpdateParamsBodyMcpServerApplicationOAuthConfiguration)
 	return apijson.MarshalRoot(r)
 }
 
-// Settings for OAuth dynamic client registration.
+// AccessApplicationUpdateParamsBodyMcpServerApplicationOAuthConfigurationDynamicClientRegistration settings for OAuth dynamic client registration.
 type AccessApplicationUpdateParamsBodyMcpServerApplicationOAuthConfigurationDynamicClientRegistration struct {
 	// Allows any client with redirect URIs on localhost.
 	AllowAnyOnLocalhost param.Field[bool] `json:"allow_any_on_localhost"`
@@ -58632,7 +58632,7 @@ func (r AccessApplicationUpdateParamsBodyMcpServerApplicationOAuthConfigurationD
 	return apijson.MarshalRoot(r)
 }
 
-// Settings for OAuth grant behavior.
+// AccessApplicationUpdateParamsBodyMcpServerApplicationOAuthConfigurationGrant settings for OAuth grant behavior.
 type AccessApplicationUpdateParamsBodyMcpServerApplicationOAuthConfigurationGrant struct {
 	// The lifetime of the access token. Must be in the format `300ms` or `2h45m`.
 	// Valid time units are ns, us (or µs), ms, s, m, h.
@@ -58646,7 +58646,7 @@ func (r AccessApplicationUpdateParamsBodyMcpServerApplicationOAuthConfigurationG
 	return apijson.MarshalRoot(r)
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationUpdateParamsBodyMcpServerApplicationPolicy is a JSON that links a reusable policy to an application.
 type AccessApplicationUpdateParamsBodyMcpServerApplicationPolicy struct {
 	// The UUID of the policy
 	ID             param.Field[string]      `json:"id"`
@@ -58680,7 +58680,7 @@ func (r AccessApplicationUpdateParamsBodyMcpServerApplicationPolicy) MarshalJSON
 func (r AccessApplicationUpdateParamsBodyMcpServerApplicationPolicy) ImplementsAccessApplicationUpdateParamsBodyMcpServerApplicationPolicyUnion() {
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationUpdateParamsBodyMcpServerApplicationPolicyUnion is a JSON that links a reusable policy to an application.
 //
 // Satisfied by
 // [zero_trust.AccessApplicationUpdateParamsBodyMcpServerApplicationPoliciesAccessAppPolicyLink],
@@ -58691,7 +58691,7 @@ type AccessApplicationUpdateParamsBodyMcpServerApplicationPolicyUnion interface 
 	ImplementsAccessApplicationUpdateParamsBodyMcpServerApplicationPolicyUnion()
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationUpdateParamsBodyMcpServerApplicationPoliciesAccessAppPolicyLink is a JSON that links a reusable policy to an application.
 type AccessApplicationUpdateParamsBodyMcpServerApplicationPoliciesAccessAppPolicyLink struct {
 	// The UUID of the policy
 	ID param.Field[string] `json:"id"`
@@ -58744,7 +58744,7 @@ func (r AccessApplicationUpdateParamsBodyMcpServerApplicationPoliciesObject) Mar
 func (r AccessApplicationUpdateParamsBodyMcpServerApplicationPoliciesObject) ImplementsAccessApplicationUpdateParamsBodyMcpServerApplicationPolicyUnion() {
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationUpdateParamsBodyMcpServerApplicationPoliciesObjectConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationUpdateParamsBodyMcpServerApplicationPoliciesObjectConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -58755,7 +58755,7 @@ func (r AccessApplicationUpdateParamsBodyMcpServerApplicationPoliciesObjectConne
 	return apijson.MarshalRoot(r)
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationUpdateParamsBodyMcpServerApplicationPoliciesObjectConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationUpdateParamsBodyMcpServerApplicationPoliciesObjectConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats param.Field[[]AccessApplicationUpdateParamsBodyMcpServerApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat] `json:"allowed_clipboard_local_to_remote_formats"`
@@ -58767,7 +58767,7 @@ func (r AccessApplicationUpdateParamsBodyMcpServerApplicationPoliciesObjectConne
 	return apijson.MarshalRoot(r)
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationUpdateParamsBodyMcpServerApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationUpdateParamsBodyMcpServerApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -58782,7 +58782,7 @@ func (r AccessApplicationUpdateParamsBodyMcpServerApplicationPoliciesObjectConne
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationUpdateParamsBodyMcpServerApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationUpdateParamsBodyMcpServerApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -58797,7 +58797,7 @@ func (r AccessApplicationUpdateParamsBodyMcpServerApplicationPoliciesObjectConne
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationUpdateParamsBodyMcpServerApplicationPoliciesObjectMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationUpdateParamsBodyMcpServerApplicationPoliciesObjectMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators param.Field[[]AccessApplicationUpdateParamsBodyMcpServerApplicationPoliciesObjectMfaConfigAllowedAuthenticator] `json:"allowed_authenticators"`
@@ -58829,7 +58829,7 @@ func (r AccessApplicationUpdateParamsBodyMcpServerApplicationPoliciesObjectMfaCo
 	return false
 }
 
-// Configuration for provisioning to this application via SCIM. This is currently
+// AccessApplicationUpdateParamsBodyMcpServerApplicationSCIMConfig configuration for provisioning to this application via SCIM. This is currently
 // in closed beta.
 type AccessApplicationUpdateParamsBodyMcpServerApplicationSCIMConfig struct {
 	// The UID of the IdP to use as the source for SCIM resources to provision to this
@@ -58855,7 +58855,7 @@ func (r AccessApplicationUpdateParamsBodyMcpServerApplicationSCIMConfig) Marshal
 	return apijson.MarshalRoot(r)
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationUpdateParamsBodyMcpServerApplicationSCIMConfigAuthentication attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationUpdateParamsBodyMcpServerApplicationSCIMConfigAuthentication struct {
 	// The authentication scheme to use when making SCIM requests to this application.
@@ -58887,7 +58887,7 @@ func (r AccessApplicationUpdateParamsBodyMcpServerApplicationSCIMConfigAuthentic
 func (r AccessApplicationUpdateParamsBodyMcpServerApplicationSCIMConfigAuthentication) implementsAccessApplicationUpdateParamsBodyMcpServerApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationUpdateParamsBodyMcpServerApplicationSCIMConfigAuthenticationUnion attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Satisfied by [zero_trust.SCIMConfigAuthenticationHTTPBasicParam],
@@ -58900,7 +58900,7 @@ type AccessApplicationUpdateParamsBodyMcpServerApplicationSCIMConfigAuthenticati
 	implementsAccessApplicationUpdateParamsBodyMcpServerApplicationSCIMConfigAuthenticationUnion()
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationUpdateParamsBodyMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationUpdateParamsBodyMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -58920,7 +58920,7 @@ func (r AccessApplicationUpdateParamsBodyMcpServerApplicationSCIMConfigAuthentic
 func (r AccessApplicationUpdateParamsBodyMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationUpdateParamsBodyMcpServerApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationUpdateParamsBodyMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationUpdateParamsBodyMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -58940,7 +58940,7 @@ type AccessApplicationUpdateParamsBodyMcpServerApplicationSCIMConfigAuthenticati
 func (r AccessApplicationUpdateParamsBodyMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthentication) implementsAccessApplicationUpdateParamsBodyMcpServerApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationUpdateParamsBodyMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationUpdateParamsBodyMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem struct {
 	// The authentication scheme to use when making SCIM requests to this application.
@@ -58972,7 +58972,7 @@ func (r AccessApplicationUpdateParamsBodyMcpServerApplicationSCIMConfigAuthentic
 func (r AccessApplicationUpdateParamsBodyMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem) implementsAccessApplicationUpdateParamsBodyMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItemUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationUpdateParamsBodyMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItemUnion attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Satisfied by [zero_trust.SCIMConfigAuthenticationHTTPBasicParam],
@@ -58984,7 +58984,7 @@ type AccessApplicationUpdateParamsBodyMcpServerApplicationSCIMConfigAuthenticati
 	implementsAccessApplicationUpdateParamsBodyMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItemUnion()
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationUpdateParamsBodyMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationUpdateParamsBodyMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -59004,7 +59004,7 @@ func (r AccessApplicationUpdateParamsBodyMcpServerApplicationSCIMConfigAuthentic
 func (r AccessApplicationUpdateParamsBodyMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationUpdateParamsBodyMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItemUnion() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationUpdateParamsBodyMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationUpdateParamsBodyMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -59019,7 +59019,7 @@ func (r AccessApplicationUpdateParamsBodyMcpServerApplicationSCIMConfigAuthentic
 	return false
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationUpdateParamsBodyMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationUpdateParamsBodyMcpServerApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme string
 
 const (
@@ -59037,7 +59037,7 @@ func (r AccessApplicationUpdateParamsBodyMcpServerApplicationSCIMConfigAuthentic
 	return false
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationUpdateParamsBodyMcpServerApplicationSCIMConfigAuthenticationScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationUpdateParamsBodyMcpServerApplicationSCIMConfigAuthenticationScheme string
 
 const (
@@ -59130,7 +59130,7 @@ func (r AccessApplicationUpdateParamsBodyMcpServerPortalApplication) MarshalJSON
 func (r AccessApplicationUpdateParamsBodyMcpServerPortalApplication) implementsAccessApplicationUpdateParamsBodyUnion() {
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationUpdateParamsBodyMcpServerPortalApplicationDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationUpdateParamsBodyMcpServerPortalApplicationDestination struct {
 	// The CIDR range of the destination. Single IPs will be computed as /32.
@@ -59163,7 +59163,7 @@ func (r AccessApplicationUpdateParamsBodyMcpServerPortalApplicationDestination) 
 func (r AccessApplicationUpdateParamsBodyMcpServerPortalApplicationDestination) implementsAccessApplicationUpdateParamsBodyMcpServerPortalApplicationDestinationUnion() {
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationUpdateParamsBodyMcpServerPortalApplicationDestinationUnion is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 //
 // Satisfied by
@@ -59179,7 +59179,7 @@ type AccessApplicationUpdateParamsBodyMcpServerPortalApplicationDestinationUnion
 	implementsAccessApplicationUpdateParamsBodyMcpServerPortalApplicationDestinationUnion()
 }
 
-// A public hostname that Access will secure. Public destinations support
+// AccessApplicationUpdateParamsBodyMcpServerPortalApplicationDestinationsPublicDestination is a public hostname that Access will secure. Public destinations support
 // sub-domain and path. Wildcard '\*' can be used in the definition.
 type AccessApplicationUpdateParamsBodyMcpServerPortalApplicationDestinationsPublicDestination struct {
 	Type param.Field[AccessApplicationUpdateParamsBodyMcpServerPortalApplicationDestinationsPublicDestinationType] `json:"type"`
@@ -59233,7 +59233,7 @@ func (r AccessApplicationUpdateParamsBodyMcpServerPortalApplicationDestinationsP
 func (r AccessApplicationUpdateParamsBodyMcpServerPortalApplicationDestinationsPrivateDestination) implementsAccessApplicationUpdateParamsBodyMcpServerPortalApplicationDestinationUnion() {
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationUpdateParamsBodyMcpServerPortalApplicationDestinationsPrivateDestinationL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationUpdateParamsBodyMcpServerPortalApplicationDestinationsPrivateDestinationL4Protocol string
 
@@ -59264,7 +59264,7 @@ func (r AccessApplicationUpdateParamsBodyMcpServerPortalApplicationDestinationsP
 	return false
 }
 
-// A MCP server id configured in ai-controls. Access will secure the MCP server if
+// AccessApplicationUpdateParamsBodyMcpServerPortalApplicationDestinationsViaMcpServerPortalDestination is a MCP server id configured in ai-controls. Access will secure the MCP server if
 // accessed through a MCP portal.
 type AccessApplicationUpdateParamsBodyMcpServerPortalApplicationDestinationsViaMcpServerPortalDestination struct {
 	// The MCP server id configured in ai-controls.
@@ -59293,7 +59293,7 @@ func (r AccessApplicationUpdateParamsBodyMcpServerPortalApplicationDestinationsV
 	return false
 }
 
-// A specific Cloudflare Worker that Access will secure. All requests routed to the
+// AccessApplicationUpdateParamsBodyMcpServerPortalApplicationDestinationsWorkerDestination is a specific Cloudflare Worker that Access will secure. All requests routed to the
 // specified Worker, including its preview deployments, will be protected. The
 // `preview_worker` and `public` destination types takes precedence, so you can
 // create separate applications to override the policies for the Worker's previews
@@ -59325,7 +59325,7 @@ func (r AccessApplicationUpdateParamsBodyMcpServerPortalApplicationDestinationsW
 	return false
 }
 
-// A specific Cloudflare Worker whose preview deployments Access will secure. Only
+// AccessApplicationUpdateParamsBodyMcpServerPortalApplicationDestinationsPreviewWorkerDestination is a specific Cloudflare Worker whose preview deployments Access will secure. Only
 // requests routed to the preview deployments of the specified Worker will be
 // protected. The `public` destination type takes precedence, so you can create
 // separate applications to override the policies for specific paths.
@@ -59357,7 +59357,7 @@ func (r AccessApplicationUpdateParamsBodyMcpServerPortalApplicationDestinationsP
 	return false
 }
 
-// Protects all Cloudflare Workers on the account with Access, including their
+// AccessApplicationUpdateParamsBodyMcpServerPortalApplicationDestinationsAllWorkersDestination protects all Cloudflare Workers on the account with Access, including their
 // preview deployments. At most one destination of this type can exist per account.
 // The `worker`, `preview_worker`, `all_preview_workers`, and `public` destination
 // types take precedence, so you can create separate applications to override the
@@ -59387,7 +59387,7 @@ func (r AccessApplicationUpdateParamsBodyMcpServerPortalApplicationDestinationsA
 	return false
 }
 
-// Protects the preview deployments of all Cloudflare Workers on the account with
+// AccessApplicationUpdateParamsBodyMcpServerPortalApplicationDestinationsAllPreviewWorkersDestination protects the preview deployments of all Cloudflare Workers on the account with
 // Access. At most one destination of this type can exist per account. The
 // `worker`, `preview_worker`, and `public` destination types take precedence, so
 // you can create separate applications to override the policies for specific
@@ -59417,7 +59417,7 @@ func (r AccessApplicationUpdateParamsBodyMcpServerPortalApplicationDestinationsA
 	return false
 }
 
-// The L4 protocol of the destination. When omitted, both UDP and TCP traffic will
+// AccessApplicationUpdateParamsBodyMcpServerPortalApplicationDestinationsL4Protocol is the L4 protocol of the destination. When omitted, both UDP and TCP traffic will
 // match.
 type AccessApplicationUpdateParamsBodyMcpServerPortalApplicationDestinationsL4Protocol string
 
@@ -59454,7 +59454,7 @@ func (r AccessApplicationUpdateParamsBodyMcpServerPortalApplicationDestinationsT
 	return false
 }
 
-// **Beta:** Optional configuration for managing an OAuth authorization flow
+// AccessApplicationUpdateParamsBodyMcpServerPortalApplicationOAuthConfiguration **Beta:** Optional configuration for managing an OAuth authorization flow
 // controlled by Access. When set, Access will act as the OAuth authorization
 // server for this application. Only compatible with OAuth clients that support
 // [RFC 8707](https://datatracker.ietf.org/doc/html/rfc8707) (Resource Indicators
@@ -59474,7 +59474,7 @@ func (r AccessApplicationUpdateParamsBodyMcpServerPortalApplicationOAuthConfigur
 	return apijson.MarshalRoot(r)
 }
 
-// Settings for OAuth dynamic client registration.
+// AccessApplicationUpdateParamsBodyMcpServerPortalApplicationOAuthConfigurationDynamicClientRegistration settings for OAuth dynamic client registration.
 type AccessApplicationUpdateParamsBodyMcpServerPortalApplicationOAuthConfigurationDynamicClientRegistration struct {
 	// Allows any client with redirect URIs on localhost.
 	AllowAnyOnLocalhost param.Field[bool] `json:"allow_any_on_localhost"`
@@ -59491,7 +59491,7 @@ func (r AccessApplicationUpdateParamsBodyMcpServerPortalApplicationOAuthConfigur
 	return apijson.MarshalRoot(r)
 }
 
-// Settings for OAuth grant behavior.
+// AccessApplicationUpdateParamsBodyMcpServerPortalApplicationOAuthConfigurationGrant settings for OAuth grant behavior.
 type AccessApplicationUpdateParamsBodyMcpServerPortalApplicationOAuthConfigurationGrant struct {
 	// The lifetime of the access token. Must be in the format `300ms` or `2h45m`.
 	// Valid time units are ns, us (or µs), ms, s, m, h.
@@ -59505,7 +59505,7 @@ func (r AccessApplicationUpdateParamsBodyMcpServerPortalApplicationOAuthConfigur
 	return apijson.MarshalRoot(r)
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationUpdateParamsBodyMcpServerPortalApplicationPolicy is a JSON that links a reusable policy to an application.
 type AccessApplicationUpdateParamsBodyMcpServerPortalApplicationPolicy struct {
 	// The UUID of the policy
 	ID             param.Field[string]      `json:"id"`
@@ -59539,7 +59539,7 @@ func (r AccessApplicationUpdateParamsBodyMcpServerPortalApplicationPolicy) Marsh
 func (r AccessApplicationUpdateParamsBodyMcpServerPortalApplicationPolicy) ImplementsAccessApplicationUpdateParamsBodyMcpServerPortalApplicationPolicyUnion() {
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationUpdateParamsBodyMcpServerPortalApplicationPolicyUnion is a JSON that links a reusable policy to an application.
 //
 // Satisfied by
 // [zero_trust.AccessApplicationUpdateParamsBodyMcpServerPortalApplicationPoliciesAccessAppPolicyLink],
@@ -59550,7 +59550,7 @@ type AccessApplicationUpdateParamsBodyMcpServerPortalApplicationPolicyUnion inte
 	ImplementsAccessApplicationUpdateParamsBodyMcpServerPortalApplicationPolicyUnion()
 }
 
-// A JSON that links a reusable policy to an application.
+// AccessApplicationUpdateParamsBodyMcpServerPortalApplicationPoliciesAccessAppPolicyLink is a JSON that links a reusable policy to an application.
 type AccessApplicationUpdateParamsBodyMcpServerPortalApplicationPoliciesAccessAppPolicyLink struct {
 	// The UUID of the policy
 	ID param.Field[string] `json:"id"`
@@ -59603,7 +59603,7 @@ func (r AccessApplicationUpdateParamsBodyMcpServerPortalApplicationPoliciesObjec
 func (r AccessApplicationUpdateParamsBodyMcpServerPortalApplicationPoliciesObject) ImplementsAccessApplicationUpdateParamsBodyMcpServerPortalApplicationPolicyUnion() {
 }
 
-// The rules that define how users may connect to targets secured by your
+// AccessApplicationUpdateParamsBodyMcpServerPortalApplicationPoliciesObjectConnectionRules is the rules that define how users may connect to targets secured by your
 // application.
 type AccessApplicationUpdateParamsBodyMcpServerPortalApplicationPoliciesObjectConnectionRules struct {
 	// The RDP-specific rules that define clipboard behavior for RDP connections.
@@ -59614,7 +59614,7 @@ func (r AccessApplicationUpdateParamsBodyMcpServerPortalApplicationPoliciesObjec
 	return apijson.MarshalRoot(r)
 }
 
-// The RDP-specific rules that define clipboard behavior for RDP connections.
+// AccessApplicationUpdateParamsBodyMcpServerPortalApplicationPoliciesObjectConnectionRulesRDP is the RDP-specific rules that define clipboard behavior for RDP connections.
 type AccessApplicationUpdateParamsBodyMcpServerPortalApplicationPoliciesObjectConnectionRulesRDP struct {
 	// Clipboard formats allowed when copying from local machine to remote RDP session.
 	AllowedClipboardLocalToRemoteFormats param.Field[[]AccessApplicationUpdateParamsBodyMcpServerPortalApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat] `json:"allowed_clipboard_local_to_remote_formats"`
@@ -59626,7 +59626,7 @@ func (r AccessApplicationUpdateParamsBodyMcpServerPortalApplicationPoliciesObjec
 	return apijson.MarshalRoot(r)
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationUpdateParamsBodyMcpServerPortalApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat clipboard format for RDP connections.
 type AccessApplicationUpdateParamsBodyMcpServerPortalApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardLocalToRemoteFormat string
 
 const (
@@ -59641,7 +59641,7 @@ func (r AccessApplicationUpdateParamsBodyMcpServerPortalApplicationPoliciesObjec
 	return false
 }
 
-// Clipboard format for RDP connections.
+// AccessApplicationUpdateParamsBodyMcpServerPortalApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardRemoteToLocalFormat clipboard format for RDP connections.
 type AccessApplicationUpdateParamsBodyMcpServerPortalApplicationPoliciesObjectConnectionRulesRDPAllowedClipboardRemoteToLocalFormat string
 
 const (
@@ -59656,7 +59656,7 @@ func (r AccessApplicationUpdateParamsBodyMcpServerPortalApplicationPoliciesObjec
 	return false
 }
 
-// Configures multi-factor authentication (MFA) settings.
+// AccessApplicationUpdateParamsBodyMcpServerPortalApplicationPoliciesObjectMfaConfig configures multi-factor authentication (MFA) settings.
 type AccessApplicationUpdateParamsBodyMcpServerPortalApplicationPoliciesObjectMfaConfig struct {
 	// Lists the MFA methods that users can authenticate with.
 	AllowedAuthenticators param.Field[[]AccessApplicationUpdateParamsBodyMcpServerPortalApplicationPoliciesObjectMfaConfigAllowedAuthenticator] `json:"allowed_authenticators"`
@@ -59688,7 +59688,7 @@ func (r AccessApplicationUpdateParamsBodyMcpServerPortalApplicationPoliciesObjec
 	return false
 }
 
-// Configuration for provisioning to this application via SCIM. This is currently
+// AccessApplicationUpdateParamsBodyMcpServerPortalApplicationSCIMConfig configuration for provisioning to this application via SCIM. This is currently
 // in closed beta.
 type AccessApplicationUpdateParamsBodyMcpServerPortalApplicationSCIMConfig struct {
 	// The UID of the IdP to use as the source for SCIM resources to provision to this
@@ -59714,7 +59714,7 @@ func (r AccessApplicationUpdateParamsBodyMcpServerPortalApplicationSCIMConfig) M
 	return apijson.MarshalRoot(r)
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationUpdateParamsBodyMcpServerPortalApplicationSCIMConfigAuthentication attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationUpdateParamsBodyMcpServerPortalApplicationSCIMConfigAuthentication struct {
 	// The authentication scheme to use when making SCIM requests to this application.
@@ -59746,7 +59746,7 @@ func (r AccessApplicationUpdateParamsBodyMcpServerPortalApplicationSCIMConfigAut
 func (r AccessApplicationUpdateParamsBodyMcpServerPortalApplicationSCIMConfigAuthentication) implementsAccessApplicationUpdateParamsBodyMcpServerPortalApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationUpdateParamsBodyMcpServerPortalApplicationSCIMConfigAuthenticationUnion attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Satisfied by [zero_trust.SCIMConfigAuthenticationHTTPBasicParam],
@@ -59759,7 +59759,7 @@ type AccessApplicationUpdateParamsBodyMcpServerPortalApplicationSCIMConfigAuthen
 	implementsAccessApplicationUpdateParamsBodyMcpServerPortalApplicationSCIMConfigAuthenticationUnion()
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationUpdateParamsBodyMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationUpdateParamsBodyMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -59779,7 +59779,7 @@ func (r AccessApplicationUpdateParamsBodyMcpServerPortalApplicationSCIMConfigAut
 func (r AccessApplicationUpdateParamsBodyMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationUpdateParamsBodyMcpServerPortalApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationUpdateParamsBodyMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationUpdateParamsBodyMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -59799,7 +59799,7 @@ type AccessApplicationUpdateParamsBodyMcpServerPortalApplicationSCIMConfigAuthen
 func (r AccessApplicationUpdateParamsBodyMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthentication) implementsAccessApplicationUpdateParamsBodyMcpServerPortalApplicationSCIMConfigAuthenticationUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationUpdateParamsBodyMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationUpdateParamsBodyMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem struct {
 	// The authentication scheme to use when making SCIM requests to this application.
@@ -59831,7 +59831,7 @@ func (r AccessApplicationUpdateParamsBodyMcpServerPortalApplicationSCIMConfigAut
 func (r AccessApplicationUpdateParamsBodyMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItem) implementsAccessApplicationUpdateParamsBodyMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItemUnion() {
 }
 
-// Attributes for configuring HTTP Basic authentication scheme for SCIM
+// AccessApplicationUpdateParamsBodyMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItemUnion attributes for configuring HTTP Basic authentication scheme for SCIM
 // provisioning to an application.
 //
 // Satisfied by [zero_trust.SCIMConfigAuthenticationHTTPBasicParam],
@@ -59843,7 +59843,7 @@ type AccessApplicationUpdateParamsBodyMcpServerPortalApplicationSCIMConfigAuthen
 	implementsAccessApplicationUpdateParamsBodyMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItemUnion()
 }
 
-// Attributes for configuring Access Service Token authentication scheme for SCIM
+// AccessApplicationUpdateParamsBodyMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken attributes for configuring Access Service Token authentication scheme for SCIM
 // provisioning to an application.
 type AccessApplicationUpdateParamsBodyMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken struct {
 	// Client ID of the Access service token used to authenticate with the remote
@@ -59863,7 +59863,7 @@ func (r AccessApplicationUpdateParamsBodyMcpServerPortalApplicationSCIMConfigAut
 func (r AccessApplicationUpdateParamsBodyMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceToken) implementsAccessApplicationUpdateParamsBodyMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationItemUnion() {
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationUpdateParamsBodyMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationUpdateParamsBodyMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationAccessSCIMConfigAuthenticationAccessServiceTokenScheme string
 
 const (
@@ -59878,7 +59878,7 @@ func (r AccessApplicationUpdateParamsBodyMcpServerPortalApplicationSCIMConfigAut
 	return false
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationUpdateParamsBodyMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationUpdateParamsBodyMcpServerPortalApplicationSCIMConfigAuthenticationAccessSCIMConfigMultiAuthenticationScheme string
 
 const (
@@ -59896,7 +59896,7 @@ func (r AccessApplicationUpdateParamsBodyMcpServerPortalApplicationSCIMConfigAut
 	return false
 }
 
-// The authentication scheme to use when making SCIM requests to this application.
+// AccessApplicationUpdateParamsBodyMcpServerPortalApplicationSCIMConfigAuthenticationScheme is the authentication scheme to use when making SCIM requests to this application.
 type AccessApplicationUpdateParamsBodyMcpServerPortalApplicationSCIMConfigAuthenticationScheme string
 
 const (
@@ -60038,7 +60038,7 @@ func (r accessApplicationUpdateResponseEnvelopeMessagesSourceJSON) RawJSON() str
 	return r.raw
 }
 
-// Whether the API call was successful.
+// AccessApplicationUpdateResponseEnvelopeSuccess indicates whether the API call was successful.
 type AccessApplicationUpdateResponseEnvelopeSuccess bool
 
 const (
@@ -60216,7 +60216,7 @@ func (r accessApplicationDeleteResponseEnvelopeMessagesSourceJSON) RawJSON() str
 	return r.raw
 }
 
-// Whether the API call was successful.
+// AccessApplicationDeleteResponseEnvelopeSuccess indicates whether the API call was successful.
 type AccessApplicationDeleteResponseEnvelopeSuccess bool
 
 const (
@@ -60362,7 +60362,7 @@ func (r accessApplicationGetResponseEnvelopeMessagesSourceJSON) RawJSON() string
 	return r.raw
 }
 
-// Whether the API call was successful.
+// AccessApplicationGetResponseEnvelopeSuccess indicates whether the API call was successful.
 type AccessApplicationGetResponseEnvelopeSuccess bool
 
 const (
