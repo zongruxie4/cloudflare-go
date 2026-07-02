@@ -13,13 +13,16 @@ func (UnionTime) ImplementsAuditLogListParamsSinceUnion()  {}
 
 type UnionString string
 
-func (UnionString) ImplementsEmailSendingSendParamsFromUnion()    {}
-func (UnionString) ImplementsEmailSendingSendParamsBccUnion()     {}
-func (UnionString) ImplementsEmailSendingSendParamsCcUnion()      {}
-func (UnionString) ImplementsEmailSendingSendParamsReplyToUnion() {}
-func (UnionString) ImplementsEmailSendingSendParamsToUnion()      {}
-func (UnionString) ImplementsReceivedGetParamsEndUnion()          {}
-func (UnionString) ImplementsReceivedGetParamsStartUnion()        {}
+func (UnionString) ImplementsEmailSendingSendParamsFromUnion()         {}
+func (UnionString) ImplementsEmailSendingSendParamsBccUnion()          {}
+func (UnionString) ImplementsEmailSendingSendParamsBccArrayItemUnion() {}
+func (UnionString) ImplementsEmailSendingSendParamsCcUnion()           {}
+func (UnionString) ImplementsEmailSendingSendParamsCcArrayItemUnion()  {}
+func (UnionString) ImplementsEmailSendingSendParamsReplyToUnion()      {}
+func (UnionString) ImplementsEmailSendingSendParamsToUnion()           {}
+func (UnionString) ImplementsEmailSendingSendParamsToArrayItemUnion()  {}
+func (UnionString) ImplementsReceivedGetParamsEndUnion()               {}
+func (UnionString) ImplementsReceivedGetParamsStartUnion()             {}
 func (UnionString) ImplementsObservabilityTelemetryQueryResponseRunQueryParametersFiltersWorkersObservabilityFilterLeafValueUnion() {
 }
 func (UnionString) ImplementsObservabilityTelemetryQueryResponseRunQueryParametersNeedleValueUnion() {
