@@ -42,8 +42,26 @@ func TestDispatchNamespaceScriptSettingEditWithOptionalParams(t *testing.T) {
 					Text: cloudflare.F("my_data"),
 					Type: cloudflare.F(workers_for_platforms.DispatchNamespaceScriptSettingEditParamsSettingsBindingsWorkersBindingKindPlainTextTypePlainText),
 				}}),
+				CacheOptions: cloudflare.F(workers_for_platforms.DispatchNamespaceScriptSettingEditParamsSettingsCacheOptions{
+					Enabled:           cloudflare.F(true),
+					CrossVersionCache: cloudflare.F(true),
+				}),
 				CompatibilityDate:  cloudflare.F("2021-01-01"),
 				CompatibilityFlags: cloudflare.F([]string{"nodejs_compat"}),
+				Exports: cloudflare.F(map[string]workers_for_platforms.DispatchNamespaceScriptSettingEditParamsSettingsExports{
+					"Admin": {
+						Type: cloudflare.F(workers_for_platforms.DispatchNamespaceScriptSettingEditParamsSettingsExportsTypeWorker),
+						Cache: cloudflare.F(workers_for_platforms.DispatchNamespaceScriptSettingEditParamsSettingsExportsCache{
+							Enabled: cloudflare.F(true),
+						}),
+					},
+					"default": {
+						Type: cloudflare.F(workers_for_platforms.DispatchNamespaceScriptSettingEditParamsSettingsExportsTypeWorker),
+						Cache: cloudflare.F(workers_for_platforms.DispatchNamespaceScriptSettingEditParamsSettingsExportsCache{
+							Enabled: cloudflare.F(false),
+						}),
+					},
+				}),
 				Limits: cloudflare.F(workers_for_platforms.DispatchNamespaceScriptSettingEditParamsSettingsLimits{
 					CPUMs:       cloudflare.F(int64(50)),
 					Subrequests: cloudflare.F(int64(1000)),

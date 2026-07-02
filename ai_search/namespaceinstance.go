@@ -613,11 +613,16 @@ func (r namespaceInstanceNewResponseMetadataJSON) RawJSON() string {
 type NamespaceInstanceNewResponsePublicEndpointParams struct {
 	AuthorizedHosts         []string                                                                `json:"authorized_hosts"`
 	ChatCompletionsEndpoint NamespaceInstanceNewResponsePublicEndpointParamsChatCompletionsEndpoint `json:"chat_completions_endpoint"`
-	Enabled                 bool                                                                    `json:"enabled"`
-	Mcp                     NamespaceInstanceNewResponsePublicEndpointParamsMcp                     `json:"mcp"`
-	RateLimit               NamespaceInstanceNewResponsePublicEndpointParamsRateLimit               `json:"rate_limit"`
-	SearchEndpoint          NamespaceInstanceNewResponsePublicEndpointParamsSearchEndpoint          `json:"search_endpoint"`
-	JSON                    namespaceInstanceNewResponsePublicEndpointParamsJSON                    `json:"-"`
+	// Custom domain hostnames that alias this public endpoint. GET and create
+	// responses return the current set; on update (PUT) this field is only echoed back
+	// when supplied in the request body, otherwise it is null (omit it to leave
+	// domains unchanged).
+	CustomDomains  []string                                                       `json:"custom_domains" api:"nullable"`
+	Enabled        bool                                                           `json:"enabled"`
+	Mcp            NamespaceInstanceNewResponsePublicEndpointParamsMcp            `json:"mcp"`
+	RateLimit      NamespaceInstanceNewResponsePublicEndpointParamsRateLimit      `json:"rate_limit"`
+	SearchEndpoint NamespaceInstanceNewResponsePublicEndpointParamsSearchEndpoint `json:"search_endpoint"`
+	JSON           namespaceInstanceNewResponsePublicEndpointParamsJSON           `json:"-"`
 }
 
 // namespaceInstanceNewResponsePublicEndpointParamsJSON contains the JSON metadata
@@ -625,6 +630,7 @@ type NamespaceInstanceNewResponsePublicEndpointParams struct {
 type namespaceInstanceNewResponsePublicEndpointParamsJSON struct {
 	AuthorizedHosts         apijson.Field
 	ChatCompletionsEndpoint apijson.Field
+	CustomDomains           apijson.Field
 	Enabled                 apijson.Field
 	Mcp                     apijson.Field
 	RateLimit               apijson.Field
@@ -1458,11 +1464,16 @@ func (r namespaceInstanceUpdateResponseMetadataJSON) RawJSON() string {
 type NamespaceInstanceUpdateResponsePublicEndpointParams struct {
 	AuthorizedHosts         []string                                                                   `json:"authorized_hosts"`
 	ChatCompletionsEndpoint NamespaceInstanceUpdateResponsePublicEndpointParamsChatCompletionsEndpoint `json:"chat_completions_endpoint"`
-	Enabled                 bool                                                                       `json:"enabled"`
-	Mcp                     NamespaceInstanceUpdateResponsePublicEndpointParamsMcp                     `json:"mcp"`
-	RateLimit               NamespaceInstanceUpdateResponsePublicEndpointParamsRateLimit               `json:"rate_limit"`
-	SearchEndpoint          NamespaceInstanceUpdateResponsePublicEndpointParamsSearchEndpoint          `json:"search_endpoint"`
-	JSON                    namespaceInstanceUpdateResponsePublicEndpointParamsJSON                    `json:"-"`
+	// Custom domain hostnames that alias this public endpoint. GET and create
+	// responses return the current set; on update (PUT) this field is only echoed back
+	// when supplied in the request body, otherwise it is null (omit it to leave
+	// domains unchanged).
+	CustomDomains  []string                                                          `json:"custom_domains" api:"nullable"`
+	Enabled        bool                                                              `json:"enabled"`
+	Mcp            NamespaceInstanceUpdateResponsePublicEndpointParamsMcp            `json:"mcp"`
+	RateLimit      NamespaceInstanceUpdateResponsePublicEndpointParamsRateLimit      `json:"rate_limit"`
+	SearchEndpoint NamespaceInstanceUpdateResponsePublicEndpointParamsSearchEndpoint `json:"search_endpoint"`
+	JSON           namespaceInstanceUpdateResponsePublicEndpointParamsJSON           `json:"-"`
 }
 
 // namespaceInstanceUpdateResponsePublicEndpointParamsJSON contains the JSON
@@ -1470,6 +1481,7 @@ type NamespaceInstanceUpdateResponsePublicEndpointParams struct {
 type namespaceInstanceUpdateResponsePublicEndpointParamsJSON struct {
 	AuthorizedHosts         apijson.Field
 	ChatCompletionsEndpoint apijson.Field
+	CustomDomains           apijson.Field
 	Enabled                 apijson.Field
 	Mcp                     apijson.Field
 	RateLimit               apijson.Field
@@ -2303,11 +2315,16 @@ func (r namespaceInstanceListResponseMetadataJSON) RawJSON() string {
 type NamespaceInstanceListResponsePublicEndpointParams struct {
 	AuthorizedHosts         []string                                                                 `json:"authorized_hosts"`
 	ChatCompletionsEndpoint NamespaceInstanceListResponsePublicEndpointParamsChatCompletionsEndpoint `json:"chat_completions_endpoint"`
-	Enabled                 bool                                                                     `json:"enabled"`
-	Mcp                     NamespaceInstanceListResponsePublicEndpointParamsMcp                     `json:"mcp"`
-	RateLimit               NamespaceInstanceListResponsePublicEndpointParamsRateLimit               `json:"rate_limit"`
-	SearchEndpoint          NamespaceInstanceListResponsePublicEndpointParamsSearchEndpoint          `json:"search_endpoint"`
-	JSON                    namespaceInstanceListResponsePublicEndpointParamsJSON                    `json:"-"`
+	// Custom domain hostnames that alias this public endpoint. GET and create
+	// responses return the current set; on update (PUT) this field is only echoed back
+	// when supplied in the request body, otherwise it is null (omit it to leave
+	// domains unchanged).
+	CustomDomains  []string                                                        `json:"custom_domains" api:"nullable"`
+	Enabled        bool                                                            `json:"enabled"`
+	Mcp            NamespaceInstanceListResponsePublicEndpointParamsMcp            `json:"mcp"`
+	RateLimit      NamespaceInstanceListResponsePublicEndpointParamsRateLimit      `json:"rate_limit"`
+	SearchEndpoint NamespaceInstanceListResponsePublicEndpointParamsSearchEndpoint `json:"search_endpoint"`
+	JSON           namespaceInstanceListResponsePublicEndpointParamsJSON           `json:"-"`
 }
 
 // namespaceInstanceListResponsePublicEndpointParamsJSON contains the JSON metadata
@@ -2315,6 +2332,7 @@ type NamespaceInstanceListResponsePublicEndpointParams struct {
 type namespaceInstanceListResponsePublicEndpointParamsJSON struct {
 	AuthorizedHosts         apijson.Field
 	ChatCompletionsEndpoint apijson.Field
+	CustomDomains           apijson.Field
 	Enabled                 apijson.Field
 	Mcp                     apijson.Field
 	RateLimit               apijson.Field
@@ -3148,11 +3166,16 @@ func (r namespaceInstanceDeleteResponseMetadataJSON) RawJSON() string {
 type NamespaceInstanceDeleteResponsePublicEndpointParams struct {
 	AuthorizedHosts         []string                                                                   `json:"authorized_hosts"`
 	ChatCompletionsEndpoint NamespaceInstanceDeleteResponsePublicEndpointParamsChatCompletionsEndpoint `json:"chat_completions_endpoint"`
-	Enabled                 bool                                                                       `json:"enabled"`
-	Mcp                     NamespaceInstanceDeleteResponsePublicEndpointParamsMcp                     `json:"mcp"`
-	RateLimit               NamespaceInstanceDeleteResponsePublicEndpointParamsRateLimit               `json:"rate_limit"`
-	SearchEndpoint          NamespaceInstanceDeleteResponsePublicEndpointParamsSearchEndpoint          `json:"search_endpoint"`
-	JSON                    namespaceInstanceDeleteResponsePublicEndpointParamsJSON                    `json:"-"`
+	// Custom domain hostnames that alias this public endpoint. GET and create
+	// responses return the current set; on update (PUT) this field is only echoed back
+	// when supplied in the request body, otherwise it is null (omit it to leave
+	// domains unchanged).
+	CustomDomains  []string                                                          `json:"custom_domains" api:"nullable"`
+	Enabled        bool                                                              `json:"enabled"`
+	Mcp            NamespaceInstanceDeleteResponsePublicEndpointParamsMcp            `json:"mcp"`
+	RateLimit      NamespaceInstanceDeleteResponsePublicEndpointParamsRateLimit      `json:"rate_limit"`
+	SearchEndpoint NamespaceInstanceDeleteResponsePublicEndpointParamsSearchEndpoint `json:"search_endpoint"`
+	JSON           namespaceInstanceDeleteResponsePublicEndpointParamsJSON           `json:"-"`
 }
 
 // namespaceInstanceDeleteResponsePublicEndpointParamsJSON contains the JSON
@@ -3160,6 +3183,7 @@ type NamespaceInstanceDeleteResponsePublicEndpointParams struct {
 type namespaceInstanceDeleteResponsePublicEndpointParamsJSON struct {
 	AuthorizedHosts         apijson.Field
 	ChatCompletionsEndpoint apijson.Field
+	CustomDomains           apijson.Field
 	Enabled                 apijson.Field
 	Mcp                     apijson.Field
 	RateLimit               apijson.Field
@@ -4340,11 +4364,16 @@ func (r namespaceInstanceReadResponseMetadataJSON) RawJSON() string {
 type NamespaceInstanceReadResponsePublicEndpointParams struct {
 	AuthorizedHosts         []string                                                                 `json:"authorized_hosts"`
 	ChatCompletionsEndpoint NamespaceInstanceReadResponsePublicEndpointParamsChatCompletionsEndpoint `json:"chat_completions_endpoint"`
-	Enabled                 bool                                                                     `json:"enabled"`
-	Mcp                     NamespaceInstanceReadResponsePublicEndpointParamsMcp                     `json:"mcp"`
-	RateLimit               NamespaceInstanceReadResponsePublicEndpointParamsRateLimit               `json:"rate_limit"`
-	SearchEndpoint          NamespaceInstanceReadResponsePublicEndpointParamsSearchEndpoint          `json:"search_endpoint"`
-	JSON                    namespaceInstanceReadResponsePublicEndpointParamsJSON                    `json:"-"`
+	// Custom domain hostnames that alias this public endpoint. GET and create
+	// responses return the current set; on update (PUT) this field is only echoed back
+	// when supplied in the request body, otherwise it is null (omit it to leave
+	// domains unchanged).
+	CustomDomains  []string                                                        `json:"custom_domains" api:"nullable"`
+	Enabled        bool                                                            `json:"enabled"`
+	Mcp            NamespaceInstanceReadResponsePublicEndpointParamsMcp            `json:"mcp"`
+	RateLimit      NamespaceInstanceReadResponsePublicEndpointParamsRateLimit      `json:"rate_limit"`
+	SearchEndpoint NamespaceInstanceReadResponsePublicEndpointParamsSearchEndpoint `json:"search_endpoint"`
+	JSON           namespaceInstanceReadResponsePublicEndpointParamsJSON           `json:"-"`
 }
 
 // namespaceInstanceReadResponsePublicEndpointParamsJSON contains the JSON metadata
@@ -4352,6 +4381,7 @@ type NamespaceInstanceReadResponsePublicEndpointParams struct {
 type namespaceInstanceReadResponsePublicEndpointParamsJSON struct {
 	AuthorizedHosts         apijson.Field
 	ChatCompletionsEndpoint apijson.Field
+	CustomDomains           apijson.Field
 	Enabled                 apijson.Field
 	Mcp                     apijson.Field
 	RateLimit               apijson.Field
@@ -5331,10 +5361,15 @@ func (r NamespaceInstanceNewParamsMetadata) MarshalJSON() (data []byte, err erro
 type NamespaceInstanceNewParamsPublicEndpointParams struct {
 	AuthorizedHosts         param.Field[[]string]                                                              `json:"authorized_hosts"`
 	ChatCompletionsEndpoint param.Field[NamespaceInstanceNewParamsPublicEndpointParamsChatCompletionsEndpoint] `json:"chat_completions_endpoint"`
-	Enabled                 param.Field[bool]                                                                  `json:"enabled"`
-	Mcp                     param.Field[NamespaceInstanceNewParamsPublicEndpointParamsMcp]                     `json:"mcp"`
-	RateLimit               param.Field[NamespaceInstanceNewParamsPublicEndpointParamsRateLimit]               `json:"rate_limit"`
-	SearchEndpoint          param.Field[NamespaceInstanceNewParamsPublicEndpointParamsSearchEndpoint]          `json:"search_endpoint"`
+	// Custom domain hostnames that alias this public endpoint. GET and create
+	// responses return the current set; on update (PUT) this field is only echoed back
+	// when supplied in the request body, otherwise it is null (omit it to leave
+	// domains unchanged).
+	CustomDomains  param.Field[[]string]                                                     `json:"custom_domains"`
+	Enabled        param.Field[bool]                                                         `json:"enabled"`
+	Mcp            param.Field[NamespaceInstanceNewParamsPublicEndpointParamsMcp]            `json:"mcp"`
+	RateLimit      param.Field[NamespaceInstanceNewParamsPublicEndpointParamsRateLimit]      `json:"rate_limit"`
+	SearchEndpoint param.Field[NamespaceInstanceNewParamsPublicEndpointParamsSearchEndpoint] `json:"search_endpoint"`
 }
 
 func (r NamespaceInstanceNewParamsPublicEndpointParams) MarshalJSON() (data []byte, err error) {
@@ -5915,10 +5950,15 @@ func (r NamespaceInstanceUpdateParamsMetadata) MarshalJSON() (data []byte, err e
 type NamespaceInstanceUpdateParamsPublicEndpointParams struct {
 	AuthorizedHosts         param.Field[[]string]                                                                 `json:"authorized_hosts"`
 	ChatCompletionsEndpoint param.Field[NamespaceInstanceUpdateParamsPublicEndpointParamsChatCompletionsEndpoint] `json:"chat_completions_endpoint"`
-	Enabled                 param.Field[bool]                                                                     `json:"enabled"`
-	Mcp                     param.Field[NamespaceInstanceUpdateParamsPublicEndpointParamsMcp]                     `json:"mcp"`
-	RateLimit               param.Field[NamespaceInstanceUpdateParamsPublicEndpointParamsRateLimit]               `json:"rate_limit"`
-	SearchEndpoint          param.Field[NamespaceInstanceUpdateParamsPublicEndpointParamsSearchEndpoint]          `json:"search_endpoint"`
+	// Custom domain hostnames that alias this public endpoint. GET and create
+	// responses return the current set; on update (PUT) this field is only echoed back
+	// when supplied in the request body, otherwise it is null (omit it to leave
+	// domains unchanged).
+	CustomDomains  param.Field[[]string]                                                        `json:"custom_domains"`
+	Enabled        param.Field[bool]                                                            `json:"enabled"`
+	Mcp            param.Field[NamespaceInstanceUpdateParamsPublicEndpointParamsMcp]            `json:"mcp"`
+	RateLimit      param.Field[NamespaceInstanceUpdateParamsPublicEndpointParamsRateLimit]      `json:"rate_limit"`
+	SearchEndpoint param.Field[NamespaceInstanceUpdateParamsPublicEndpointParamsSearchEndpoint] `json:"search_endpoint"`
 }
 
 func (r NamespaceInstanceUpdateParamsPublicEndpointParams) MarshalJSON() (data []byte, err error) {

@@ -32,8 +32,9 @@ func TestDevtoolBrowserTargetNewWithOptionalParams(t *testing.T) {
 		context.TODO(),
 		"182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",
 		browser_rendering.DevtoolBrowserTargetNewParams{
-			AccountID: cloudflare.F("account_id"),
-			URL:       cloudflare.F("https://example.com"),
+			AccountID:              cloudflare.F("account_id"),
+			LiveViewURLExpiresInMs: cloudflare.F(60000.000000),
+			URL:                    cloudflare.F("https://example.com"),
 		},
 	)
 	if err != nil {
@@ -45,7 +46,7 @@ func TestDevtoolBrowserTargetNewWithOptionalParams(t *testing.T) {
 	}
 }
 
-func TestDevtoolBrowserTargetList(t *testing.T) {
+func TestDevtoolBrowserTargetListWithOptionalParams(t *testing.T) {
 	baseURL := "http://localhost:4010"
 	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
 		baseURL = envURL
@@ -63,7 +64,8 @@ func TestDevtoolBrowserTargetList(t *testing.T) {
 		context.TODO(),
 		"182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",
 		browser_rendering.DevtoolBrowserTargetListParams{
-			AccountID: cloudflare.F("account_id"),
+			AccountID:              cloudflare.F("account_id"),
+			LiveViewURLExpiresInMs: cloudflare.F(60000.000000),
 		},
 	)
 	if err != nil {

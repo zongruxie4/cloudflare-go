@@ -56,11 +56,29 @@ func TestDispatchNamespaceScriptUpdateWithOptionalParams(t *testing.T) {
 					Text: cloudflare.F("my_data"),
 					Type: cloudflare.F(workers_for_platforms.DispatchNamespaceScriptUpdateParamsMetadataBindingsWorkersBindingKindPlainTextTypePlainText),
 				}}),
-				BodyPart:           cloudflare.F("worker.js"),
+				BodyPart: cloudflare.F("worker.js"),
+				CacheOptions: cloudflare.F(workers_for_platforms.DispatchNamespaceScriptUpdateParamsMetadataCacheOptions{
+					Enabled:           cloudflare.F(true),
+					CrossVersionCache: cloudflare.F(true),
+				}),
 				CompatibilityDate:  cloudflare.F("2021-01-01"),
 				CompatibilityFlags: cloudflare.F([]string{"nodejs_compat"}),
-				KeepAssets:         cloudflare.F(false),
-				KeepBindings:       cloudflare.F([]string{"string"}),
+				Exports: cloudflare.F(map[string]workers_for_platforms.DispatchNamespaceScriptUpdateParamsMetadataExports{
+					"Admin": {
+						Type: cloudflare.F(workers_for_platforms.DispatchNamespaceScriptUpdateParamsMetadataExportsTypeWorker),
+						Cache: cloudflare.F(workers_for_platforms.DispatchNamespaceScriptUpdateParamsMetadataExportsCache{
+							Enabled: cloudflare.F(true),
+						}),
+					},
+					"default": {
+						Type: cloudflare.F(workers_for_platforms.DispatchNamespaceScriptUpdateParamsMetadataExportsTypeWorker),
+						Cache: cloudflare.F(workers_for_platforms.DispatchNamespaceScriptUpdateParamsMetadataExportsCache{
+							Enabled: cloudflare.F(false),
+						}),
+					},
+				}),
+				KeepAssets:   cloudflare.F(false),
+				KeepBindings: cloudflare.F([]string{"string"}),
 				Limits: cloudflare.F(workers_for_platforms.DispatchNamespaceScriptUpdateParamsMetadataLimits{
 					CPUMs:       cloudflare.F(int64(50)),
 					Subrequests: cloudflare.F(int64(1000)),

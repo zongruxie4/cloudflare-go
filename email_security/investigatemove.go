@@ -109,13 +109,13 @@ type InvestigateMoveNewResponse struct {
 	CompletedAt time.Time `json:"completed_at" api:"nullable" format:"date-time"`
 	// Deprecated, use `completed_at` instead. End of life: November 1, 2026.
 	//
-	// Deprecated: deprecated
+	// Deprecated: Use `completed_at` instead.
 	CompletedTimestamp time.Time `json:"completed_timestamp" format:"date-time"`
 	// Destination folder for the message
 	Destination string `json:"destination" api:"nullable"`
 	// Number of items moved. End of life: November 1, 2026.
 	//
-	// Deprecated: deprecated
+	// Deprecated: This field is deprecated.
 	ItemCount int64 `json:"item_count"`
 	// Message identifier
 	MessageID string `json:"message_id" api:"nullable"`
@@ -159,13 +159,13 @@ type InvestigateMoveBulkResponse struct {
 	CompletedAt time.Time `json:"completed_at" api:"nullable" format:"date-time"`
 	// Deprecated, use `completed_at` instead. End of life: November 1, 2026.
 	//
-	// Deprecated: deprecated
+	// Deprecated: Use `completed_at` instead.
 	CompletedTimestamp time.Time `json:"completed_timestamp" format:"date-time"`
 	// Destination folder for the message
 	Destination string `json:"destination" api:"nullable"`
 	// Number of items moved. End of life: November 1, 2026.
 	//
-	// Deprecated: deprecated
+	// Deprecated: This field is deprecated.
 	ItemCount int64 `json:"item_count"`
 	// Message identifier
 	MessageID string `json:"message_id" api:"nullable"`

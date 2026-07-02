@@ -185,6 +185,10 @@ type EmailRoutingRule struct {
 	Name string `json:"name"`
 	// Priority of the routing rule.
 	Priority float64 `json:"priority"`
+	// Who manages the rule. `api` covers dashboard, generic API, and Terraform;
+	// `wrangler` means the rule is managed by a Worker's wrangler.jsonc. Defaults to
+	// `api` when omitted on write.
+	Source EmailRoutingRuleSource `json:"source"`
 	// Routing rule tag. (Deprecated, replaced by routing rule identifier)
 	//
 	// Deprecated: deprecated
@@ -201,6 +205,7 @@ type emailRoutingRuleJSON struct {
 	Matchers    apijson.Field
 	Name        apijson.Field
 	Priority    apijson.Field
+	Source      apijson.Field
 	Tag         apijson.Field
 	raw         string
 	ExtraFields map[string]apijson.Field
@@ -225,6 +230,24 @@ const (
 func (r EmailRoutingRuleEnabled) IsKnown() bool {
 	switch r {
 	case EmailRoutingRuleEnabledTrue, EmailRoutingRuleEnabledFalse:
+		return true
+	}
+	return false
+}
+
+// Who manages the rule. `api` covers dashboard, generic API, and Terraform;
+// `wrangler` means the rule is managed by a Worker's wrangler.jsonc. Defaults to
+// `api` when omitted on write.
+type EmailRoutingRuleSource string
+
+const (
+	EmailRoutingRuleSourceAPI      EmailRoutingRuleSource = "api"
+	EmailRoutingRuleSourceWrangler EmailRoutingRuleSource = "wrangler"
+)
+
+func (r EmailRoutingRuleSource) IsKnown() bool {
+	switch r {
+	case EmailRoutingRuleSourceAPI, EmailRoutingRuleSourceWrangler:
 		return true
 	}
 	return false
@@ -314,8 +337,15 @@ type RuleNewParams struct {
 	Enabled param.Field[RuleNewParamsEnabled] `json:"enabled"`
 	// Routing rule name.
 	Name param.Field[string] `json:"name"`
+	// Public tag (script_tag) of the Worker that owns this rule. Required when
+	// `source` is `wrangler`.
+	OwnerWorkerTag param.Field[string] `json:"owner_worker_tag"`
 	// Priority of the routing rule.
 	Priority param.Field[float64] `json:"priority"`
+	// Who manages the rule. `api` covers dashboard, generic API, and Terraform;
+	// `wrangler` means the rule is managed by a Worker's wrangler.jsonc. Defaults to
+	// `api` when omitted on write.
+	Source param.Field[RuleNewParamsSource] `json:"source"`
 }
 
 func (r RuleNewParams) MarshalJSON() (data []byte, err error) {
@@ -333,6 +363,24 @@ const (
 func (r RuleNewParamsEnabled) IsKnown() bool {
 	switch r {
 	case RuleNewParamsEnabledTrue, RuleNewParamsEnabledFalse:
+		return true
+	}
+	return false
+}
+
+// Who manages the rule. `api` covers dashboard, generic API, and Terraform;
+// `wrangler` means the rule is managed by a Worker's wrangler.jsonc. Defaults to
+// `api` when omitted on write.
+type RuleNewParamsSource string
+
+const (
+	RuleNewParamsSourceAPI      RuleNewParamsSource = "api"
+	RuleNewParamsSourceWrangler RuleNewParamsSource = "wrangler"
+)
+
+func (r RuleNewParamsSource) IsKnown() bool {
+	switch r {
+	case RuleNewParamsSourceAPI, RuleNewParamsSourceWrangler:
 		return true
 	}
 	return false
@@ -488,8 +536,15 @@ type RuleUpdateParams struct {
 	Enabled param.Field[RuleUpdateParamsEnabled] `json:"enabled"`
 	// Routing rule name.
 	Name param.Field[string] `json:"name"`
+	// Public tag (script_tag) of the Worker that owns this rule. Required when
+	// `source` is `wrangler`.
+	OwnerWorkerTag param.Field[string] `json:"owner_worker_tag"`
 	// Priority of the routing rule.
 	Priority param.Field[float64] `json:"priority"`
+	// Who manages the rule. `api` covers dashboard, generic API, and Terraform;
+	// `wrangler` means the rule is managed by a Worker's wrangler.jsonc. Defaults to
+	// `api` when omitted on write.
+	Source param.Field[RuleUpdateParamsSource] `json:"source"`
 }
 
 func (r RuleUpdateParams) MarshalJSON() (data []byte, err error) {
@@ -507,6 +562,24 @@ const (
 func (r RuleUpdateParamsEnabled) IsKnown() bool {
 	switch r {
 	case RuleUpdateParamsEnabledTrue, RuleUpdateParamsEnabledFalse:
+		return true
+	}
+	return false
+}
+
+// Who manages the rule. `api` covers dashboard, generic API, and Terraform;
+// `wrangler` means the rule is managed by a Worker's wrangler.jsonc. Defaults to
+// `api` when omitted on write.
+type RuleUpdateParamsSource string
+
+const (
+	RuleUpdateParamsSourceAPI      RuleUpdateParamsSource = "api"
+	RuleUpdateParamsSourceWrangler RuleUpdateParamsSource = "wrangler"
+)
+
+func (r RuleUpdateParamsSource) IsKnown() bool {
+	switch r {
+	case RuleUpdateParamsSourceAPI, RuleUpdateParamsSourceWrangler:
 		return true
 	}
 	return false

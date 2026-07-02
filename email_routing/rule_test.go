@@ -38,9 +38,11 @@ func TestRuleNewWithOptionalParams(t *testing.T) {
 			Field: cloudflare.F(email_routing.MatcherFieldTo),
 			Value: cloudflare.F("test@example.com"),
 		}}),
-		Enabled:  cloudflare.F(email_routing.RuleNewParamsEnabledTrue),
-		Name:     cloudflare.F("Send to user@example.net rule."),
-		Priority: cloudflare.F(0.000000),
+		Enabled:        cloudflare.F(email_routing.RuleNewParamsEnabledTrue),
+		Name:           cloudflare.F("Send to user@example.net rule."),
+		OwnerWorkerTag: cloudflare.F("a7e6fb77503c41d8a7f3113c6918f10c"),
+		Priority:       cloudflare.F(0.000000),
+		Source:         cloudflare.F(email_routing.RuleNewParamsSourceAPI),
 	})
 	if err != nil {
 		var apierr *cloudflare.Error
@@ -78,9 +80,11 @@ func TestRuleUpdateWithOptionalParams(t *testing.T) {
 				Field: cloudflare.F(email_routing.MatcherFieldTo),
 				Value: cloudflare.F("test@example.com"),
 			}}),
-			Enabled:  cloudflare.F(email_routing.RuleUpdateParamsEnabledTrue),
-			Name:     cloudflare.F("Send to user@example.net rule."),
-			Priority: cloudflare.F(0.000000),
+			Enabled:        cloudflare.F(email_routing.RuleUpdateParamsEnabledTrue),
+			Name:           cloudflare.F("Send to user@example.net rule."),
+			OwnerWorkerTag: cloudflare.F("a7e6fb77503c41d8a7f3113c6918f10c"),
+			Priority:       cloudflare.F(0.000000),
+			Source:         cloudflare.F(email_routing.RuleUpdateParamsSourceAPI),
 		},
 	)
 	if err != nil {

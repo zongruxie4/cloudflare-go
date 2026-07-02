@@ -44,8 +44,26 @@ func TestScriptScriptAndVersionSettingEditWithOptionalParams(t *testing.T) {
 					Text: cloudflare.F("my_data"),
 					Type: cloudflare.F(workers.ScriptScriptAndVersionSettingEditParamsSettingsBindingsWorkersBindingKindPlainTextTypePlainText),
 				}}),
+				CacheOptions: cloudflare.F(workers.ScriptScriptAndVersionSettingEditParamsSettingsCacheOptions{
+					Enabled:           cloudflare.F(true),
+					CrossVersionCache: cloudflare.F(true),
+				}),
 				CompatibilityDate:  cloudflare.F("2021-01-01"),
 				CompatibilityFlags: cloudflare.F([]string{"nodejs_compat"}),
+				Exports: cloudflare.F(map[string]workers.ScriptScriptAndVersionSettingEditParamsSettingsExports{
+					"Admin": {
+						Type: cloudflare.F(workers.ScriptScriptAndVersionSettingEditParamsSettingsExportsTypeWorker),
+						Cache: cloudflare.F(workers.ScriptScriptAndVersionSettingEditParamsSettingsExportsCache{
+							Enabled: cloudflare.F(true),
+						}),
+					},
+					"default": {
+						Type: cloudflare.F(workers.ScriptScriptAndVersionSettingEditParamsSettingsExportsTypeWorker),
+						Cache: cloudflare.F(workers.ScriptScriptAndVersionSettingEditParamsSettingsExportsCache{
+							Enabled: cloudflare.F(false),
+						}),
+					},
+				}),
 				Limits: cloudflare.F(workers.ScriptScriptAndVersionSettingEditParamsSettingsLimits{
 					CPUMs:       cloudflare.F(int64(50)),
 					Subrequests: cloudflare.F(int64(1000)),

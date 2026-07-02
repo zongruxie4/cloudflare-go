@@ -64,7 +64,8 @@ func TestInstanceNewWithOptionalParams(t *testing.T) {
 			ChatCompletionsEndpoint: cloudflare.F(ai_search.InstanceNewParamsPublicEndpointParamsChatCompletionsEndpoint{
 				Disabled: cloudflare.F(true),
 			}),
-			Enabled: cloudflare.F(true),
+			CustomDomains: cloudflare.F([]string{"search.example.com"}),
+			Enabled:       cloudflare.F(true),
 			Mcp: cloudflare.F(ai_search.InstanceNewParamsPublicEndpointParamsMcp{
 				Description: cloudflare.F("description"),
 				Disabled:    cloudflare.F(true),
@@ -179,7 +180,8 @@ func TestInstanceUpdateWithOptionalParams(t *testing.T) {
 				ChatCompletionsEndpoint: cloudflare.F(ai_search.InstanceUpdateParamsPublicEndpointParamsChatCompletionsEndpoint{
 					Disabled: cloudflare.F(true),
 				}),
-				Enabled: cloudflare.F(true),
+				CustomDomains: cloudflare.F([]string{"search.example.com"}),
+				Enabled:       cloudflare.F(true),
 				Mcp: cloudflare.F(ai_search.InstanceUpdateParamsPublicEndpointParamsMcp{
 					Description: cloudflare.F("description"),
 					Disabled:    cloudflare.F(true),

@@ -366,7 +366,7 @@ type InvestigateBulkCancelNewResponseSearchParams struct {
 	// Deprecated, use `GET /investigate/{investigate_id}/action_log` instead. End of
 	// life: November 1, 2026.
 	//
-	// Deprecated: deprecated
+	// Deprecated: Use GET /investigate/{investigate_id}/action_log instead.
 	ActionLog bool   `json:"action_log"`
 	AlertID   string `json:"alert_id" api:"nullable"`
 	// Delivery status of the message.

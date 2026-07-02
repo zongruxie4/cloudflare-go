@@ -323,8 +323,11 @@ type DevtoolBrowserNewParams struct {
 	// Keep-alive time in milliseconds.
 	KeepAlive param.Field[float64] `query:"keep_alive"`
 	// Use experimental browser.
-	Lab       param.Field[bool] `query:"lab"`
-	Recording param.Field[bool] `query:"recording"`
+	Lab param.Field[bool] `query:"lab"`
+	// How long the live view URL remains valid, in milliseconds (max 60 minutes). Only
+	// used when targets is true.
+	LiveViewURLExpiresInMs param.Field[float64] `query:"liveViewUrlExpiresInMs"`
+	Recording              param.Field[bool]    `query:"recording"`
 	// Include browser targets in response.
 	Targets param.Field[bool] `query:"targets"`
 }

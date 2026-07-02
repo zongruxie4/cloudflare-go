@@ -52,6 +52,10 @@ func TestBetaWorkerVersionNewWithOptionalParams(t *testing.T) {
 					Text: cloudflare.F("my_data"),
 					Type: cloudflare.F(workers.VersionBindingsWorkersBindingKindPlainTextTypePlainText),
 				}}),
+				CacheOptions: cloudflare.F(workers.VersionCacheOptionsParam{
+					Enabled:           cloudflare.F(true),
+					CrossVersionCache: cloudflare.F(true),
+				}),
 				CompatibilityDate:  cloudflare.F("2021-01-01"),
 				CompatibilityFlags: cloudflare.F([]string{"nodejs_compat"}),
 				Containers: cloudflare.F([]workers.VersionContainerParam{{

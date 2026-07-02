@@ -110,7 +110,7 @@ type InvestigateListResponse struct {
 	// Deprecated, use `GET /investigate/{investigate_id}/action_log` instead. End of
 	// life: November 1, 2026.
 	//
-	// Deprecated: deprecated
+	// Deprecated: Use GET /investigate/{investigate_id}/action_log instead.
 	ActionLog         []InvestigateListResponseActionLog `json:"action_log" api:"required"`
 	ClientRecipients  []string                           `json:"client_recipients" api:"required"`
 	DetectionReasons  []string                           `json:"detection_reasons" api:"required"`
@@ -122,7 +122,7 @@ type InvestigateListResponse struct {
 	Properties InvestigateListResponseProperties `json:"properties" api:"required"`
 	// Deprecated, use `scanned_at` instead. End of life: November 1, 2026.
 	//
-	// Deprecated: deprecated
+	// Deprecated: Use `scanned_at` instead.
 	Ts               string                                  `json:"ts" api:"required"`
 	AlertID          string                                  `json:"alert_id" api:"nullable"`
 	DeliveryMode     InvestigateListResponseDeliveryMode     `json:"delivery_mode"`
@@ -135,7 +135,8 @@ type InvestigateListResponse struct {
 	// `GET /investigate/{investigate_id}/detections` instead. End of life: November
 	// 1, 2026. Detection findings for this message.
 	//
-	// Deprecated: deprecated
+	// Deprecated: Use the `findings` field from GET
+	// /investigate/{investigate_id}/detections instead.
 	Findings              []InvestigateListResponseFinding `json:"findings" api:"nullable"`
 	From                  string                           `json:"from" api:"nullable"`
 	FromName              string                           `json:"from_name" api:"nullable"`
@@ -218,7 +219,7 @@ type InvestigateListResponseActionLog struct {
 	Operation InvestigateListResponseActionLogOperation `json:"operation" api:"required"`
 	// Deprecated, use `completed_at` instead. End of life: November 1, 2026.
 	//
-	// Deprecated: deprecated
+	// Deprecated: Use `completed_at` instead.
 	CompletedTimestamp string `json:"completed_timestamp"`
 	// Additional properties for the action
 	Properties InvestigateListResponseActionLogProperties `json:"properties"`
@@ -604,7 +605,7 @@ type InvestigateGetResponse struct {
 	// Deprecated, use `GET /investigate/{investigate_id}/action_log` instead. End of
 	// life: November 1, 2026.
 	//
-	// Deprecated: deprecated
+	// Deprecated: Use GET /investigate/{investigate_id}/action_log instead.
 	ActionLog         []InvestigateGetResponseActionLog `json:"action_log" api:"required"`
 	ClientRecipients  []string                          `json:"client_recipients" api:"required"`
 	DetectionReasons  []string                          `json:"detection_reasons" api:"required"`
@@ -616,7 +617,7 @@ type InvestigateGetResponse struct {
 	Properties InvestigateGetResponseProperties `json:"properties" api:"required"`
 	// Deprecated, use `scanned_at` instead. End of life: November 1, 2026.
 	//
-	// Deprecated: deprecated
+	// Deprecated: Use `scanned_at` instead.
 	Ts               string                                 `json:"ts" api:"required"`
 	AlertID          string                                 `json:"alert_id" api:"nullable"`
 	DeliveryMode     InvestigateGetResponseDeliveryMode     `json:"delivery_mode"`
@@ -629,7 +630,8 @@ type InvestigateGetResponse struct {
 	// `GET /investigate/{investigate_id}/detections` instead. End of life: November
 	// 1, 2026. Detection findings for this message.
 	//
-	// Deprecated: deprecated
+	// Deprecated: Use the `findings` field from GET
+	// /investigate/{investigate_id}/detections instead.
 	Findings              []InvestigateGetResponseFinding `json:"findings" api:"nullable"`
 	From                  string                          `json:"from" api:"nullable"`
 	FromName              string                          `json:"from_name" api:"nullable"`
@@ -712,7 +714,7 @@ type InvestigateGetResponseActionLog struct {
 	Operation InvestigateGetResponseActionLogOperation `json:"operation" api:"required"`
 	// Deprecated, use `completed_at` instead. End of life: November 1, 2026.
 	//
-	// Deprecated: deprecated
+	// Deprecated: Use `completed_at` instead.
 	CompletedTimestamp string `json:"completed_timestamp"`
 	// Additional properties for the action
 	Properties InvestigateGetResponseActionLogProperties `json:"properties"`
