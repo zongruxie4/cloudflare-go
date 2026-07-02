@@ -40,7 +40,7 @@ func NewDevtoolBrowserService(opts ...option.RequestOption) (r *DevtoolBrowserSe
 	return
 }
 
-// Acquire a new browser DevTools session
+// Get a browser session ID.
 func (r *DevtoolBrowserService) New(ctx context.Context, params DevtoolBrowserNewParams, opts ...option.RequestOption) (res *DevtoolBrowserNewResponse, err error) {
 	opts = slices.Concat(r.Options, opts)
 	if params.AccountID.Value == "" {

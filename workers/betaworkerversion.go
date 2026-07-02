@@ -194,6 +194,9 @@ type Version struct {
 	// `_headers` and `_redirects` files should be included as modules named `_headers`
 	// and `_redirects` with content type `text/plain`.
 	Modules []VersionModule `json:"modules"`
+	// The list of npm packages that were installed and used when this Worker version
+	// was built.
+	PackageDependencies []VersionPackageDependency `json:"package_dependencies"`
 	// Configuration for
 	// [Smart Placement](https://developers.cloudflare.com/workers/configuration/smart-placement).
 	// Specify mode='smart' for Smart Placement, or one of region/hostname/host.
@@ -212,27 +215,28 @@ type Version struct {
 
 // versionJSON contains the JSON metadata for the struct [Version]
 type versionJSON struct {
-	ID                 apijson.Field
-	CreatedOn          apijson.Field
-	Number             apijson.Field
-	URLs               apijson.Field
-	Annotations        apijson.Field
-	Assets             apijson.Field
-	Bindings           apijson.Field
-	CompatibilityDate  apijson.Field
-	CompatibilityFlags apijson.Field
-	Containers         apijson.Field
-	Limits             apijson.Field
-	MainModule         apijson.Field
-	MigrationTag       apijson.Field
-	Migrations         apijson.Field
-	Modules            apijson.Field
-	Placement          apijson.Field
-	Source             apijson.Field
-	StartupTimeMs      apijson.Field
-	UsageModel         apijson.Field
-	raw                string
-	ExtraFields        map[string]apijson.Field
+	ID                  apijson.Field
+	CreatedOn           apijson.Field
+	Number              apijson.Field
+	URLs                apijson.Field
+	Annotations         apijson.Field
+	Assets              apijson.Field
+	Bindings            apijson.Field
+	CompatibilityDate   apijson.Field
+	CompatibilityFlags  apijson.Field
+	Containers          apijson.Field
+	Limits              apijson.Field
+	MainModule          apijson.Field
+	MigrationTag        apijson.Field
+	Migrations          apijson.Field
+	Modules             apijson.Field
+	PackageDependencies apijson.Field
+	Placement           apijson.Field
+	Source              apijson.Field
+	StartupTimeMs       apijson.Field
+	UsageModel          apijson.Field
+	raw                 string
+	ExtraFields         map[string]apijson.Field
 }
 
 func (r *Version) UnmarshalJSON(data []byte) (err error) {
@@ -2912,6 +2916,34 @@ func (r versionModuleJSON) RawJSON() string {
 	return r.raw
 }
 
+type VersionPackageDependency struct {
+	// The exact version that was resolved and installed by the package manager.
+	InstalledVersion string `json:"installedVersion" api:"required"`
+	// The npm package name.
+	Name string `json:"name" api:"required"`
+	// The version constraint as written in package.json.
+	PackageJsonVersion string                       `json:"packageJsonVersion" api:"required"`
+	JSON               versionPackageDependencyJSON `json:"-"`
+}
+
+// versionPackageDependencyJSON contains the JSON metadata for the struct
+// [VersionPackageDependency]
+type versionPackageDependencyJSON struct {
+	InstalledVersion   apijson.Field
+	Name               apijson.Field
+	PackageJsonVersion apijson.Field
+	raw                string
+	ExtraFields        map[string]apijson.Field
+}
+
+func (r *VersionPackageDependency) UnmarshalJSON(data []byte) (err error) {
+	return apijson.UnmarshalRoot(data, r)
+}
+
+func (r versionPackageDependencyJSON) RawJSON() string {
+	return r.raw
+}
+
 // Configuration for
 // [Smart Placement](https://developers.cloudflare.com/workers/configuration/smart-placement).
 // Specify mode='smart' for Smart Placement, or one of region/hostname/host.
@@ -3233,6 +3265,9 @@ type VersionParam struct {
 	// `_headers` and `_redirects` files should be included as modules named `_headers`
 	// and `_redirects` with content type `text/plain`.
 	Modules param.Field[[]VersionModuleParam] `json:"modules"`
+	// The list of npm packages that were installed and used when this Worker version
+	// was built.
+	PackageDependencies param.Field[[]VersionPackageDependencyParam] `json:"package_dependencies"`
 	// Configuration for
 	// [Smart Placement](https://developers.cloudflare.com/workers/configuration/smart-placement).
 	// Specify mode='smart' for Smart Placement, or one of region/hostname/host.
@@ -4145,6 +4180,19 @@ type VersionModuleParam struct {
 }
 
 func (r VersionModuleParam) MarshalJSON() (data []byte, err error) {
+	return apijson.MarshalRoot(r)
+}
+
+type VersionPackageDependencyParam struct {
+	// The exact version that was resolved and installed by the package manager.
+	InstalledVersion param.Field[string] `json:"installedVersion" api:"required"`
+	// The npm package name.
+	Name param.Field[string] `json:"name" api:"required"`
+	// The version constraint as written in package.json.
+	PackageJsonVersion param.Field[string] `json:"packageJsonVersion" api:"required"`
+}
+
+func (r VersionPackageDependencyParam) MarshalJSON() (data []byte, err error) {
 	return apijson.MarshalRoot(r)
 }
 

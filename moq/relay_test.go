@@ -66,9 +66,9 @@ func TestRelayUpdateWithOptionalParams(t *testing.T) {
 					Enabled:      cloudflare.F(true),
 					MaxTimeoutMs: cloudflare.F(int64(0)),
 				}),
-				OriginFallback: cloudflare.F(moq.RelayUpdateParamsConfigOriginFallback{
+				Upstreams: cloudflare.F(moq.RelayUpdateParamsConfigUpstreams{
 					Enabled: cloudflare.F(true),
-					Origins: cloudflare.F([]moq.RelayUpdateParamsConfigOriginFallbackOrigin{{
+					Upstreams: cloudflare.F([]moq.RelayUpdateParamsConfigUpstreamsUpstream{{
 						URL: cloudflare.F("url"),
 					}}),
 				}),

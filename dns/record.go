@@ -123,7 +123,7 @@ func (r *RecordService) ListAutoPaging(ctx context.Context, params RecordListPar
 	return pagination.NewV4PagePaginationArrayAutoPager(r.List(ctx, params, opts...))
 }
 
-// Delete DNS Record
+// Permanently removes a DNS record from the zone.
 func (r *RecordService) Delete(ctx context.Context, dnsRecordID string, body RecordDeleteParams, opts ...option.RequestOption) (res *RecordDeleteResponse, err error) {
 	var env RecordDeleteResponseEnvelope
 	opts = slices.Concat(r.Options, opts)
@@ -228,7 +228,7 @@ func (r *RecordService) Export(ctx context.Context, query RecordExportParams, op
 	return res, err
 }
 
-// DNS Record Details
+// Retrieves details for a specific DNS record in the zone.
 func (r *RecordService) Get(ctx context.Context, dnsRecordID string, query RecordGetParams, opts ...option.RequestOption) (res *RecordResponse, err error) {
 	var env RecordGetResponseEnvelope
 	opts = slices.Concat(r.Options, opts)

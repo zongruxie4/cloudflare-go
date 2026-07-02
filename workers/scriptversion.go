@@ -5595,6 +5595,9 @@ type ScriptVersionNewParamsMetadata struct {
 	CompatibilityFlags param.Field[[]string] `json:"compatibility_flags"`
 	// List of binding types to keep from previous_upload.
 	KeepBindings param.Field[[]string] `json:"keep_bindings"`
+	// The list of npm packages that were installed and used when this Worker version
+	// was built.
+	PackageDependencies param.Field[[]ScriptVersionNewParamsMetadataPackageDependency] `json:"package_dependencies"`
 	// Usage model for the Worker invocations.
 	UsageModel param.Field[ScriptVersionNewParamsMetadataUsageModel] `json:"usage_model"`
 }
@@ -7104,6 +7107,19 @@ func (r ScriptVersionNewParamsMetadataBindingsJurisdiction) IsKnown() bool {
 		return true
 	}
 	return false
+}
+
+type ScriptVersionNewParamsMetadataPackageDependency struct {
+	// The exact version that was resolved and installed by the package manager.
+	InstalledVersion param.Field[string] `json:"installedVersion" api:"required"`
+	// The npm package name.
+	Name param.Field[string] `json:"name" api:"required"`
+	// The version constraint as written in package.json.
+	PackageJsonVersion param.Field[string] `json:"packageJsonVersion" api:"required"`
+}
+
+func (r ScriptVersionNewParamsMetadataPackageDependency) MarshalJSON() (data []byte, err error) {
+	return apijson.MarshalRoot(r)
 }
 
 // Usage model for the Worker invocations.

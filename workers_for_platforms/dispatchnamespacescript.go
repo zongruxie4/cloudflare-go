@@ -737,6 +737,9 @@ type DispatchNamespaceScriptUpdateParamsMetadata struct {
 	Migrations param.Field[DispatchNamespaceScriptUpdateParamsMetadataMigrationsUnion] `json:"migrations"`
 	// Observability settings for the Worker.
 	Observability param.Field[DispatchNamespaceScriptUpdateParamsMetadataObservability] `json:"observability"`
+	// The list of npm packages that were installed and used when this Worker version
+	// was built.
+	PackageDependencies param.Field[[]DispatchNamespaceScriptUpdateParamsMetadataPackageDependency] `json:"package_dependencies"`
 	// Configuration for
 	// [Smart Placement](https://developers.cloudflare.com/workers/configuration/smart-placement).
 	// Specify mode='smart' for Smart Placement, or one of region/hostname/host.
@@ -2475,6 +2478,19 @@ func (r DispatchNamespaceScriptUpdateParamsMetadataObservabilityTracesPropagatio
 		return true
 	}
 	return false
+}
+
+type DispatchNamespaceScriptUpdateParamsMetadataPackageDependency struct {
+	// The exact version that was resolved and installed by the package manager.
+	InstalledVersion param.Field[string] `json:"installedVersion" api:"required"`
+	// The npm package name.
+	Name param.Field[string] `json:"name" api:"required"`
+	// The version constraint as written in package.json.
+	PackageJsonVersion param.Field[string] `json:"packageJsonVersion" api:"required"`
+}
+
+func (r DispatchNamespaceScriptUpdateParamsMetadataPackageDependency) MarshalJSON() (data []byte, err error) {
+	return apijson.MarshalRoot(r)
 }
 
 // Configuration for

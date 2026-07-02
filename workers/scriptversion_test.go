@@ -51,7 +51,12 @@ func TestScriptVersionNewWithOptionalParams(t *testing.T) {
 				CompatibilityDate:  cloudflare.F("2021-01-01"),
 				CompatibilityFlags: cloudflare.F([]string{"nodejs_compat"}),
 				KeepBindings:       cloudflare.F([]string{"string"}),
-				UsageModel:         cloudflare.F(workers.ScriptVersionNewParamsMetadataUsageModelStandard),
+				PackageDependencies: cloudflare.F([]workers.ScriptVersionNewParamsMetadataPackageDependency{{
+					InstalledVersion:   cloudflare.F("4.17.22"),
+					Name:               cloudflare.F("lodash"),
+					PackageJsonVersion: cloudflare.F("^4.17.21"),
+				}}),
+				UsageModel: cloudflare.F(workers.ScriptVersionNewParamsMetadataUsageModelStandard),
 			}),
 			BindingsInherit: cloudflare.F(workers.ScriptVersionNewParamsBindingsInheritStrict),
 			Files:           cloudflare.F([]io.Reader{io.Reader(bytes.NewBuffer([]byte("Example data")))}),

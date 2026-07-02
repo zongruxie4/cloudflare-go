@@ -101,6 +101,11 @@ func TestDispatchNamespaceScriptUpdateWithOptionalParams(t *testing.T) {
 						PropagationPolicy: cloudflare.F(workers_for_platforms.DispatchNamespaceScriptUpdateParamsMetadataObservabilityTracesPropagationPolicyAuthenticated),
 					}),
 				}),
+				PackageDependencies: cloudflare.F([]workers_for_platforms.DispatchNamespaceScriptUpdateParamsMetadataPackageDependency{{
+					InstalledVersion:   cloudflare.F("4.17.22"),
+					Name:               cloudflare.F("lodash"),
+					PackageJsonVersion: cloudflare.F("^4.17.21"),
+				}}),
 				Placement: cloudflare.F[workers_for_platforms.DispatchNamespaceScriptUpdateParamsMetadataPlacementUnion](workers_for_platforms.DispatchNamespaceScriptUpdateParamsMetadataPlacementObject{
 					Mode: cloudflare.F(workers_for_platforms.DispatchNamespaceScriptUpdateParamsMetadataPlacementObjectModeSmart),
 				}),

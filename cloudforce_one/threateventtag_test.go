@@ -30,10 +30,11 @@ func TestThreatEventTagNewWithOptionalParams(t *testing.T) {
 		option.WithAPIEmail("user@example.com"),
 	)
 	_, err := client.CloudforceOne.ThreatEvents.Tags.New(context.TODO(), cloudforce_one.ThreatEventTagNewParams{
-		AccountID:      cloudflare.F("account_id"),
-		Value:          cloudflare.F("APT28"),
-		ActiveDuration: cloudflare.F("activeDuration"),
-		ActorCategory:  cloudflare.F("Nation State"),
+		AccountID:               cloudflare.F("account_id"),
+		Value:                   cloudflare.F("APT28"),
+		ActiveDuration:          cloudflare.F("activeDuration"),
+		ActorCategory:           cloudflare.F("Nation State"),
+		ActorCategoryConfidence: cloudflare.F(int64(7)),
 		Aliases: cloudflare.F([]cloudforce_one.ThreatEventTagNewParamsAlias{{
 			Value:      cloudflare.F("Fancy Bear"),
 			Confidence: cloudflare.F(int64(8)),
@@ -48,17 +49,24 @@ func TestThreatEventTagNewWithOptionalParams(t *testing.T) {
 		CategoryUUID:               cloudflare.F("12345678-1234-1234-1234-1234567890ab"),
 		DateOfDiscovery:            cloudflare.F("2024-01-15"),
 		ExternalReferenceLinks:     cloudflare.F([]string{"string"}),
+		ExternalReferences: cloudflare.F([]cloudforce_one.ThreatEventTagNewParamsExternalReference{{
+			URL:         cloudflare.F("https://example.com/report"),
+			Description: cloudflare.F("Vendor threat report"),
+		}}),
 		InternalAliases: cloudflare.F([]cloudforce_one.ThreatEventTagNewParamsInternalAlias{{
 			Value:      cloudflare.F("Fancy Bear"),
 			Confidence: cloudflare.F(int64(8)),
 			TLP:        cloudflare.F(cloudforce_one.ThreatEventTagNewParamsInternalAliasesTLPAmber),
 		}}),
-		InternalDescription: cloudflare.F("internalDescription"),
-		Motive:              cloudflare.F("Espionage"),
-		OpsecLevel:          cloudflare.F("opsecLevel"),
-		OriginCountryISO:    cloudflare.F("originCountryISO"),
-		Priority:            cloudflare.F(0.000000),
-		SophisticationLevel: cloudflare.F("sophisticationLevel"),
+		InternalDescription:     cloudflare.F("internalDescription"),
+		Motive:                  cloudflare.F("Espionage"),
+		MotiveConfidence:        cloudflare.F(int64(7)),
+		OpsecLevel:              cloudflare.F("opsecLevel"),
+		OriginCountryConfidence: cloudflare.F(int64(7)),
+		OriginCountryISO:        cloudflare.F("originCountryISO"),
+		OriginCountryTLP:        cloudflare.F(cloudforce_one.ThreatEventTagNewParamsOriginCountryTLPAmber),
+		Priority:                cloudflare.F(0.000000),
+		SophisticationLevel:     cloudflare.F("sophisticationLevel"),
 	})
 	if err != nil {
 		var apierr *cloudflare.Error

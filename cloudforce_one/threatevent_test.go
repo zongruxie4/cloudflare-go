@@ -98,6 +98,7 @@ func TestThreatEventListWithOptionalParams(t *testing.T) {
 			Op:    cloudflare.F(cloudforce_one.ThreatEventListParamsSearchOpEquals),
 			Value: cloudflare.F[cloudforce_one.ThreatEventListParamsSearchValueUnion](shared.UnionString("usa")),
 		}}),
+		Source: cloudflare.F(cloudforce_one.ThreatEventListParamsSourceDo),
 	})
 	if err != nil {
 		var apierr *cloudflare.Error

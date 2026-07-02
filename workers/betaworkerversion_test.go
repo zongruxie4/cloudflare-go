@@ -83,6 +83,11 @@ func TestBetaWorkerVersionNewWithOptionalParams(t *testing.T) {
 					ContentType:   cloudflare.F("application/javascript+module"),
 					Name:          cloudflare.F("index.js"),
 				}}),
+				PackageDependencies: cloudflare.F([]workers.VersionPackageDependencyParam{{
+					InstalledVersion:   cloudflare.F("4.17.22"),
+					Name:               cloudflare.F("lodash"),
+					PackageJsonVersion: cloudflare.F("^4.17.21"),
+				}}),
 				Placement: cloudflare.F[workers.VersionPlacementUnionParam](workers.VersionPlacementModeParam{
 					Mode: cloudflare.F(workers.VersionPlacementModeModeSmart),
 				}),

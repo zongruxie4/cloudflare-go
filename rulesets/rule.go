@@ -6742,6 +6742,8 @@ type SetConfigRuleActionParameters struct {
 	// The SSL level to configure.
 	SSL SetConfigRuleActionParametersSSL `json:"ssl"`
 	// Whether to enable Signed Exchanges (SXG).
+	//
+	// Deprecated: Signed Exchanges (SXG) is deprecated.
 	SXG  bool                              `json:"sxg"`
 	JSON setConfigRuleActionParametersJSON `json:"-"`
 }
@@ -7122,6 +7124,8 @@ type SetConfigRuleActionParametersParam struct {
 	// The SSL level to configure.
 	SSL param.Field[SetConfigRuleActionParametersSSL] `json:"ssl"`
 	// Whether to enable Signed Exchanges (SXG).
+	//
+	// Deprecated: Signed Exchanges (SXG) is deprecated.
 	SXG param.Field[bool] `json:"sxg"`
 }
 

@@ -42,8 +42,8 @@ func NewRelayService(opts ...option.RequestOption) (r *RelayService) {
 
 // Provisions a new MoQ relay instance. Auto-creates a publish+subscribe token and
 // a subscribe-only token. Token values are included in the response (shown once).
-// Config is set to defaults (lingering subscribe enabled, 30s ceiling, origin
-// fallback off). Use PUT to modify.
+// Config is set to defaults (lingering subscribe enabled, 30s ceiling, upstreams
+// off). Use PUT to modify.
 func (r *RelayService) New(ctx context.Context, params RelayNewParams, opts ...option.RequestOption) (res *RelayNewResponse, err error) {
 	var env RelayNewResponseEnvelope
 	opts = slices.Concat(r.Options, opts)
@@ -61,8 +61,8 @@ func (r *RelayService) New(ctx context.Context, params RelayNewParams, opts ...o
 }
 
 // Updates a relay's name and/or configuration. Partial updates: omitted fields are
-// preserved. Config sub-objects replace as whole objects when present.
-// origin_fallback and lingering_subscribe are mutually exclusive.
+// preserved. Config sub-objects replace as whole objects when present. upstreams
+// and lingering_subscribe are mutually exclusive.
 func (r *RelayService) Update(ctx context.Context, relayID string, params RelayUpdateParams, opts ...option.RequestOption) (res *RelayUpdateResponse, err error) {
 	var env RelayUpdateResponseEnvelope
 	opts = slices.Concat(r.Options, opts)
@@ -167,7 +167,7 @@ func (r *RelayService) Get(ctx context.Context, relayID string, query RelayGetPa
 
 // Relay with auto-generated tokens (shown once).
 type RelayNewResponse struct {
-	// origin_fallback and lingering_subscribe are mutually exclusive.
+	// upstreams and lingering_subscribe are mutually exclusive.
 	Config   RelayNewResponseConfig `json:"config" api:"required"`
 	Created  time.Time              `json:"created" api:"required" format:"date-time"`
 	Modified time.Time              `json:"modified" api:"required" format:"date-time"`
@@ -203,18 +203,20 @@ func (r relayNewResponseJSON) RawJSON() string {
 	return r.raw
 }
 
-// origin_fallback and lingering_subscribe are mutually exclusive.
+// upstreams and lingering_subscribe are mutually exclusive.
 type RelayNewResponseConfig struct {
 	LingeringSubscribe RelayNewResponseConfigLingeringSubscribe `json:"lingering_subscribe"`
-	OriginFallback     RelayNewResponseConfigOriginFallback     `json:"origin_fallback"`
-	JSON               relayNewResponseConfigJSON               `json:"-"`
+	// Upstreams are external MOQT server publishers that a relay falls back to when it
+	// has no local publisher for a requested namespace/track.
+	Upstreams RelayNewResponseConfigUpstreams `json:"upstreams"`
+	JSON      relayNewResponseConfigJSON      `json:"-"`
 }
 
 // relayNewResponseConfigJSON contains the JSON metadata for the struct
 // [RelayNewResponseConfig]
 type relayNewResponseConfigJSON struct {
 	LingeringSubscribe apijson.Field
-	OriginFallback     apijson.Field
+	Upstreams          apijson.Field
 	raw                string
 	ExtraFields        map[string]apijson.Field
 }
@@ -251,58 +253,60 @@ func (r relayNewResponseConfigLingeringSubscribeJSON) RawJSON() string {
 	return r.raw
 }
 
-type RelayNewResponseConfigOriginFallback struct {
+// Upstreams are external MOQT server publishers that a relay falls back to when it
+// has no local publisher for a requested namespace/track.
+type RelayNewResponseConfigUpstreams struct {
 	Enabled bool `json:"enabled"`
-	// Ordered list of upstream origin relays. Each entry is an object (not a bare
-	// string) so per-origin configuration can be added in the future without another
-	// breaking change.
-	Origins []RelayNewResponseConfigOriginFallbackOrigin `json:"origins"`
-	JSON    relayNewResponseConfigOriginFallbackJSON     `json:"-"`
+	// Ordered list of upstream MOQT server publishers. Each entry is an object (not a
+	// bare string) so per-upstream configuration can be added in the future without
+	// another breaking change.
+	Upstreams []RelayNewResponseConfigUpstreamsUpstream `json:"upstreams"`
+	JSON      relayNewResponseConfigUpstreamsJSON       `json:"-"`
 }
 
-// relayNewResponseConfigOriginFallbackJSON contains the JSON metadata for the
-// struct [RelayNewResponseConfigOriginFallback]
-type relayNewResponseConfigOriginFallbackJSON struct {
+// relayNewResponseConfigUpstreamsJSON contains the JSON metadata for the struct
+// [RelayNewResponseConfigUpstreams]
+type relayNewResponseConfigUpstreamsJSON struct {
 	Enabled     apijson.Field
-	Origins     apijson.Field
+	Upstreams   apijson.Field
 	raw         string
 	ExtraFields map[string]apijson.Field
 }
 
-func (r *RelayNewResponseConfigOriginFallback) UnmarshalJSON(data []byte) (err error) {
+func (r *RelayNewResponseConfigUpstreams) UnmarshalJSON(data []byte) (err error) {
 	return apijson.UnmarshalRoot(data, r)
 }
 
-func (r relayNewResponseConfigOriginFallbackJSON) RawJSON() string {
+func (r relayNewResponseConfigUpstreamsJSON) RawJSON() string {
 	return r.raw
 }
 
-// A single upstream origin relay.
-type RelayNewResponseConfigOriginFallbackOrigin struct {
-	// Upstream origin relay URL.
-	URL  string                                         `json:"url"`
-	JSON relayNewResponseConfigOriginFallbackOriginJSON `json:"-"`
+// A single upstream MOQT server publisher.
+type RelayNewResponseConfigUpstreamsUpstream struct {
+	// Upstream MOQT server publisher URL.
+	URL  string                                      `json:"url"`
+	JSON relayNewResponseConfigUpstreamsUpstreamJSON `json:"-"`
 }
 
-// relayNewResponseConfigOriginFallbackOriginJSON contains the JSON metadata for
-// the struct [RelayNewResponseConfigOriginFallbackOrigin]
-type relayNewResponseConfigOriginFallbackOriginJSON struct {
+// relayNewResponseConfigUpstreamsUpstreamJSON contains the JSON metadata for the
+// struct [RelayNewResponseConfigUpstreamsUpstream]
+type relayNewResponseConfigUpstreamsUpstreamJSON struct {
 	URL         apijson.Field
 	raw         string
 	ExtraFields map[string]apijson.Field
 }
 
-func (r *RelayNewResponseConfigOriginFallbackOrigin) UnmarshalJSON(data []byte) (err error) {
+func (r *RelayNewResponseConfigUpstreamsUpstream) UnmarshalJSON(data []byte) (err error) {
 	return apijson.UnmarshalRoot(data, r)
 }
 
-func (r relayNewResponseConfigOriginFallbackOriginJSON) RawJSON() string {
+func (r relayNewResponseConfigUpstreamsUpstreamJSON) RawJSON() string {
 	return r.raw
 }
 
 // Full relay details (no tokens).
 type RelayUpdateResponse struct {
-	// origin_fallback and lingering_subscribe are mutually exclusive.
+	// upstreams and lingering_subscribe are mutually exclusive.
 	Config   RelayUpdateResponseConfig `json:"config" api:"required"`
 	Created  time.Time                 `json:"created" api:"required" format:"date-time"`
 	Modified time.Time                 `json:"modified" api:"required" format:"date-time"`
@@ -334,18 +338,20 @@ func (r relayUpdateResponseJSON) RawJSON() string {
 	return r.raw
 }
 
-// origin_fallback and lingering_subscribe are mutually exclusive.
+// upstreams and lingering_subscribe are mutually exclusive.
 type RelayUpdateResponseConfig struct {
 	LingeringSubscribe RelayUpdateResponseConfigLingeringSubscribe `json:"lingering_subscribe"`
-	OriginFallback     RelayUpdateResponseConfigOriginFallback     `json:"origin_fallback"`
-	JSON               relayUpdateResponseConfigJSON               `json:"-"`
+	// Upstreams are external MOQT server publishers that a relay falls back to when it
+	// has no local publisher for a requested namespace/track.
+	Upstreams RelayUpdateResponseConfigUpstreams `json:"upstreams"`
+	JSON      relayUpdateResponseConfigJSON      `json:"-"`
 }
 
 // relayUpdateResponseConfigJSON contains the JSON metadata for the struct
 // [RelayUpdateResponseConfig]
 type relayUpdateResponseConfigJSON struct {
 	LingeringSubscribe apijson.Field
-	OriginFallback     apijson.Field
+	Upstreams          apijson.Field
 	raw                string
 	ExtraFields        map[string]apijson.Field
 }
@@ -382,52 +388,54 @@ func (r relayUpdateResponseConfigLingeringSubscribeJSON) RawJSON() string {
 	return r.raw
 }
 
-type RelayUpdateResponseConfigOriginFallback struct {
+// Upstreams are external MOQT server publishers that a relay falls back to when it
+// has no local publisher for a requested namespace/track.
+type RelayUpdateResponseConfigUpstreams struct {
 	Enabled bool `json:"enabled"`
-	// Ordered list of upstream origin relays. Each entry is an object (not a bare
-	// string) so per-origin configuration can be added in the future without another
-	// breaking change.
-	Origins []RelayUpdateResponseConfigOriginFallbackOrigin `json:"origins"`
-	JSON    relayUpdateResponseConfigOriginFallbackJSON     `json:"-"`
+	// Ordered list of upstream MOQT server publishers. Each entry is an object (not a
+	// bare string) so per-upstream configuration can be added in the future without
+	// another breaking change.
+	Upstreams []RelayUpdateResponseConfigUpstreamsUpstream `json:"upstreams"`
+	JSON      relayUpdateResponseConfigUpstreamsJSON       `json:"-"`
 }
 
-// relayUpdateResponseConfigOriginFallbackJSON contains the JSON metadata for the
-// struct [RelayUpdateResponseConfigOriginFallback]
-type relayUpdateResponseConfigOriginFallbackJSON struct {
+// relayUpdateResponseConfigUpstreamsJSON contains the JSON metadata for the struct
+// [RelayUpdateResponseConfigUpstreams]
+type relayUpdateResponseConfigUpstreamsJSON struct {
 	Enabled     apijson.Field
-	Origins     apijson.Field
+	Upstreams   apijson.Field
 	raw         string
 	ExtraFields map[string]apijson.Field
 }
 
-func (r *RelayUpdateResponseConfigOriginFallback) UnmarshalJSON(data []byte) (err error) {
+func (r *RelayUpdateResponseConfigUpstreams) UnmarshalJSON(data []byte) (err error) {
 	return apijson.UnmarshalRoot(data, r)
 }
 
-func (r relayUpdateResponseConfigOriginFallbackJSON) RawJSON() string {
+func (r relayUpdateResponseConfigUpstreamsJSON) RawJSON() string {
 	return r.raw
 }
 
-// A single upstream origin relay.
-type RelayUpdateResponseConfigOriginFallbackOrigin struct {
-	// Upstream origin relay URL.
-	URL  string                                            `json:"url"`
-	JSON relayUpdateResponseConfigOriginFallbackOriginJSON `json:"-"`
+// A single upstream MOQT server publisher.
+type RelayUpdateResponseConfigUpstreamsUpstream struct {
+	// Upstream MOQT server publisher URL.
+	URL  string                                         `json:"url"`
+	JSON relayUpdateResponseConfigUpstreamsUpstreamJSON `json:"-"`
 }
 
-// relayUpdateResponseConfigOriginFallbackOriginJSON contains the JSON metadata for
-// the struct [RelayUpdateResponseConfigOriginFallbackOrigin]
-type relayUpdateResponseConfigOriginFallbackOriginJSON struct {
+// relayUpdateResponseConfigUpstreamsUpstreamJSON contains the JSON metadata for
+// the struct [RelayUpdateResponseConfigUpstreamsUpstream]
+type relayUpdateResponseConfigUpstreamsUpstreamJSON struct {
 	URL         apijson.Field
 	raw         string
 	ExtraFields map[string]apijson.Field
 }
 
-func (r *RelayUpdateResponseConfigOriginFallbackOrigin) UnmarshalJSON(data []byte) (err error) {
+func (r *RelayUpdateResponseConfigUpstreamsUpstream) UnmarshalJSON(data []byte) (err error) {
 	return apijson.UnmarshalRoot(data, r)
 }
 
-func (r relayUpdateResponseConfigOriginFallbackOriginJSON) RawJSON() string {
+func (r relayUpdateResponseConfigUpstreamsUpstreamJSON) RawJSON() string {
 	return r.raw
 }
 
@@ -478,7 +486,7 @@ type RelayDeleteResponse = interface{}
 
 // Full relay details (no tokens).
 type RelayGetResponse struct {
-	// origin_fallback and lingering_subscribe are mutually exclusive.
+	// upstreams and lingering_subscribe are mutually exclusive.
 	Config   RelayGetResponseConfig `json:"config" api:"required"`
 	Created  time.Time              `json:"created" api:"required" format:"date-time"`
 	Modified time.Time              `json:"modified" api:"required" format:"date-time"`
@@ -510,18 +518,20 @@ func (r relayGetResponseJSON) RawJSON() string {
 	return r.raw
 }
 
-// origin_fallback and lingering_subscribe are mutually exclusive.
+// upstreams and lingering_subscribe are mutually exclusive.
 type RelayGetResponseConfig struct {
 	LingeringSubscribe RelayGetResponseConfigLingeringSubscribe `json:"lingering_subscribe"`
-	OriginFallback     RelayGetResponseConfigOriginFallback     `json:"origin_fallback"`
-	JSON               relayGetResponseConfigJSON               `json:"-"`
+	// Upstreams are external MOQT server publishers that a relay falls back to when it
+	// has no local publisher for a requested namespace/track.
+	Upstreams RelayGetResponseConfigUpstreams `json:"upstreams"`
+	JSON      relayGetResponseConfigJSON      `json:"-"`
 }
 
 // relayGetResponseConfigJSON contains the JSON metadata for the struct
 // [RelayGetResponseConfig]
 type relayGetResponseConfigJSON struct {
 	LingeringSubscribe apijson.Field
-	OriginFallback     apijson.Field
+	Upstreams          apijson.Field
 	raw                string
 	ExtraFields        map[string]apijson.Field
 }
@@ -558,52 +568,54 @@ func (r relayGetResponseConfigLingeringSubscribeJSON) RawJSON() string {
 	return r.raw
 }
 
-type RelayGetResponseConfigOriginFallback struct {
+// Upstreams are external MOQT server publishers that a relay falls back to when it
+// has no local publisher for a requested namespace/track.
+type RelayGetResponseConfigUpstreams struct {
 	Enabled bool `json:"enabled"`
-	// Ordered list of upstream origin relays. Each entry is an object (not a bare
-	// string) so per-origin configuration can be added in the future without another
-	// breaking change.
-	Origins []RelayGetResponseConfigOriginFallbackOrigin `json:"origins"`
-	JSON    relayGetResponseConfigOriginFallbackJSON     `json:"-"`
+	// Ordered list of upstream MOQT server publishers. Each entry is an object (not a
+	// bare string) so per-upstream configuration can be added in the future without
+	// another breaking change.
+	Upstreams []RelayGetResponseConfigUpstreamsUpstream `json:"upstreams"`
+	JSON      relayGetResponseConfigUpstreamsJSON       `json:"-"`
 }
 
-// relayGetResponseConfigOriginFallbackJSON contains the JSON metadata for the
-// struct [RelayGetResponseConfigOriginFallback]
-type relayGetResponseConfigOriginFallbackJSON struct {
+// relayGetResponseConfigUpstreamsJSON contains the JSON metadata for the struct
+// [RelayGetResponseConfigUpstreams]
+type relayGetResponseConfigUpstreamsJSON struct {
 	Enabled     apijson.Field
-	Origins     apijson.Field
+	Upstreams   apijson.Field
 	raw         string
 	ExtraFields map[string]apijson.Field
 }
 
-func (r *RelayGetResponseConfigOriginFallback) UnmarshalJSON(data []byte) (err error) {
+func (r *RelayGetResponseConfigUpstreams) UnmarshalJSON(data []byte) (err error) {
 	return apijson.UnmarshalRoot(data, r)
 }
 
-func (r relayGetResponseConfigOriginFallbackJSON) RawJSON() string {
+func (r relayGetResponseConfigUpstreamsJSON) RawJSON() string {
 	return r.raw
 }
 
-// A single upstream origin relay.
-type RelayGetResponseConfigOriginFallbackOrigin struct {
-	// Upstream origin relay URL.
-	URL  string                                         `json:"url"`
-	JSON relayGetResponseConfigOriginFallbackOriginJSON `json:"-"`
+// A single upstream MOQT server publisher.
+type RelayGetResponseConfigUpstreamsUpstream struct {
+	// Upstream MOQT server publisher URL.
+	URL  string                                      `json:"url"`
+	JSON relayGetResponseConfigUpstreamsUpstreamJSON `json:"-"`
 }
 
-// relayGetResponseConfigOriginFallbackOriginJSON contains the JSON metadata for
-// the struct [RelayGetResponseConfigOriginFallbackOrigin]
-type relayGetResponseConfigOriginFallbackOriginJSON struct {
+// relayGetResponseConfigUpstreamsUpstreamJSON contains the JSON metadata for the
+// struct [RelayGetResponseConfigUpstreamsUpstream]
+type relayGetResponseConfigUpstreamsUpstreamJSON struct {
 	URL         apijson.Field
 	raw         string
 	ExtraFields map[string]apijson.Field
 }
 
-func (r *RelayGetResponseConfigOriginFallbackOrigin) UnmarshalJSON(data []byte) (err error) {
+func (r *RelayGetResponseConfigUpstreamsUpstream) UnmarshalJSON(data []byte) (err error) {
 	return apijson.UnmarshalRoot(data, r)
 }
 
-func (r relayGetResponseConfigOriginFallbackOriginJSON) RawJSON() string {
+func (r relayGetResponseConfigUpstreamsUpstreamJSON) RawJSON() string {
 	return r.raw
 }
 
@@ -710,7 +722,7 @@ func (r relayNewResponseEnvelopeMessagesJSON) RawJSON() string {
 type RelayUpdateParams struct {
 	// Cloudflare account identifier.
 	AccountID param.Field[string] `path:"account_id" api:"required"`
-	// origin_fallback and lingering_subscribe are mutually exclusive.
+	// upstreams and lingering_subscribe are mutually exclusive.
 	Config param.Field[RelayUpdateParamsConfig] `json:"config"`
 	Name   param.Field[string]                  `json:"name"`
 }
@@ -719,10 +731,12 @@ func (r RelayUpdateParams) MarshalJSON() (data []byte, err error) {
 	return apijson.MarshalRoot(r)
 }
 
-// origin_fallback and lingering_subscribe are mutually exclusive.
+// upstreams and lingering_subscribe are mutually exclusive.
 type RelayUpdateParamsConfig struct {
 	LingeringSubscribe param.Field[RelayUpdateParamsConfigLingeringSubscribe] `json:"lingering_subscribe"`
-	OriginFallback     param.Field[RelayUpdateParamsConfigOriginFallback]     `json:"origin_fallback"`
+	// Upstreams are external MOQT server publishers that a relay falls back to when it
+	// has no local publisher for a requested namespace/track.
+	Upstreams param.Field[RelayUpdateParamsConfigUpstreams] `json:"upstreams"`
 }
 
 func (r RelayUpdateParamsConfig) MarshalJSON() (data []byte, err error) {
@@ -739,25 +753,27 @@ func (r RelayUpdateParamsConfigLingeringSubscribe) MarshalJSON() (data []byte, e
 	return apijson.MarshalRoot(r)
 }
 
-type RelayUpdateParamsConfigOriginFallback struct {
+// Upstreams are external MOQT server publishers that a relay falls back to when it
+// has no local publisher for a requested namespace/track.
+type RelayUpdateParamsConfigUpstreams struct {
 	Enabled param.Field[bool] `json:"enabled"`
-	// Ordered list of upstream origin relays. Each entry is an object (not a bare
-	// string) so per-origin configuration can be added in the future without another
-	// breaking change.
-	Origins param.Field[[]RelayUpdateParamsConfigOriginFallbackOrigin] `json:"origins"`
+	// Ordered list of upstream MOQT server publishers. Each entry is an object (not a
+	// bare string) so per-upstream configuration can be added in the future without
+	// another breaking change.
+	Upstreams param.Field[[]RelayUpdateParamsConfigUpstreamsUpstream] `json:"upstreams"`
 }
 
-func (r RelayUpdateParamsConfigOriginFallback) MarshalJSON() (data []byte, err error) {
+func (r RelayUpdateParamsConfigUpstreams) MarshalJSON() (data []byte, err error) {
 	return apijson.MarshalRoot(r)
 }
 
-// A single upstream origin relay.
-type RelayUpdateParamsConfigOriginFallbackOrigin struct {
-	// Upstream origin relay URL.
+// A single upstream MOQT server publisher.
+type RelayUpdateParamsConfigUpstreamsUpstream struct {
+	// Upstream MOQT server publisher URL.
 	URL param.Field[string] `json:"url"`
 }
 
-func (r RelayUpdateParamsConfigOriginFallbackOrigin) MarshalJSON() (data []byte, err error) {
+func (r RelayUpdateParamsConfigUpstreamsUpstream) MarshalJSON() (data []byte, err error) {
 	return apijson.MarshalRoot(r)
 }
 

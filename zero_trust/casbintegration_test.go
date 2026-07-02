@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-package realtime_kit_test
+package zero_trust_test
 
 import (
 	"context"
@@ -11,11 +11,10 @@ import (
 	"github.com/cloudflare/cloudflare-go/v7"
 	"github.com/cloudflare/cloudflare-go/v7/internal/testutil"
 	"github.com/cloudflare/cloudflare-go/v7/option"
-	"github.com/cloudflare/cloudflare-go/v7/realtime_kit"
+	"github.com/cloudflare/cloudflare-go/v7/zero_trust"
 )
 
-func TestWebhookNewWebhookWithOptionalParams(t *testing.T) {
-	t.Skip("TODO: HTTP 401 from prism, support api tokens")
+func TestCasbIntegrationNewWithOptionalParams(t *testing.T) {
 	baseURL := "http://localhost:4010"
 	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
 		baseURL = envURL
@@ -29,15 +28,54 @@ func TestWebhookNewWebhookWithOptionalParams(t *testing.T) {
 		option.WithAPIKey("144c9defac04969c7bfad8efaa8ea194"),
 		option.WithAPIEmail("user@example.com"),
 	)
-	_, err := client.RealtimeKit.Webhooks.NewWebhook(
+	_, err := client.ZeroTrust.Casb.Integrations.New(context.TODO(), zero_trust.CasbIntegrationNewParams{
+		AccountID:   cloudflare.F("023e105f4ecef8ad9ca31a8372d0c353"),
+		Application: cloudflare.F(zero_trust.CasbIntegrationNewParamsApplicationGoogleWorkspace),
+		Credentials: cloudflare.F(map[string]interface{}{
+			"admin_email": "bar",
+		}),
+		Name:        cloudflare.F("My Google Workspace"),
+		AuthMethod:  cloudflare.F("service_account"),
+		DLPProfiles: cloudflare.F([]string{"e91a2360-da51-4fdf-9711-bcdecd462614"}),
+		Permissions: cloudflare.F([]string{"https://www.googleapis.com/auth/drive.readonly"}),
+		UseCases:    cloudflare.F([]zero_trust.CasbIntegrationNewParamsUseCase{zero_trust.CasbIntegrationNewParamsUseCaseCasb, zero_trust.CasbIntegrationNewParamsUseCaseCes}),
+	})
+	if err != nil {
+		var apierr *cloudflare.Error
+		if errors.As(err, &apierr) {
+			t.Log(string(apierr.DumpRequest(true)))
+		}
+		t.Fatalf("err should be nil: %s", err.Error())
+	}
+}
+
+func TestCasbIntegrationUpdateWithOptionalParams(t *testing.T) {
+	baseURL := "http://localhost:4010"
+	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
+		baseURL = envURL
+	}
+	if !testutil.CheckTestServer(t, baseURL) {
+		return
+	}
+	client := cloudflare.NewClient(
+		option.WithBaseURL(baseURL),
+		option.WithAPIToken("Sn3lZJTBX6kkg7OdcBUAxOO963GEIyGQqnFTOFYY"),
+		option.WithAPIKey("144c9defac04969c7bfad8efaa8ea194"),
+		option.WithAPIEmail("user@example.com"),
+	)
+	_, err := client.ZeroTrust.Casb.Integrations.Update(
 		context.TODO(),
-		"app_id",
-		realtime_kit.WebhookNewWebhookParams{
+		"id",
+		zero_trust.CasbIntegrationUpdateParams{
 			AccountID: cloudflare.F("023e105f4ecef8ad9ca31a8372d0c353"),
-			Events:    cloudflare.F([]realtime_kit.WebhookNewWebhookParamsEvent{realtime_kit.WebhookNewWebhookParamsEventMeetingStarted, realtime_kit.WebhookNewWebhookParamsEventMeetingEnded, realtime_kit.WebhookNewWebhookParamsEventMeetingParticipantJoined, realtime_kit.WebhookNewWebhookParamsEventMeetingParticipantLeft, realtime_kit.WebhookNewWebhookParamsEventMeetingChatSynced, realtime_kit.WebhookNewWebhookParamsEventRecordingStatusUpdate, realtime_kit.WebhookNewWebhookParamsEventLivestreamingStatusUpdate, realtime_kit.WebhookNewWebhookParamsEventMeetingTranscript, realtime_kit.WebhookNewWebhookParamsEventMeetingSummary}),
-			Name:      cloudflare.F("All events webhook"),
-			URL:       cloudflare.F("https://webhook.site/b23a5bbd-c7b0-4ced-a9e2-78ae7889897e"),
-			Enabled:   cloudflare.F(true),
+			Credentials: cloudflare.F(map[string]interface{}{
+				"access_token":  "bar",
+				"refresh_token": "bar",
+			}),
+			DLPProfiles: cloudflare.F([]string{"182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e"}),
+			Name:        cloudflare.F("x"),
+			Permissions: cloudflare.F([]string{"x"}),
+			UseCases:    cloudflare.F([]zero_trust.CasbIntegrationUpdateParamsUseCase{zero_trust.CasbIntegrationUpdateParamsUseCaseCasb}),
 		},
 	)
 	if err != nil {
@@ -49,8 +87,7 @@ func TestWebhookNewWebhookWithOptionalParams(t *testing.T) {
 	}
 }
 
-func TestWebhookDeleteWebhook(t *testing.T) {
-	t.Skip("TODO: HTTP 401 from prism, support api tokens")
+func TestCasbIntegrationListWithOptionalParams(t *testing.T) {
 	baseURL := "http://localhost:4010"
 	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
 		baseURL = envURL
@@ -64,14 +101,18 @@ func TestWebhookDeleteWebhook(t *testing.T) {
 		option.WithAPIKey("144c9defac04969c7bfad8efaa8ea194"),
 		option.WithAPIEmail("user@example.com"),
 	)
-	_, err := client.RealtimeKit.Webhooks.DeleteWebhook(
-		context.TODO(),
-		"app_id",
-		"182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",
-		realtime_kit.WebhookDeleteWebhookParams{
-			AccountID: cloudflare.F("023e105f4ecef8ad9ca31a8372d0c353"),
-		},
-	)
+	_, err := client.ZeroTrust.Casb.Integrations.List(context.TODO(), zero_trust.CasbIntegrationListParams{
+		AccountID:   cloudflare.F("023e105f4ecef8ad9ca31a8372d0c353"),
+		Application: cloudflare.F("application"),
+		Direction:   cloudflare.F(zero_trust.CasbIntegrationListParamsDirectionAsc),
+		DLPEnabled:  cloudflare.F(true),
+		Order:       cloudflare.F(zero_trust.CasbIntegrationListParamsOrderApplication),
+		Page:        cloudflare.F(int64(0)),
+		PageSize:    cloudflare.F(int64(0)),
+		Search:      cloudflare.F("search"),
+		Status:      cloudflare.F(zero_trust.CasbIntegrationListParamsStatusHealthy),
+		UseCases:    cloudflare.F("use_cases"),
+	})
 	if err != nil {
 		var apierr *cloudflare.Error
 		if errors.As(err, &apierr) {
@@ -81,8 +122,7 @@ func TestWebhookDeleteWebhook(t *testing.T) {
 	}
 }
 
-func TestWebhookEditWebhookWithOptionalParams(t *testing.T) {
-	t.Skip("TODO: HTTP 401 from prism, support api tokens")
+func TestCasbIntegrationDelete(t *testing.T) {
 	baseURL := "http://localhost:4010"
 	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
 		baseURL = envURL
@@ -96,78 +136,10 @@ func TestWebhookEditWebhookWithOptionalParams(t *testing.T) {
 		option.WithAPIKey("144c9defac04969c7bfad8efaa8ea194"),
 		option.WithAPIEmail("user@example.com"),
 	)
-	_, err := client.RealtimeKit.Webhooks.EditWebhook(
+	err := client.ZeroTrust.Casb.Integrations.Delete(
 		context.TODO(),
-		"app_id",
-		"182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",
-		realtime_kit.WebhookEditWebhookParams{
-			AccountID: cloudflare.F("023e105f4ecef8ad9ca31a8372d0c353"),
-			Enabled:   cloudflare.F(true),
-			Events:    cloudflare.F([]realtime_kit.WebhookEditWebhookParamsEvent{realtime_kit.WebhookEditWebhookParamsEventMeetingStarted}),
-			Name:      cloudflare.F("name"),
-			URL:       cloudflare.F("https://webhook.site/b23a5bbd-c7b0-4ced-a9e2-78ae7889897e"),
-		},
-	)
-	if err != nil {
-		var apierr *cloudflare.Error
-		if errors.As(err, &apierr) {
-			t.Log(string(apierr.DumpRequest(true)))
-		}
-		t.Fatalf("err should be nil: %s", err.Error())
-	}
-}
-
-func TestWebhookGetWebhookByID(t *testing.T) {
-	t.Skip("TODO: HTTP 401 from prism, support api tokens")
-	baseURL := "http://localhost:4010"
-	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
-		baseURL = envURL
-	}
-	if !testutil.CheckTestServer(t, baseURL) {
-		return
-	}
-	client := cloudflare.NewClient(
-		option.WithBaseURL(baseURL),
-		option.WithAPIToken("Sn3lZJTBX6kkg7OdcBUAxOO963GEIyGQqnFTOFYY"),
-		option.WithAPIKey("144c9defac04969c7bfad8efaa8ea194"),
-		option.WithAPIEmail("user@example.com"),
-	)
-	_, err := client.RealtimeKit.Webhooks.GetWebhookByID(
-		context.TODO(),
-		"app_id",
-		"182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",
-		realtime_kit.WebhookGetWebhookByIDParams{
-			AccountID: cloudflare.F("023e105f4ecef8ad9ca31a8372d0c353"),
-		},
-	)
-	if err != nil {
-		var apierr *cloudflare.Error
-		if errors.As(err, &apierr) {
-			t.Log(string(apierr.DumpRequest(true)))
-		}
-		t.Fatalf("err should be nil: %s", err.Error())
-	}
-}
-
-func TestWebhookGetWebhooks(t *testing.T) {
-	t.Skip("TODO: HTTP 401 from prism, support api tokens")
-	baseURL := "http://localhost:4010"
-	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
-		baseURL = envURL
-	}
-	if !testutil.CheckTestServer(t, baseURL) {
-		return
-	}
-	client := cloudflare.NewClient(
-		option.WithBaseURL(baseURL),
-		option.WithAPIToken("Sn3lZJTBX6kkg7OdcBUAxOO963GEIyGQqnFTOFYY"),
-		option.WithAPIKey("144c9defac04969c7bfad8efaa8ea194"),
-		option.WithAPIEmail("user@example.com"),
-	)
-	_, err := client.RealtimeKit.Webhooks.GetWebhooks(
-		context.TODO(),
-		"app_id",
-		realtime_kit.WebhookGetWebhooksParams{
+		"id",
+		zero_trust.CasbIntegrationDeleteParams{
 			AccountID: cloudflare.F("023e105f4ecef8ad9ca31a8372d0c353"),
 		},
 	)
@@ -180,8 +152,7 @@ func TestWebhookGetWebhooks(t *testing.T) {
 	}
 }
 
-func TestWebhookReplaceWebhookWithOptionalParams(t *testing.T) {
-	t.Skip("TODO: HTTP 401 from prism, support api tokens")
+func TestCasbIntegrationGet(t *testing.T) {
 	baseURL := "http://localhost:4010"
 	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
 		baseURL = envURL
@@ -195,16 +166,71 @@ func TestWebhookReplaceWebhookWithOptionalParams(t *testing.T) {
 		option.WithAPIKey("144c9defac04969c7bfad8efaa8ea194"),
 		option.WithAPIEmail("user@example.com"),
 	)
-	_, err := client.RealtimeKit.Webhooks.ReplaceWebhook(
+	_, err := client.ZeroTrust.Casb.Integrations.Get(
 		context.TODO(),
-		"app_id",
-		"182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",
-		realtime_kit.WebhookReplaceWebhookParams{
+		"id",
+		zero_trust.CasbIntegrationGetParams{
 			AccountID: cloudflare.F("023e105f4ecef8ad9ca31a8372d0c353"),
-			Events:    cloudflare.F([]realtime_kit.WebhookReplaceWebhookParamsEvent{realtime_kit.WebhookReplaceWebhookParamsEventMeetingStarted, realtime_kit.WebhookReplaceWebhookParamsEventMeetingEnded, realtime_kit.WebhookReplaceWebhookParamsEventMeetingParticipantJoined, realtime_kit.WebhookReplaceWebhookParamsEventMeetingParticipantLeft, realtime_kit.WebhookReplaceWebhookParamsEventMeetingChatSynced, realtime_kit.WebhookReplaceWebhookParamsEventRecordingStatusUpdate, realtime_kit.WebhookReplaceWebhookParamsEventLivestreamingStatusUpdate, realtime_kit.WebhookReplaceWebhookParamsEventMeetingTranscript, realtime_kit.WebhookReplaceWebhookParamsEventMeetingSummary}),
-			Name:      cloudflare.F("All events webhook"),
-			URL:       cloudflare.F("https://webhook.site/b23a5bbd-c7b0-4ced-a9e2-78ae7889897e"),
-			Enabled:   cloudflare.F(true),
+		},
+	)
+	if err != nil {
+		var apierr *cloudflare.Error
+		if errors.As(err, &apierr) {
+			t.Log(string(apierr.DumpRequest(true)))
+		}
+		t.Fatalf("err should be nil: %s", err.Error())
+	}
+}
+
+func TestCasbIntegrationPause(t *testing.T) {
+	baseURL := "http://localhost:4010"
+	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
+		baseURL = envURL
+	}
+	if !testutil.CheckTestServer(t, baseURL) {
+		return
+	}
+	client := cloudflare.NewClient(
+		option.WithBaseURL(baseURL),
+		option.WithAPIToken("Sn3lZJTBX6kkg7OdcBUAxOO963GEIyGQqnFTOFYY"),
+		option.WithAPIKey("144c9defac04969c7bfad8efaa8ea194"),
+		option.WithAPIEmail("user@example.com"),
+	)
+	_, err := client.ZeroTrust.Casb.Integrations.Pause(
+		context.TODO(),
+		"id",
+		zero_trust.CasbIntegrationPauseParams{
+			AccountID: cloudflare.F("023e105f4ecef8ad9ca31a8372d0c353"),
+		},
+	)
+	if err != nil {
+		var apierr *cloudflare.Error
+		if errors.As(err, &apierr) {
+			t.Log(string(apierr.DumpRequest(true)))
+		}
+		t.Fatalf("err should be nil: %s", err.Error())
+	}
+}
+
+func TestCasbIntegrationResume(t *testing.T) {
+	baseURL := "http://localhost:4010"
+	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
+		baseURL = envURL
+	}
+	if !testutil.CheckTestServer(t, baseURL) {
+		return
+	}
+	client := cloudflare.NewClient(
+		option.WithBaseURL(baseURL),
+		option.WithAPIToken("Sn3lZJTBX6kkg7OdcBUAxOO963GEIyGQqnFTOFYY"),
+		option.WithAPIKey("144c9defac04969c7bfad8efaa8ea194"),
+		option.WithAPIEmail("user@example.com"),
+	)
+	_, err := client.ZeroTrust.Casb.Integrations.Resume(
+		context.TODO(),
+		"id",
+		zero_trust.CasbIntegrationResumeParams{
+			AccountID: cloudflare.F("023e105f4ecef8ad9ca31a8372d0c353"),
 		},
 	)
 	if err != nil {

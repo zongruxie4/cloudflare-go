@@ -476,6 +476,9 @@ TEST_PATHS=(
 	zero_trust/accesscustompage_test.go
 	zero_trust/accesstag_test.go
 	zero_trust/accesspolicy_test.go
+	zero_trust/casbapplication_test.go
+	zero_trust/casbapplicationsetupflow_test.go
+	zero_trust/casbintegration_test.go
 	zero_trust/dexwarpchangeevent_test.go
 	zero_trust/dexcommand_test.go
 	zero_trust/dexcommanddevice_test.go

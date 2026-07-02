@@ -191,11 +191,13 @@ func (r accessAIControlMcpPortalNewResponseJSON) RawJSON() string {
 
 type AccessAIControlMcpPortalNewResponseServer struct {
 	// server id
-	ID              string                                                 `json:"id" api:"required"`
-	AuthType        AccessAIControlMcpPortalNewResponseServersAuthType     `json:"auth_type" api:"required"`
-	Hostname        string                                                 `json:"hostname" api:"required" format:"uri"`
-	Name            string                                                 `json:"name" api:"required"`
-	Prompts         []map[string]interface{}                               `json:"prompts" api:"required"`
+	ID       string                                             `json:"id" api:"required"`
+	AuthType AccessAIControlMcpPortalNewResponseServersAuthType `json:"auth_type" api:"required"`
+	Hostname string                                             `json:"hostname" api:"required" format:"uri"`
+	Name     string                                             `json:"name" api:"required"`
+	Prompts  []map[string]interface{}                           `json:"prompts" api:"required"`
+	// server id
+	ServerID        string                                                 `json:"server_id" api:"required"`
 	Tools           []map[string]interface{}                               `json:"tools" api:"required"`
 	CreatedAt       time.Time                                              `json:"created_at" format:"date-time"`
 	CreatedBy       string                                                 `json:"created_by"`
@@ -230,6 +232,7 @@ type accessAIControlMcpPortalNewResponseServerJSON struct {
 	Hostname                     apijson.Field
 	Name                         apijson.Field
 	Prompts                      apijson.Field
+	ServerID                     apijson.Field
 	Tools                        apijson.Field
 	CreatedAt                    apijson.Field
 	CreatedBy                    apijson.Field
@@ -418,11 +421,13 @@ func (r accessAIControlMcpPortalUpdateResponseJSON) RawJSON() string {
 
 type AccessAIControlMcpPortalUpdateResponseServer struct {
 	// server id
-	ID              string                                                    `json:"id" api:"required"`
-	AuthType        AccessAIControlMcpPortalUpdateResponseServersAuthType     `json:"auth_type" api:"required"`
-	Hostname        string                                                    `json:"hostname" api:"required" format:"uri"`
-	Name            string                                                    `json:"name" api:"required"`
-	Prompts         []map[string]interface{}                                  `json:"prompts" api:"required"`
+	ID       string                                                `json:"id" api:"required"`
+	AuthType AccessAIControlMcpPortalUpdateResponseServersAuthType `json:"auth_type" api:"required"`
+	Hostname string                                                `json:"hostname" api:"required" format:"uri"`
+	Name     string                                                `json:"name" api:"required"`
+	Prompts  []map[string]interface{}                              `json:"prompts" api:"required"`
+	// server id
+	ServerID        string                                                    `json:"server_id" api:"required"`
 	Tools           []map[string]interface{}                                  `json:"tools" api:"required"`
 	CreatedAt       time.Time                                                 `json:"created_at" format:"date-time"`
 	CreatedBy       string                                                    `json:"created_by"`
@@ -457,6 +462,7 @@ type accessAIControlMcpPortalUpdateResponseServerJSON struct {
 	Hostname                     apijson.Field
 	Name                         apijson.Field
 	Prompts                      apijson.Field
+	ServerID                     apijson.Field
 	Tools                        apijson.Field
 	CreatedAt                    apijson.Field
 	CreatedBy                    apijson.Field
@@ -647,11 +653,13 @@ func (r accessAIControlMcpPortalListResponseJSON) RawJSON() string {
 
 type AccessAIControlMcpPortalListResponseServer struct {
 	// server id
-	ID              string                                                  `json:"id" api:"required"`
-	AuthType        AccessAIControlMcpPortalListResponseServersAuthType     `json:"auth_type" api:"required"`
-	Hostname        string                                                  `json:"hostname" api:"required" format:"uri"`
-	Name            string                                                  `json:"name" api:"required"`
-	Prompts         []map[string]interface{}                                `json:"prompts" api:"required"`
+	ID       string                                              `json:"id" api:"required"`
+	AuthType AccessAIControlMcpPortalListResponseServersAuthType `json:"auth_type" api:"required"`
+	Hostname string                                              `json:"hostname" api:"required" format:"uri"`
+	Name     string                                              `json:"name" api:"required"`
+	Prompts  []map[string]interface{}                            `json:"prompts" api:"required"`
+	// server id
+	ServerID        string                                                  `json:"server_id" api:"required"`
 	Tools           []map[string]interface{}                                `json:"tools" api:"required"`
 	CreatedAt       time.Time                                               `json:"created_at" format:"date-time"`
 	CreatedBy       string                                                  `json:"created_by"`
@@ -686,6 +694,7 @@ type accessAIControlMcpPortalListResponseServerJSON struct {
 	Hostname                     apijson.Field
 	Name                         apijson.Field
 	Prompts                      apijson.Field
+	ServerID                     apijson.Field
 	Tools                        apijson.Field
 	CreatedAt                    apijson.Field
 	CreatedBy                    apijson.Field
@@ -917,11 +926,13 @@ func (r accessAIControlMcpPortalReadResponseJSON) RawJSON() string {
 
 type AccessAIControlMcpPortalReadResponseServer struct {
 	// server id
-	ID              string                                                  `json:"id" api:"required"`
-	AuthType        AccessAIControlMcpPortalReadResponseServersAuthType     `json:"auth_type" api:"required"`
-	Hostname        string                                                  `json:"hostname" api:"required" format:"uri"`
-	Name            string                                                  `json:"name" api:"required"`
-	Prompts         []map[string]interface{}                                `json:"prompts" api:"required"`
+	ID       string                                              `json:"id" api:"required"`
+	AuthType AccessAIControlMcpPortalReadResponseServersAuthType `json:"auth_type" api:"required"`
+	Hostname string                                              `json:"hostname" api:"required" format:"uri"`
+	Name     string                                              `json:"name" api:"required"`
+	Prompts  []map[string]interface{}                            `json:"prompts" api:"required"`
+	// server id
+	ServerID        string                                                  `json:"server_id" api:"required"`
 	Tools           []map[string]interface{}                                `json:"tools" api:"required"`
 	CreatedAt       time.Time                                               `json:"created_at" format:"date-time"`
 	CreatedBy       string                                                  `json:"created_by"`
@@ -956,6 +967,7 @@ type accessAIControlMcpPortalReadResponseServerJSON struct {
 	Hostname                     apijson.Field
 	Name                         apijson.Field
 	Prompts                      apijson.Field
+	ServerID                     apijson.Field
 	Tools                        apijson.Field
 	CreatedAt                    apijson.Field
 	CreatedBy                    apijson.Field

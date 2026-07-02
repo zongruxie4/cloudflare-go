@@ -1999,6 +1999,9 @@ type ScriptUpdateParamsMetadata struct {
 	Migrations param.Field[ScriptUpdateParamsMetadataMigrationsUnion] `json:"migrations"`
 	// Observability settings for the Worker.
 	Observability param.Field[ScriptUpdateParamsMetadataObservability] `json:"observability"`
+	// The list of npm packages that were installed and used when this Worker version
+	// was built.
+	PackageDependencies param.Field[[]ScriptUpdateParamsMetadataPackageDependency] `json:"package_dependencies"`
 	// Configuration for
 	// [Smart Placement](https://developers.cloudflare.com/workers/configuration/smart-placement).
 	// Specify mode='smart' for Smart Placement, or one of region/hostname/host.
@@ -3746,6 +3749,19 @@ func (r ScriptUpdateParamsMetadataObservabilityTracesPropagationPolicy) IsKnown(
 		return true
 	}
 	return false
+}
+
+type ScriptUpdateParamsMetadataPackageDependency struct {
+	// The exact version that was resolved and installed by the package manager.
+	InstalledVersion param.Field[string] `json:"installedVersion" api:"required"`
+	// The npm package name.
+	Name param.Field[string] `json:"name" api:"required"`
+	// The version constraint as written in package.json.
+	PackageJsonVersion param.Field[string] `json:"packageJsonVersion" api:"required"`
+}
+
+func (r ScriptUpdateParamsMetadataPackageDependency) MarshalJSON() (data []byte, err error) {
+	return apijson.MarshalRoot(r)
 }
 
 // Configuration for

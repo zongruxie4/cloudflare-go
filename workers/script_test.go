@@ -103,6 +103,11 @@ func TestScriptUpdateWithOptionalParams(t *testing.T) {
 						PropagationPolicy: cloudflare.F(workers.ScriptUpdateParamsMetadataObservabilityTracesPropagationPolicyAuthenticated),
 					}),
 				}),
+				PackageDependencies: cloudflare.F([]workers.ScriptUpdateParamsMetadataPackageDependency{{
+					InstalledVersion:   cloudflare.F("4.17.22"),
+					Name:               cloudflare.F("lodash"),
+					PackageJsonVersion: cloudflare.F("^4.17.21"),
+				}}),
 				Placement: cloudflare.F[workers.ScriptUpdateParamsMetadataPlacementUnion](workers.ScriptUpdateParamsMetadataPlacementObject{
 					Mode: cloudflare.F(workers.ScriptUpdateParamsMetadataPlacementObjectModeSmart),
 				}),
