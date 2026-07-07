@@ -167,7 +167,8 @@ func (r *NamespaceService) Read(ctx context.Context, name string, query Namespac
 	return res, nil
 }
 
-// Multi-Instance Search
+// Performs a semantic search query against multiple AI Search instances in
+// parallel, merging the retrieved results into a single ranked response.
 func (r *NamespaceService) Search(ctx context.Context, name string, params NamespaceSearchParams, opts ...option.RequestOption) (res *NamespaceSearchResponse, err error) {
 	var env NamespaceSearchResponseEnvelope
 	opts = slices.Concat(r.Options, opts)

@@ -36,8 +36,7 @@ func NewDeviceFleetStatusService(opts ...option.RequestOption) (r *DeviceFleetSt
 	return
 }
 
-// Get the live status of a latest device given device_id from the device_state
-// table
+// Get the latest status of a device given device_id from the device_state table.
 func (r *DeviceFleetStatusService) Get(ctx context.Context, deviceID string, params DeviceFleetStatusGetParams, opts ...option.RequestOption) (res *DeviceFleetStatusGetResponse, err error) {
 	opts = slices.Concat(r.Options, opts)
 	if params.AccountID.Value == "" {

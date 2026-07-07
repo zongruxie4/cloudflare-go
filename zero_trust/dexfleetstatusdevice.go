@@ -37,7 +37,7 @@ func NewDEXFleetStatusDeviceService(opts ...option.RequestOption) (r *DEXFleetSt
 	return
 }
 
-// List details for devices using WARP.
+// List details of devices using WARP.
 func (r *DEXFleetStatusDeviceService) List(ctx context.Context, params DEXFleetStatusDeviceListParams, opts ...option.RequestOption) (res *pagination.V4PagePaginationArray[DEXFleetStatusDeviceListResponse], err error) {
 	var raw *http.Response
 	opts = slices.Concat(r.Options, opts)
@@ -59,7 +59,7 @@ func (r *DEXFleetStatusDeviceService) List(ctx context.Context, params DEXFleetS
 	return res, nil
 }
 
-// List details for devices using WARP.
+// List details of devices using WARP.
 func (r *DEXFleetStatusDeviceService) ListAutoPaging(ctx context.Context, params DEXFleetStatusDeviceListParams, opts ...option.RequestOption) *pagination.V4PagePaginationArrayAutoPager[DEXFleetStatusDeviceListResponse] {
 	return pagination.NewV4PagePaginationArrayAutoPager(r.List(ctx, params, opts...))
 }
