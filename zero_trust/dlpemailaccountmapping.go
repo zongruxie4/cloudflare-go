@@ -95,7 +95,10 @@ func (r dlpEmailAccountMappingNewResponseJSON) RawJSON() string {
 }
 
 type DLPEmailAccountMappingNewResponseAuthRequirements struct {
-	Type DLPEmailAccountMappingNewResponseAuthRequirementsType `json:"type" api:"required"`
+	// This field can have the runtime type of
+	// [DLPEmailAccountMappingNewResponseAuthRequirementsObjectType],
+	// [DLPEmailAccountMappingNewResponseAuthRequirementsTypeType].
+	Type interface{} `json:"type" api:"required"`
 	// This field can have the runtime type of [[]string].
 	AllowedMicrosoftOrganizations interface{}                                           `json:"allowed_microsoft_organizations"`
 	JSON                          dlpEmailAccountMappingNewResponseAuthRequirementsJSON `json:"-"`
@@ -258,7 +261,10 @@ func (r dlpEmailAccountMappingGetResponseJSON) RawJSON() string {
 }
 
 type DLPEmailAccountMappingGetResponseAuthRequirements struct {
-	Type DLPEmailAccountMappingGetResponseAuthRequirementsType `json:"type" api:"required"`
+	// This field can have the runtime type of
+	// [DLPEmailAccountMappingGetResponseAuthRequirementsObjectType],
+	// [DLPEmailAccountMappingGetResponseAuthRequirementsTypeType].
+	Type interface{} `json:"type" api:"required"`
 	// This field can have the runtime type of [[]string].
 	AllowedMicrosoftOrganizations interface{}                                           `json:"allowed_microsoft_organizations"`
 	JSON                          dlpEmailAccountMappingGetResponseAuthRequirementsJSON `json:"-"`
