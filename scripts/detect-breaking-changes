@@ -812,6 +812,7 @@ TEST_PATHS=(
 	browser_rendering/json_test.go
 	browser_rendering/link_test.go
 	browser_rendering/markdown_test.go
+	browser_rendering/accessibilitytree_test.go
 	browser_rendering/crawl_test.go
 	browser_rendering/devtoolsession_test.go
 	browser_rendering/devtoolbrowser_test.go

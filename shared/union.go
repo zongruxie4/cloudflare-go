@@ -233,6 +233,7 @@ func (UnionString) ImplementsPDFNewParamsBodyObjectPDFOptionsMarginTopUnion()   
 func (UnionString) ImplementsPDFNewParamsBodyObjectPDFOptionsWidthUnion()                          {}
 func (UnionString) ImplementsSnapshotNewResponseAccessibilityTreeValueUnion()                      {}
 func (UnionString) ImplementsJsonNewParamsBodyObjectResponseFormatJsonSchemaUnion()                {}
+func (UnionString) ImplementsAccessibilityTreeNewResponseAccessibilityTreeValueUnion()             {}
 func (UnionString) ImplementsCrawlNewParamsBodyObjectJsonOptionsResponseFormatJsonSchemaUnion()    {}
 
 // Restored after excluding realtime_kit from staging-next sync. The
@@ -360,6 +361,8 @@ func (UnionBool) ImplementsAppEvaluateGetResponseValueUnion()                   
 func (UnionBool) ImplementsSnapshotNewResponseAccessibilityTreeCheckedUnion()                 {}
 func (UnionBool) ImplementsSnapshotNewResponseAccessibilityTreePressedUnion()                 {}
 func (UnionBool) ImplementsJsonNewParamsBodyObjectResponseFormatJsonSchemaUnion()             {}
+func (UnionBool) ImplementsAccessibilityTreeNewResponseAccessibilityTreeCheckedUnion()        {}
+func (UnionBool) ImplementsAccessibilityTreeNewResponseAccessibilityTreePressedUnion()        {}
 func (UnionBool) ImplementsCrawlNewParamsBodyObjectJsonOptionsResponseFormatJsonSchemaUnion() {}
 
 type UnionInt int64
@@ -499,4 +502,5 @@ func (UnionFloat) ImplementsPDFNewParamsBodyObjectPDFOptionsMarginTopUnion()    
 func (UnionFloat) ImplementsPDFNewParamsBodyObjectPDFOptionsWidthUnion()                          {}
 func (UnionFloat) ImplementsSnapshotNewResponseAccessibilityTreeValueUnion()                      {}
 func (UnionFloat) ImplementsJsonNewParamsBodyObjectResponseFormatJsonSchemaUnion()                {}
+func (UnionFloat) ImplementsAccessibilityTreeNewResponseAccessibilityTreeValueUnion()             {}
 func (UnionFloat) ImplementsCrawlNewParamsBodyObjectJsonOptionsResponseFormatJsonSchemaUnion()    {}
