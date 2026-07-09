@@ -16,6 +16,7 @@ import (
 )
 
 func TestObservabilitySharedQueryNewWithOptionalParams(t *testing.T) {
+	t.Skip("HTTP 400 error from prism")
 	baseURL := "http://localhost:4010"
 	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
 		baseURL = envURL
@@ -57,7 +58,7 @@ func TestObservabilitySharedQueryNewWithOptionalParams(t *testing.T) {
 				FilterCombination: cloudflare.F(workers.ObservabilitySharedQueryNewParamsParametersFiltersObjectFilterCombinationAnd),
 				Filters: cloudflare.F([]workers.ObservabilitySharedQueryNewParamsParametersFiltersObjectFilterUnion{workers.ObservabilitySharedQueryNewParamsParametersFiltersObjectFiltersObject{
 					FilterCombination: cloudflare.F(workers.ObservabilitySharedQueryNewParamsParametersFiltersObjectFiltersObjectFilterCombinationAnd),
-					Filters:           cloudflare.F([]interface{}{map[string]interface{}{}}),
+					Filters:           cloudflare.F([]interface{}{}),
 					Kind:              cloudflare.F(workers.ObservabilitySharedQueryNewParamsParametersFiltersObjectFiltersObjectKindGroup),
 				}}),
 				Kind: cloudflare.F(workers.ObservabilitySharedQueryNewParamsParametersFiltersObjectKindGroup),

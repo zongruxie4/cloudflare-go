@@ -65,7 +65,7 @@ func TestRecordingGetOneRecording(t *testing.T) {
 	_, err := client.RealtimeKit.Recordings.GetOneRecording(
 		context.TODO(),
 		"app_id",
-		"recording_id",
+		"182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",
 		realtime_kit.RecordingGetOneRecordingParams{
 			AccountID: cloudflare.F("023e105f4ecef8ad9ca31a8372d0c353"),
 		},
@@ -138,7 +138,7 @@ func TestRecordingPauseResumeStopRecording(t *testing.T) {
 	_, err := client.RealtimeKit.Recordings.PauseResumeStopRecording(
 		context.TODO(),
 		"2a95132c15732412d22c1476fa83f27a",
-		"recording_id",
+		"182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",
 		realtime_kit.RecordingPauseResumeStopRecordingParams{
 			AccountID: cloudflare.F("023e105f4ecef8ad9ca31a8372d0c353"),
 			Action:    cloudflare.F(realtime_kit.RecordingPauseResumeStopRecordingParamsActionStop),
@@ -173,6 +173,7 @@ func TestRecordingStartRecordingsWithOptionalParams(t *testing.T) {
 		"app_id",
 		realtime_kit.RecordingStartRecordingsParams{
 			AccountID:               cloudflare.F("023e105f4ecef8ad9ca31a8372d0c353"),
+			MeetingID:               cloudflare.F("97440c6a-140b-40a9-9499-b23fd7a3868a"),
 			AllowMultipleRecordings: cloudflare.F(false),
 			AudioConfig: cloudflare.F(realtime_kit.RecordingStartRecordingsParamsAudioConfig{
 				Channel:    cloudflare.F(realtime_kit.RecordingStartRecordingsParamsAudioConfigChannelStereo),
@@ -184,7 +185,6 @@ func TestRecordingStartRecordingsWithOptionalParams(t *testing.T) {
 				Type: cloudflare.F(realtime_kit.RecordingStartRecordingsParamsInteractiveConfigTypeId3),
 			}),
 			MaxSeconds: cloudflare.F(int64(60)),
-			MeetingID:  cloudflare.F("97440c6a-140b-40a9-9499-b23fd7a3868a"),
 			RealtimekitBucketConfig: cloudflare.F(realtime_kit.RecordingStartRecordingsParamsRealtimekitBucketConfig{
 				Enabled: cloudflare.F(true),
 			}),

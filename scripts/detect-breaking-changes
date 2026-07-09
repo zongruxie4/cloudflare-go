@@ -74,7 +74,6 @@ TEST_PATHS=(
 	ssl/analyze_test.go
 	ssl/certificatepack_test.go
 	ssl/certificatepackquota_test.go
-	ssl/recommendation_test.go
 	ssl/autoorigintlskex_test.go
 	ssl/universalsetting_test.go
 	ssl/verification_test.go
@@ -120,6 +119,9 @@ TEST_PATHS=(
 	email_security/investigatemove_test.go
 	email_security/investigatereclassify_test.go
 	email_security/investigaterelease_test.go
+	email_security/investigatebulk_test.go
+	email_security/investigatebulkcancel_test.go
+	email_security/investigatebulkmessage_test.go
 	email_security/phishguardreport_test.go
 	email_security/settingallowpolicy_test.go
 	email_security/settingblocksender_test.go
@@ -129,6 +131,8 @@ TEST_PATHS=(
 	email_security/settingtrusteddomain_test.go
 	email_security/settingurlignorepattern_test.go
 	email_security/submission_test.go
+	email_auth/dmarcreport_test.go
+	email_auth/spfinspect_test.go
 	email_routing/emailrouting_test.go
 	email_routing/dns_test.go
 	email_routing/rule_test.go
@@ -155,6 +159,9 @@ TEST_PATHS=(
 	logpush/job_test.go
 	logpush/ownership_test.go
 	logpush/validate_test.go
+	logs/logexplorerquery_test.go
+	logs/logexplorerdataset_test.go
+	logs/logexplorerdatasetavailable_test.go
 	logs/controlretention_test.go
 	logs/controlcmbconfig_test.go
 	logs/rayid_test.go
@@ -469,6 +476,9 @@ TEST_PATHS=(
 	zero_trust/accesscustompage_test.go
 	zero_trust/accesstag_test.go
 	zero_trust/accesspolicy_test.go
+	zero_trust/casbapplication_test.go
+	zero_trust/casbapplicationsetupflow_test.go
+	zero_trust/casbintegration_test.go
 	zero_trust/dexwarpchangeevent_test.go
 	zero_trust/dexcommand_test.go
 	zero_trust/dexcommanddevice_test.go
@@ -700,6 +710,8 @@ TEST_PATHS=(
 	realtime_kit/analytics_test.go
 	calls/sfu_test.go
 	calls/turn_test.go
+	moq/relay_test.go
+	moq/relaytoken_test.go
 	cloudforce_one/scanresult_test.go
 	cloudforce_one/scanconfig_test.go
 	cloudforce_one/binarystorage_test.go
@@ -800,6 +812,7 @@ TEST_PATHS=(
 	browser_rendering/json_test.go
 	browser_rendering/link_test.go
 	browser_rendering/markdown_test.go
+	browser_rendering/accessibilitytree_test.go
 	browser_rendering/crawl_test.go
 	browser_rendering/devtoolsession_test.go
 	browser_rendering/devtoolbrowser_test.go

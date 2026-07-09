@@ -48,10 +48,33 @@ func TestScriptVersionNewWithOptionalParams(t *testing.T) {
 					Text: cloudflare.F("my_data"),
 					Type: cloudflare.F(workers.ScriptVersionNewParamsMetadataBindingsWorkersBindingKindPlainTextTypePlainText),
 				}}),
+				CacheOptions: cloudflare.F(workers.ScriptVersionNewParamsMetadataCacheOptions{
+					Enabled:           cloudflare.F(true),
+					CrossVersionCache: cloudflare.F(true),
+				}),
 				CompatibilityDate:  cloudflare.F("2021-01-01"),
 				CompatibilityFlags: cloudflare.F([]string{"nodejs_compat"}),
-				KeepBindings:       cloudflare.F([]string{"string"}),
-				UsageModel:         cloudflare.F(workers.ScriptVersionNewParamsMetadataUsageModelStandard),
+				Exports: cloudflare.F(map[string]workers.ScriptVersionNewParamsMetadataExports{
+					"Admin": {
+						Type: cloudflare.F(workers.ScriptVersionNewParamsMetadataExportsTypeWorker),
+						Cache: cloudflare.F(workers.ScriptVersionNewParamsMetadataExportsCache{
+							Enabled: cloudflare.F(true),
+						}),
+					},
+					"default": {
+						Type: cloudflare.F(workers.ScriptVersionNewParamsMetadataExportsTypeWorker),
+						Cache: cloudflare.F(workers.ScriptVersionNewParamsMetadataExportsCache{
+							Enabled: cloudflare.F(false),
+						}),
+					},
+				}),
+				KeepBindings: cloudflare.F([]string{"string"}),
+				PackageDependencies: cloudflare.F([]workers.ScriptVersionNewParamsMetadataPackageDependency{{
+					InstalledVersion:   cloudflare.F("4.17.22"),
+					Name:               cloudflare.F("lodash"),
+					PackageJsonVersion: cloudflare.F("^4.17.21"),
+				}}),
+				UsageModel: cloudflare.F(workers.ScriptVersionNewParamsMetadataUsageModelStandard),
 			}),
 			BindingsInherit: cloudflare.F(workers.ScriptVersionNewParamsBindingsInheritStrict),
 			Files:           cloudflare.F([]io.Reader{io.Reader(bytes.NewBuffer([]byte("Example data")))}),

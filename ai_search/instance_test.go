@@ -12,7 +12,7 @@ import (
 	"github.com/cloudflare/cloudflare-go/v7/ai_search"
 	"github.com/cloudflare/cloudflare-go/v7/internal/testutil"
 	"github.com/cloudflare/cloudflare-go/v7/option"
-	"github.com/cloudflare/cloudflare-go/v7/r2"
+	"github.com/cloudflare/cloudflare-go/v7/shared"
 )
 
 func TestInstanceNewWithOptionalParams(t *testing.T) {
@@ -64,7 +64,8 @@ func TestInstanceNewWithOptionalParams(t *testing.T) {
 			ChatCompletionsEndpoint: cloudflare.F(ai_search.InstanceNewParamsPublicEndpointParamsChatCompletionsEndpoint{
 				Disabled: cloudflare.F(true),
 			}),
-			Enabled: cloudflare.F(true),
+			CustomDomains: cloudflare.F([]string{"search.example.com"}),
+			Enabled:       cloudflare.F(true),
 			Mcp: cloudflare.F(ai_search.InstanceNewParamsPublicEndpointParamsMcp{
 				Description: cloudflare.F("description"),
 				Disabled:    cloudflare.F(true),
@@ -113,11 +114,6 @@ func TestInstanceNewWithOptionalParams(t *testing.T) {
 					UseBrowserRendering: cloudflare.F(true),
 				}),
 				ParseType: cloudflare.F(ai_search.InstanceNewParamsSourceParamsWebCrawlerParseTypeSitemap),
-				StoreOptions: cloudflare.F(ai_search.InstanceNewParamsSourceParamsWebCrawlerStoreOptions{
-					StorageID:      cloudflare.F("storage_id"),
-					R2Jurisdiction: cloudflare.F("r2_jurisdiction"),
-					StorageType:    cloudflare.F(r2.ProviderR2),
-				}),
 			}),
 		}),
 		SyncInterval: cloudflare.F(ai_search.InstanceNewParamsSyncInterval900),
@@ -184,7 +180,8 @@ func TestInstanceUpdateWithOptionalParams(t *testing.T) {
 				ChatCompletionsEndpoint: cloudflare.F(ai_search.InstanceUpdateParamsPublicEndpointParamsChatCompletionsEndpoint{
 					Disabled: cloudflare.F(true),
 				}),
-				Enabled: cloudflare.F(true),
+				CustomDomains: cloudflare.F([]string{"search.example.com"}),
+				Enabled:       cloudflare.F(true),
 				Mcp: cloudflare.F(ai_search.InstanceUpdateParamsPublicEndpointParamsMcp{
 					Description: cloudflare.F("description"),
 					Disabled:    cloudflare.F(true),
@@ -210,6 +207,7 @@ func TestInstanceUpdateWithOptionalParams(t *testing.T) {
 			RewriteModel:   cloudflare.F(ai_search.InstanceUpdateParamsRewriteModelCfMetaLlama3_3_70bInstructFp8Fast),
 			RewriteQuery:   cloudflare.F(true),
 			ScoreThreshold: cloudflare.F(0.000000),
+			Source:         cloudflare.F("source"),
 			SourceParams: cloudflare.F(ai_search.InstanceUpdateParamsSourceParams{
 				ExcludeItems:   cloudflare.F([]string{"/admin/**", "/private/**", "**\\temp\\**"}),
 				IncludeItems:   cloudflare.F([]string{"/blog/**", "/docs/**/*.html", "**\\blog\\**.html"}),
@@ -232,11 +230,6 @@ func TestInstanceUpdateWithOptionalParams(t *testing.T) {
 						UseBrowserRendering: cloudflare.F(true),
 					}),
 					ParseType: cloudflare.F(ai_search.InstanceUpdateParamsSourceParamsWebCrawlerParseTypeSitemap),
-					StoreOptions: cloudflare.F(ai_search.InstanceUpdateParamsSourceParamsWebCrawlerStoreOptions{
-						StorageID:      cloudflare.F("storage_id"),
-						R2Jurisdiction: cloudflare.F("r2_jurisdiction"),
-						StorageType:    cloudflare.F(r2.ProviderR2),
-					}),
 				}),
 			}),
 			Summarization:                  cloudflare.F(true),
@@ -339,7 +332,7 @@ func TestInstanceChatCompletionsWithOptionalParams(t *testing.T) {
 		ai_search.InstanceChatCompletionsParams{
 			AccountID: cloudflare.F("c3dc5f0b34a14ff8e1b3ec04895e1b22"),
 			Messages: cloudflare.F([]ai_search.InstanceChatCompletionsParamsMessage{{
-				Content: cloudflare.F("content"),
+				Content: cloudflare.F[ai_search.InstanceChatCompletionsParamsMessagesContentUnion](shared.UnionString("string")),
 				Role:    cloudflare.F(ai_search.InstanceChatCompletionsParamsMessagesRoleSystem),
 			}}),
 			AISearchOptions: cloudflare.F(ai_search.InstanceChatCompletionsParamsAISearchOptions{
@@ -469,7 +462,7 @@ func TestInstanceSearchWithOptionalParams(t *testing.T) {
 				}),
 			}),
 			Messages: cloudflare.F([]ai_search.InstanceSearchParamsMessage{{
-				Content: cloudflare.F("content"),
+				Content: cloudflare.F[ai_search.InstanceSearchParamsMessagesContentUnion](shared.UnionString("string")),
 				Role:    cloudflare.F(ai_search.InstanceSearchParamsMessagesRoleSystem),
 			}}),
 			Query: cloudflare.F("x"),

@@ -46,6 +46,7 @@ func TestRecordNewWithOptionalParams(t *testing.T) {
 			}),
 			Tags: cloudflare.F([]dns.RecordTagsParam{"owner:dns-team"}),
 		},
+		IncludeShadowMetadata: cloudflare.F(true),
 	})
 	if err != nil {
 		var apierr *cloudflare.Error
@@ -90,6 +91,7 @@ func TestRecordUpdateWithOptionalParams(t *testing.T) {
 				}),
 				Tags: cloudflare.F([]dns.RecordTagsParam{"owner:dns-team"}),
 			},
+			IncludeShadowMetadata: cloudflare.F(true),
 		},
 	)
 	if err != nil {
@@ -132,19 +134,22 @@ func TestRecordListWithOptionalParams(t *testing.T) {
 			Exact:      cloudflare.F("127.0.0.1"),
 			Startswith: cloudflare.F("127.0."),
 		}),
-		Direction: cloudflare.F(shared.SortDirectionAsc),
-		Match:     cloudflare.F(dns.RecordListParamsMatchAny),
+		Direction:             cloudflare.F(shared.SortDirectionAsc),
+		IncludeShadowMetadata: cloudflare.F(true),
+		Match:                 cloudflare.F(dns.RecordListParamsMatchAny),
 		Name: cloudflare.F(dns.RecordListParamsName{
 			Contains:   cloudflare.F("w.example."),
 			Endswith:   cloudflare.F(".example.com"),
 			Exact:      cloudflare.F("www.example.com"),
 			Startswith: cloudflare.F("www.example"),
 		}),
-		Order:   cloudflare.F(dns.RecordListParamsOrderType),
-		Page:    cloudflare.F(1.000000),
-		PerPage: cloudflare.F(5.000000),
-		Proxied: cloudflare.F(true),
-		Search:  cloudflare.F("www.cloudflare.com"),
+		Order:          cloudflare.F(dns.RecordListParamsOrderType),
+		Page:           cloudflare.F(1.000000),
+		PerPage:        cloudflare.F(5.000000),
+		Proxied:        cloudflare.F(true),
+		Search:         cloudflare.F("www.cloudflare.com"),
+		ShadowedByName: cloudflare.F("sub.example.com"),
+		ShadowingName:  cloudflare.F("www.sub.example.com"),
 		Tag: cloudflare.F(dns.RecordListParamsTag{
 			Absent:     cloudflare.F("important"),
 			Contains:   cloudflare.F("greeting:ello, worl"),
@@ -211,7 +216,8 @@ func TestRecordBatchWithOptionalParams(t *testing.T) {
 		option.WithAPIEmail("user@example.com"),
 	)
 	_, err := client.DNS.Records.Batch(context.TODO(), dns.RecordBatchParams{
-		ZoneID: cloudflare.F("023e105f4ecef8ad9ca31a8372d0c353"),
+		ZoneID:                cloudflare.F("023e105f4ecef8ad9ca31a8372d0c353"),
+		IncludeShadowMetadata: cloudflare.F(true),
 		Deletes: cloudflare.F([]dns.RecordBatchParamsDelete{{
 			ID: cloudflare.F("023e105f4ecef8ad9ca31a8372d0c353"),
 		}}),
@@ -307,6 +313,7 @@ func TestRecordEditWithOptionalParams(t *testing.T) {
 				}),
 				Tags: cloudflare.F([]dns.RecordTagsParam{"owner:dns-team"}),
 			},
+			IncludeShadowMetadata: cloudflare.F(true),
 		},
 	)
 	if err != nil {
@@ -344,7 +351,7 @@ func TestRecordExport(t *testing.T) {
 	}
 }
 
-func TestRecordGet(t *testing.T) {
+func TestRecordGetWithOptionalParams(t *testing.T) {
 	t.Skip("mock server returns invalid data")
 	baseURL := "http://localhost:4010"
 	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
@@ -363,7 +370,8 @@ func TestRecordGet(t *testing.T) {
 		context.TODO(),
 		"023e105f4ecef8ad9ca31a8372d0c353",
 		dns.RecordGetParams{
-			ZoneID: cloudflare.F("023e105f4ecef8ad9ca31a8372d0c353"),
+			ZoneID:                cloudflare.F("023e105f4ecef8ad9ca31a8372d0c353"),
+			IncludeShadowMetadata: cloudflare.F(true),
 		},
 	)
 	if err != nil {
