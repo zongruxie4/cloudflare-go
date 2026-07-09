@@ -18,7 +18,7 @@ import (
 Or to pin the version:
 
 ```sh
-go get -u 'github.com/cloudflare/cloudflare-go/v7@v7.5.0'
+go get -u 'github.com/cloudflare/cloudflare-go/v7@v7.7.0'
 ```
 
 ## Requirements
